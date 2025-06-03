@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Usuario</title>
+    <link rel="stylesheet" href="../../../src/css/cliente/perfiles/ajustes-de-cuenta.css">
+</head>
+<body>
+    <header>
+        <!-- Contenedor del logo -->
+         <div class="logo">
+            <a href="../../../index.html"><img src="../../../src/img/perfiles/HAMARFIT.png" alt="Logo"></a>
+         </div>
+         <!-- Contenedor de icono de perfil -->
+          <div class="icono-perfil">
+            <a href="#"><img src="../../../src/img/perfiles/icon-usuario.png" alt="icono"></a>
+          </div>
+    </header>
+    <main>
+        <!-- Banner del perfil -->
+         <div class="banner">
+            <img src="../../../src/img/perfiles/banner_perfil.png" alt="Banner">
+         </div>
+         <!-- Contenedor del perfil -->
+          <div class="perfil-container">
+            <!-- Icono de foto de perfil -->
+             <div class="icono-usuario2">
+                <img src="../../../src/img/perfiles/icono-usuario2.png" alt="Icono">
+             </div>
+             <!-- Nombre y Plan -->
+             <div class="nombre-membresia">
+                <h3>Nombre Completo</h3>
+                <p>Plan <span>Pro</span></p>
+            </div>
+            <!-- Opciones del perfil -->
+             <div class="opciones-perfil">
+                <ul>
+                    <li><a href="../../../html/user/perfiles/planes-contratados.html">Planes contratados</a></li>
+                    <li><a href="../../../html/user/perfiles/ajustes-de-cuenta.html" class="selection">Ajustes de cuenta</a>
+                        <ul>
+                            <li><a href="../../../html/user/perfiles/metodo-pago.html">Método de pago</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="rojo"><span>Cerrar sesión</span></a></li>
+                </ul>
+             </div>
+          </div>
+          <form action="">
+            
+          </form>
+        <div class="opciones-de-cuenta">
+            <form action="">
+                <div class="formularios1">
+                    <ul>
+                        <li>
+                            <h2>Foto de perfil</h2>
+                        </li>
+                        <li><label for="arrastrar-imagen">
+                                <img src="../../../src/img/perfiles/Group 21.png" alt="Arrastrar-Imagen">
+                            </label><input type="file" id="arrastrar-imagen" style="display: none;"></li>
+                        <li><input type="email" id="correo" placeholder="Correo"></li>
+                        <li><input type="tel" id="telefono" minlength="10" maxlength="10" placeholder="Télefono">
+                        </li>
+                        <li><input type="password" id="nueva-contrasena" placeholder="Contraseña"></li>
+                        <li><input type="password" id="confirmar-contrasena" placeholder="Confirmar contraseña"></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <form class="boton-container">
+            <button id="boton-guardar">Guardar Cambios</button>
+        </form>
+    </main>
+</body>
+</html>

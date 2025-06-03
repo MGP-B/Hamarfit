@@ -1,0 +1,107 @@
+<head>
+    <link rel="stylesheet" href="../../../src/css/empleado/formularios/clientes.css">
+</head>
+
+<main>
+    <div class="encabezado-seccion">
+        <h1>Clientes</h1>
+        <p>Gestiona tus clientes y membresías</p>
+    </div>
+
+    <div class="panel-control">
+        <div class="barra-busqueda">
+            <input type="text" placeholder="Buscar clientes..." class="campo-busqueda">
+            <button class="btn-buscar">
+                <i class="fas fa-search"></i>
+                Buscar
+            </button>
+        </div>
+        <button class="btn-agregar">
+            <i class="fas fa-plus"></i>
+            Agregar Cliente
+        </button>
+    </div>
+
+    <div class="tabla-contenedor">
+        <table class="tabla-datos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>EMAIL</th>
+                    <th>TELÉFONO</th>
+                    <th>MEMBRESÍA</th>
+                    <th>ESTADO</th>
+                    <th>ACCIÓN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CLI-001</td>
+                    <td>José Alexander</td>
+                    <td>josealex@ejemplo.com</td>
+                    <td>809-532-9573</td>
+                    <td><span class="etiqueta etiqueta-pro">Plan Pro</span></td>
+                    <td><span class="etiqueta etiqueta-activo">Activo</span></td>
+                    <td>
+                        <button class="btn-accion">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CLI-002</td>
+                    <td>María Fernández</td>
+                    <td>mariaf@ejemplo.com</td>
+                    <td>809-555-1234</td>
+                    <td><span class="etiqueta etiqueta-pro">Plan Pro</span></td>
+                    <td><span class="etiqueta etiqueta-activo">Activo</span></td>
+                    <td>
+                        <button class="btn-accion">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CLI-003</td>
+                    <td>Carlos Ramírez</td>
+                    <td>carlosr@ejemplo.com</td>
+                    <td>809-666-7890</td>
+                    <td><span class="etiqueta">Plan Basic</span></td>
+                    <td><span class="etiqueta etiqueta-activo">Activo</span></td>
+                    <td>
+                        <button class="btn-accion">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CLI-004</td>
+                    <td>Ana Martínez</td>
+                    <td>anam@ejemplo.com</td>
+                    <td>809-777-4321</td>
+                    <td><span class="etiqueta">Plan Basic</span></td>
+                    <td><span class="etiqueta">Inactivo</span></td>
+                    <td>
+                        <button class="btn-accion">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CLI-005</td>
+                    <td>Luis Sánchez</td>
+                    <td>luiss@ejemplo.com</td>
+                    <td>809-888-9999</td>
+                    <td><span class="etiqueta etiqueta-pro">Plan Pro</span></td>
+                    <td><span class="etiqueta etiqueta-activo">Activo</span></td>
+                    <td>
+                        <button class="btn-accion">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

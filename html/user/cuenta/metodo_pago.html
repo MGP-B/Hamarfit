@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regitro</title>
+    <link rel="stylesheet" href="../../../src/css/cliente/cuentas/regitro-miembro.css">
+    <link rel="stylesheet" href="../../../src/css/cliente/cuentas/metodo-pago.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <div id="logo">
+                <h1>HAMAR<span>FIT</span></h1>
+                <h2>Método de pago</h2>
+            </div>
+        </header>
+
+        <main>  
+            
+                <form id="registro_usuario" method="post" autocomplete="off">
+
+                        <input type="text" name="titulartarjeta" id="titulartarjeta" placeholder="Titular de la tarjeta" required>
+
+                        <input type="number" name="numerotarjeta" id="numerotarjeta" placeholder="Número de la tarjeta" required>
+                    
+                        <input type="date" name="fechavencimiento" id="fechavencimiento" required>
+                    
+                        <input type="number" name="codigoseguridad" id="codigoseguridad" placeholder="CCV" required>
+                    
+                    <button type="submit">Finalizar registro</button>
+                    <a href="">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
+                </form>
+            
+        </main>
+    </div>
+</body>
+
+</html>
