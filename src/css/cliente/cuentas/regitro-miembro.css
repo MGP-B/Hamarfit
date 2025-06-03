@@ -1,0 +1,119 @@
+@import url(../../reset.css);
+@import url(../../fuentes.css);
+
+/* Configuraciones del body */
+body {
+    margin: 0;
+    padding: 0;
+
+    /* Fondo de pantalla */
+    background-image: url(../../../img/cuentas/wallpaper.png);
+    background-position: 50vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    /* Fuente del texto */
+    font-size: 16px;
+    font-family: Rubik;
+}
+
+/* Configuración de contenedor */
+
+.contenedor {
+    width: 50%;
+    height: 100%;
+    background-color: white;
+
+    /* Contenedor flex box */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+/* Cabecera */
+header {
+    margin-top: 8%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+/* Titulo */
+
+header h1 {
+    font-size: 3vw;
+    font-family: Paytone;
+}
+
+header h1 span {
+    color: #ffa500;
+}
+
+/* Subtitulo */
+header h2 {
+    font-size: 2vw;
+    font-family: Rubiksemi;
+}
+
+/* Contenedor main */
+main {
+    width: 100%;
+}
+
+/* Configuración del formulario */
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos generales para los input */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+select {
+    width: 60%;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: rgb(18, 18, 18);
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    font-size: 1.3vw;
+    font-size: rubiksemi;
+    padding-left: 10px;
+}
+
+input::placeholder {
+    color: rgb(18, 18, 18);
+    font-size: rubiksemi;
+}
+
+button {
+    margin-top: 2%;
+    width: 40%;
+    height: 5vh;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffa500;
+    font-size: 1.2vw;
+    font-family: rubiksemi;
+}
+
+a {
+    margin-top: 5px;
+    font-size: 2.2vh;
+    text-decoration: none;
+    color: black;
+    font-family: rubiksemi;
+}
+
+a span {
+    color: #ffa500;
+}

@@ -1,0 +1,141 @@
+main {
+    padding: 20px;
+}
+
+.encabezado-seccion {
+    margin-bottom: 20px;
+}
+
+.encabezado-seccion h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.encabezado-seccion p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.panel-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.barra-busqueda {
+    display: flex;
+    gap: 10px;
+}
+
+.campo-busqueda {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 14px;
+}
+
+.btn-buscar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-buscar i {
+    font-size: 14px;
+}
+
+.btn-agregar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #ff9800;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-agregar i {
+    font-size: 14px;
+}
+
+.tabla-contenedor {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-datos th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+.tabla-datos td {
+    padding: 12px 16px;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.tabla-datos tr:hover td {
+    background-color: #fff5ef;
+    cursor: pointer;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.etiqueta-pro {
+    background-color: #ff9800;
+    color: white;
+}
+
+.etiqueta-activo {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.btn-accion {
+    background: none;
+    border: none;
+    border-radius: 3px;
+    color: #666;
+    cursor: pointer;
+    padding: 10px 10px;
+}
+
+.btn-accion:hover {
+    background-color: #eeeeee;
+}
+
+.btn-accion i {
+    font-size: 16px;
+}

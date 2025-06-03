@@ -1,0 +1,270 @@
+/* Clients page specific styles */
+.encabezadoPanel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.botonBuscar {
+    background-color: #F97316;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.botonBuscar:hover {
+    background-color: #e85a2c;
+}
+
+.botonAgregarCliente {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #F97316;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.botonAgregarCliente:hover {
+    background-color: #e85a2c;
+}
+
+.botonAgregarCliente img {
+    width: 22px;
+    height: 22px;
+}
+
+.filtrosClientes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.filtros {
+    display: flex;
+    gap: 12px;
+}
+
+.barraBusqueda {
+    display: flex;
+    position: relative;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+}
+
+.barraBusqueda .iconoBusqueda {
+    position: absolute;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    color: #666;
+}
+
+.barraBusqueda input {
+    padding: 8px 12px 8px 36px;
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    width: 300px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.barraBusqueda input:focus {
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    width: 300px;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.grupoFiltros {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.filtroMembresia, .filtroEstado {
+    padding: 8px 12px;
+    border: 1px solid #c7c7c7;
+    border-radius: 4px;
+    font-size: 14px;
+    min-width: 140px;
+    appearance: none;
+    background-image: url('../img/empleados/chevron-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 7px center;
+    padding-right: 30px;
+    transition: border-color 0.2s;
+}
+
+.filtroEstado:focus{
+    outline: 0;
+    border: 1px solid #c7c7c7;
+}
+
+.filtroMembresia:focus {
+    outline: 0;
+    border: 1px solid #c7c7c7;
+}
+
+.botonFiltro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #c7c7c7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.botonFiltro img {
+    width: 17px;
+    height: 17px;
+}
+
+.botonFiltro:hover {
+    background-color: #f5f5f5;
+}
+
+.tablaClientes {
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #c7c7c7;
+    overflow: hidden;
+    height: 76vh;
+}
+
+.tablaClientes table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: auto;
+}
+
+.tablaClientes th {
+    background-color: #FF8C3D;
+    overflow: hidden;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+    height: 46px;
+}
+
+.tablaClientes td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #c7c7c7;
+    font-size: 14px;
+
+}
+
+.tablaClientes tr{
+    cursor: pointer;
+}
+.tablaClientes tr:hover {
+    background-color: #ffe0d0;
+}
+
+.etiquetaMembresia {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.etiquetaMembresia.fitnessPlus {
+    background-color: #fff4f0;
+    color: #ff6b35;
+}
+
+.etiquetaEstado {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.etiquetaEstado.activo {
+    background-color: #e8f5e9;
+    color: #28a745;
+}
+
+.botonesAccion {
+    display: flex;
+    gap: 8px;
+}
+
+.botonEditar,
+.botonEliminar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.botonEditar:hover,
+.botonEliminar:hover {
+    background-color: #f5f5f5;
+}
+
+.botonEditar img,
+.botonEliminar img {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 400px) {
+    .filtrosClientes {
+        width: 100%;
+    }
+
+    .barraBusqueda {
+        width: 100%;
+    }
+
+    .barraBusqueda input {
+        width: 100%;
+    }
+
+    .botonAgregarCliente {
+        width: 40px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .botonAgregarCliente {
+        width: 35px;
+        height: 35px;
+    }
+
+    .botonAgregarCliente img {
+        translate: 2px;
+        
+    }
+
+    .botonAgregarCliente span {
+        display: none;
+    }
+}

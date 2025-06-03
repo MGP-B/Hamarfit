@@ -1,0 +1,372 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+}
+
+header {
+    background-color: #fff;
+    display: flex;
+    padding: 5px;
+    width: 100%;
+}
+
+header .logo {
+    width: 25%;
+    padding: 1.5vw;
+}
+
+header .icono-perfil {
+    text-align: right;
+    width: 100%;
+    padding: 0.4vw;
+}
+
+.banner {
+    width: 100%;
+}
+
+.banner img {
+    height: 400px;
+    width: 100%;
+}
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff9c;
+    width: 28%;
+    margin-left: 7vw;
+    margin-top: -17vw;
+    padding: 3vw;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #D9D9D9;
+    position: relative;
+}
+
+.perfil-container .icono-usuario2 {
+    margin-top: -0.2vw;
+    width: 53%;
+}
+
+.perfil-container .icono-usuario2 img {
+    width: 100%;
+}
+
+.nombre-membresia {
+    margin-top: 2.1vw;
+}
+
+.nombre-membresia h3 {
+    font-size: 1.8vw;
+    font-weight: 700;
+}
+
+.nombre-membresia p {
+    font-size: 1.8vw;
+    font-weight: 600;
+    text-align: center;
+}
+
+.nombre-membresia p span {
+    color: #FFA500;
+}
+
+.opciones-perfil {
+    color: black;
+    line-height: 2;
+    font-size: 1.8vw;
+    text-align: center;
+    margin-top: -0.5vw;
+}
+
+.opciones-perfil ul {
+    list-style: none;
+    margin-top: 2vw;
+}
+
+.opciones-perfil ul li {
+    padding: 0.2vw;
+}
+
+.opciones-perfil ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+.opciones-perfil ul li .selection {
+    border-bottom: 2px solid #FFA500;
+}
+
+.opciones-perfil ul li .rojo {
+    color: red;
+}
+
+.opciones-perfil ul li .rojo:hover {
+    color: rgb(226, 0, 0);
+}
+
+.planes-contratados {
+    flex: 1;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 35vw;
+    margin-top: -22vw;
+}
+
+
+.beneficios {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 1;
+    padding: 35px;
+    margin: 30px auto;
+    height: 25%;
+    width: 65%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #D9D9D9;
+}
+
+.beneficios h3 {
+    font-weight: 600;
+    font-size: 2vw;
+}
+
+.beneficios ul {
+    padding: 20px;
+    padding-left: 10px;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.beneficios ul li {
+    background: url(/src/img/Vector.png) no-repeat left;
+    background-size: 20px;
+    display: block;
+    padding-left: 40px;
+    padding-top: 10px;
+    font-size: 1.1vw;
+}
+
+.beneficios h4 {
+    line-height: 1.3;
+    font-weight: 600;
+    font-size: 1.5vw;
+    padding-top: 10px;
+}
+
+.beneficios h4 span {
+    color: #0BAB02;
+}
+
+.boton-container {
+    display: flex;
+    justify-content: left; 
+    align-items: center; 
+    height: 50px; 
+    margin-left: 11vw;
+    margin-top: -16vw;
+}
+
+#boton-cancelar {
+    background-color: #FF4640;
+    color: #fff;
+    font-size: 1.2vw;
+    border-radius: 15px;
+    border: none;
+    height: 40px;
+    width: 280px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+#boton-cancelar:hover {
+    background-color: #e7433e;
+}
+
+@media screen and (max-width: 479px) {
+    header .logo {
+        width: 100%;
+    }
+
+    header .logo img {
+        width: 50%;
+    }
+
+    header .icono-perfil {
+        width: 50%;
+        text-align: right;
+    }
+
+    .banner img {
+        height: 150px;
+    }
+
+    .perfil-container {
+        width: 85%;
+        margin: 20px auto;
+        padding: 6vw;
+        margin-top: -80px;
+        box-shadow: none;
+    }
+
+    .perfil-container .icono-usuario2 {
+        width: 60%;
+    }
+
+    .nombre-membresia h3,
+    .nombre-membresia p,
+    .opciones-perfil {
+        font-size: 4.5vw;
+    }
+
+    .opciones-perfil ul li {
+        padding: 1vw;
+    }
+
+    .planes-contratados {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .beneficios {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .beneficios h3,
+    .beneficios h4 {
+        font-size: 4.5vw;
+    }
+
+    .beneficios ul li {
+        font-size: 4vw;
+        background-size: 16px;
+        padding-left: 30px;
+    }
+
+    .boton-container {
+        width: 100%;
+        margin: 30px auto;
+        justify-content: center;
+    }
+
+    #boton-cancelar {
+        width: 80%;
+        font-size: 4vw;
+    }
+}
+
+
+@media screen and (min-width: 480px) and (max-width: 900px) {
+    header .logo {
+        width: 100%;
+    }
+
+    header .icono-perfil {
+        width: 70%;
+    }
+
+    .banner img {
+        height: 250px;
+    }
+
+    .perfil-container {
+        width: 70%;
+        margin: 30px auto;
+        margin-top: -100px;
+        padding: 4vw;
+    }
+
+    .perfil-container .icono-usuario2 {
+        width: 55%;
+    }
+
+    .nombre-membresia h3,
+    .nombre-membresia p,
+    .opciones-perfil {
+        font-size: 3.5vw;
+    }
+
+    .opciones-perfil ul li {
+        padding: 0.5vw;
+    }
+
+    .planes-contratados {
+        width: 90%;
+        margin: 40px auto;
+    }
+
+    .beneficios {
+        width: 85%;
+        padding: 30px;
+    }
+
+    .beneficios h3,
+    .beneficios h4 {
+        font-size: 3vw;
+    }
+
+    .beneficios ul li {
+        font-size: 2.5vw;
+    }
+
+    .boton-container {
+        width: 80%;
+        margin: 30px auto;
+        justify-content: center;
+    }
+
+    #boton-cancelar {
+        width: 60%;
+        font-size: 2.5vw;
+    }
+}
+
+
+@media screen and (min-width: 901px) {
+    .perfil-container {
+        width: 28%;
+        margin-left: 7vw;
+        margin-top: -17vw;
+    }
+
+    .planes-contratados {
+        width: 60%;
+        margin-left: 35vw;
+        margin-top: -22vw;
+    }
+
+    .boton-container {
+        margin-left: 11vw;
+        margin-top: -16vw;
+    }
+
+    .beneficios h3 {
+        font-size: 2vw;
+    }
+
+    .beneficios ul li {
+        font-size: 1.1vw;
+    }
+
+    .beneficios h4 {
+        font-size: 1.5vw;
+    }
+
+    #boton-cancelar {
+        font-size: 1.2vw;
+    }
+}

@@ -1,0 +1,99 @@
+
+.tarjetas-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.titulo-tarjeta {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.valor {
+    font-size: 1.em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.tendencia {
+    color: #666;
+    font-size: 0.8em;
+}
+
+.icono-tarjeta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    translate: 0 15px;
+    font-size: 1.4em;
+
+    height: 35px;
+    width: 35px;
+    border-radius: 7px;
+    background-color: #f1f1f1;
+}
+
+.tarjeta i {
+    color: #383838;
+}
+
+
+.actividades-recientes {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.actividades-recientes h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contenedor-actividades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.panel-actividad {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.panel-actividad h3 {
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.lista-actividades {
+    min-height: 200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tarjetas-estadisticas {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor-actividades {
+        grid-template-columns: 1fr;
+    }
+}

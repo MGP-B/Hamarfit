@@ -1,0 +1,352 @@
+@import url(/src/css/reset.css);
+@import url('/src/css/fuentes.css');
+
+@font-face {
+    font-family: Paytone;
+    src: url('../../src/fuentes/Paytone_One/PaytoneOne-Regular.ttf');
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    scale: 1.05;
+    transition: all 0.04s;
+}
+
+/* Cabeceras y menú de navegación */
+.cabecera {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* Espacio del logo en la cabecera */
+
+.cabecera .logo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+}
+
+.cabecera .logo a{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.cabecera .logo h2 {
+    width: 70%;
+    color: black;
+    font-size: 2.5vw;
+    font-family: Paytone;
+}
+
+.cabecera .logo img {
+    width: 15%;
+}
+
+.cabecera .logo h2 span {
+    color: #ffa500;
+}
+
+/* Opciones en enlaces de navegación */
+
+.menu-navegacion {
+    width: 55%;
+    font-family: RubikSemi;
+    font-size: 1.3vw;
+}
+
+.menu-navegacion ul{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-navegacion ul li {
+    margin: 15px;
+}
+
+.menu-navegacion ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu-navegacion ul li a:hover {
+    color: #FFA500;
+}
+/* Botones de registro o inicio de sesión */
+
+.botones-navegacion{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    font-family: Rubik;
+}
+
+.botones-navegacion button {
+    width: 40%;
+    height: 70%;
+    margin: 10px;
+}
+
+.botones-navegacion #inicio-sesion {
+    background-color: transparent;
+    border: solid #ffa500;
+    border-radius: 5px;
+    color: black;
+    font-size: 1.2vw;
+}
+
+.botones-navegacion #register {
+    background-color: #ffa500;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    color: white;
+    font-size: 1.2vw;
+}
+
+/* Menú para responsive */
+.menu-movil {
+    display: none;
+}
+
+/* Sección principal con el banner */
+
+.principal {
+    width: 100%;
+    height: 30vw;
+
+    /* Configuración de imagen de fondo */
+    background-image: url(../../img/index/banner.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    margin-bottom: 30px;
+}
+
+.principal h1 {
+    width: 100%;
+    text-align: center;
+    font-family: Rubiksemi;
+    font-size: 5vw;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.principal h1 span {
+    color: #ffa500;
+}
+
+.principal p {
+    text-align: center;
+    width: 50%;
+    color: white;
+    font-size: 1.5vw;
+    margin-bottom: 25px;
+}
+
+.principal #boton-unirse {
+    background-color: #ffa500;
+    width: 12%;
+    height: 8%;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.3);
+}
+
+/* Sección de beneficios */
+.beneficios {
+    width: 100%;
+    height: 30vw;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Mensaje */
+
+.beneficios h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    font-family: RubikSemi;
+    margin-bottom: 10px;
+}
+
+.beneficios h2 span {
+    color: black;
+    font-family: Paytone;
+}
+
+.beneficios h2 #naranja {
+    color: #FFA500;
+}
+
+.beneficios .subtitulo {
+    text-align: center;
+    width: 100%;
+    font-size: 1.9vw;
+    margin-bottom: 40px;
+}
+
+.beneficios .tarjetas-beneficios {
+    width: 100%;
+    height: 20vw;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.beneficios .tarjeta {
+    width: 25%;
+    background-color: white;
+    margin-right: 30px;
+    padding: 10px 10px 40px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+}
+
+.beneficios .tarjeta:last-child {
+    margin-left: 0;
+}
+
+.beneficios .tarjeta:hover{
+    scale: 1.02;
+}
+
+.beneficios .iconos  {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 100%;
+    height: 80px;
+}
+
+.beneficios .icono {
+    background-color: #FFEAC3;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+
+.beneficios .icono img {
+    width: 30px;
+}
+
+.beneficios .tarjeta h3 {
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: RubikSemi;
+    margin-bottom: 10px;
+}
+
+.beneficios .tarjeta p {
+    font-size: 1.1vw;
+    text-align: center;
+    font-family: Rubik;
+}
+
+/* Apartado de servicios */
+
+.servicios {
+    background-color: #E4E4E4;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.servicios h2 {
+    margin-top: 7%;
+    font-family: rubiksemi;
+    font-size: 2.5vw;
+}
+
+.servicios .subtitulo{
+    text-align: center;
+    font-family: rubik;
+    font-size: 1.5vw;
+    width: 55%;
+    margin-top: 2%;
+    margin-bottom: 50px;
+}
+
+.tarjetas-servicios {
+    width: 85%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.tarjetas-servicios .tarjeta-servicio {
+    background-color: white;
+    width: 30%;
+    height: 50vh;
+    margin: 20px 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarjetas-servicios .tarjeta-servicio .imagen-servicio {
+    width: 100%;
+    height: 25vh;
+    overflow: hidden;
+}
+
+.tarjetas-servicios .tarjeta-servicio .imagen-servicio img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.tarjetas-servicios .tarjeta-servicio .info-servicio h3{
+    font-size: 1.5vw;
+}
+
+
+
+img{
+    width: 40px;
+}

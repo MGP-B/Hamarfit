@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Paytone;
+    src: url(../../src/fuentes/Paytone_One/PaytoneOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: Rubik;
+    src: url(../../src/fuentes/static/Rubik-Regular.ttf);
+}
+
+@font-face {
+    font-family: RubikSemi;
+    src: url(../../src/fuentes/static/Rubik-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: RubikBlack;
+    src: url(../../src/fuentes/static/Rubik-Black.ttf);
+}

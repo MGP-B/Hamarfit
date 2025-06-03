@@ -1,0 +1,351 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+}
+
+header {
+    background-color: #fff;
+    display: flex;
+    padding: 5px;
+    width: 100%;
+}
+
+header .logo {
+    width: 25%;
+    padding: 1.5vw;
+}
+
+
+header .icono-perfil {
+    text-align: right;
+    width: 100%;
+    padding: 0.4vw;
+}
+
+.banner {
+    width: 100%;
+}
+
+.banner img {
+    height: 400px;
+    width: 100%;
+}
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff9c;
+    width: 28%;
+    margin-left: 7vw;
+    margin-top: -17vw;
+    padding: 3vw;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #D9D9D9;
+    position: relative;
+}
+
+.perfil-container .icono-usuario2 {
+    margin-top: -0.2vw;
+    width: 53%;
+}
+
+.perfil-container .icono-usuario2 img {
+    width: 100%;
+}
+
+.nombre-membresia {
+    margin-top: 2.1vw;
+}
+
+.nombre-membresia h3 {
+    font-size: 1.8vw;
+    font-weight: 700;
+}
+
+.nombre-membresia p {
+    font-size: 1.8vw;
+    font-weight: 600;
+    text-align: center;
+}
+
+.nombre-membresia p span {
+    color: #FFA500;
+}
+
+.opciones-perfil {
+    color: black;
+    line-height: 2;
+    font-size: 1.8vw;
+    text-align: center;
+    margin-top: -0.5vw;
+}
+
+.opciones-perfil ul {
+    list-style: none;
+    margin-top: 2vw;
+}
+
+.opciones-perfil ul li {
+    padding: 0.2vw;
+}
+
+.opciones-perfil ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+.opciones-perfil ul li .selection {
+    border-bottom: 2px solid #FFA500;
+}
+
+.opciones-perfil ul li .rojo {
+    color: red;
+}
+
+.opciones-perfil ul li .rojo:hover {
+    color: rgb(226, 0, 0);
+}
+
+.opciones-de-cuenta {
+    margin-left: 40vw;
+    margin-top: -25vw;
+    width: 50%;
+}
+
+form {
+    width: 100%;
+}
+
+.opciones-de-cuenta .formularios1 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.opciones-de-cuenta .formularios1 ul {
+    list-style: none;
+}
+
+.opciones-de-cuenta .formularios1 ul li {
+    line-height: 1.2;
+}
+
+.opciones-de-cuenta .formularios1 ul li h2 {
+    font-size: 2vw;
+    color: black;
+}
+
+.opciones-de-cuenta .formularios1 ul li label {
+    width: 90%;
+}
+
+.opciones-de-cuenta .formularios1 ul li label img {
+    width: 35vw;
+    height: 13vw;
+}
+
+.opciones-de-cuenta .formularios1 ul li input {
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 1.8vw;
+    width: 100%;
+    padding: 0.5vw;
+    margin: 20px 0;
+}
+
+.boton-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 50px;
+    margin: 2vw;
+}
+
+.boton-container #boton-guardar {
+    color: #fff;
+    background-color: #FFA500;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.4vw;
+    font-weight: 600;
+    margin: 2vw;
+    padding: 0.8vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 25%;
+}
+
+.boton-container #boton-guardar:hover {
+    background-color: #e99c0c;
+}
+
+@media screen and (max-width: 479px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .logo,
+    header .icono-perfil {
+        width: 100%;
+        padding: 1vw;
+    }
+
+    header .logo img {
+        width: 50%;
+    }
+
+    .banner img {
+        height: 150px;
+    }
+
+    .perfil-container {
+        width: 90%;
+        margin: 20px auto;
+        margin-top: -60px;
+        padding: 6vw;
+        box-shadow: none;
+    }
+
+    .perfil-container .icono-usuario2 {
+        width: 60%;
+    }
+
+    .nombre-membresia h3,
+    .nombre-membresia p {
+        font-size: 4.5vw;
+    }
+
+    .opciones-perfil {
+        font-size: 4vw;
+    }
+
+    .opciones-perfil ul li {
+        padding: 2vw;
+    }
+
+    .opciones-de-cuenta {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .opciones-de-cuenta .formularios1 ul li h2 {
+        font-size: 5vw;
+        text-align: center;
+    }
+
+    .opciones-de-cuenta .formularios1 ul li label img {
+        width: 80vw;
+        height: auto;
+    }
+
+    .opciones-de-cuenta .formularios1 ul li input {
+        font-size: 4vw;
+        padding: 2vw;
+        width: 100%;
+    }
+
+    .boton-container {
+        margin: 20px auto;
+        width: 100%;
+    }
+
+    #boton-guardar {
+        font-size: 4vw;
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 480px) and (max-width: 900px) {
+
+    header .logo {
+        width: 100%;
+    }
+
+    header .icono-perfil {
+        width: 70%;
+    }
+
+    .banner img {
+        height: 250px;
+    }
+
+    .perfil-container {
+        width: 70%;
+        margin: 30px auto;
+        margin-top: -100px;
+        padding: 5vw;
+    }
+
+    .perfil-container .icono-usuario2 {
+        width: 50%;
+    }
+
+    .nombre-membresia h3,
+    .nombre-membresia p,
+    .opciones-perfil {
+        font-size: 3.5vw;
+    }
+
+    .opciones-de-cuenta {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    .opciones-de-cuenta .formularios1 ul li h2 {
+        font-size: 4vw;
+    }
+
+    .opciones-de-cuenta .formularios1 ul li label img {
+        width: 60vw;
+        height: auto;
+    }
+
+    .opciones-de-cuenta .formularios1 ul li input {
+        font-size: 3vw;
+        padding: 1.5vw;
+    }
+
+    .boton-container {
+        width: 100%;
+        justify-content: center;
+        margin: 30px auto;
+    }
+
+    #boton-guardar {
+        font-size: 3vw;
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 901px) {
+    .opciones-de-cuenta {
+        margin-left: 40vw;
+        margin-top: -25vw;
+        width: 50%;
+    }
+
+    .opciones-de-cuenta .formularios1 ul li h2 {
+        font-size: 2vw;
+    }
+
+    .opciones-de-cuenta .formularios1 ul li input {
+        font-size: 1.8vw;
+    }
+
+    #boton-guardar {
+        font-size: 1.4vw;
+        width: 25%;
+    }
+}
