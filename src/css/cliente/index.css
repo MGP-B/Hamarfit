@@ -365,10 +365,6 @@ button:hover {
     padding: 10px;
 }
 
-img{
-    width: 40px;
-}
-
 .planes {
     width: 100%;
     display: flex;
@@ -380,7 +376,7 @@ img{
     font-size: 3vw;
     width: 100%;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 10px;
     font-family: Rubik;
 }
@@ -401,9 +397,16 @@ img{
 
 .tarjeta-plan {
     width: 50%;
-    background-color: red;
-    margin: 0 30px;
-    margin-bottom: 30px;
+    margin: 20px 20px 40px;
+    box-shadow: 0 4px 6px 1px rgba(0,0,0,.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarjeta-plan:hover {
+    scale: 1.01;
+    border: solid 0.01px #ffa500;
 }
 
 .tarjeta-plan .nombre-precio {
@@ -426,6 +429,49 @@ img{
     color: #FFA500;
 }
 
+.tarjeta-plan .nombre-precio #basico {
+    color: #626262;
+}
+
 .tarjeta-plan .nombre-precio .precio {
     margin-left: -40px;
+}
+
+.tarjeta-plan .caracteristicas {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tarjeta-plan .caracteristicas .beneficio{
+    width: 46%;
+    margin: 10px 0;
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    font-size: 1.2vw;
+    font-family: rubik;
+    padding: 0 5px;
+}
+
+.tarjeta-plan .caracteristicas .beneficio img {
+    width: 30px;
+}
+
+.tarjeta-plan .seleccionar {
+    width: 70%;
+    padding: 7px 20%;
+    background-color: #ffa500;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 1.2vw;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3);
+}
+
+.tarjeta-plan .seleccionar a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
 }
