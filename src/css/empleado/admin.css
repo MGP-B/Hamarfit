@@ -2,7 +2,7 @@
 @import url(/src/css/fuentes.css);
 
 /* Quitar todos los eventos del puntero */
-*{pointer-events: none;}
+img,p,h1,h2,h3{pointer-events: none;}
 
 body {
     width: 100%;
