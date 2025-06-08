@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../src/css/empleado/finanzas.css">
-    <title>Admin | Finanzas</title>
+    <link rel="stylesheet" href="../../src/css/empleado/admin.css">
+    <title>Admin | Configuración</title>
 </head>
 <body>
     <header>
@@ -51,45 +50,31 @@
     </aside>
 
     <main>
+        <h2>Configuración</h2>
         <div class="encabezado">
-            <h2>Finanzas</h2>
-            <p>Gestiona tus ganancias y gastos</p> 
-        </div>
-        
-        <div class="contenedor_busqueda">
-            <div class="barra_busqueda">
-                <!-- icono de la lupa -->
-                <img src="" alt="">
-                <input type="search" id="buscador" placeholder="Buscar sucursales...">
-            </div>
-            <button id="boton_buscar">
-                <!-- Icono de la lupa -->
-                <img src="/src/img/admin/global/lupa.svg" alt="">
-                Buscar
-            </button>
+            <h2>Gestión de usuarios</h2>
+            <p>Administra los usuarios y roles del sistema.</p> 
 
             <button>
-                <img src="/src/img/admin/global/registrar_transaccion.svg" alt="">
-                Registrar transacción
+                <img src="/src/img/admin/global/mas.svg" alt="">
+                Nuevo Usuario
             </button>
         </div>
 
         <div class="contenedor_contenido">
             <div class="encabezado_contenido">
-                <p>Fecha</p>
-                <p>Descripción</p>
-                <p>Categoría</p>
-                <p>Operación</p>
-                <p>Monto</p>
-                <p>Acción</p>
+                <p>Usuario</p>
+                <p>Email</p>
+                <p>Rol</p>
+                <p>Estado</p>
+                <p>Acciones</p>
             </div>
 
             <div class="contenido">
-                <p>16/05/2025</p>
-                <p>Renovación Plan anual - María Rodríguez</p>
-                <p>Membresía</p>
-                <p>Ingreso</p>
-                <p>$1,200.00</p>
+                <div id="icono-usuario">J</div>
+                <p>josemiguel@gmail.com</p>
+                <p>Administrador</p>
+                <p>Activo</p>
                 <img src="/src/img/admin/global/tres_puntos.svg" alt="">
             </div>
         </div>
