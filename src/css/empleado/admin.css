@@ -38,7 +38,7 @@ header span {
 }
 
 aside {
-    padding: 5px 5px 0;
+    /* padding: 5px 5px 0; */
     position: relative;
     z-index: 1;
     height: 91%;
@@ -73,12 +73,35 @@ aside ul a {
 }
 
 aside .opcion {
+    width: 100%;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
-.opcion #inactivo,
-.opcion #activo {
+a #inactivo,
+a #activo {
     position: absolute;
+    left: 1%;
+    width: 10%;
+}
+
+a #activo {
+  opacity: 0;
+}
+
+a:hover #activo {
+  opacity: 1;
+}
+
+a:hover #inactivo {
+  opacity: 0;
+}
+
+.opcion h3 {
+    position: relative;
+    left: 20%;
+    font-size: 1.3vw;
 }
 
 aside ul a li img {
@@ -90,4 +113,42 @@ aside ul a:hover, aside ul #activo:hover {
     scale: 1.009;
     color: #FCA502;
     background-color: rgba(252, 165, 2, 0.25);  
+}
+
+aside .usuario {
+    height: 10%;
+    width: 100%;
+    background-color: #CFCFCF;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+aside .usuario .icono {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #F97316;
+    color: white;
+    border-radius: 50%;
+    font-family: Rubik;
+}
+
+aside .usuario #icono-usuario p{
+    text-align: center;
+}
+
+aside .nombre-rol {
+    padding-left: 10px;
+}
+
+aside .nombre-apellido {
+    display: inline-flex;
+}
+
+aside .nombre-apellido p {
+    padding-left: 4px;
 }
