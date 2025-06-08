@@ -1,6 +1,8 @@
 @import url(/src/css/reset.css);
 @import url(/src/css/fuentes.css);
 
+/* Quitar todos los eventos del puntero */
+*{pointer-events: none;}
 
 body {
     width: 100%;
