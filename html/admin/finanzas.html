@@ -7,23 +7,90 @@
     <title>Admin | Finanzas</title>
 </head>
 <body>
-    <div class="encabezado">
-       <h2>Finanzas</h2>
-        <p>Gestiona tus ganancias y gastos</p> 
-    </div>
-    
-    <div class="contenedor_busqueda">
-        <div class="barra_busqueda">
-            <!-- icono de la lupa -->
-            <img src="" alt="">
-            <input type="search" id="buscador" placeholder="Buscar sucursales...">
+    <header>
+        <div class="logo"><h1>HAMAR<span>FIT</span></h1></div>
+        <div class="setting"><img src="../../src/img/admin/menu/settings.svg" alt="" id="inactivo"></div>
+    </header>
+    <aside class="menu">
+        <ul id="opciones-menu">
+            <a href="#">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/dashboard.svg" alt="" id="inactivo"> 
+                    <img src="../../src/img/admin/menu/activos/dashboard-activo.svg" alt="" id="activo">
+                    <h3>Dashboard</h3>
+                </li>
+            </a>
+            <a href="#">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/clientes.svg" alt="" id="inactivo">
+                    <img src="../../src/img/admin/menu/activos/clientes-activo.svg" alt="" id="activo">
+                    <h3>Clientes</h3>
+                </li>
+            </a>
+            <a href="#">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/sucursales.svg" alt="" id="inactivo"> 
+                    <img src="../../src/img/admin/menu/activos/sucursales-activo.svg" alt="" id="activo">
+                    <h3>Sucursales</h3>
+                </li>
+            </a>
+            <a href="#">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/finanzas.svg" alt="" id="inactivo">
+                    <img src="../../src/img/admin/menu/activos/finanzas-activo.svg" alt="" id="activo">
+                    <h3>Finanzas</h3>
+                </li>
+            </a>
+        </ul>
+        <div class="usuario">
+            <div id="icono-usuario">J</div>
+            <div id="nombre-usuario">José Miguel</div>
+            <div id="rol-usuario">Administrador</div>
         </div>
-        <button>
-            <!-- Icono de la lupa -->
-            <img src="" alt="">
-            Buscar
-        </button>
-    </div>
+    </aside>
 
+    <main>
+        <div class="encabezado">
+            <h2>Finanzas</h2>
+            <p>Gestiona tus ganancias y gastos</p> 
+        </div>
+        
+        <div class="contenedor_busqueda">
+            <div class="barra_busqueda">
+                <!-- icono de la lupa -->
+                <img src="" alt="">
+                <input type="search" id="buscador" placeholder="Buscar sucursales...">
+            </div>
+            <button id="boton_buscar">
+                <!-- Icono de la lupa -->
+                <img src="/src/img/admin/global/lupa.svg" alt="">
+                Buscar
+            </button>
+
+            <button>
+                <img src="/src/img/admin/global/registrar_transaccion.svg" alt="">
+                Registrar transacción
+            </button>
+        </div>
+
+        <div class="contenedor_contenido">
+            <div class="encabezado_contenido">
+                <p>Fecha</p>
+                <p>Descripción</p>
+                <p>Categoría</p>
+                <p>Operación</p>
+                <p>Monto</p>
+                <p>Acción</p>
+            </div>
+        </div>
+        <div class="contenido">
+            <p>16/05/2025</p>
+            <p>Renovación Plan anual - María Rodríguez</p>
+            <p>Membresía</p>
+            <p>Ingreso</p>
+            <p>$1,200.00</p>
+            <img src="/src/img/admin/global/tres_puntos.svg" alt="">
+        </div>
+    </main>
 </body>
 </html>
