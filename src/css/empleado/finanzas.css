@@ -12,7 +12,7 @@ main{
 /* Encabezado de la página */
 .encabezado h2{
     font-family: RubikSemi;
-    font-size: 3vw;
+    font-size: 2.5vw;
 }
 
 /* Contenedor de la barra de búsqueda */
@@ -105,7 +105,7 @@ main{
     box-sizing: border-box;
 }
 /* Contenido */
-#contenedor_contenido .contenido{
+#contenedor_contenido #contenido{
     /* Asignación de columnas y espaciados */
     display: grid;
     grid-template-columns: 120px 1fr 150px 130px 100px 90px;
@@ -121,8 +121,8 @@ main{
     padding: 15px;
     width: fit-content;
 }
-
-#contenedor_contenido .contenido img{
+/* icono de acciones */
+#contenedor_contenido #contenido img{
     margin-left: 2vw;
     width: .6vw;
     height: auto;

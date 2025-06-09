@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../src/css/empleado/admin.css">
+    <link rel="stylesheet" href="../../src/css/empleado/configuracion.css">
     <title>Admin | Configuración</title>
 </head>
 <body>
@@ -57,31 +57,34 @@
 
     <main>
         <h2>Configuración</h2>
-        <div class="encabezado">
-            <h2>Gestión de usuarios</h2>
-            <p>Administra los usuarios y roles del sistema.</p> 
 
-            <button>
-                <img src="/src/img/admin/global/mas.svg" alt="">
-                Nuevo Usuario
-            </button>
-        </div>
-
-        <div class="contenedor_contenido">
-            <div class="encabezado_contenido">
-                <p>Usuario</p>
-                <p>Email</p>
-                <p>Rol</p>
-                <p>Estado</p>
-                <p>Acciones</p>
+        <div class="contenedor">
+            <div class="encabezado">
+                <h3>Gestión de usuarios</h3>
+                <p>Administra los usuarios y roles del sistema.</p> 
             </div>
-
-            <div class="contenido">
-                <div id="icono-usuario">J</div>
-                <p>josemiguel@gmail.com</p>
-                <p>Administrador</p>
-                <p>Activo</p>
-                <img src="/src/img/admin/global/tres_puntos.svg" alt="">
+    
+            <button id="nuevo_usuario">
+                <img src="/src/img/admin/global/mas.svg" alt="">
+                <p>Nuevo Usuario</p>
+            </button>
+    
+            <div id="contenedor_contenido">
+                <div class="encabezado_contenido">
+                    <p>Usuario</p>
+                    <p>Email</p>
+                    <p>Rol</p>
+                    <p>Estado</p>
+                    <p>Acciones</p>
+                </div>
+    
+                <div id="contenido">
+                    <div id="icono-usuario">J</div>
+                    <p>josemiguel@gmail.com</p>
+                    <p>Administrador</p>
+                    <p>Activo</p>
+                    <img src="/src/img/admin/global/tres_puntos.svg" alt="">
+                </div>
             </div>
         </div>
     </main>

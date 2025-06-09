@@ -1,0 +1,100 @@
+@import './admin.css';
+/* Tamaño del main */
+main{
+    box-sizing: border-box;
+    font-family: Rubik;
+    padding: 20px;
+    width: 82%;
+}
+
+/* Titulo de la página */
+h2{
+    font-family: RubikSemi;
+    font-size: 2.5vw;
+}
+
+/* Contenedor de los contenedores */
+.contenedor{
+    background-color: white;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 20px;
+    height: 75vh;
+    width: 100%;
+}
+
+/* Titulo del contenido */
+.contenedor .encabezado h3{
+    font-family: RubikSemi;
+    font-size: 2vw;
+}
+
+/* Botón de nuevo usuario */
+.contenedor #nuevo_usuario{
+    align-items: center;
+    background-color: black;
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    font-weight: bold;
+    margin-top: -40px;
+    padding: 5px 10px;
+    position: absolute;
+    right: 40px;
+}
+/* Texto del botón de nuevo usuario */
+.contenedor #nuevo_usuario p{
+    margin-left: 5px;
+}
+
+/* Contenedor de los contenidos o datos */
+#contenedor_contenido{
+    background-color: white;
+    border: 1px solid #7B7B7B;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: calc(100% - 65px);
+    max-height: 350px;
+    margin-top: 20px;
+    overflow-x: auto;
+    padding: 20px;
+}
+/* Encabezado del contenido */
+#contenedor_contenido .encabezado_contenido{
+    /* Asignación de columnas y espaciados */
+    display: grid;
+    grid-template-columns: 120px 1fr 150px 130px 90px;
+    gap: 15px;
+    /* Estilos del contenido */
+    border-bottom: 1px solid #7B7B7B;
+    box-sizing: border-box;
+    font-weight: bolder;
+    font-size: 1.4vw;
+    min-width: 100%;
+    padding: 15px;
+    width: fit-content;
+}
+
+#contenedor_contenido #contenido{
+    /* Asignación de columnas y espaciados */
+    display: grid;
+    grid-template-columns: 120px 1fr 150px 130px 90px;
+    gap: 15px;
+    /* Estilos del contenido */
+    box-sizing: border-box;
+    border-bottom: 1px solid #7B7B7B;
+    font-size: 1.15vw;
+    align-items: center;
+    margin-top: 15px;
+    min-width: 100%;
+    padding: 10px;
+    width: fit-content;
+}
+
+/* icono de acciones */
+#contenedor_contenido #contenido img{
+    margin-left: 2vw;
+    width: .6vw;
+    height: auto;
+}
