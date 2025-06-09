@@ -8,6 +8,60 @@
     <link rel="stylesheet" href="/src/css/empleado/sucursales.css">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <h1>HAMAR<span>FIT</span></h1>
+        </div>
+        <div class="setting">
+            <a href="configuracion.html">
+                <img src="../../src/img/admin/menu/settings.svg" alt="" id="inactivo">
+            </a>
+        </div>
+    </header>
+    <aside class="menu">
+        <ul id="opciones-menu">
+            <a href="dashboard.html">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/activos/dashboard-activo.svg" alt="" id="activo">
+                    <img src="../../src/img/admin/menu/dashboard.svg" alt="" id="inactivo">
+                    <h3>Dashboard</h3>
+                </li>
+            </a>
+            <a href="clientes.html">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/activos/clientes-activo.svg" alt="" id="activo">
+                    <img src="../../src/img/admin/menu/clientes.svg" alt="" id="inactivo">
+                    <h3>Clientes</h3>
+                </li>
+            </a>
+            <a href="sucursales.html">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/activos/sucursales-activo.svg" alt="" id="activo">
+                    <img src="../../src/img/admin/menu/sucursales.svg" alt="" id="inactivo">
+                    <h3>Sucursales</h3>
+                </li>
+            </a>
+            <a href="finanzas.html">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/activos/finanzas-activo.svg" alt="" id="activo">
+                    <img src="../../src/img/admin/menu/finanzas.svg" alt="" id="inactivo">
+                    <h3>Finanzas</h3>
+                </li>
+            </a>
+        </ul>
+        <div class="usuario">
+            <div class="icono">
+                <p id="icono-usuario">J</p>
+            </div>
+            <div class="nombre-rol">
+                <div class="nombre-apellido">
+                    <p id="nombre-usuario">José</p>
+                    <p id="apellido-usuario">Miguel</p>
+                </div>
+                <p id="rol-usuario">Administrador</p>
+            </div>
+        </div>
+    </aside>
     <main>
         <!-- Encabezado -->
         <div class="encabezado-sucursales">
@@ -19,14 +73,40 @@
         <div class="panel-control">
             <div class="barra-de-busqueda">
                 <input type="text" placeholder="Buscar productos...">
-                <button class="boton-buscar">Buscar</button>
+                <button class="boton-buscar">
+                    <img src="/src/img/admin/global/lupa.svg" alt="Icono lupa">
+                    <p>Buscar</p>
+                </button>
             </div>
-            <button class="boton-agregar">Agregar Sucursal</button>
+            <button class="boton-agregar">
+                <img src="/src/img/admin/sucursales/building-2 1.png" alt="Icono">
+                <p>Agregar Sucursal</p>
+            </button>
         </div>
 
         <!-- Contenedor y tarjeta de sucursal -->
         <div class="contenedor-sucursal">
-            <table class="tarjetas-sucursal">
+            <div class="informacion-sucursal">
+                <h4>Hamarfit Central<span>Activo</span></h4>
+                <a href="#"><img src="/src/img/admin/sucursales/list 1.jpg" alt="Icono"></a>
+                <div class="extra-sucursal">
+                    <img src="/src/img/admin/sucursales/map-pin 2.jpg" alt="Ubicacion">
+                    <p>Av. Principal #21, Santiago</p>
+                </div>
+                <div class="extra-sucursal">
+                    <img src="/src/img/admin/sucursales/phone 1.jpg" alt="Telefono">
+                    <p>809-842-2719</p>
+                </div>
+                <div class="extra-sucursal">
+                    <img src="/src/img/admin/sucursales/users (1) 1.jpg" alt="Usuarios">
+                    <p>245 miembros activos</p>
+                </div>
+                <div class="extra-sucursal">
+                    <img src="/src/img/admin/sucursales/clock 1.jpg" alt="Horario">
+                    <p>6:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            <!-- <table class="informacion-sucursal">
                 <tr>
                     <th>Hamarfit Central<span>Activo</span></th>
                     <th><a href="#"><img src="/src/img/admin/sucursales/list 1.jpg" alt="Icono"></a></th>
@@ -43,7 +123,7 @@
                     <td><img src="/src/img/admin/sucursales/clock 1.jpg" alt="Horario">
                     <p>6:00 AM - 10:00 PM</p></td>
                 </tr>
-            </table>
+            </table> -->
         </div>
     </main>
 </body>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../src/css/empleado/configuracion.css">
+    <title>Admin | Configuración</title>
+</head>
+<body>
+    <header>
+        <div class="logo"><h1>HAMAR<span>FIT</span></h1></div>
+        <div class="setting">
+            <a href="configuracion.html">
+                <img src="../../src/img/admin/menu/settings.svg" alt="" id="inactivo">
+            </a>
+        </div>
+    </header>
+    <aside class="menu">
+        <ul id="opciones-menu">
+            <a href="dashboard.html">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/activos/dashboard-activo.svg" alt="" id="activo">
+                    <img src="../../src/img/admin/menu/dashboard.svg" alt="" id="inactivo"> 
+                    <h3>Dashboard</h3>
+                </li>
+            </a>
+            <a href="clientes.html">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/activos/clientes-activo.svg" alt="" id="activo">
+                    <img src="../../src/img/admin/menu/clientes.svg" alt="" id="inactivo">
+                    <h3>Clientes</h3>
+                </li>
+            </a>
+            <a href="sucursales.html">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/activos/sucursales-activo.svg" alt="" id="activo">
+                    <img src="../../src/img/admin/menu/sucursales.svg" alt="" id="inactivo"> 
+                    <h3>Sucursales</h3>
+                </li>
+            </a>
+            <a href="finanzas.html">
+                <li class="opcion">
+                    <img src="../../src/img/admin/menu/activos/finanzas-activo.svg" alt="" id="activo">
+                    <img src="../../src/img/admin/menu/finanzas.svg" alt="" id="inactivo">
+                    <h3>Finanzas</h3>
+                </li>
+            </a>
+        </ul>
+        <div class="usuario">
+            <div class="icono">
+                <p id="icono-usuario">J</p>
+            </div>
+            <div class="nombre-rol">
+                <div class="nombre-apellido">
+                    <p id="nombre-usuario">José</p> <p id="apellido-usuario">Miguel</p>
+                </div>
+                <p id="rol-usuario">Administrador</p>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <h2>Configuración</h2>
+
+        <div class="contenedor">
+            <div class="encabezado">
+                <h3>Gestión de usuarios</h3>
+                <p>Administra los usuarios y roles del sistema.</p> 
+            </div>
+    
+            <button id="nuevo_usuario">
+                <img src="/src/img/admin/global/mas.svg" alt="">
+                <p>Nuevo Usuario</p>
+            </button>
+    
+            <div id="contenedor_contenido">
+                <div class="encabezado_contenido">
+                    <p>Usuario</p>
+                    <p>Email</p>
+                    <p>Rol</p>
+                    <p>Estado</p>
+                    <p>Acciones</p>
+                </div>
+    
+                <div id="contenido">
+                    <div id="icono-usuario">J</div>
+                    <p>josemiguel@gmail.com</p>
+                    <p>Administrador</p>
+                    <p>Activo</p>
+                    <img src="/src/img/admin/global/tres_puntos.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

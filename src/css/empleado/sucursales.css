@@ -1,24 +1,36 @@
+@import url(/src/css/empleado/admin.css);
+
 body {
     background-color: #ECECEC;
 }
 
+main {
+    box-sizing: border-box;
+    font-family: Rubik;
+    padding: 30px;
+    width: 82%;
+}
+
 /* Estilos del encabezado */
 .encabezado-sucursales {
-    line-height: 0;
-    margin: 20px;
+    line-height: 1.5;
+}
+
+.encabezado-sucursales h2 {
+    font-family: RubikSemi;
+    font-size: 2.5vw;
 }
 
 /* Estilos del panel de control y contenedor de sucursal */
 .panel-control {
     display: flex;
     justify-content: space-between;
-    margin: 20px;
 }
 
 .contenedor-sucursal {
     display: flex;
     justify-content: space-between;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 /* Barra de búsqueda */
@@ -27,6 +39,12 @@ body {
         align-items: center;
         gap: 8px;
         width: 400px;
+}
+
+.panel-control .barra-de-busqueda img {
+    position: relative;
+    left: 5px;
+    z-index: 1;
 }
 
 .panel-control .barra-de-busqueda input {
@@ -46,11 +64,24 @@ body {
         border: 1px solid #c7c7c7;
         border-radius: 6px;
         cursor: pointer;
+        display: flex;
+        position: relative;
+}
+
+.panel-control .barra-de-busqueda .boton-buscar p {
+    margin-top: 2px;
+    margin-left: 8px;
+}
+
+.panel-control .barra-de-busqueda .boton-buscar img {
+    width: 18px;
+    margin-top: -2px;
+    margin-left: -10px
 }
 
 /* Boton agregar nueva sucursal */
 .panel-control .boton-agregar {
-    background-color: #F97316;
+        background-color: #FCA502;
         color: white;
         border: none;
         padding: 8px 16px;
@@ -59,44 +90,93 @@ body {
         font-size: 14px;
         font-weight: 500;
         transition: background-color 0.2s;
+        display: flex;
+        position: relative;
+}
+
+.panel-control .boton-agregar img {
+    text-align: left;
+}
+
+.panel-control .boton-agregar p {
+    margin-top: 4px;
+    margin-left: 5px;
 }
 
 .panel-control .boton-agregar:hover {
-    background-color: #e85a2c;
+    background-color: #fca402da;
 }
 
 /* Estilos de tarjeta de sucursal */
-.tarjetas-sucursal {
+.informacion-sucursal {
     background-color: white;
-    height: 100px;
-    width: 400px;
+    height: 120px;
+    width: 45%;
     border: 2px solid #d9d9d9;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 15px;
-    padding: 15px;
+    padding: 20px;
 }
 
-.tarjetas-sucursal tr th {
-    text-align: left;
-    font-size: 15px;
-    padding-bottom: 15px;
+.informacion-sucursal h4 {
+    font-size: 1.5vw;
 }
 
-.tarjetas-sucursal tr th a {
-    padding-left: 170px;
-    /* margin-left: 170px; */
-}
-
-.tarjetas-sucursal tr th span {
+.informacion-sucursal h4 span {
     color: white;
-    background-color: #F97316;
+    background-color: #FCA502;
     margin-left: 15px;
-    font-size: 12px;
+    font-size: 1vw;
     padding: 3px 8px;
     border-radius: 10px;
 }
 
-.tarjetas-sucursal tr td p {
-    color: gray;
-    font-size: 11px;
+.informacion-sucursal a {
+    display: flex;
+    justify-content: right;
+    position: relative;
+    width: auto;
+    margin-top: -20px;
 }
+
+.informacion-sucursal a img {
+    width: 10px;
+}
+
+.informacion-sucursal .extra-sucursal {
+    /* border: 1px solid green; */
+    display: inline-flex;
+    padding: 10px;
+    margin-top: 15px;
+    width: 45%;
+}
+
+/* .informacion-sucursal tr {
+    padding: 40px;
+    margin: 50px;
+}
+
+.informacion-sucursal tr th {
+    text-align: left;
+    font-size: 1.15vw;
+    padding-bottom: 10px;
+}
+
+.informacion-sucursal tr th a {
+    padding-left: 170px;
+    /* margin-left: 170px; */
+/* } */
+
+/* .informacion-sucursal tr th span {
+    color: white;
+    background-color: #FCA502;
+    margin-left: 15px;
+    font-size: 0.8vw;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.informacion-sucursal tr td p {
+    color: gray;
+    font-size: 1.1vw;
+} */
