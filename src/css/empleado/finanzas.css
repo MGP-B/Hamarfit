@@ -41,7 +41,6 @@ main{
     position: relative;
     right: 24px;
 }
-
 /* Botón de búsqueda */
 .contenedor_busqueda  #boton_buscar{
     align-items: center;
@@ -52,6 +51,14 @@ main{
     padding: 5px 10px;
     position: relative;
     right: 20px;
+
+    transition: all .15s;
+    will-change: transform;
+}
+/* Hover del botón de búsqueda */
+.contenedor_busqueda  #boton_buscar:hover{
+    cursor: pointer;
+    transform: scale(.95);
 }
 /* Textos del botón de búsqueda */
 .contenedor_busqueda #boton_buscar p{

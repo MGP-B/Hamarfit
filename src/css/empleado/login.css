@@ -72,13 +72,13 @@ main #formLogin button{
     margin: 10px auto;
     padding: 5px 10px;
 }
-
+/* Enlace de contraseña olvidada */
 main #formLogin .olvidado{
     font-size: small;
     font-weight: bold;
     text-align: center;
 }
-
+/* Enlace de crear una cuenta */
 main .registro{
     display: block;
     position: relative;
@@ -89,7 +89,7 @@ main .registro{
     font-size: small;
     text-align: center;
 }
-
+/* Color para 'Crear cuenta' dentro del enlace de crear una cuenta */
 main .registro span{
     color: #ffa500;
 }
