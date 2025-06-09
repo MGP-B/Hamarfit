@@ -95,6 +95,7 @@ input::placeholder {
     font-size: rubiksemi;
 }
 
+/* Botones en formularios */
 button {
     margin-top: 2%;
     width: 40%;
@@ -104,8 +105,15 @@ button {
     background-color: #ffa500;
     font-size: 1.2vw;
     font-family: rubiksemi;
+    cursor: pointer;
 }
 
+button:hover {
+    scale: 1.03;
+
+}
+
+/* Links */
 a {
     margin-top: 5px;
     font-size: 2.2vh;
