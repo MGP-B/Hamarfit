@@ -151,6 +151,10 @@ main {
     width: 45%;
 }
 
+.informacion-sucursal .extra-sucursal p {
+    font-size: 1.1vw;
+}
+
 /* .informacion-sucursal tr {
     padding: 40px;
     margin: 50px;
