@@ -9,11 +9,13 @@
 </head>
 <body>
     <main>
+        <!-- Encabezado -->
         <div class="encabezado-sucursales">
             <h2>Sucursales</h2>
             <p>Gestiona tus productos y existencias</p>
         </div>
 
+        <!-- Panel de Control -->
         <div class="panel-control">
             <div class="barra-de-busqueda">
                 <input type="text" placeholder="Buscar productos...">
@@ -22,27 +24,26 @@
             <button class="boton-agregar">Agregar Sucursal</button>
         </div>
 
+        <!-- Contenedor y tarjeta de sucursal -->
         <div class="contenedor-sucursal">
-            <div class="tarjetas-sucursal">
-                <h4>Hamarfit Central</h4>
-            <h4>Activo</h4>
-            <div class="informacion-sucursal">
-                <img src="/src/img/admin/sucursales/map-pin 2.jpg" alt="Ubicacion">
-                <p>Av. Principal #21, Santiago</p>
-            </div>
-            <div class="informacion-sucursal">
-                <img src="/src/img/admin/sucursales/phone 1.jpg" alt="Telefono">
-                <p>809-842-2719</p>
-            </div>
-            <div class="informacion-sucursal">
-                <img src="/src/img/admin/sucursales/users (1) 1.jpg" alt="Usuarios">
-                <p>245 miembros activos</p>
-            </div>
-            <div class="informacion-sucursal">
-                <img src="/src/img/admin/sucursales/clock 1.jpg" alt="Horario">
-                <p>6:00 AM - 10:00 PM</p>
-            </div>
-            </div>
+            <table class="tarjetas-sucursal">
+                <tr>
+                    <th>Hamarfit Central<span>Activo</span></th>
+                    <th><a href="#"><img src="/src/img/admin/sucursales/list 1.jpg" alt="Icono"></a></th>
+                </tr>
+                <tr>
+                    <td><img src="/src/img/admin/sucursales/map-pin 2.jpg" alt="Ubicacion">
+                    <p>Av. Principal #21, Santiago</p></td>
+                    <td><img src="/src/img/admin/sucursales/phone 1.jpg" alt="Telefono">
+                    <p>809-842-2719</p></td>
+                </tr>
+                <tr>
+                    <td><img src="/src/img/admin/sucursales/users (1) 1.jpg" alt="Usuarios">
+                    <p>245 miembros activos</p></td>
+                    <td><img src="/src/img/admin/sucursales/clock 1.jpg" alt="Horario">
+                    <p>6:00 AM - 10:00 PM</p></td>
+                </tr>
+            </table>
         </div>
     </main>
 </body>

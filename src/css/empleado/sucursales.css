@@ -2,11 +2,13 @@ body {
     background-color: #ECECEC;
 }
 
+/* Estilos del encabezado */
 .encabezado-sucursales {
     line-height: 0;
     margin: 20px;
 }
 
+/* Estilos del panel de control y contenedor de sucursal */
 .panel-control {
     display: flex;
     justify-content: space-between;
@@ -19,10 +21,12 @@ body {
     margin: 20px;
 }
 
+/* Barra de búsqueda */
 .panel-control .barra-de-busqueda {
         display: flex;
         align-items: center;
         gap: 8px;
+        width: 400px;
 }
 
 .panel-control .barra-de-busqueda input {
@@ -32,8 +36,10 @@ body {
         background-color: white;
         border: 1px solid #c7c7c7;
         border-radius: 6px;
+        width: 100%;
 }
 
+/* Boton buscar */
 .panel-control .barra-de-busqueda .boton-buscar {
         padding: 6px 12px;
         background-color: #f9f9f9;
@@ -42,6 +48,7 @@ body {
         cursor: pointer;
 }
 
+/* Boton agregar nueva sucursal */
 .panel-control .boton-agregar {
     background-color: #F97316;
         color: white;
@@ -58,12 +65,38 @@ body {
     background-color: #e85a2c;
 }
 
+/* Estilos de tarjeta de sucursal */
 .tarjetas-sucursal {
-    display: flex;
-    height: 200px;
+    background-color: white;
+    height: 100px;
     width: 400px;
-    border: 1px solid black;
+    border: 2px solid #d9d9d9;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 15px;
 }
 
-.tarjetas-sucursal .informacion-sucursal {
+.tarjetas-sucursal tr th {
+    text-align: left;
+    font-size: 15px;
+    padding-bottom: 15px;
+}
+
+.tarjetas-sucursal tr th a {
+    padding-left: 170px;
+    /* margin-left: 170px; */
+}
+
+.tarjetas-sucursal tr th span {
+    color: white;
+    background-color: #F97316;
+    margin-left: 15px;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.tarjetas-sucursal tr td p {
+    color: gray;
+    font-size: 11px;
 }
