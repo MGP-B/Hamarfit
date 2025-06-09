@@ -1,39 +1,95 @@
 @import '/src/css/empleado/admin.css';
 
-
+/* Fondo de BODY y alineación del contenido */
 body{
-    display: flex;
     background-image: url(/src/img/admin/login/fondo.png);
     background-size: cover;
     background-repeat: no-repeat;
+}
 
+/* contenedor para agregar oscuridad al fondo */
+body .contenedor{
+    background-color: rgba(0, 0, 0, .3);
     height: 100vh;
+    width: 100vw;
+
     align-items: center;
+    display: flex;
     justify-content: center;
 }
 
+/* Fondo de MAIN y alineación del contenido */
 main{
     background-color: white;
-    width: 40vw;
+    border-radius: 10px;
     height: fit-content;
     padding: 50px;
+    width: 30vw;
+    font-family: Rubik;
 }
 
+/* Logo de la empresa */
 main .logo{
-    display: flex;
-    align-items: center;
-    width: 96%;
-    font-size: 2vw;
+    font-size: 3vw;
     font-family: Paytone;
+    margin-bottom: 20px;
+    text-align: center;
 }
-
+/* color para FIT en el logo de la empresa */
+main .logo span{
+    color: #ffa500;
+}
+/* Quitar la decoración a los links dentro de main */
 main a{
     text-decoration: none;
     color: black;
 }
 
-main #formLogin{background-color: red;
+/* Alineación de los contenidos del formulario */
+main #formLogin{
     display: flex;
     flex-direction: column;
-    margin: auto;
+    justify-items: center;
+}
+
+
+/* Inputs dentro del formulario */
+main #formLogin input{
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 1.3vw;
+    margin: 10px auto;
+    padding: 5px 10px;
+    width: 80%;
+}
+
+/* Botón de iniciar sesión */
+main #formLogin button{
+    background-color: #ffa500;
+    border: 1px solid #ffa500;
+    border-radius: 5px;
+    width: 50%;
+    margin: 10px auto;
+    padding: 5px 10px;
+}
+/* Enlace de contraseña olvidada */
+main #formLogin .olvidado{
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+}
+/* Enlace de crear una cuenta */
+main .registro{
+    display: block;
+    position: relative;
+    text-align: center;
+    top: 11.5vh;
+    color: white;
+
+    font-size: small;
+    text-align: center;
+}
+/* Color para 'Crear cuenta' dentro del enlace de crear una cuenta */
+main .registro span{
+    color: #ffa500;
 }

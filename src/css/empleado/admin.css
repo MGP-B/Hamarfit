@@ -4,6 +4,7 @@
 /* Quitar todos los eventos del puntero */
 img,p,h1,h2,h3{pointer-events: none;}
 
+/* Estilo del body */
 body {
     width: 100%;
     height: 100vh;
@@ -12,32 +13,83 @@ body {
     background-color: #ECECEC;
 }
 
+/* Estilos del header */
 header {
-    display: flex;
-    background-color: white;
     width: 100%;
     height: 8%;
-    align-items: center;
     box-shadow: 0 0 4px 4px rgba(0,0,0,.3);
+    background-color: white;
+
+    /* Flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     z-index: 2;
 }
 
+/* Contenedor del logo */
 header .logo {
+    width: 18%;
+    height: 100%;
+    font-size: 2.3vw;
+    font-family: paytone;
+
     display: flex;
     align-items: center;
-    width: 96%;
-    font-size: 2vw;
-    font-family: Paytone;
+    justify-content: center;
 }
 
-header .logo h1 {
-    margin-left: 4.5vw;
-}
-
-header span {
+header .logo span {
     color: #ffa500;
 }
+
+/* Contenedor del icono de ajustes */
+header .setting {
+    width: 10%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Estilo del link en header */
+header .setting a{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo de imagen en el link */
+header .setting a img {
+    position: absolute;
+    transition: 1s all;
+}
+
+/* Rotación de imagen */
+header .setting a:hover img {
+    transform: rotate(180deg);
+}
+
+/* imagen activa */
+header a #activo {
+    opacity: 0;
+}
+/* Hover de imagen activa */
+header a:hover #activo {
+    opacity: 1;
+}
+
+/* hover de imagen inactiva */
+header a:hover #inactivo {
+    opacity: 0;
+}
+
 
 
 aside {
@@ -82,22 +134,22 @@ aside .opcion {
     align-items: center;
 }
 
-a #inactivo,
-a #activo {
+aside a #inactivo,
+aside a #activo {
     position: absolute;
     left: 1%;
     width: 10%;
 }
 
-a #activo {
+aside a #activo {
   opacity: 0;
 }
 
-a:hover #activo {
+aside a:hover #activo {
   opacity: 1;
 }
 
-a:hover #inactivo {
+aside a:hover #inactivo {
   opacity: 0;
 }
 
