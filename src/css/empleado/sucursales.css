@@ -14,6 +14,8 @@ body {
 }
 
 .contenedor-sucursal {
+    display: flex;
+    justify-content: space-between;
     margin: 20px;
 }
 
@@ -54,4 +56,14 @@ body {
 
 .panel-control .boton-agregar:hover {
     background-color: #e85a2c;
+}
+
+.tarjetas-sucursal {
+    display: flex;
+    height: 200px;
+    width: 400px;
+    border: 1px solid black;
+}
+
+.tarjetas-sucursal .informacion-sucursal {
 }
