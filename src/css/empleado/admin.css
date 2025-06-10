@@ -183,7 +183,7 @@ aside .usuario {
 aside .usuario .icono {
     display: flex;
     align-items: center;
-    align-content: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     background-color: #F97316;
@@ -192,9 +192,6 @@ aside .usuario .icono {
     font-family: Rubik;
 }
 
-aside .usuario #icono-usuario p{
-    text-align: center;
-}
 
 aside .nombre-rol {
     padding-left: 10px;
@@ -204,6 +201,6 @@ aside .nombre-apellido {
     display: inline-flex;
 }
 
-aside .nombre-apellido p {
+aside .nombre-apellido p:last-child {
     padding-left: 4px;
 }
