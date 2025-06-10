@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMARFIT | Registrar transacción</title>
+</head>
+<body>
+    <main>
+        <h1>Regitrar Transacción</h1>
+        <h2>Ingresa los detalles de la nueva transacción.</h2>
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha">
+
+        <label for="categoria">Categoria</label>
+        <input type="text" id="categoria">
+
+        <label for="monto">Monto</label>
+        <input type="number" id="monto">
+
+        <label for="metodo-de-pago">Método de Pago</label>
+        <select name="metodo-de-pago" id="metodo-de-pago">
+            <option selected disabled>Seleccionar método</option>
+        </select>
+
+        <label for="nota-transaccion">Nota de la transacción</label>
+        <textarea name="nota-transaccion" id="nota-transaccion" cols="50" rows="10">Información adicinal sobre la transaccón</textarea>
+
+        <button id="boton-cancelar">Cancelar</button>
+        <button type="submit" id="boton-registrar">Registrar</button>
+    </main>
+</body>
+</html>
