@@ -34,6 +34,7 @@ h2{
 .contenedor #nuevo_usuario{
     align-items: center;
     background-color: black;
+    border: none;
     border-radius: 3px;
     color: white;
     display: flex;
@@ -64,7 +65,7 @@ h2{
 #contenedor_contenido .encabezado_contenido{
     /* Asignación de columnas y espaciados */
     display: grid;
-    grid-template-columns: 120px 1fr 150px 130px 90px;
+    grid-template-columns: 20% 1fr 20% 15% 8%;
     gap: 15px;
     /* Estilos del contenido */
     border-bottom: 1px solid #7B7B7B;
@@ -79,7 +80,7 @@ h2{
 #contenedor_contenido #contenido{
     /* Asignación de columnas y espaciados */
     display: grid;
-    grid-template-columns: 120px 1fr 150px 130px 90px;
+    grid-template-columns: 20% 1fr 20% 15% 8%;
     gap: 15px;
     /* Estilos del contenido */
     box-sizing: border-box;
@@ -94,7 +95,18 @@ h2{
 
 /* icono de acciones */
 #contenedor_contenido #contenido img{
-    margin-left: 2vw;
+    display: block;
+    margin: auto;
     width: .6vw;
-    height: auto;
+}
+
+/* Transición a todos los botones */
+main button{
+    transition: all .15s;
+    will-change: transform;
+}
+/* Hover a todos los botones */
+main button:hover{
+    cursor: pointer;
+    transform: scale(.95);
 }
