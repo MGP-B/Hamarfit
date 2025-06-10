@@ -154,33 +154,3 @@ main {
 .informacion-sucursal .extra-sucursal p {
     font-size: 1.1vw;
 }
-
-/* .informacion-sucursal tr {
-    padding: 40px;
-    margin: 50px;
-}
-
-.informacion-sucursal tr th {
-    text-align: left;
-    font-size: 1.15vw;
-    padding-bottom: 10px;
-}
-
-.informacion-sucursal tr th a {
-    padding-left: 170px;
-    /* margin-left: 170px; */
-/* } */
-
-/* .informacion-sucursal tr th span {
-    color: white;
-    background-color: #FCA502;
-    margin-left: 15px;
-    font-size: 0.8vw;
-    padding: 3px 8px;
-    border-radius: 10px;
-}
-
-.informacion-sucursal tr td p {
-    color: gray;
-    font-size: 1.1vw;
-} */

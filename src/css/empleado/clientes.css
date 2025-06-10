@@ -1,0 +1,108 @@
+@import url(/src/css/empleado/admin.css);
+
+body {
+    background-color: #ECECEC;
+}
+
+main {
+    box-sizing: border-box;
+    font-family: Rubik;
+    padding: 30px;
+    width: 82%;
+}
+
+/* Estilos del encabezado */
+.encabezado {
+    line-height: 1.5;
+}
+
+.encabezado h2 {
+    font-family: RubikSemi;
+    font-size: 2.5vw;
+}
+
+/* Estilos del panel de control y contenedor de sucursal */
+.panel-control {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor-sucursal {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+/* Barra de búsqueda */
+.panel-control .barra-de-busqueda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 400px;
+}
+
+.panel-control .barra-de-busqueda img {
+    position: relative;
+    left: 5px;
+    z-index: 1;
+}
+
+.panel-control .barra-de-busqueda input {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: white;
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    width: 100%;
+}
+
+/* Boton buscar */
+.panel-control .barra-de-busqueda .boton-buscar {
+    padding: 6px 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.panel-control .barra-de-busqueda .boton-buscar p {
+    margin-top: 2px;
+    margin-left: 8px;
+}
+
+.panel-control .barra-de-busqueda .boton-buscar img {
+    width: 18px;
+    margin-top: -2px;
+    margin-left: -10px
+}
+
+/* Boton agregar nueva sucursal */
+.panel-control .boton-agregar {
+    background-color: #FCA502;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    display: flex;
+    position: relative;
+}
+
+.panel-control .boton-agregar img {
+    text-align: left;
+}
+
+.panel-control .boton-agregar p {
+    margin-top: 4px;
+    margin-left: 5px;
+}
+
+.panel-control .boton-agregar:hover {
+    background-color: #fca402da;
+}
