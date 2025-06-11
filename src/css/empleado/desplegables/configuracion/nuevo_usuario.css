@@ -1,0 +1,6 @@
+@import '../desplegables.css';
+
+.cuerpo_popup{
+    background-color: white;
+    padding: 20px;
+}
