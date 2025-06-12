@@ -4,12 +4,13 @@
 /* contenedor de los pop ups */
 #contenedor_popup{
     align-items: center;
-    background-color: rgba(0, 0, 0, .6);
     display: flex;
-    height: 100%;
     justify-content: center;
-    left: 0;
     position: absolute;
+
+    background-color: rgba(0, 0, 0, .6);
+    height: 100%;
+    left: 0;
     top: 0;
     width: 100%;
     z-index: 3;

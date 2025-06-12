@@ -16,7 +16,7 @@
     margin-top: 30px;
 
 }
-/* Todos los divs dentro del formulario */
+/* Todos los div dentro del formulario */
 .cuerpo_popup form div{
     display: flex;
     flex-direction: column;
