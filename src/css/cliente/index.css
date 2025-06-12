@@ -517,6 +517,8 @@ button:hover {
 
 /* Responsive para pantallas de 800px*/
 @media (max-width: 800px) {
+    
+    /* Modificación de tamaño en el contenedor de información de las tarjetas de registro */
     .tarjeta-servicio .info-servicio {
         width: 90%;
         height: 16vh;
@@ -525,54 +527,68 @@ button:hover {
 
 /* Responsive para pantallas de 700px*/
 @media (max-width: 700px){
+
+    /* Modificación de tamaño en el contenedor de información de las tarjetas de registro */
     .tarjeta-servicio .info-servicio {
         width: 90%;
         height: 14vh;
     }
 
+    /* Disminución de márgenes en los párrafos de servicio */
     .servicios .parrafo {
         margin-bottom: 8%;
     }
 }
 
-/* Responsive para pantallas de 700px*/
+/* Responsive para pantallas de 600px*/
 @media (max-width: 600px) {
+    
+    /* Modificación de tamaño en el contenedor de información de las tarjetas de registro */
     .tarjeta-servicio .info-servicio {
         width: 90%;
         height: 12vh;
     }
 
+    /* Disminución de márgenes en los párrafos de servicio */
     .servicios .parrafo {
         margin-bottom: 8%;
     }
 }
 
-/* Responsive para pantallas de 700px*/
+/* Responsive para pantallas de 500px*/
 @media (max-width: 500px) {
+
+    /* Modificación de tamaño en el contenedor de información de las tarjetas de registro */
     .tarjeta-servicio .info-servicio {
         width: 90%;
         height: 10vh;
     }
 
+    /* Disminución de márgenes en los párrafos de servicio */
     .servicios .parrafo {
         margin-bottom: 6%;
     }
 }
-    
+
+/* Responsive para pantallas de 400px*/
 @media (max-width: 400px) {
 
+    /* Disminución de márgenes en el título de beneficios */
     .beneficios h2 {
         margin-top: -2vh;
     }
 
+    /* Disminución de márgenes en los subtítulos de beneficios */
     .beneficios .subtitulo {
         margin-bottom: 4vh;
     }
 
+    /* Disminución de márgenes en los párrafos de servicio */
     .servicios .parrafo {
         margin-bottom: 4%;
     }
     
+    /* Modificación de tamaño en el contenedor de información de las tarjetas de registro */
     .tarjeta-servicio .info-servicio {
         width: 90%;
         height: 10vh;

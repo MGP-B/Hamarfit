@@ -1,236 +1,235 @@
-@import url(../reset.css);
-@import url(../fuentes.css);
+    @import url(../reset.css);
+    @import url(../fuentes.css);
 
-body {
-    display: flex;
-}
+    body {
+        display: flex;
+    }
 
-/* Estilo de contenedor principal */
-main {
-    width: 80%;
-    height: 100vh;
+    /* Estilo de contenedor principal */
+    main {
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
+    /* Estilos para el logo */
+    main h1 {
+        width: 50%;
+        height: 10vh;
+        font-size: 3vw;
+        font-family: paytone;
+        margin-top: 3%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-/* Estilos para el logo */
-main h1 {
-    width: 100%;
-    height: 15vh;
+    /* Estilo de link en h1 */
+    main h1 a{
+        text-decoration: none;
+        color: black;
+    }
 
-    font-size: 4vw;
-    font-family: paytone;
+    main h1 span {
+        color: #ffa500;
+    }
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    /* Estilos para el formulario */
+    main form {
+        width: 100%;
+        padding: 3% 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-main h1 a{
-    text-decoration: none;
-    color: black;
-}
+    /* Estilos para contenedores de planes */
+    main form .plan-pro, main form .plan-basico {
+        width: 55%;
+        height: 15vh;
+        margin: 1vw 0;
+        padding: 0 3vw;
+        box-shadow: 0 0 4px 1px rgba(0,0,0,.3);
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-main h1 span {
-    color: #ffa500;
-}
+    /* Sombra de plan */
+    main form .plan-pro {
+        box-shadow: 0 0 8px .5px #ffa500;
+    }
 
-/* Estilos para el formulario */
-main form {
-    width: 100%;
-    padding: 2vh 0;
+    /* Estilos para el label */
+    main form .plan-pro label, main form .plan-basico label {
+        font-family: rubiksemi;
+        font-size: 2.3vw;
+    }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    main form .plan-pro label span {
+        color: #ffa500;
+    }
 
-/* Estilos para contenedores de planes */
-main form .plan-pro, main form .plan-basico {
-    width: 70%;
-    height: 18vh;
-    margin: 15px 0;
-    padding: 0 3vw;
-    box-shadow: 0 0 4px 1px rgba(0,0,0,.3);
-    background-color: white;
+    main form .plan-basico label span {
+        color: #626262;
+    }
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    /* Estilos para el contenedor del precio */
+    main form .precio-seleccion {
+        display: inline-flex;
+    }
 
-main form .plan-pro {
-    box-shadow: 0 0 8px .5px #ffa500;
-}
+    /* Estilos para párrafos en contenedor */
+    main form .precio-seleccion p {
+        font-size: 1.3vw;
+        margin-top: .8vh;
+        margin-right: 1vw;
+        font-family: rubik;
+    }
 
-/* Estillos para el label */
+    main form .precio-seleccion p span {
+        color: #585858;
+        font-size: 1.3vw;
+        font-family: rubik;
+    }
 
-main form .plan-pro label, main form .plan-basico label {
-    font-family: rubiksemi;
-    font-size: 2.6vw;
-}
+    /* Estilos para el input */
+    main form input {
+        width: 1.7vw;
+        height: 1.7vw;
+    }
 
-main form .plan-pro label span {
-    color: #ffa500;
-}
+    /* Estilos para la selección de sucursal */
+    main .seleccion-sucursal {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-main form .plan-basico label span {
-    color: #626262;
-}
+    /* Estilos para el h2 en contenedor de sucursal */
+    main .seleccion-sucursal h2 {
+        width: 63%;
+        font-size: 2.4vw;
+        font-family: rubiksemi;
+    }
 
-/* Estilos para el contenedor del precio */
+    /* Estilo de sucursal */
+    main .sucursal {
+        width: 55%;
+        height: 12vh;
+        margin: 20px 0;
+        padding: 1.5vw 3vw;
+        box-shadow: 0 0 4px 1px rgba(0,0,0,.3);
+        background-color: white;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
-main form .precio-seleccion {
-    display: inline-flex;
-}
+    /* Nombre de sucursal */
+    main .sucursal h3 {
+        font-family: rubik;
+        font-weight: 600;
+        font-size: 1.8vw;
+        position: relative;
+    }
 
-main form .precio-seleccion p {
-    font-size: 1.8vw;
-    margin-right: 1vw;
-}
+    /* Contenedor de la ubicación */
+    main .sucursal .contenedor-ubicacion {
+        display: inline-flex;
+        align-items: center;
+        align-content: center;
+        position: relative;
+        font-size: 1.5vw;
+    }
 
-main form .precio-seleccion p span {
-    color: #585858;
-    font-size: 1.3vw;
-    font-family: rubik;
-}
+    /* Estilo del link */
+    main .sucursal a {
+        position: absolute;
+        top: 20vh;
+        left: 48vw;
+        width: 9vw;
+        color: black;
+        font-size: 1.2vw;
+        margin-bottom: 20px;
+    }
 
-/* Estilos para el input */
+    /* Estilos aside */
+    aside {
+        width: 30%;
+        background-color: #F2F2F2;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        
+    }
 
-main form input {
-    width: 3.7vw;
-    height: 3.7vh;
-}
+    /* Contenedor de la factura */
+    aside .factura {
+        background-color: #D9D9D9;
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-/* Estilos para la selección de sucursal */
+    /* Seleccion de plan */
+    aside .factura .seleccion {
+        width: 80%;
+        margin-bottom: 5vh;
+        font-size: 2vw;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px 0;
+        border-radius: 10px;
+        font-family: rubiksemi;
+    }
 
-main .seleccion-sucursal {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    aside .factura .seleccion span {
+        color: #ffa500;
+    }
 
-main .seleccion-sucursal h2 {
-    width: 80%;
-    font-size: 2.5vw;
-    font-family: rubiksemi;
-}
+    /* Estilos para el contenedor de la factura */
+    aside .factura .inscripcion {
+        width: 80%;
+        margin-bottom: 5vh;
+        font-size: 1.5vw;
+        display: inline-flex;
+        justify-content: space-between;
+        border-bottom: solid 2px white;
+    }
 
-/* Estilo de sucursal */
+    /* Estilos del formulario */
+    aside .factura form {
+        margin-top: 3vh;
+        width: 80%;
+        display: flex;
+    }
 
-main .sucursal {
-    width: 70%;
-    height: 15vh;
-    margin: 20px 0;
-    padding: 15px 3vw;
-    box-shadow: 0 0 4px 1px rgba(0,0,0,.3);
-    background-color: white;
+    /* Estilos para botón en formulario */
+    aside .factura form button {
+        width: 100%;
+        height: 6vh;
+        border: none;
+        border-radius: 8px;
+        background-color: #ffa500;
+        color: white;
+        font-family: rubik;
+        font-size: 1.3vw;
+        font-weight: 700;
+        cursor: pointer;
+    }
 
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Nombre de sucursal */
-main .sucursal h3 {
-    font-family: rubik;
-    font-weight: 600;
-    font-size: 1.8vw;
-    position: relative;
-}
-
-/* Contenedor de la ubicación */
-main .sucursal .contenedor-ubicacion {
-    display: inline-flex;
-    align-items: center;
-    align-content: center;
-    position: relative;
-    font-size: 1.5vw;
-}
-
-main .sucursal a {
-    position: absolute;
-    top: 20vh;
-    left: 48vw;
-    width: 9vw;
-    color: black;
-    font-size: 1.2vw;
-    margin-bottom: 20px;
-}
-
-/* Estilos aside */
-aside {
-    width: 30%;
-    background-color: #F2F2F2;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    
-}
-
-/* Contenedor de la factura */
-aside .factura {
-    background-color: #D9D9D9;
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Seleccion de plan */
-aside .factura .seleccion {
-    width: 80%;
-    margin-bottom: 5vh;
-    font-size: 2vw;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px 0;
-    border-radius: 10px;
-    font-family: rubiksemi;
-}
-
-aside .factura .seleccion span {
-    color: #ffa500;
-}
-
-aside .factura .inscripcion {
-    width: 80%;
-    margin-bottom: 5vh;
-    font-size: 1.5vw;
-    display: inline-flex;
-    justify-content: space-between;
-    border-bottom: solid 2px white;
-}
-
-aside .factura form {
-    margin-top: 3vh;
-    width: 80%;
-    display: flex;
-}
-
-aside .factura form button {
-    width: 100%;
-    height: 6vh;
-    border: none;
-    border-radius: 8px;
-    background-color: #ffa500;
-    color: white;
-    font-family: rubik;
-    font-size: 1.3vw;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-aside .factura form button:hover {
-    scale: 1.03;
-    background-color: #ef9e06;
-}
+    aside .factura form button:hover {
+        scale: 1.03;
+        background-color: #ef9e06;
+    }

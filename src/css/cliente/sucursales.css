@@ -22,11 +22,11 @@
 
 /* Estilos de link a pág principal */
 .cabecera .logo a {
-    text-align: center;
     width: 100%;
     font-size: 2.5vw;
-    text-decoration: none;
     font-family: Paytone;
+    text-align: center;
+    text-decoration: none;
     color: black;
 }
 
@@ -34,8 +34,7 @@
     color: #ffa500;
 }
 
-/* Estilos de botones en cabecera */
-
+/* Estilos de contenedor de botones en cabecera */
 .cabecera .botones-navegacion {
     width: 25%;
     height: 100%;
@@ -44,35 +43,43 @@
     align-items: center;
 }
 
+/* Estilos de botones en cabecera */
 .cabecera .botones-navegacion button {
-    height: 50%;
     width: 40%;
-    margin: 0 10px;
+    height: 50%;
+    margin: 0 1vw;
     border-radius: 5px;
     font-size: 1.2vw;
     cursor: pointer;
 }
 
+/* Estilo de botón específico */
 .cabecera .botones-navegacion #inicio-sesion {
     background-color: transparent;
-    border: solid 3px #ffa500;
+    border: solid .3vw #ffa500;
     color: #616161;
 }
 
+/* Estilo de botón específico */
 .cabecera .botones-navegacion #register {
     background-color: #ffa500;
     border: none;
     color: white;
 }
 
+/* Hover de botones */
 .cabecera .botones-navegacion button:hover {
-    scale: 1.05;
+    scale: 1.03;
 }
 
+
+/* Link en botones */
 .botones-navegacion #inicio-sesion a {
     color: black;
     text-decoration: none;
 }
+
+/* Link en botones */
 .botones-navegacion #register a {
     color: white;
     text-decoration: none;
@@ -80,15 +87,13 @@
 
 
 /* Estilos del contenedor main */
-
 main {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* Estilos de titulos en el main */
-
+/* Estilos de contenedor de títulos en el main */
 main .titulos {
     padding-top: 6vh;
     display: flex;
@@ -98,11 +103,13 @@ main .titulos {
     margin-bottom: 6vh;
 }
 
+/* Estilo de título */
 main .titulos h1 {
     font-size: 2.4vw;
     font-family: Rubiksemi;
 }
 
+/* Estilo de párrafo */
 main .titulos p {
     font-size: 1.5vw;
     margin-top: 1vh;
@@ -117,16 +124,23 @@ main .contenedor {
     justify-content: center;
 }
 
+/* Estilo de sucursal */
 main .contenedor .sucursal {
     width: 25%;
-    margin: 15px;
+    margin: 1.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 6px 2px rgba(0,0,0,.2);
-    border-radius: 10px;
+    box-shadow: 0 0 10px 4px rgba(0,0,0,.2);
+    border-radius: 1vh;
 }
 
+main .contenedor .sucursal:hover {
+    scale: 1.03;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .6);
+}
+
+/* Estilo de título en sucursal */
 main .contenedor .sucursal h2 {
     width: 100%;
     margin-top: 2vh;
@@ -135,16 +149,18 @@ main .contenedor .sucursal h2 {
     font-family: rubiksemi;
 }
 
+/* Estilo de imagen en sucursal */
  #imagen {
     width: 100%;
-    border-radius: 10px 10px 0 0;
-
+    border-radius: 1vh 1vh 0 0;
 }
 
+
+/* estilo en el contenedor de la ubicación de sucursal */
 main .contenedor .sucursal .contenedor-ubicacion {
     display: flex;
     width: 100%;
-    height: 5vh;
+    /* height: 5vh; */
     justify-content: center;
     align-items: center;
     margin-bottom: 4vh;
@@ -152,19 +168,25 @@ main .contenedor .sucursal .contenedor-ubicacion {
     font-size: 1.2vw;
 }
 
+main .contenedor .sucursal .contenedor-ubicacion img {
+    width: 2.2vw;
+}
+
+/* Estilo de botón en sucursal */
 main .contenedor .sucursal button {
     width: 50%;
-    margin-bottom: 15px;
-    border-radius: 5px;
+    margin-bottom: 4vh;
+    border-radius: .5vw;
     border: none;
     background-color: #ffa500;
     color: white;
-    padding: 5px;
+    padding: .5vw;
     cursor: pointer;
     font-family: rubik;
     font-size: 1.1vw;
 }
 
+/* Estilo de link dentro de botón */
 main .contenedor .sucursal button a {
     color: white;
     text-decoration: none;
@@ -174,3 +196,15 @@ main .contenedor .sucursal button:hover {
     scale: 1.03;
 }
 
+/* Media para pantallas menores a 800px */
+@media (max-width: 800px){
+    
+    /* Reducción de márgenes */
+    main .contenedor .sucursal .contenedor-ubicacion {
+        margin-bottom: 2vh;
+    }
+    /* Reducción de márgenes */
+    main .contenedor .sucursal button {
+        margin-bottom: 2vh;
+    }
+}
