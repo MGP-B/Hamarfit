@@ -1,0 +1,250 @@
+.controlesSucursales {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+.buscar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.barraBusqueda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+.iconoBusqueda {
+    width: 20px;
+    height: 20px;
+    color: #666;
+}
+
+.barraBusqueda input {
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 250px;
+    font-size: 14px;
+}
+
+.botonBuscar {
+    background-color: #F97316;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.botonBuscar:hover {
+    background-color: #e85a2c;
+}
+
+.botonAgregarSucursal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #F97316;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.botonAgregarSucursal:hover {
+    background-color: #e85a2c;
+}
+
+.botonAgregarSucursal img {
+    width: 22px;
+    height: 22px;
+}
+
+.listaSucursales {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.tarjetaSucursal {
+    background-color: white;
+    border: 1px solid #c7c7c7;
+    border-radius: 8px;
+    width: 500px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjetaSucursal:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.encabezadoSucursal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.encabezadoSucursal .tituloEstado {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.encabezadoSucursal h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.botonAcciones {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.botonAcciones:hover {
+    background-color: #f5f5f5;
+}
+
+.botonAcciones img {
+    width: 16px;
+    height: 16px;
+}
+
+.etiquetaEstado {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.etiquetaEstado.activo {
+    background-color: #e8f5e9;
+    color: #28a745;
+}
+
+.detallesSucursal {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gridDetalles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.gridDetalles p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.estadoConMenu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.botonMenu {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botonMenu:hover {
+    background-color: var(--color-gris-claro);
+    border-radius: 4px;
+}
+
+.detallesSucursal img {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 400px) {
+
+    .tarjetaSucursal {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .encabezadoSucursal h3 {
+        font-size: 16px;
+    }
+
+    .gridDetalles {
+        grid-template-columns: 1fr;
+    }
+
+
+    .botonAgregarSucursal {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .tarjetaSucursal {
+        padding: 16px;
+    }
+
+    .detallesSucursal img {
+        width: 14px;
+        height: 14px;
+    }
+    
+
+    .filtrosClientes {
+        width: 100%;
+    }
+
+    .barraBusqueda {
+        width: 100%;
+    }
+
+    .barraBusqueda input {
+        width: 100%;
+    }
+
+    .botonAgregarSucursal {
+        width: 40px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .botonAgregarSucursal span {
+        display: none;
+    }
+
+    .botonAgregarSucursal {
+        width: 35px;
+        height: 35px;
+    }
+}

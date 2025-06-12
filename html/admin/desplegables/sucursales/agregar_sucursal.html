@@ -1,0 +1,34 @@
+<div class="cuerpo_popup">
+    <h2>Agregar Nueva Sucursal</h2>
+    <h3>Completa los detalles de la sucursal para registrarlo en el sistema.</h3>
+    
+    <form action="">
+        <label for="nombre-sucursal">Nombre de la Sucursal</label>
+        <input type="text" id="nombre-sucursal" placeholder="Nombre de sucursal...">
+    
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" placeholder="Teléfono de sucursal...">
+    
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" placeholder="Dirección de sucursal...">
+    
+        <label for="ciudad">Ciudad</label>
+        <select name="ciudad" id="ciudad">
+            <option selected disabled>Selecciona la ciudad</option>
+            <option>Santiago</option>
+        </select>
+    
+        <label for="hora-apertura">Horario de Apertura</label>
+        <input type="time" id="hora-apertura">
+    
+        <label for="hora-cierre">Hora de Cierre</label>
+        <input type="time" id="hora-cierre">
+    
+        <p>Imagen de la Sucursal</p>
+        <label for="imagen-sucursal"><img src="/src/img/perfiles/Group 21.png" alt=""></label><input type="file"
+            id="imagen-sucursal" style="display: none;">
+    
+        <button id="boton-cancelar">Cancelar</button>
+        <button type="submit" id="boton-guardar">Guardar Sucursal</button>
+    </form>
+</div>
