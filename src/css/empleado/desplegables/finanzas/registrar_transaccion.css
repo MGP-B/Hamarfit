@@ -1,1 +1,15 @@
 @import '../desplegables.css';
+
+/* Cuerpo del pop up */
+.cuerpo_popup{
+    background-color: white;
+    border-radius: 8px;
+    padding: 50px;
+    max-width: 450px;
+    width: 60%;
+}
+
+.cuerpo_popup h2{
+    font-size: 2vw;
+    font-weight: bolder;
+}
