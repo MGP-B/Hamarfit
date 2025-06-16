@@ -86,7 +86,6 @@ main {
         border: none;
         padding: 8px 16px;
         border-radius: 6px;
-        cursor: pointer;
         font-size: 14px;
         font-weight: 500;
         transition: background-color 0.2s;
@@ -153,4 +152,9 @@ main {
 
 .informacion-sucursal .extra-sucursal p {
     font-size: 1.1vw;
+}
+
+main button:hover {
+    cursor: pointer;
+    transform: scale(0.95);
 }
