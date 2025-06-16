@@ -129,7 +129,7 @@ button:hover {
 /* estilo del contenedor de sección principal con el banner */
 .principal {
     width: 100%;
-    height: 30vw;
+    height: 41vw;
 
     /* Configuración de imagen de fondo */
     background-image: url(../../img/index/banner.jpeg);
