@@ -1,1 +1,116 @@
 @import '../desplegables.css';
+
+/* Cuerpo del pop up */
+.cuerpo_popup {
+    background-color: white;
+    border-radius: 8px;
+    padding: 60px;
+    max-width: 400px;
+    width: 50%;
+    height: 80%;
+}
+
+.cuerpo_popup h2 {
+    font-weight: 600;
+    font-size: 1.6vw;
+    padding: 4px;
+}
+
+.cuerpo_popup h3 {
+    font-size: 1vw;
+    padding: 0 6px;
+}
+
+.cuerpo_popup .opciones {
+    padding: 5px;
+}
+
+.cuerpo_popup .opciones a {
+    color: black;
+    text-decoration: none;
+    margin-left: 4px;
+    transition: color 0.5s;
+}
+
+.cuerpo_popup .opciones a:hover {
+    color: #FCA502;
+    border-bottom: 1px solid #FCA502;
+}
+
+.cuerpo_popup .opciones #seleccion {
+    color: #FCA502;
+    border-bottom: 1px solid #FCA502;
+}
+
+/* Formulario */
+.cuerpo_popup form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.cuerpo_popup form .div-nombre-apellido,
+.div-contrasena {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: space-between;
+    width: 48%;
+}
+
+/* Todos los div dentro del formulario */
+.cuerpo_popup form div {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    width: 100%;
+}
+
+/* Los input y select en el formulario */
+.cuerpo_popup form div input,
+.cuerpo_popup form div select {
+    background-color: #F6F6F4;
+    box-sizing: border-box;
+    border: 1.5px solid #A6A6A6;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+/* El contenedor de los botones */
+.cuerpo_popup .boton-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-between;
+    margin-left: 50%;
+    margin-top: 8px;
+    width: 50%;
+    gap: 5px;
+}
+
+/* Botón de agregar */
+.cuerpo_popup .boton-container #boton-continuar {
+    background-color: #F97316;
+    border: 1px solid #F97316;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    width: 60%;
+    font-size: 0.9vw;
+}
+
+/* Botón de cancelar */
+.cuerpo_popup .boton-container #boton-cancelar {
+    background-color: white;
+    border: 1px solid #7B7B7B;
+    border-radius: 5px;
+    width: 40%;
+    font-size: 0.9vw;
+}
+
+.cuerpo_popup button:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+}

@@ -106,3 +106,8 @@ main {
 .panel-control .boton-agregar:hover {
     background-color: #fca402da;
 }
+
+main button:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+}
