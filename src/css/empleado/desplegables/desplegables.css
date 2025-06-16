@@ -1,0 +1,17 @@
+/* Importar las fuentes */
+@import '../../fuentes.css';
+
+/* contenedor de los pop ups */
+#contenedor_popup{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+
+    background-color: rgba(0, 0, 0, .6);
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}

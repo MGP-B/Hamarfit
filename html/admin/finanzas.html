@@ -79,7 +79,7 @@
                 <p>Buscar</p>
             </button>
 
-            <button id="registrar_transaccion">
+            <button id="registrar_transaccion" onclick="agregar_popup('/html/admin/desplegables/finanzas/registrar_transaccion.html')">
                 <img src="/src/img/admin/global/registrar_transaccion.svg" alt="">
                 <p>Registrar transacción</p>
             </button>
@@ -101,9 +101,14 @@
                 <p>Membresía</p>
                 <p>Ingreso</p>
                 <p>$1,200.00</p>
-                <img src="/src/img/admin/global/tres_puntos.svg" alt="">
+                <img src="/src/img/admin/global/tres_puntos.svg" alt="" onclick="agregar_popup('/html/admin/desplegables/finanzas/ver_factura.html')">
             </div>
         </div>
+        <div id="contenedor_popup">
+            <!-- Aquí se van a agregar los pop ups -->
+        </div>
     </main>
+
+    <script src="../../src/js/desplegables.js"></script>
 </body>
 </html>

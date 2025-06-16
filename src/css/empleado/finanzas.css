@@ -125,6 +125,7 @@ main{
     margin-left: 2vw;
     width: .6vw;
     height: auto;
+    pointer-events: all;
 }
 
 /* Transición a todos los botones */
