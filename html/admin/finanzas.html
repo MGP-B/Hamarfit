@@ -101,10 +101,27 @@
                 <p>Membresía</p>
                 <p>Ingreso</p>
                 <p>$1,200.00</p>
-                <img src="/src/img/admin/global/tres_puntos.svg" alt="" onclick="agregar_popup('/html/admin/desplegables/finanzas/ver_factura.html')">
+                <div class="div_acciones" onclick="visible()">
+                    <img src="/src/img/admin/global/tres_puntos.svg">
+                </div>
+                <!-- Desplegable de acciones -->
+                <div class="desplegable" id="desplegable">
+                    <h2>Acciones</h2>
+                    <button onclick="cerrar_desplegable()" class="x">
+                        <img src="../../src/img/admin/global/x.svg">
+                    </button>
+                    <div class="div_detalles" onclick="agregar_popup('/html/admin/desplegables/finanzas/ver_factura.html')"  title="Ver detalles">
+                        <img src="../../src/img/admin/global/ojo.svg">
+                        <p>Ver detalles</p>
+                    </div>
+                    <div class="div_eliminar" onclick="">
+                        <img src="../../src/img/admin/global/eliminar.svg">
+                        <p>Eliminar</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="contenedor_popup">
+        <div id="contenedor_popup" onclick="cerrar_popup()">
             <!-- Aquí se van a agregar los pop ups -->
         </div>
     </main>

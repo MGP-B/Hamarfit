@@ -4,22 +4,44 @@ const contenedor_popup = document.getElementById('contenedor_popup')
 // Crear la función para agregar los pop ups
 function agregar_popup(ruta){
     // Buscar en la ruta especificada
-    fetch(ruta)
-
+    fetch(ruta)    
     // Luego
     .then(respuesta =>{
         // Retornar la respuesta en texto
         return respuesta.text();
     })
-
     // Luego
-    .then(contenido=>{
+    .then(contenido =>{
         // Agregar el contenido de la respuesta al contenedor del pop up
         contenedor_popup.innerHTML = contenido;
     })
     // En caso de error atrapa...
-    .catch(error=>{
+    .catch(error =>{
         // Agregar el mensaje de error al contenedor del pop up
-        contenedor_popup.innerHTML = 'Error => '+ error + 'Qué hiciste? ya se dañó';
+        contenedor_popup.innerHTML = 'Error => '+ error + ', Qué hiciste? ya se dañó';
     })
+
+    // Condicional para cerrar el desplegable en caso de haber uno
+    if (desplegable.style.display == 'block'){
+        desplegable.style.display = 'none';
+    }
+
+    if(contenedor_popup.style.display == 'none'){
+        contenedor_popup.style.display = 'flex'
+    }
 };
+
+// Obtener el elemento desplegable
+const desplegable = document.getElementById('desplegable');
+// Hacerlo visible
+function visible(){
+    desplegable.style.display = 'block';
+}
+
+function cerrar_popup(){
+    contenedor_popup.style.display = 'none'
+}
+
+function cerrar_desplegable(){
+    desplegable.style.display = 'none'
+}
