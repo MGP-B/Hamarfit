@@ -13,45 +13,43 @@
             <p>Fecha de Emisión <br><span>01/03/2025</span></p>
             <p>Fecha de Vencimiento <br><span>01/04/2025</span></p>
         </div>
-
-        <div class="mini-contenedor">
-            <div class="campos">
-                <ul>
-                    <li>Plan</li>
-                    <li>Sucursal</li>
-                    <li>Monto</li>
-                </ul>
-            </div>
-            <div class="info">
-                <ul>
-                    <li><span>PlanPro</span></li>
-                    <li>Santiago - Center</li>
-                    <li>$1,500</li>
-                </ul>
-            </div>
+    
+        <div class="informacion-factura">
+            <h2>INFORMACION DE LA FACTURA</h2>
+            <p>Fecha de Emisión: <span>01/04/2025</span></p>
+            <p>Fecha de Vencimiento: <span>01/05/2025</span></p>
+            <p>Método de Pago: <span>Tarjeta</span></p>
+            <p>Atendido por: <span>José Miguel</span></p>
         </div>
-
-        <h4>Notas</h4>
-        <p>Gracias por su preferencia. Los pagos no son reembolsables.</p>
-
-        <h4>Método de pago</h4>
-        <img src="/src/img/admin/sucursales/credit-card 2.png" alt="">
-        <p>Tarjeta</p>
-
-        <div class="total">
-            <p>Total: <span>RD$ 99.99</span></p>
-        </div>
-
-        <form action="">
-            <button id="boton-descargar">
-                <img src="/src/img/admin/sucursales/download 2.png" alt="">
-                <p>Descargar PDF</p>
-            </button>
-            <button id="boton-imprimir">
-                <img src="/src/img/admin/sucursales/printer 1.png" alt="">
-                <p>Imprimir</p>
-            </button>
-        </form>
     </div>
+    
+    <div class="detalles-servicio">
+        <h3>Detalles del Servicio</h3>
+        <ul>
+            <li>Descripción</li>
+            <li>Sucursal</li>
+            <li>Monto</li>
+        </ul>
+        <div class="plan">
+            <ul>
+                <li>PlanPro<br>
+                    <p>Período: 01/03/2025 - 01/04/2025</p>
+                </li>
+                <li>Santiago - Center</li>
+                <li>$1500.00</li>
+            </ul>
+        </div>
+    </div>
+    
+    <form action="">
+        <button id="boton-descargar">
+            <img src="/src/img/admin/sucursales/download 2.svg" alt="">
+            <p>Descargar PDF</p>
+        </button>
+    
+        <button id="boton-imprimir">
+            <img src="/src/img/admin/sucursales/printer 1.svg" alt="">
+            <p>Imprimir</p>
+        </button>
+    </form>
 </div>
-<div class="cerrar" onclick="cerrar_popup()"></div>
