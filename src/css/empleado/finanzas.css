@@ -91,7 +91,7 @@ main{
 /* Encabezado del contenido */
 #contenedor_contenido .encabezado_contenido{
     display: grid;
-    grid-template-columns: 120px 1fr 150px 130px 100px 90px;
+    grid-template-columns: 10% 30% 15% 20% 10% 5%;
     gap: 10px;
 
     background-color: #FCA502;
@@ -107,7 +107,7 @@ main{
 #contenedor_contenido #contenido{
     /* Asignación de columnas y espaciados */
     display: grid;
-    grid-template-columns: 120px 1fr 150px 130px 100px 90px;
+    grid-template-columns: 10% 30% 15% 20% 10% 5%;
     gap: 10px;
 
     /* Estilos del contenido */

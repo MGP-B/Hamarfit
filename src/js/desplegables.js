@@ -26,6 +26,7 @@ function agregar_popup(ruta){
         desplegable.style.display = 'none';
     }
 
+    // Condicional para hacer visible el contenedor en caso de que no lo sea
     if(contenedor_popup.style.display == 'none'){
         contenedor_popup.style.display = 'flex'
     }
@@ -38,10 +39,12 @@ function visible(){
     desplegable.style.display = 'block';
 }
 
+// Cerrar el pop up
 function cerrar_popup(){
     contenedor_popup.style.display = 'none'
 }
 
+// Cerrar el desplegable
 function cerrar_desplegable(){
     desplegable.style.display = 'none'
 }
