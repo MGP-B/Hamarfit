@@ -91,7 +91,7 @@ main{
 /* Encabezado del contenido */
 #contenedor_contenido .encabezado_contenido{
     display: grid;
-    grid-template-columns: 120px 1fr 150px 130px 100px 90px;
+    grid-template-columns: 10% 30% 15% 20% 10% 5%;
     gap: 10px;
 
     background-color: #FCA502;
@@ -107,7 +107,7 @@ main{
 #contenedor_contenido #contenido{
     /* Asignación de columnas y espaciados */
     display: grid;
-    grid-template-columns: 120px 1fr 150px 130px 100px 90px;
+    grid-template-columns: 10% 30% 15% 20% 10% 5%;
     gap: 10px;
 
     /* Estilos del contenido */
@@ -125,9 +125,73 @@ main{
     margin-left: 2vw;
     width: .6vw;
     height: auto;
-    pointer-events: all;
 }
-
+/* Desplegable del icono de acciones */
+#contenedor_contenido #contenido .desplegable{
+    display: none;
+    background-color: #F6F6F4;
+    border: 1px solid #A6A6A6;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    right: 1vw;
+    width: fit-content;
+    right: 1vw;
+    margin-top: 170px;
+}
+/* Título del desplegable */
+#contenedor_contenido #contenido .desplegable h2{
+    font-weight: bolder;
+    display: inline-block;
+}
+/* Botón de cerrar el desplegable */
+#contenedor_contenido #contenido .desplegable .x{
+    background: none;
+    border: none;
+    float: right;
+    height: auto;
+    transition: all .3s;
+    width: fit-content;
+}
+/* Imagen del botón */
+#contenedor_contenido #contenido .desplegable .x img{
+    width: 15px;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+/* Contenedores de las acciones o botones */
+#contenedor_contenido #contenido .desplegable .div_eliminar,
+#contenedor_contenido #contenido .desplegable .div_detalles{
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+    font-size: 1vw;
+    padding: 10px;
+    transition: .3s ;
+    will-change: transform;
+}
+/* Poner margin al div de "ver detalles" */
+#contenedor_contenido #contenido .desplegable .div_detalles{
+    margin-top: 10px;
+}
+/* Cambiar el color del texto del div de "Eliminar" */
+#contenedor_contenido #contenido .desplegable .div_eliminar{
+    color: #C31414;
+}
+/* HOVER a los contenedores de las acciones */
+#contenedor_contenido #contenido .desplegable .div_eliminar:hover,
+#contenedor_contenido #contenido .desplegable .div_detalles:hover{
+    background-color: #d9d9d9;
+    cursor: pointer;
+    transform: scale(.95);
+}
+/* Iconos de las acciones */
+#contenedor_contenido #contenido .desplegable div img{
+    width: 20px;
+    margin: 0;
+    margin-right: 5px;
+}
 /* Transición a todos los botones */
 main button{
     transition: all .15s;

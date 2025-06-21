@@ -1,64 +1,57 @@
 <div class="cuerpo_popup">
-    <div class="encabezado">
-        <div class="encabezado1">
-            <h2>HAMARFIT</h2>
-            <h3>Av. Principal #123, Ciudad</h3>
-            <h3>Tel: (123) 456-7890</h3>
-            <h3>info@hamarfit.com</h3>
+    <h2>Detalles de Factura</h2>
+    <h3>Información completa de la factura seleccionada</h3>
+
+    <div class="contenedor-contenido">
+        <h3>Factura #FAC-001</h3>
+        <p>Pagada</p>
+        <div class="info1">
+            <p>Atendido por: <br><span>José Miguel</span> <br>Administrador</p>
+            <p>Cliente: <br><span>José Sosa</span> <br>ID: CLI-001</p>
         </div>
-    
-        <div class="encabezado2">
-            <h2>Factura</h2>
-            <h3>#FAC-001</h3>
-            <h3>PAGADA</h3>
+        <div class="info2">
+            <p>Fecha de Emisión <br><span>01/03/2025</span></p>
+            <p>Fecha de Vencimiento <br><span>01/04/2025</span></p>
         </div>
+
+        <div class="mini-contenedor">
+            <div class="campos">
+                <ul>
+                    <li>Plan</li>
+                    <li>Sucursal</li>
+                    <li>Monto</li>
+                </ul>
+            </div>
+            <div class="info">
+                <ul>
+                    <li><span>PlanPro</span></li>
+                    <li>Santiago - Center</li>
+                    <li>$1,500</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Notas</h4>
+        <p>Gracias por su preferencia. Los pagos no son reembolsables.</p>
+
+        <h4>Método de pago</h4>
+        <img src="/src/img/admin/sucursales/credit-card 2.svg" alt="">
+        <p>Tarjeta</p>
+
+        <div class="total">
+            <p>Total: <span>RD$ 99.99</span></p>
+        </div>
+
+        <form action="">
+            <button id="boton-descargar">
+                <img src="/src/img/admin/sucursales/download 2.svg" alt="">
+                <p>Descargar PDF</p>
+            </button>
+            <button id="boton-imprimir">
+                <img src="/src/img/admin/sucursales/printer 1.svg" alt="">
+                <p>Imprimir</p>
+            </button>
+        </form>
     </div>
-    
-    <div class="informacion">
-        <div class="informacion-cliente">
-            <h2>CLIENTE</h2>
-            <h3>José Sosa</h3>
-            <p>ID: CLI-0001</p>
-            <p>cliente@ejemplo.com</p>
-            <p>+1 (555) 123-4567</p>
-        </div>
-    
-        <div class="informacion-factura">
-            <h2>INFORMACION DE LA FACTURA</h2>
-            <p>Fecha de Emisión: <span>01/04/2025</span></p>
-            <p>Fecha de Vencimiento: <span>01/05/2025</span></p>
-            <p>Método de Pago: <span>Tarjeta</span></p>
-            <p>Atendido por: <span>José Miguel</span></p>
-        </div>
-    </div>
-    
-    <div class="detalles-servicio">
-        <h3>Detalles del Servicio</h3>
-        <ul>
-            <li>Descripción</li>
-            <li>Sucursal</li>
-            <li>Monto</li>
-        </ul>
-        <div class="plan">
-            <ul>
-                <li>PlanPro<br>
-                    <p>Período: 01/03/2025 - 01/04/2025</p>
-                </li>
-                <li>Santiago - Center</li>
-                <li>$1500.00</li>
-            </ul>
-        </div>
-    </div>
-    
-    <form action="">
-        <button id="boton-descargar">
-            <img src="/src/img/admin/sucursales/download 2.png" alt="">
-            <p>Descargar PDF</p>
-        </button>
-    
-        <button id="boton-imprimir">
-            <img src="/src/img/admin/sucursales/printer 1.png" alt="">
-            <p>Imprimir</p>
-        </button>
-    </form>
 </div>
+<div class="cerrar" onclick="cerrar_popup()"></div>
