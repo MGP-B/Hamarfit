@@ -1,4 +1,4 @@
-@import url(/src/css/empleado/admin.css);
+@import './admin.css';
 
 body {
     background-color: #ECECEC;
