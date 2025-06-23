@@ -45,7 +45,7 @@
 }
 /* Título del desplegable */
 #contenedor_contenido #contenido .desplegable h2{
-    font-weight: bolder;
+    font-weight: bold;
     display: inline-block;
     font-size: 1.18rem;
 }
