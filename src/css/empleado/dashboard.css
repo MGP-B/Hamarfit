@@ -120,6 +120,11 @@ main {
     padding: 7px 6px;
 }
 
+.ingresos_recientes .encabezado_actividades a:hover,
+.clientes_recientes .encabezado_actividades a:hover {
+    transform: scale(0.95);
+}
+
 .ingresos_recientes .contenedor_contenido .encabezado_tabla_ingresos {
     background-color: #FCA502;
     color: #fff;
