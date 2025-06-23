@@ -15,33 +15,40 @@
             <img src="../../../src/img/perfiles/Male User.svg" alt="">
         </div>
     </header>
-
+    
     <aside>
-        <div id="icono-user">
-            N
+        <div class="user">
+            <div id="icono-user">
+                N
+            </div>
+            <div id="nombre-plan">
+                <div class="nombre-user">Nombre de usuario</div>
+                <div class="plan-user">Plan <span>Pro</span></div>
+            </div>
         </div>
-        <div id="nombre-plan">
-            <div class="nombre-user">Nombre de usuario</div>
-            <div class="plan-user">Plan <span>Pro</span></div>
-        </div>
-
         <ul class="opciones-menu">
             <li id="menu-user">
-                <img src="../../../src/img/perfiles/Term.svg" alt="">
-                <img src="../../../src/img/perfiles/Term-1.svg" alt="">
-                <a href="planes-contratados.html">Planes contratados</a>
+                <a href="planes-contratados.html">
+                    <img src="../../../src/img/perfiles/Term-1.svg" alt="" id="activo">
+                    <img src="../../../src/img/perfiles/Term.svg" alt="" id="inactivo">
+                    <h4>Planes contratados</h4>
+                </a>
             </li>
             <li id="menu-user">
-                <img src="../../../src/img/perfiles/Settings-1.svg" alt="">
-                <img src="../../../src/img/perfiles/Settings.svg" alt="">
-                <a href="ajustes-de-cuenta.html">Ajustes de Cuenta</a>
+                <a href="ajustes-de-cuenta.html" style="background-color: rgba(242, 180, 66, 0.25);">
+                    <img src="../../../src/img/perfiles/Settings.svg" alt="" id="activo" style="opacity: 1;">
+                    <img src="../../../src/img/perfiles/Settings-1.svg" alt="" id="inactivo" style="opacity: 0;">
+                    <h4 style="color: #ffa500;">Ajustes de Cuenta</h4>
+                </a>
             </li>
         </ul>
-        <ul class="Logout-menu">
+        <ul class="logout-menu">
             <li id="logout">
-                <img src="../../../src/img/perfiles/Logout-1.svg" alt="">
-                <img src="../../../src/img/perfiles/Logout.svg" alt="">
-                <a href="#">Cerrar Sesión</a>
+                <a href="#">
+                    <img src="../../../src/img/perfiles/Logout.svg" alt="" id="activo">
+                    <img src="../../../src/img/perfiles/Logout-1.svg" alt="" id="inactivo">
+                    <h4>Cerrar Sesión</h4>
+                </a>
             </li>
         </ul>
     </aside>
@@ -50,7 +57,7 @@
         <form id="cuenta-user">
             <input type="email" id="correo" placeholder="Correo">
             <input type="tel" id="telefono" placeholder="Télefono">
-            <input type="password" id="contrasena" placeholder="Contraseñá">
+            <input type="password" id="contrasena" placeholder="Contraseña">
             <input type="password" id="contrasena" placeholder="Confirmar Contraseña">
         </form>
 
