@@ -88,7 +88,24 @@
                     <p>josemiguel@gmail.com</p>
                     <p>Administrador</p>
                     <p>Activo</p>
-                    <img src="/src/img/admin/global/tres_puntos.svg" alt="">
+                    <div class="div_acciones" onclick="visible()">
+                        <img src="/src/img/admin/global/tres_puntos.svg">
+                    </div>
+                    <!-- Desplegable de acciones -->
+                    <div class="desplegable" id="desplegable">
+                        <h2>Acciones</h2>
+                        <button onclick="cerrar_desplegable()" class="x">
+                            <img src="../../src/img/admin/global/x.svg">
+                        </button>
+                        <div class="div_detalles" onclick="agregar_popup('/html/admin/desplegables/finanzas/ver_factura.html')"
+                            title="Ver detalles">
+                            <img src="../../src/img/admin/global/ojo.svg">
+                            <p>Ver detalles</p>
+                        </div>
+                        <div class="div_eliminar" onclick="">
+                            <img src="../../src/img/admin/global/eliminar.svg">
+                            <p>Eliminar</p>
+                        </div>
                 </div>
             </div>
         </div>

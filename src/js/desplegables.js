@@ -14,6 +14,7 @@ function agregar_popup(ruta){
     .then(contenido =>{
         // Agregar el contenido de la respuesta al contenedor del pop up
         contenedor_popup.innerHTML = contenido;
+        contenedor_popup.style.display = 'flex'
     })
     // En caso de error atrapa...
     .catch(error =>{
