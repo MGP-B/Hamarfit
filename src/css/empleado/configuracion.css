@@ -1,4 +1,6 @@
 @import './admin.css';
+@import './desplegables/desplegables.css';
+
 /* Tamaño del main */
 main{
     box-sizing: border-box;
