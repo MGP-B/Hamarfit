@@ -1,81 +1,86 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Usuario</title>
     <link rel="stylesheet" href="../../../src/css/cliente/perfiles/planes-contratados.css">
+    <title>Hamarfit - Perfil de usuario</title>
 </head>
 <body>
     <header>
-        <!-- Contenedor del logo -->
-         <div class="logo">
-            <a href="../../../index.html">
-                <h1>HAMAR<span>FIT</span></h1>
-            </a>
-         </div>
-         <!-- Contenedor de icono de perfil -->
-          <div class="icono-perfil">
-            <a href="#">
-                <img src="../../../src/img/perfiles/icon-usuario.png" alt="icono">
-            </a>
-          </div>
+        <a href="../../../index.html">
+            <h1>HAMAR<span>FIT</span></h1>
+        </a>
+        <div class="icono-header">
+            <img src="../../../src/img/perfiles/Male User.svg" alt="">
+        </div>
     </header>
+
+    <aside>
+        <div class="user">
+            <div id="icono-user">
+                N
+            </div>
+            <div id="nombre-plan">
+                <div class="nombre-user">Nombre de usuario</div>
+                <div class="plan-user">Plan <span>Pro</span></div>
+            </div>
+        </div>
+        <ul class="opciones-menu">
+            <li id="menu-user">
+                <img src="../../../src/img/perfiles/Term.svg" alt="">
+                <img src="../../../src/img/perfiles/Term-1.svg" alt="">
+                <a href="planes-contratados.html">Planes contratados</a>
+            </li>
+            <li id="menu-user">
+                <img src="../../../src/img/perfiles/Settings-1.svg" alt="">
+                <img src="../../../src/img/perfiles/Settings.svg" alt="">
+                <a href="ajustes-de-cuenta.html">Ajustes de Cuenta</a>
+            </li>
+        </ul>
+        <ul class="Logout-menu">
+            <li id="logout">
+                <img src="../../../src/img/perfiles/Logout-1.svg" alt="">
+                <img src="../../../src/img/perfiles/Logout.svg" alt="">
+                <a href="#">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </aside>
+
     <main>
-        <div class="banner-menu">
-            <!-- Banner del perfil -->
-            <div class="banner">
-                <img src="../../../src/img/perfiles/banner_perfil.png" alt="Banner">
+        <div class="beneficios">
+            <h2>Beneficios</h2>
+            <div class="informacion">
+                <ul class="lista-beneficios">
+                    <li>
+                        <img src="../../../src/img/perfiles/Vector.svg" alt="">Acceso a musculación
+                    </li>
+                    <li>
+                        <img src="../../../src/img/perfiles/Vector.svg" alt="">Asesoramiento Personalizado
+                    </li>
+                    <li>
+                        <img src="../../../src/img/perfiles/Vector.svg" alt="">Rutinas de entrenamiento
+                    </li>
+                    <li>
+                        <img src="../../../src/img/perfiles/Vector.svg" alt="">Uso libre de lockers
+                    </li>
+                    <li>
+                        <img src="../../../src/img/perfiles/Vector.svg" alt="">Clases grupales ilimitadas
+                    </li>
+                    <li>
+                        <img src="../../../src/img/perfiles/Vector.svg" alt="">Descuentos de suplementos 
+                    </li>
+                </ul>
+
+                <div id="fecha-contratacion"><h3>Fecha de contratación:</h3></div>
+                <div id="estado"><h3>Estado:</h3></div>
+                <div id="mensualidad"><h3>Mensualidad:</h3></div>
             </div>
-            
-            <!-- Contenedor del perfil -->
-            <div class="perfil-container">
-                <!-- Icono de foto de perfil -->
-                <div class="icono-usuario2">
-                    <img src="../../../src/img/perfiles/icono-usuario2.png" alt="Icono">
-                </div>
-                <!-- Nombre y Plan -->
-                <div class="nombre-membresia">
-                    <h3>Nombre Completo</h3>
-                    <p>Plan <span>Pro</span></p>
-                </div>
-                <!-- Opciones del perfil -->
-                <div class="opciones-perfil">
-                    <ul>
-                        <li><a href="../../../html/user/perfiles/planes-contratados.html" class="selection">Planes contratados</a></li>
-                        <li><a href="../../../html/user/perfiles/ajustes-de-cuenta.html" >Ajustes de cuenta</a></li>
-                        <li><a href="#" class="rojo"><span>Cerrar sesión</span></a></li>
-                    </ul>
-                </div>
-            </div>
+
+            <button type="submit">Cancelar Membresía</button>
         </div>
 
-          <!-- Planes Contratados -->
-          <div class="planes-contratados"> 
-            <div class="beneficios">
-                <!-- Beneficios -->
-                <h3>Beneficios</h3>
-                <ul>
-                    <li>Acceso ilimitado al gimnasio</li>
-                    <li>Uso de instalaciones premium</li>
-                    <li>Entrenamiento personal gratis 5 veces al mes</li>
-                    <li>Consultas mensuales gratis con un Nutricionista</li>
-                    <li>Spa y sauna</li>
-                    <li>Eventos especiales</li>
-                    <li>Acceso prioritario a maquinas y áreas</li>
-                    <li>Invita 6 amigos al mes</li>
-                </ul>
-                <!-- Informacion de Membresía -->
-                <h4>Fecha de Contratación: 30/01/25</h4>
-                <h4>Fecha de Vencimiento/Renovación: 28/02/25</h4>
-                <h4>Estado: <span>Activa</span></h4>
-                <h4>Precio: 2,500 RD$</h4>
-            </div>
-        </div>
-        <!-- Boton de Cancelar Membresía -->
-        <div class="boton-container">
-            <button id="boton-cancelar">Cancelar Membresía</button>
-        </div>
-    </main>
+
+    </main>    
 </body>
 </html>

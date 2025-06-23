@@ -8,68 +8,54 @@
 </head>
 <body>
     <header>
-        <!-- Contenedor del logo -->
-         <div class="logo">
-            <a href="../../../index.html"><img src="../../../src/img/perfiles/HAMARFIT.png" alt="Logo"></a>
-         </div>
-         <!-- Contenedor de icono de perfil -->
-          <div class="icono-perfil">
-            <a href="#"><img src="../../../src/img/perfiles/icon-usuario.png" alt="icono"></a>
-          </div>
-    </header>
-    <main>
-        <!-- Banner del perfil -->
-         <div class="banner">
-            <img src="../../../src/img/perfiles/banner_perfil.png" alt="Banner">
-         </div>
-         <!-- Contenedor del perfil -->
-          <div class="perfil-container">
-            <!-- Icono de foto de perfil -->
-             <div class="icono-usuario2">
-                <img src="../../../src/img/perfiles/icono-usuario2.png" alt="Icono">
-             </div>
-             <!-- Nombre y Plan -->
-             <div class="nombre-membresia">
-                <h3>Nombre Completo</h3>
-                <p>Plan <span>Pro</span></p>
-            </div>
-            <!-- Opciones del perfil -->
-             <div class="opciones-perfil">
-                <ul>
-                    <li><a href="../../../html/user/perfiles/planes-contratados.html">Planes contratados</a></li>
-                    <li><a href="../../../html/user/perfiles/ajustes-de-cuenta.html" class="selection">Ajustes de cuenta</a>
-                        <ul>
-                            <li><a href="../../../html/user/perfiles/metodo-pago.html">Método de pago</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" class="rojo"><span>Cerrar sesión</span></a></li>
-                </ul>
-             </div>
-          </div>
-          <form action="">
-            
-          </form>
-        <div class="opciones-de-cuenta">
-            <form action="">
-                <div class="formularios1">
-                    <ul>
-                        <li>
-                            <h2>Foto de perfil</h2>
-                        </li>
-                        <li><label for="arrastrar-imagen">
-                                <img src="../../../src/img/perfiles/Group 21.png" alt="Arrastrar-Imagen">
-                            </label><input type="file" id="arrastrar-imagen" style="display: none;"></li>
-                        <li><input type="email" id="correo" placeholder="Correo"></li>
-                        <li><input type="tel" id="telefono" minlength="10" maxlength="10" placeholder="Télefono">
-                        </li>
-                        <li><input type="password" id="nueva-contrasena" placeholder="Contraseña"></li>
-                        <li><input type="password" id="confirmar-contrasena" placeholder="Confirmar contraseña"></li>
-                    </ul>
-                </div>
-            </form>
+        <a href="../../../index.html">
+            <h1>HAMAR<span>FIT</span></h1>
+        </a>
+        <div class="icono-header">
+            <img src="../../../src/img/perfiles/Male User.svg" alt="">
         </div>
-        <form class="boton-container">
-            <button id="boton-guardar">Guardar Cambios</button>
+    </header>
+
+    <aside>
+        <div id="icono-user">
+            N
+        </div>
+        <div id="nombre-plan">
+            <div class="nombre-user">Nombre de usuario</div>
+            <div class="plan-user">Plan <span>Pro</span></div>
+        </div>
+
+        <ul class="opciones-menu">
+            <li id="menu-user">
+                <img src="../../../src/img/perfiles/Term.svg" alt="">
+                <img src="../../../src/img/perfiles/Term-1.svg" alt="">
+                <a href="planes-contratados.html">Planes contratados</a>
+            </li>
+            <li id="menu-user">
+                <img src="../../../src/img/perfiles/Settings-1.svg" alt="">
+                <img src="../../../src/img/perfiles/Settings.svg" alt="">
+                <a href="ajustes-de-cuenta.html">Ajustes de Cuenta</a>
+            </li>
+        </ul>
+        <ul class="Logout-menu">
+            <li id="logout">
+                <img src="../../../src/img/perfiles/Logout-1.svg" alt="">
+                <img src="../../../src/img/perfiles/Logout.svg" alt="">
+                <a href="#">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </aside>
+
+    <main>
+        <form id="cuenta-user">
+            <input type="email" id="correo" placeholder="Correo">
+            <input type="tel" id="telefono" placeholder="Télefono">
+            <input type="password" id="contrasena" placeholder="Contraseñá">
+            <input type="password" id="contrasena" placeholder="Confirmar Contraseña">
+        </form>
+
+        <form id="cuenta-user">
+            <button type="submit"> Guardar cambios </button>
         </form>
     </main>
 </body>
