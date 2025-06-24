@@ -6,7 +6,7 @@
     border-radius: 8px;
     padding: 60px;
     max-width: 400px;
-    width: 50%;
+    width: 70%;
     height: 80%;
 }
 
@@ -14,6 +14,7 @@
     font-weight: 600;
     font-size: 1.6vw;
     padding: 4px;
+    margin-top: -18px;
 }
 
 .cuerpo_popup h3 {

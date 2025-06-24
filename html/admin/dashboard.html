@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../src/css/empleado/admin.css">
+    <link rel="stylesheet" href="../../src/css/empleado/dashboard.css">
     <title>Admin | Dashboard</title>
 </head>
 <body>
@@ -66,23 +66,29 @@
             <p class="subtitulo">Bienvenido al panel de control de HamarFit</p> 
         </div>
 
-        <!-- Div de suscripciones -->
-        <div class="div_suscripciones">
-            <h3>Suscripciones</h3>
-            <img src="../../src/img/admin/global/estadisticas.svg">
-            <div id="ganancias_suscripciones">$12,345</div>
-            <div id="comparacion_suscripciones">
-                <span>+8%</span> respecto al mes anterior
+        <div class="contenedor_flex">
+            <!-- Div de suscripciones -->
+            <div class="div_suscripciones">
+                <div class="encabezado_suscripcion">
+                    <h3>Suscripciones</h3>
+                    <img src="../../src/img/admin/global/estadisticas.svg">
+                </div>
+                <div id="ganancias_suscripciones">$12,345</div>
+                <div id="comparacion_suscripciones">
+                    <span>+8%</span> respecto al mes anterior
+                </div>
             </div>
-        </div>
-        
-        <!-- Div de ganancias semanales -->
-        <div class="div_ganancia_semanal">
-            <h3>Suscripciones</h3>
-            <img src="../../src/img/admin/global/dinero.svg">
-            <div id="ganancia_semanal">$6,085</div>
-            <div id="comparacion_ganancias">
-                <span>+18%</span> respecto a la semana anterior
+            
+            <!-- Div de ganancias semanales -->
+            <div class="div_ganancia_semanal">
+                <div class="encabezado_ganancias">
+                    <h3>Ganancias de esta semana</h3>
+                    <img src="../../src/img/admin/global/dinero.svg">
+                </div>
+                <div id="ganancia_semanal">$6,085</div>
+                <div id="comparacion_ganancias">
+                    <span>+18%</span> respecto a la semana anterior
+                </div>
             </div>
         </div>
 
@@ -92,63 +98,83 @@
             <p class="subtitulo">Eventos programados para hoy</p>
 
 
-            <!-- Contenedor de ingresos recientes -->
-            <div class="ingresos_recientes">
-                <!-- Encabezado de la actividad "Ingresos" -->
-                <div class="encabezado_actividades">
-                    <!-- Div con el título y subtítulo -->
-                    <div>
-                        <h4 class="subtitulo">Ingresos Recientes</h4>
-                        <p class="subtitulo">Últimos ingresos registrados</p>
+            <div class="flex">
+                <!-- Contenedor de ingresos recientes -->
+                <div class="ingresos_recientes">
+                    <!-- Encabezado de la actividad "Ingresos" -->
+                    <div class="encabezado_actividades">
+                        <!-- Div con el título y subtítulo -->
+                        <div>
+                            <h4>Ingresos Recientes</h4>
+                            <p class="subtitulo">Últimos ingresos registrados</p>
+                        </div>
+                        <!-- Enlace al apartado de finanzas -->
+                        <a href="finanzas.html">Ver Más</a>
                     </div>
-                    <!-- Enlace al apartado de finanzas -->
-                    <a href="finanzas.html">Ver Más</a>
+                
+                    <!-- Contenedor de los contenedores de datos -->
+                    <div class="contenedor_contenido">
+                        <!-- Contenedor de los encabezados -->
+                        <div class="encabezado_tabla_ingresos">
+                            <p>Fecha</p>
+                            <p>Descripción</p>
+                            <p>Membresía</p>
+                            <p>Monto</p>
+                        </div>
+                
+                        <!-- Contenedor de los datos -->
+                        <div id="dashdboard_contenido_ingresos">
+                            <p>19/05/2025</p>
+                            <p>Renovación Plan Anual</p>
+                            <p>Plan Pro</p>
+                            <p>$3,200.00</p>
+                        </div>
+                        <div id="dashdboard_contenido_ingresos_amarillo">
+                            <p>19/05/2025</p>
+                            <p>Suscripción Plan Mensual</p>
+                            <p>Plan Básico</p>
+                            <p>$900.00</p>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Contenedor de los contenedores de datos -->
-                <div class="contenedor_contenido">
-                    <!-- Contenedor de los encabezados -->
-                    <div class="encabezado_tabla_ingresos">
-                        <p>Fecha</p>
-                        <p>Descripción</p>
-                        <p>Membresía</p>
-                        <p>Monto</p>
+                
+                
+                <!-- Contenedor de clientes resientes -->
+                <div class="clientes_recientes">
+                    <!-- Encabezado de la actividad "Ingresos" -->
+                    <div class="encabezado_actividades">
+                        <!-- Div con el título y subtítulo -->
+                        <div>
+                            <h4>Clientes Recientes</h4>
+                            <p class="subtitulo">Últimos Clientes registrados en la web</p>
+                        </div>
+                        <!-- Enlace al apartado de finanzas -->
+                        <a href="clientes.html">Ver Más</a>
                     </div>
-
-                    <!-- Contenedor de los datos -->
-                    <div id="dashdboard_contenido_ingresos">
-
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Contenedor de clientes resientes -->
-            <div class="clientes_recientes">
-                <!-- Encabezado de la actividad "Ingresos" -->
-                <div class="encabezado_actividades">
-                    <!-- Div con el título y subtítulo -->
-                    <div>
-                        <h4 class="subtitulo">Clientes Recientes</h4>
-                        <p class="subtitulo">Últimos Clientes registrados en la web</p>
-                    </div>
-                    <!-- Enlace al apartado de finanzas -->
-                    <a href="clientes.html">Ver Más</a>
-                </div>
-
-                <!-- Contenedor de los contenedores de datos -->
-                <div class="contenedor_contenido">
-                    <!-- Contenedor de los encabezados -->
-                    <div class="encabezado_tabla_clientes">
-                        <p>Fecha</p>
-                        <p>Nombre</p>
-                        <p>Descripción</p>
-                        <p>Membresía</p>
-                    </div>
-
-                    <!-- Contenedor de los datos -->
-                    <div id="ashdboard_contenido_clientes">
-
+                
+                    <!-- Contenedor de los contenedores de datos -->
+                    <div class="contenedor_contenido">
+                        <!-- Contenedor de los encabezados -->
+                        <div class="encabezado_tabla_clientes">
+                            <p>Fecha</p>
+                            <p>Nombre</p>
+                            <p>Email</p>
+                            <p>Membresía</p>
+                        </div>
+                
+                        <!-- Contenedor de los datos -->
+                        <div id="ashdboard_contenido_clientes">
+                            <p>19/05/2025</p>
+                            <p>José Miguel</p>
+                            <p>jmiguel@gmail.com</p>
+                            <p>Plan Pro</p>
+                        </div>
+                        <div id="ashdboard_contenido_clientes_amarillo">
+                            <p>19/05/2025</p>
+                            <p>María Rodríguez</p>
+                            <p>mrodriguez@gmail.com</p>
+                            <p>Plan Básico</p>
+                        </div>
                     </div>
                 </div>
             </div>
