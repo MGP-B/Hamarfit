@@ -1,4 +1,6 @@
+/* Importar los estilos de admin.css */
 @import './admin.css';
+@import './desplegables/desplegables.css';
 
 body {
     background-color: #ECECEC;
@@ -110,4 +112,65 @@ main {
 main button:hover {
     cursor: pointer;
     transform: scale(0.95);
+}
+
+
+
+/* Contenedor de los contenidos o datos */
+#contenedor_contenido{
+    background-color: white;
+    border: 1px solid #7B7B7B;
+    border-radius: 3px;
+    height: 60vh;
+    max-height: 350px;
+    margin-top: 3vh;
+    overflow-x: auto;
+}
+/* Encabezado del contenido */
+#contenedor_contenido .encabezado_contenido{
+    display: grid;
+    grid-template-columns: 5% 10% 25% 15% 20% 10% 5%;
+    gap: 10px;
+
+    background-color: #FCA502;
+    color: white;
+    padding: 15px;
+    font-weight: bolder;
+    font-size: 1.4vw;
+    width: fit-content;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+/* Contenido */
+#contenedor_contenido #contenido{
+    /* Asignación de columnas y espaciados */
+    display: grid;
+    grid-template-columns: 5% 10% 25% 15% 20% 10% 5%;
+    gap: 10px;
+
+    /* Estilos del contenido */
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    font-size: 1.15vw;
+    align-items: center;
+    margin-top: 5px;
+    min-width: 100%;
+    padding: 15px;
+    width: fit-content;
+}
+/* icono de acciones */
+#contenedor_contenido #contenido img{
+    margin-left: 2vw;
+    width: .6vw;
+    height: auto;
+}
+/* Transición a todos los botones */
+main button{
+    transition: all .15s;
+    will-change: transform;
+}
+/* Hover a todos los botones */
+main button:hover{
+    cursor: pointer;
+    transform: scale(.95);
 }
