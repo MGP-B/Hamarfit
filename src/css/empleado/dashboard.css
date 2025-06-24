@@ -183,3 +183,26 @@ main {
     grid-template-columns: 20% 22% 35% 35%;
     padding: 8px 5px;
 }
+
+@media (max-width: 800px) {
+    .contenedor_flex {
+        width: 90%;
+        height: 26vh;
+    }
+
+    .div_suscripciones,
+    .div_ganancia_semanal {
+        height: 15vh;
+    }
+
+    .actividades_recientes {
+        width: 90%;
+        height: 45vh;
+    }
+
+    .ingresos_recientes,
+    .clientes_recientes {
+        width: 90%;
+        height: 35vh;
+    }
+}
