@@ -54,16 +54,48 @@
     </aside>
 
     <main>
-        <form id="cuenta-user">
-            <input type="email" id="correo" placeholder="Correo">
-            <input type="tel" id="telefono" placeholder="Télefono">
-            <input type="password" id="contrasena" placeholder="Contraseña">
-            <input type="password" id="contrasena" placeholder="Confirmar Contraseña">
-        </form>
+        <h2>Información de cuenta</h2>
 
-        <form id="cuenta-user">
-            <button type="submit"> Guardar cambios </button>
-        </form>
+        <div class="datos">
+            <div class="miembro">
+                <h4>Miembro</h4>
+                <div id="nombre-cliente">
+                    <p>Nombre de usuario</p>
+                </div>
+            </div>
+
+            <div class="membresia-user">
+                <h4>Membresía</h4>
+                <div id="membresia">
+                    <p>Plan Pro</p>
+                </div>
+            </div>
+
+            <div class="correo-user">
+                <div id="correo">
+                    <p>correo@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="telefono-user">
+                <div id="telefono">
+                    <p>809-462-1235</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="configurar-datos">
+            <h3>Configuración</h3>
+            
+            <div class="configuracion">
+                <form id="nueva-contrasena">
+                    <input type="password" id="contrasena" placeholder="Nueva contraseña">
+                    <input type="password" id="confirmar-contrasena" placeholder="Confirmar Contraseña">
+
+                    <button type="submit"><img src="" alt=""></button>
+                </form>
+            </div>
+        </div>
     </main>
 </body>
 </html>
