@@ -15,6 +15,10 @@ main {
     font-size: 2vw;
 }
 
+.encabezado .subtitulo {
+    font-size: 1.2vw;
+}
+
 /* Contenedor para el display= flex */
 .contenedor_flex {
     display: flex;
@@ -87,11 +91,13 @@ main {
     padding-bottom: 8px;
 }
 
+/* Estilo al contenedor flex */
 .actividades_recientes .flex {
     display: flex;
     gap: 15px;
 }
 
+/* Estilos a los 2 contenedores de ingresos recientes y clientes recientes */
 .ingresos_recientes,
 .clientes_recientes {
     background-color: #fff;
@@ -102,6 +108,7 @@ main {
     padding: 10px;
 }
 
+/* Estilos al encabezado de los 2 contenedores ingresos recientes y clientes recientes */
 .ingresos_recientes .encabezado_actividades,
 .clientes_recientes .encabezado_actividades {
     display: flex;
@@ -128,6 +135,7 @@ main {
     transform: scale(0.95);
 }
 
+/* Estilos al encabezado de la tabla de ingresos recientes */
 .ingresos_recientes .contenedor_contenido .encabezado_tabla_ingresos {
     background-color: #FCA502;
     color: #fff;
@@ -139,6 +147,7 @@ main {
     margin-bottom: 8px;
 }
 
+/* Estilos al encabezado de la tabla de clientes recientes */
 .clientes_recientes .contenedor_contenido .encabezado_tabla_clientes {
     background-color: #FCA502;
     color: #fff;
@@ -150,6 +159,7 @@ main {
     margin-bottom: 8px;
 }
 
+/* Estilos al contenido de ingresos recientes */
 .ingresos_recientes .contenedor_contenido #dashdboard_contenido_ingresos {
     color: #5A5A5A;
     font-size: 1vw;
@@ -158,6 +168,7 @@ main {
     padding: 8px 5px;
 }
 
+/* Estilos al contenido de ingresos recientes pero en amarillo */
 .ingresos_recientes .contenedor_contenido #dashdboard_contenido_ingresos_amarillo {
     color: #5A5A5A;
     background-color: rgba(252, 165, 2, 0.2);
@@ -167,6 +178,7 @@ main {
     padding: 8px 5px;
 }
 
+/* Estilos al contenido de clientes recientes */
 .clientes_recientes .contenedor_contenido #ashdboard_contenido_clientes {
     color: #5A5A5A;
     font-size: 1vw;
@@ -175,6 +187,7 @@ main {
     padding: 8px 5px; 
 }
 
+/* Estilos al contenido de clientes recientes pero en amarillo */
 .clientes_recientes .contenedor_contenido #ashdboard_contenido_clientes_amarillo {
     color: #5A5A5A;
     background-color: rgba(252, 165, 2, 0.2);
@@ -182,27 +195,4 @@ main {
     display: grid;
     grid-template-columns: 20% 22% 35% 35%;
     padding: 8px 5px;
-}
-
-@media (max-width: 800px) {
-    .contenedor_flex {
-        width: 90%;
-        height: 26vh;
-    }
-
-    .div_suscripciones,
-    .div_ganancia_semanal {
-        height: 15vh;
-    }
-
-    .actividades_recientes {
-        width: 90%;
-        height: 45vh;
-    }
-
-    .ingresos_recientes,
-    .clientes_recientes {
-        width: 90%;
-        height: 35vh;
-    }
 }
