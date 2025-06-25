@@ -1,5 +1,9 @@
 @import '../desplegables.css';
 
+.contenedor_popup{
+    background-color: red;
+}
+
 /* Cuerpo del pop up */
 .cuerpo_popup {
     background-color: #F6F6F4;
