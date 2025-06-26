@@ -1,21 +1,26 @@
 @import url(../../reset.css);
 @import url(../../fuentes.css);
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 /* Estilos para el header */
 header {
     width: 100%;
-    height: 10vh;
+    height: 10%;
     display: inline-flex;
     justify-items: center;
     justify-content: space-between;
-    box-shadow: 0 0 4px 2px rgba(0,0,0,.3);
+    box-shadow: 0 0 .4vw .2vw rgba(0,0,0,.3);
 }
 
 /* Estilo del logo en link*/
@@ -30,9 +35,9 @@ header a {
 /* h1 en header */
 header a h1 {
     width: 100%;
-    text-align: center;
     font-size: 2.5vw;
     font-family: paytone;
+    text-align: center;
     color: black;
 }
 
@@ -42,34 +47,61 @@ header a h1 span {
 
 /* Contenedor del header */
 header .icono-header{
-    width: 8%;
+    /* Bordes y margenes */
+    width: 10%;
+    height: 100%;
+    background-color: red;
+    
+    /* Estilos de fuente */
+    color: white;
+    font-family: rubik;
+    font-size: 1.5vw;
+    font-weight: 600;
+
+    /* Estilos flexbox */
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-/* imagen */
-header .icono-header img {
+header .icono-header a {
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+
+header .icono-header .icono {
     width: 3.5vw;
+    height: 3.5vw;
+    background-color: #ffa500;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Estilos del aside */
 aside{
-    height: 85.9vh;
+    /* Margenes y bordes */
+    background-color: blue;
     width: 20%;
+    height: 90%;
+    box-shadow: 0.1vw 0 0 0 rgba(0,0,0,.3);
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2%;
-    box-shadow: 1px 0 0 0 rgba(0,0,0,.3);
 }
 
 /* Contenedor de la información del usuario */
 aside .user {
+    background-color: rebeccapurple;
+    margin-bottom: 5%;
+    width: 100%;
+    height: 30%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 32%;
-    margin-bottom: 5%;
 }
 
 /* Estilos para el icono de usuario */
@@ -78,10 +110,13 @@ aside #icono-user {
     width: 8vw;
     height: 8vw;
     border-radius: 50%;
+    
+
     font-weight: 600;
     font-size: 3vw;
     font-family: rubik;
     color: white;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,57 +124,56 @@ aside #icono-user {
 }
 
 /* Estilos para el nombre de usuario */
-aside .nombre-user{
+/* aside .nombre-user{
     font-size: 1.8vw;
     font-family: rubik;
     text-align: center;
-}
+} */
 
 /* Estilos para el plan del usuario */
-aside .plan-user {
+/* aside .plan-user {
     font-size: 1.5vw;
     text-align: center;
     font-family: rubik;
     font-weight: 600;
-}
+} */
 
-aside span {
+/* aside span {
     color: #ffa500;
-}
+} */
 
 /* Estilos para el ul del menú lateral */
-aside .opciones-menu {
+/* aside .opciones-menu {
     width: 100%;
-    height: 48vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
-aside .logout-menu {
+/* aside .logout-menu {
     width: 100%;
     height: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 /* Estilos para los elementos del menú */
-aside li {
+/* aside li {
     width: 90%;
     height: 6vh;
     margin: 4%;
     background-color: #fff;
     border-radius: 0.5vw;
     position: relative;
-}
+} */
 
-aside li h4 {
+/* aside li h4 {
     margin-left: 20%;
-}
+} */
 
 /* Estilos para enlace en el menú */
-aside li a {
+/* aside li a {
     color: black;
     text-decoration: none;
     font-size: 1.3vw;
@@ -149,32 +183,33 @@ aside li a {
     align-items: center;
     font-family: rubik;
     font-weight: 600;
-}
+} */
 
-aside a img {
+/* aside a img {
+    width: 2.5vw;
     position: absolute;
     margin-left: 2%;
-}
+} */
 
-aside a:hover{
+/* aside a:hover{
     background-color: rgba(242, 180, 66, 0.25);
     color: #ffa500;
     border-radius: 0.5vw;
-}
+} */
 
-aside a #activo {
+/* aside a #activo {
     opacity: 0;
-}
+} */
 
-aside a #inactivo {
+/* aside a #inactivo {
     opacity: 1;
-}
+} */
 
-aside a:hover #inactivo {
+/* aside a:hover #inactivo {
     opacity: 0;
-}
+} */
 
-aside a:hover #activo {
+/* aside a:hover #activo {
     opacity: 1;
-}
+} */
 

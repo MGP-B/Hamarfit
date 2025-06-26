@@ -1,1 +1,5 @@
 @import url(menu-perfiles.css);
+
+main {
+    width: 80%;
+}
