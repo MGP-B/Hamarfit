@@ -39,6 +39,7 @@ main {
         align-items: center;
         gap: 8px;
         width: 100%;
+        position: relative;
 }
 
 .panel-control .barra-de-busqueda img {
@@ -81,88 +82,31 @@ main {
 
 /* Boton agregar nueva sucursal */
 .panel-control .boton-agregar {
-        background-color: #FCA502;
-        color: white;
-        border: none;
-        padding: 6px 12px;
-        border-radius: 6px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        width: 18%;
-        transition: background-color 0.2s;
-        display: flex;
-        position: relative;
+    background-color: #FCA502;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    width: 190px;
+    transition: background-color 0.2s;
+    display: flex;
+    position: relative;
 }
 
 .panel-control .boton-agregar img {
-    width: 15%;
-    margin-left: 2px;
     text-align: left;
 }
 
 .panel-control .boton-agregar p {
-    margin-top: 3px;
-    margin-left: 5px;
+    margin-top: 5px;
+    margin-left: 6px;
 }
 
 .panel-control .boton-agregar:hover {
     background-color: #fca402da;
-}
-
-/* Estilos de tarjeta de sucursal */
-.informacion-sucursal {
-    background-color: white;
-    height: 18vh;
-    width: 40%;
-    border: 2px solid #d9d9d9;
-    border-radius: 20px;
-    font-size: 0.7vw;
-    padding: 20px;
-    border: 1px solid green;
-}
-
-.informacion-sucursal h4 {
-    font-size: 1.5vw;
-}
-
-.informacion-sucursal h4 span {
-    color: white;
-    background-color: #FCA502;
-    margin-left: 15px;
-    font-size: 1vw;
-    padding: 3px 8px;
-    border-radius: 10px;
-}
-
-.informacion-sucursal a {
-    display: flex;
-    justify-content: right;
-    position: relative;
-    width: auto;
-    margin-top: -20px;
-}
-
-.informacion-sucursal a img {
-    width: 10px;
-}
-
-.informacion-sucursal .extra-sucursal {
-    border: 1px solid green;
-    display: inline-flex;
-    padding: 5px;
-    margin-top: 20px;
-    margin-right: 8px;
-    width: 13.9vw;
-}
-
-.informacion-sucursal .extra-sucursal img {
-    width: 8%;
-    margin-right: 3px;
-    margin-top: -3px;
-}
-
-.informacion-sucursal .extra-sucursal p {
-    font-size: 1vw;
 }
 
 main button:hover {
@@ -170,60 +114,15 @@ main button:hover {
     transform: scale(0.95);
 }
 
-@media (max-width: 800px) {
-    .contenedor-sucursal {
-        width: 90%;
-    }
-
-    .panel-control .barra-de-busqueda {
-        width: 80%;
-    }
-
-    .panel-control .boton-agregar {
-        width: 25%;
-        height: 5.5vh;
-        font-size: 0.7rem;
-    }
-
-    .panel-control .boton-agregar p {
-        margin-top: 2px;
-    }
-
-    .informacion-sucursal {
-        height: 15vh;
-    }
-
-    .informacion-sucursal .extra-sucursal {
-        margin: 8px 3px;
-        width: 39%;
-    }
+.contenedor-sucursal {
+    border: 1px solid;
+    width: 100%;
+    padding: 5px;
 }
 
-@media (max-width: 768px) {
-    .contenedor-sucursal {
-        width: 90%;
-    }
-
-    .panel-control .barra-de-busqueda {
-        width: 80%;
-    }
-
-    .panel-control .boton-agregar {
-        width: 25%;
-        height: 5.5vh;
-        font-size: 0.7rem;
-    }
-
-    .panel-control .boton-agregar p {
-        margin-top: 2px;
-    }
-
-    .informacion-sucursal {
-        height: 15vh;
-    }
-
-    .informacion-sucursal .extra-sucursal {
-        margin: 8px 3px;
-        width: 39%;
-    }
+.contenedor-sucursal .tarjeta-sucursal {
+    border: 1px solid #a6a6a6;
+    border-radius: 6px;
+    height: 10;
+    padding: 20px;
 }
