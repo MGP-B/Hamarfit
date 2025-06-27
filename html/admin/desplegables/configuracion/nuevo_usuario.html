@@ -16,15 +16,17 @@
 
         <div class="div_contrasena">
             <label for="contrasena">Contraseña</label>
-            <select id="contrasena">
-                <option selected disabled>Selecciona el puesto</option>
-            </select>
+            <input type="password" id="contrasena" placeholder="Contraseña">
         </div>
 
         <div class="div_rol">
             <label for="rol">Rol</label>
             <select id="rol">
-                <option selected disabled>Selecciona el rol</option>
+                <option disabled selected>Selecciona el rol</option>
+                <option value="admin">Admin</option>
+                <option value="entrenador">Entrenador</option>
+                <option value="gerente">Gerente</option>
+                <option value="recepcionista">Recepcionista</option>
             </select>
         </div>
 

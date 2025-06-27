@@ -35,6 +35,7 @@
 
 .cuerpo_popup .info-contenedor .info1 img {
     width: 100%;
+
 }
 
 .cuerpo_popup .info-contenedor .info1 .negro {
@@ -98,17 +99,21 @@
     padding: 20px 5px;
 }
 
+/* Notas del cliente */
 .cuerpo_popup .notas-del-cliente {
-    border: 1px solid #d9d9d9;
     background-color: white;
-    border-radius: 10px;
-    text-align: left;
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    border-radius: 5px;
     font-family: Rubik;
-    font-size: 1vw;
+    font-size: .90rem;
     font-weight: 200;
+    height: 150px;
     line-height: 1.3;
     padding: 8px;
-    height: 150px;
+    resize: none;
+    text-align: left;
+    width: 100%;
 }
 
 /* El contenedor de los botones */
@@ -122,55 +127,58 @@
     gap: 5px;
 }
 
-/* Botón de agregar */
-.cuerpo_popup .boton-container #editar-cliente {
-    display: flex;
-    background-color: #F97316;
-    border: 1px solid #F97316;
-    border-radius: 5px;
-    color: white;
-    padding: 5px;
-    width: 21%;
-    font-size: 0.9vw;
-}
-
-/* Botón de cancelar */
-.cuerpo_popup .boton-container #boton-cancelar {
-    background-color: white;
-    border: 1px solid #7B7B7B;
-    border-radius: 5px;
-    width: 21%;
-    font-size: 0.9vw;
-    margin-left: 30%;
-}
-
+/* Botón de agregar nota */
 .cuerpo_popup .boton-container #agregar-nota {
-    display: flex;
     background-color: white;
     border: 1px solid #7B7B7B;
     border-radius: 5px;
-    width: 22%;
-    font-size: 0.9vw;
+    display: flex;
+    padding: 5px 10px;
+    width: fit-content;
+
+    align-items: center;
+    font-size: .75rem;
+    font-weight: bold;
 }
 
 .cuerpo_popup .boton-container #agregar-nota img {
-    text-align: left;
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
 }
 
-.cuerpo_popup .boton-container #agregar-nota p {
-    margin-top: 7px;
-    margin-left: 5px;
+.cuerpo_popup .boton-container #agregar-nota p{
+    margin-top: 1px;
 }
 
-.cuerpo_popup .boton-container #editar-cliente img {
-    text-align: left;
+/* Botón de guardar */
+.cuerpo_popup .boton-container #boton-guardar{
+    display: none;
+
+    background-color: #ffa500;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px 10px;
 }
 
-.cuerpo_popup .boton-container #editar-cliente p {
-    margin-top: 4px;
-    margin-left: 5px;
+/* Botón de cancelar */
+.cuerpo_popup .boton-container #boton-cancelar{
+    display: none;
+    position: relative;
+    left: 23%;
+
+    background-color: #F6F6F4;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px 10px;
+
 }
 
+.cuerpo_popup button{
+    font-family: Rubik;
+}
 .cuerpo_popup button:hover {
     cursor: pointer;
     transform: scale(0.95);

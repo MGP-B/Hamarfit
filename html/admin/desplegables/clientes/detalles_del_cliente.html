@@ -36,16 +36,10 @@
     <div class="encabezado-notas">
         <h3>Notas del Cliente</h3>
     </div>
-    <div class="notas-del-cliente">
-        <p>El cliente manifestó molestias en la rodilla derecha durante la rutina de piernas. Se recomendó evitar
-            ejercicios de
-            impacto (sentadillas con peso, saltos) y consultar con un fisioterapeuta. Se modificó su plan semanal y se
-            notificó al
-            entrenador asignado (Carlos R.).</p>
-            <p>También solicitó actualizar su método de pago para el próximo mes y pidió información sobre clases de
-            spinning.</p>
-    </div>
-
+    <textarea disabled class="notas-del-cliente">
+            El cliente manifestó molestias en la rodilla derecha durante la rutina de piernas. Se recomendó evitar ejercicios de impacto (sentadillas con peso, saltos) y consultar con un fisioterapeuta. Se modificó su plan semanal y se notificó al entrenador asignado (Carlos R.). 
+            También solicitó actualizar su método de pago para el próximo mes y pidió información sobre clases de spinning.
+    </textarea>
     <form action="">
 
         <div class="boton-container">
@@ -54,11 +48,9 @@
                 <p>Agregar Nota</p>
             </button>
             <button id="boton-cancelar">Cancelar</button>
-            <button type="submit" id="editar-cliente">
-                <img src="/src/img/admin/sucursales/square-pen 1.svg" alt="">
-                <p>Editar Cliente</p>
-            </button>
+            <button type="submit" id="boton-guardar">Guardar</button>
         </div>
     </form>
 </div>
 <div class="cerrar" onclick="cerrar_popup()"></div>
+<script src="../../../../src/js/configuracion.js"></script>
