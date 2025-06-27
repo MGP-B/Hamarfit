@@ -21,6 +21,7 @@ header {
     justify-items: center;
     justify-content: space-between;
     box-shadow: 0 0 .4vw .2vw rgba(0,0,0,.3);
+    z-index: 2;
 }
 
 /* Estilo del logo en link*/
@@ -50,7 +51,6 @@ header .icono-header{
     /* Bordes y margenes */
     width: 10%;
     height: 100%;
-    background-color: red;
     
     /* Estilos de fuente */
     color: white;
@@ -64,16 +64,21 @@ header .icono-header{
     justify-content: center;
 }
 
+/* Lin dentro de contenedor de iconos*/
 header .icono-header a {
     display: flex;
     width: 100%;
     height: 20%;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Estilos del icono */
 header .icono-header .icono {
     width: 3.5vw;
     height: 3.5vw;
     background-color: #ffa500;
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -83,7 +88,6 @@ header .icono-header .icono {
 /* Estilos del aside */
 aside{
     /* Margenes y bordes */
-    background-color: blue;
     width: 20%;
     height: 90%;
     box-shadow: 0.1vw 0 0 0 rgba(0,0,0,.3);
@@ -91,12 +95,13 @@ aside{
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 /* Contenedor de la información del usuario */
 aside .user {
-    background-color: rebeccapurple;
     margin-bottom: 5%;
+    padding-top: 10%;
     width: 100%;
     height: 30%;
     display: flex;
@@ -124,56 +129,57 @@ aside #icono-user {
 }
 
 /* Estilos para el nombre de usuario */
-/* aside .nombre-user{
+aside .nombre-user{
     font-size: 1.8vw;
     font-family: rubik;
     text-align: center;
-} */
+}
 
 /* Estilos para el plan del usuario */
-/* aside .plan-user {
+aside .plan-user {
     font-size: 1.5vw;
     text-align: center;
     font-family: rubik;
     font-weight: 600;
-} */
+}
 
-/* aside span {
+aside span {
     color: #ffa500;
-} */
+}
 
 /* Estilos para el ul del menú lateral */
-/* aside .opciones-menu {
+aside .opciones-menu {
     width: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-} */
+}
 
-/* aside .logout-menu {
+aside .logout-menu {
     width: 100%;
-    height: 10vh;
+    height: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
-} */
+}
 
 /* Estilos para los elementos del menú */
-/* aside li {
+aside li {
     width: 90%;
     height: 6vh;
     margin: 4%;
     background-color: #fff;
     border-radius: 0.5vw;
     position: relative;
-} */
+}
 
-/* aside li h4 {
+aside li h4 {
     margin-left: 20%;
-} */
+}
 
 /* Estilos para enlace en el menú */
-/* aside li a {
+aside li a {
     color: black;
     text-decoration: none;
     font-size: 1.3vw;
@@ -183,33 +189,58 @@ aside #icono-user {
     align-items: center;
     font-family: rubik;
     font-weight: 600;
-} */
+}
 
-/* aside a img {
+aside a img {
     width: 2.5vw;
     position: absolute;
     margin-left: 2%;
-} */
+}
 
-/* aside a:hover{
+aside a:hover{
     background-color: rgba(242, 180, 66, 0.25);
     color: #ffa500;
     border-radius: 0.5vw;
-} */
+}
 
-/* aside a #activo {
+aside a #activo {
     opacity: 0;
-} */
+}
 
-/* aside a #inactivo {
+aside a #inactivo {
     opacity: 1;
-} */
+}
 
-/* aside a:hover #inactivo {
+aside a:hover #inactivo {
     opacity: 0;
-} */
+}
 
-/* aside a:hover #activo {
+aside a:hover #activo {
     opacity: 1;
-} */
+}
+
+/* Estilo global para el contenedor main en perfiles */
+main {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240,240,240);
+}
+
+/* Estilo global para contenedor en perfiles */
+.contenedor {
+    background-color: white;
+    width: 80%;
+    height: 80%;
+    border-radius: 1vw;
+    box-shadow: 0 0 .3vw .03vw rgba(0,0,0,.3);
+
+    /* Estilos flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
 
