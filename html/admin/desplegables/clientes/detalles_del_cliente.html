@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../../../../src/css/empleado/desplegables/clientes/detalles_del_cliente.css">
-<div class="cuerpo_popup">
+<div class="cuerpo_popup" id="cuerpo_popup">
     <h2>Detalles del Cliente</h2>
 
     <div class="info-contenedor">
@@ -36,21 +36,21 @@
     <div class="encabezado-notas">
         <h3>Notas del Cliente</h3>
     </div>
-    <textarea disabled class="notas-del-cliente">
-            El cliente manifestó molestias en la rodilla derecha durante la rutina de piernas. Se recomendó evitar ejercicios de impacto (sentadillas con peso, saltos) y consultar con un fisioterapeuta. Se modificó su plan semanal y se notificó al entrenador asignado (Carlos R.). 
-            También solicitó actualizar su método de pago para el próximo mes y pidió información sobre clases de spinning.
+    <textarea disabled class="notas-del-cliente" id="notas-del-cliente">
+        El cliente manifestó molestias en la rodilla derecha durante la rutina de piernas. Se recomendó evitar ejercicios de impacto (sentadillas con peso, saltos) y consultar con un fisioterapeuta. Se modificó su plan semanal y se notificó al entrenador asignado (Carlos R.).
+        También solicitó actualizar su método de pago para el próximo mes y pidió información sobre clases de spinning.
     </textarea>
-    <form action="">
 
+    <form action="">
         <div class="boton-container">
-            <button id="agregar-nota">
+            <button type="button" id="agregar-nota">
                 <img src="/src/img/admin/sucursales/notebook-pen 1.svg" alt="">
                 <p>Agregar Nota</p>
             </button>
-            <button id="boton-cancelar">Cancelar</button>
+            <button type="button" id="boton-cancelar">Cancelar</button>
             <button type="submit" id="boton-guardar">Guardar</button>
         </div>
     </form>
 </div>
 <div class="cerrar" onclick="cerrar_popup()"></div>
-<script src="../../../../src/js/configuracion.js"></script>
+<script src="../../src/js/clientes.js"></script>
