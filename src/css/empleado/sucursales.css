@@ -2,6 +2,7 @@
 @import './desplegables/desplegables.css';
 
 
+
 body {
     background-color: #ECECEC;
 }
@@ -127,6 +128,7 @@ main button:hover {
 
 /* Estilos a la tarjeta de sucursal */
 .contenedor-sucursal .tarjeta-sucursal {
+    background-color: #fff;
     border: 1px solid #a6a6a6;
     border-radius: 6px;
     height: 10;
