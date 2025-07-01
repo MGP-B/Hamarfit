@@ -7,6 +7,8 @@ main {
     font-family: Rubik;
     padding: 25px;
     width: 82%;
+    overflow-y: auto;
+    height: 92vh;
 }
 
 /* Encabezado de la página */

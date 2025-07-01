@@ -1,4 +1,6 @@
 @import url(/src/css/empleado/admin.css);
+@import './desplegables/desplegables.css';
+
 
 body {
     background-color: #ECECEC;
