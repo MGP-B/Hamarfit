@@ -94,8 +94,26 @@
                 <div class="encabezado-tarjeta">
                     <h4>Hamarfit Central</h4>
                     <p>Activo</p>
-                    <a href="#"><img src="/src/img/admin/sucursales/list 1.svg" alt="Icono"></a>
+                    <a href="#" onclick="visible()"><img src="/src/img/admin/sucursales/list 1.svg" alt="Icono"></a>
                 </div>
+
+                <!-- Desplegable de acciones -->
+                <div class="desplegable" id="desplegable">
+                    <h2>Acciones</h2>
+                    <button onclick="cerrar_desplegable()" class="x">
+                        <img src="../../src/img/admin/global/x.svg">
+                    </button>
+                    <div class="div_detalles" onclick="agregar_popup('/html/admin/desplegables/configuracion/editar_usuario.html')"
+                        title="Ver detalles">
+                        <img src="../../src/img/admin/global/ojo.svg">
+                        <p>Editar</p>
+                    </div>
+                    <div class="div_eliminar" title="Eliminar Permanentemente">
+                        <img src="../../src/img/admin/global/eliminar.svg">
+                        <p>Eliminar</p>
+                    </div>
+                </div>
+
                 <!-- Ubicación con su icono -->
                 <div class="ubicacion-sucursal">
                     <img src="/src/img/admin/sucursales/map-pin 2.svg" alt="Ubicacion">

@@ -112,3 +112,9 @@ main button:hover{
     cursor: pointer;
     transform: scale(.95);
 }
+
+/* Desplegable del icono de acciones */
+.desplegable{
+    margin-top: 170px;
+    right: 1vw;
+}

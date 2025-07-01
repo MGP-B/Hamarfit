@@ -39,10 +39,7 @@
     border-radius: 5px;
     padding: 10px;
     position: absolute;
-    right: 1vw;
     width: fit-content;
-    right: 1vw;
-    margin-top: 170px;
 }
 /* Título del desplegable */
 #contenedor_contenido #contenido .desplegable h2,

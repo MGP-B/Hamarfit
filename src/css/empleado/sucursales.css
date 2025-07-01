@@ -2,7 +2,6 @@
 @import './desplegables/desplegables.css';
 
 
-
 body {
     background-color: #ECECEC;
 }
@@ -231,4 +230,10 @@ main button:hover {
 .horario-sucursal img {
     width: 12%;
     margin-right: 2px;
+}
+
+
+/* Desplegable del icono de acciones */
+.desplegable{
+    margin-left: 14rem;
 }
