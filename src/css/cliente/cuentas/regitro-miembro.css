@@ -14,7 +14,7 @@ body {
     height: 100vh;
 
     /* Fuente del texto */
-    font-size: 16px;
+    font-size: 1.6vw;
     font-family: Rubik;
 }
 
@@ -29,16 +29,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
-    align-content: center;
+    overflow: auto;
 }
 
 /* Cabecera */
 header {
-    margin-top: 8%;
+    margin-top: 4%;
     width: 100%;
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 /* Titulo */
@@ -79,20 +78,20 @@ input[type="date"],
 input[type="password"],
 select {
     width: 60%;
+    height: 5vh;
     box-sizing: border-box;
     background-color: transparent;
-    color: rgb(18, 18, 18);
+    color: rgb(0, 0, 0);
     border: none;
-    border-bottom: 1px solid black;
-    margin-bottom: 20px;
+    border-bottom: .1vw solid rgb(30, 30, 30);
+    margin-bottom: 2vh;
     font-size: 1.3vw;
-    font-size: rubiksemi;
-    padding-left: 10px;
+    font-family: rubik;
+    padding-left: 1%;
 }
 
 input::placeholder {
-    color: rgb(18, 18, 18);
-    font-size: rubiksemi;
+    color: rgb(80, 80, 80);
 }
 
 /* Botones en formularios */
@@ -115,8 +114,8 @@ button:hover {
 
 /* Links */
 a {
-    margin-top: 5px;
-    font-size: 2.2vh;
+    margin-top: 1vh;
+    font-size: 1.1vw;
     text-decoration: none;
     color: black;
     font-family: rubiksemi;
@@ -124,4 +123,114 @@ a {
 
 a span {
     color: #ffa500;
+}
+
+a:hover span {
+    color: #ec9e02;
+}
+
+a:hover {
+    scale: 1.05;
+}
+
+@media  screen and (max-width: 920px) {
+    .contenedor {
+        width: 60%;
+    }
+
+    header h1 {
+    font-size: 4vw;
+    font-family: Paytone;
+    }
+
+    header h2 {
+    font-size: 2.5vw;
+    font-family: Rubiksemi;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="password"],
+    select {
+        font-size: 2vw;
+    }
+
+    button {
+        font-size: 1.5vw;
+    }
+
+    a {
+        font-size: 1.4vw;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .contenedor {
+        width: 70%;
+    }
+
+    header h1 {
+        font-size: 6vw;
+        font-family: Paytone;
+    }
+
+    header h2 {
+        font-size: 4vw;
+        font-family: Rubiksemi;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="password"],
+    select {
+        font-size: 3vw;
+    }
+
+    button {
+        font-size: 2.5vw;
+    }
+
+    a {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor {
+        width: 100%;
+    }
+
+    header h1 {
+    font-size: 6vw;
+    font-family: Paytone;
+    }
+
+    header h2 {
+    font-size: 4vw;
+    font-family: Rubiksemi;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="password"],
+    select {
+        font-size: 3vw;
+    }
+
+    button {
+        font-size: 2.5vw;
+    }
+
+    a {
+        font-size: 2vw;
+    }
 }
