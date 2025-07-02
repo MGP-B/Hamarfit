@@ -7,26 +7,34 @@
     padding: 50px;
     max-width: 400px;
     width: 60%;
+    max-height: 360px;
     height: 80%;
 }
 
 .cuerpo_popup h2 {
     font-weight: 600;
-    font-size: 1.8vw;
+    font-size: 18pt;
     padding: 5px;
 }
 
 .cuerpo_popup h3 {
-    font-size: 1vw;
+    font-size: 10pt;
     padding: 5px;
 }
 
 /* Formulario */
-.cuerpo_popup form {
+.cuerpo_popup form{
+    display: flex;
+    flex-direction: column;
+}
+
+.cuerpo_popup form section{
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
     justify-content: space-between;
+    flex-grow: 3;
+    margin-bottom: 5%;
 }
 
 /* Todos los div dentro del formulario */
@@ -59,8 +67,7 @@
     flex-direction: row;
     position: relative;
     justify-content: space-between;
-    margin-left: 50%;
-    margin-top: 8px;
+    margin-left: 48%;
     width: 50%;
 }
 
@@ -72,7 +79,7 @@
     color: white;
     padding: 5px;
     width: 58%;
-    font-size: 0.9vw;
+    font-size: 9pt;
 }
 
 /* Botón de cancelar */
@@ -81,7 +88,7 @@
     border: 1px solid #7B7B7B;
     border-radius: 5px;
     width: 40%;
-    font-size: 0.9vw;
+    font-size: 9pt;
 }
 
 .cuerpo_popup button:hover {
