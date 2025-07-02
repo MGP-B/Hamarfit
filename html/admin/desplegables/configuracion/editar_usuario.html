@@ -1,29 +1,29 @@
 <link rel="stylesheet" href="../../../../src/css/empleado/desplegables/configuracion/nuevo_usuario.css">
 <div class="cuerpo_popup">
-    <h2>Nuevo usuario</h2>
-    <h3>Ingresa los detalles para agregar el nuevo usuario</h3>
+    <h2>Editar usuario</h2>
+    <h3>Modifica los datos del usuario "<span id="nombre_usuario">José Miguel</span>"</h3>
 
     <form action="" id="datos_usuario">
         <div class="div_nombre">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="nombre" placeholder="Nombre" value="José Miguel">
         </div>
 
         <div class="div_correo">
             <label for="Correo">Correo</label>
-            <input type="text" id="Correo" placeholder="example@gmail.com">
+            <input type="text" id="Correo" placeholder="example@gmail.com" value="josemiguel@gmail.com">
         </div>
 
         <div class="div_contrasena">
             <label for="contrasena">Contraseña</label>
-            <input type="password" id="contrasena" placeholder="Contraseña">
+            <input type="password" id="contrasena" placeholder="Contraseña" value="12345678">
         </div>
 
         <div class="div_rol">
             <label for="rol">Rol</label>
             <select id="rol">
-                <option disabled selected>Selecciona el rol</option>
-                <option value="admin">Admin</option>
+                <option disabled>Selecciona el rol</option>
+                <option value="admin" selected>Admin</option>
                 <option value="entrenador">Entrenador</option>
                 <option value="gerente">Gerente</option>
                 <option value="recepcionista">Recepcionista</option>
@@ -32,7 +32,7 @@
 
         <div class="div_botones">
             <button id="boton_cancelar">Cancelar</button>
-            <button type="submit" id="boton_agregar">Agregar</button>
+            <button type="submit" id="boton_agregar">Guardar</button>
         </div>
     </form>
 </div>

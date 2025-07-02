@@ -1,4 +1,6 @@
 @import './admin.css';
+@import './desplegables/desplegables.css';
+
 /* Tamaño del main */
 main{
     box-sizing: border-box;
@@ -109,4 +111,10 @@ main button{
 main button:hover{
     cursor: pointer;
     transform: scale(.95);
+}
+
+/* Desplegable del icono de acciones */
+.desplegable{
+    margin-top: 170px;
+    right: 1vw;
 }

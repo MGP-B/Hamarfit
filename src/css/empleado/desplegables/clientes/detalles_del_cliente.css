@@ -1,0 +1,185 @@
+@import '../desplegables.css';
+
+.contenedor_popup{
+    background-color: red;
+}
+
+/* Cuerpo del pop up */
+.cuerpo_popup {
+    background-color: #F6F6F4;
+    border-radius: 8px;
+    padding: 50px;
+    max-width: 550px;
+    width: 90%;
+}
+
+.cuerpo_popup h2 {
+    font-family: Rubik;
+    font-size: 1.3vw;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.cuerpo_popup .info-contenedor {
+    display: inline-flex;
+    gap: 5px;
+    padding: 3px;
+}
+
+.cuerpo_popup .info-contenedor .info1 {
+    align-items: center;
+    text-align: center;
+    height: 130px;
+    width: 100px;
+}
+
+.cuerpo_popup .info-contenedor .info1 img {
+    width: 100%;
+
+}
+
+.cuerpo_popup .info-contenedor .info1 .negro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cuerpo_popup .info-contenedor .info1 .negro p {
+    background-color: black;
+    color: white;
+    width: 70%;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 0.9vw;
+}
+
+.cuerpo_popup .info-contenedor .info2 {
+    margin-top: -15px;
+    line-height: 2;
+    width: 200px;
+    height: 130px;
+}
+
+.cuerpo_popup .info-contenedor .info2 h3 {
+    font-size: 1.7vw;
+    font-family: Rubik;
+    font-weight: 400;
+}
+
+.cuerpo_popup .info-contenedor .info2 .mismo {
+    display: inline-flex;
+    gap: 5px;
+    font-size: 1vw;
+    margin-top: -10px;
+}
+
+.cuerpo_popup .info-contenedor .info3 {
+    margin-top: 35px;
+    line-height: 2;
+    font-size: 1vw;
+    width: 220px;
+    height: 80px;
+}
+
+.cuerpo_popup .info-contenedor .info3 p {
+    margin-top: -10;
+}
+
+.cuerpo_popup .info-contenedor .info3 p span {
+    font-weight: 600;
+}
+
+.cuerpo_popup .encabezado-notas {
+    font-family: Rubik;
+    font-size: 1.1vw;
+    font-weight: 600;
+    padding: 20px 5px;
+}
+
+/* Notas del cliente */
+.cuerpo_popup .notas-del-cliente {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: Rubik;
+    font-size: .90rem;
+    font-weight: 200;
+    height: 150px;
+    line-height: 1.3;
+    padding: 8px;
+    resize: none;
+    text-align: left;
+    width: 100%;
+}
+
+/* El contenedor de los botones */
+.cuerpo_popup .boton-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-between;
+    margin-top: 8px;
+    width: 100%;
+    gap: 5px;
+}
+
+/* Botón de agregar nota */
+.cuerpo_popup .boton-container #agregar-nota {
+    background-color: white;
+    border: 1px solid #7B7B7B;
+    border-radius: 5px;
+    display: flex;
+    padding: 5px 10px;
+    width: fit-content;
+
+    align-items: center;
+    font-size: .75rem;
+    font-weight: bold;
+}
+
+.cuerpo_popup .boton-container #agregar-nota img {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.cuerpo_popup .boton-container #agregar-nota p{
+    margin-top: 1px;
+}
+
+/* Botón de guardar */
+.cuerpo_popup .boton-container #boton-guardar{
+    display: none;
+
+    background-color: #ffa500;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* Botón de cancelar */
+.cuerpo_popup .boton-container #boton-cancelar{
+    display: none;
+    position: relative;
+    left: 23%;
+
+    background-color: #F6F6F4;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px 10px;
+
+}
+
+.cuerpo_popup button{
+    font-family: Rubik;
+}
+.cuerpo_popup button:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+}

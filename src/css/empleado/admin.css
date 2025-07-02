@@ -204,3 +204,25 @@ aside .nombre-apellido {
 aside .nombre-apellido p:last-child {
     padding-left: 4px;
 }
+
+.contenedor_advertencia{display: none;}
+
+@media screen and (max-width: 750px) {
+    header,aside,main{display: none;}
+
+    .contenedor_advertencia{
+        align-items: center;
+        background-color: rgba(0,0,0,.6);
+        color: #fff;
+        display: flex;
+        font-family: Rubik;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+    }
+    .contenedor_advertencia .advertencia{
+        text-align: center;
+        width: 80vw;
+    }
+
+}

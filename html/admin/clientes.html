@@ -80,15 +80,57 @@
                 </button>
             </div>
             <button class="boton-agregar" onclick="agregar_popup('/html/admin/desplegables/clientes/registrar_nuevo_cliente.html')">
-                <img src="/src/img/admin/sucursales/user-plus 2.png" alt="">
+                <img src="/src/img/admin/sucursales/user-plus 2.svg" alt="">
                 <p>Agregar Cliente</p>
             </button>
+        </div>
+        <div id="contenedor_contenido">
+            <div class="encabezado_contenido">
+                <p>ID</p>
+                <p>Nombre</p>
+                <p>Email</p>
+                <p>Teléfono</p>
+                <p>Membresía</p>
+                <p>Estado</p>
+                <p>Acción</p>
+            </div>
+        
+            <div id="contenido">
+                <P>1</P>
+                <p>Winnar</p>
+                <p>winnarperalta3@gmail.com</p>
+                <p>8293320768</p>
+                <p>Plan Pro</p>
+                <p>Activo</p>
+                <div class="div_acciones" onclick="visible()">
+                    <img src="/src/img/admin/global/tres_puntos.svg">
+                </div>
+                <!-- Desplegable de acciones -->
+                <div class="desplegable" id="desplegable">
+                    <div class="encabezado_desplegable">
+                        <h2>Acciones</h2>
+                        <button onclick="cerrar_desplegable()" class="x">
+                            <img src="../../src/img/admin/global/x.svg">
+                        </button>
+                    </div>
+                    <div class="div_detalles" onclick="agregar_popup('/html/admin/desplegables/clientes/detalles_del_cliente.html')"
+                        title="Ver detalles">
+                        <img src="../../src/img/admin/global/ojo.svg">
+                        <p>Ver detalles</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->
         </div>
     </main>
 
+    <div class="contenedor_advertencia">
+        <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (750px de ancho)</p>
+    </div>
     <script src="../../src/js/desplegables.js"></script>
+    <script src="../../src/js/clientes.js"></script>
+
 </body>
 </html>

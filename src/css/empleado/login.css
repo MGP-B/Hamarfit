@@ -1,10 +1,12 @@
-@import '/src/css/empleado/admin.css';
+@import '../../css/fuentes.css';
 
 /* Fondo de BODY y alineación del contenido */
 body{
     background-image: url(/src/img/admin/login/fondo.png);
     background-size: cover;
     background-repeat: no-repeat;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* contenedor para agregar oscuridad al fondo */
@@ -30,9 +32,9 @@ main{
 
 /* Logo de la empresa */
 main .logo{
-    font-size: 3vw;
+    font-size: 1.5rem;
     font-family: Paytone;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
 }
 /* color para FIT en el logo de la empresa */

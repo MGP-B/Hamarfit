@@ -1,4 +1,6 @@
 @import url(/src/css/empleado/admin.css);
+@import './desplegables/desplegables.css';
+
 
 body {
     background-color: #ECECEC;
@@ -38,7 +40,8 @@ main {
         display: flex;
         align-items: center;
         gap: 8px;
-        width: 400px;
+        width: 100%;
+        position: relative;
 }
 
 .panel-control .barra-de-busqueda img {
@@ -54,7 +57,7 @@ main {
         background-color: white;
         border: 1px solid #c7c7c7;
         border-radius: 6px;
-        width: 100%;
+        width: 40%;
 }
 
 /* Boton buscar */
@@ -81,76 +84,156 @@ main {
 
 /* Boton agregar nueva sucursal */
 .panel-control .boton-agregar {
-        background-color: #FCA502;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        transition: background-color 0.2s;
-        display: flex;
-        position: relative;
+    background-color: #FCA502;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    width: 190px;
+    transition: background-color 0.2s;
+    display: flex;
+    position: relative;
 }
 
+/* Imagen del boton agregar */
 .panel-control .boton-agregar img {
     text-align: left;
 }
 
+/* Parrafo del boton agregar */
 .panel-control .boton-agregar p {
-    margin-top: 4px;
-    margin-left: 5px;
+    margin-top: 5px;
+    margin-left: 6px;
 }
 
+/* Hovers de los botones */
 .panel-control .boton-agregar:hover {
     background-color: #fca402da;
 }
 
-/* Estilos de tarjeta de sucursal */
-.informacion-sucursal {
-    background-color: white;
-    height: 120px;
-    width: 45%;
-    border: 2px solid #d9d9d9;
-    border-radius: 20px;
-    font-size: 15px;
+main button:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+}
+
+/* Contenedor de sucural */
+.contenedor-sucursal {
+    width: 100%;
+    padding: 5px;
+}
+
+/* Estilos a la tarjeta de sucursal */
+.contenedor-sucursal .tarjeta-sucursal {
+    background-color: #fff;
+    border: 1px solid #a6a6a6;
+    border-radius: 6px;
+    height: 10;
     padding: 20px;
+    width: 235px;
 }
 
-.informacion-sucursal h4 {
-    font-size: 1.5vw;
+/* Aplicando estilo a la imagen de la sucursal en la tarjeta */
+.contenedor-sucursal .tarjeta-sucursal #imagen-sucursal {
+    border-radius: 5px;
+    width: 100%;
 }
 
-.informacion-sucursal h4 span {
-    color: white;
-    background-color: #FCA502;
-    margin-left: 15px;
-    font-size: 1vw;
-    padding: 3px 8px;
-    border-radius: 10px;
-}
-
-.informacion-sucursal a {
+/* Aplicando estilos al encabezado de la tarjeta de sucursal */
+.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta {
     display: flex;
-    justify-content: right;
-    position: relative;
-    width: auto;
-    margin-top: -20px;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
-.informacion-sucursal a img {
-    width: 10px;
+/* Aplicando estilo al h4 del encabezado de la tarjeta de sucursal */
+.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta h4 {
+    font-size: 1.1vw;
+    font-family: RubikSemi;
+    margin-top: 3px;
 }
 
-.informacion-sucursal .extra-sucursal {
-    /* border: 1px solid green; */
+/* Aplicando estilo al p del encabezado de la tarjeta de sucursal */
+.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta p {
+    background-color: #F97316;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 0.9vw;
+    font-family: RubikSemi;
+    padding: 4px 15px;
+    margin-right: 15px;
+}
+
+/* Aplicando estilo al icono 'a' del encabezado sucursal */
+.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta a {
+    width: 4%;
+    margin-top: 3px;
+}
+
+.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta a img {
+    width: 90%;
+}
+
+/* Hover del icono */
+.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta a:hover {
+    transform: scale(0.95);
+}
+
+/* Aplicando estilo a la ubicación de la sucursal con su icono */
+.contenedor-sucursal .tarjeta-sucursal .ubicacion-sucursal {
     display: inline-flex;
-    padding: 10px;
-    margin-top: 15px;
+    font-size: 0.95vw;
+    color: #525250;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.contenedor-sucursal .tarjeta-sucursal .ubicacion-sucursal img {
+    width: 6%;
+    margin-right: 3px;
+}
+
+/* Aplicando estilo al contenedor flex de la tarjeta de la sucursal */
+.contenedor-sucursal .tarjeta-sucursal .flex {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    margin-top: 6px;
+}
+
+/* Aplicando estilo al teléfono de la sucursal */
+.contenedor-sucursal .tarjeta-sucursal .telefono-sucursal {
+    display: inline-flex;
+    font-size: 0.83vw;
+    color: #525250;
     width: 45%;
 }
 
-.informacion-sucursal .extra-sucursal p {
-    font-size: 1.1vw;
+/* Aplicando estilo al horario de la sucursal */
+.contenedor-sucursal .tarjeta-sucursal .horario-sucursal {
+    display: inline-flex;
+    font-size: 0.83vw;
+    color: #525250;
+    width: 60%;
+}
+
+/* Aplicando estilo a los 'p' de teléfono y horario de la sucursal */
+.contenedor-sucursal .tarjeta-sucursal .flex .telefono-sucursal p,
+.horario-sucursal p {
+    margin-top: 3px;
+}
+
+/* Aplicando estilo a los iconos de teléfono y horario de la sucursal */
+.contenedor-sucursal .tarjeta-sucursal .flex .telefono-sucursal img,
+.horario-sucursal img {
+    width: 12%;
+    margin-right: 2px;
+}
+
+
+/* Desplegable del icono de acciones */
+.desplegable{
+    margin-left: 14rem;
 }

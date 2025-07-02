@@ -1,0 +1,200 @@
+/* Importar los estilos de admin.css */
+@import './admin.css';
+
+/* Fuentes a los textos de main */
+main {
+    box-sizing: border-box;
+    font-family: Rubik;
+    padding: 25px;
+    width: 82%;
+    overflow-y: auto;
+    height: 92vh;
+}
+
+/* Encabezado de la página */
+.encabezado h2 {
+    font-family: RubikSemi;
+    font-size: 2vw;
+}
+
+.encabezado .subtitulo {
+    font-size: 1.2vw;
+}
+
+/* Contenedor para el display= flex */
+.contenedor_flex {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+}
+
+/* Estilos a los contenedores de suscripciones y ganancias semanal */
+.div_suscripciones,
+.div_ganancia_semanal {
+    background-color: #F6F6F4;
+    border: 1px solid #A6A6A6;
+    border-radius: 8px;
+    height: 100px;
+    width: 371px;
+    margin: 15px 0;
+    padding: 8px;
+}
+
+.div_suscripciones .encabezado_suscripcion,
+.div_ganancia_semanal .encabezado_ganancias {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.div_suscripciones .encabezado_suscripcion h3,
+.div_ganancia_semanal .encabezado_ganancias h3 {
+    font-weight: bold;
+    font-size: 1vw;
+    padding: 13px;
+}
+
+.div_suscripciones .encabezado_suscripcion img,
+.div_ganancia_semanal .encabezado_ganancias img {
+    padding-right: 10px;
+}
+
+.div_suscripciones #ganancias_suscripciones,
+.div_ganancia_semanal #ganancia_semanal {
+    font-weight: bold;
+    font-size: 1.7vw;
+    padding-left: 13px;
+}
+
+.div_suscripciones #comparacion_suscripciones,
+.div_ganancia_semanal #comparacion_ganancias {
+    color: #68675F;
+    font-size: 1vw;
+    padding: 5px 13px;
+}
+
+/* Estilos a actividades recientes */
+.actividades_recientes {
+    background-color: #F6F6F4;
+    border: 1px solid #A6A6A6;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.actividades_recientes h3 {
+    font-family: RubikSemi;
+    font-size: 1.5vw;
+}
+
+.actividades_recientes .subtitulo {
+    color: #8A8A89;
+    font-size: 0.8vw;
+    padding-top: 3px;
+    padding-bottom: 8px;
+}
+
+/* Estilo al contenedor flex */
+.actividades_recientes .flex {
+    display: flex;
+    gap: 15px;
+}
+
+/* Estilos a los 2 contenedores de ingresos recientes y clientes recientes */
+.ingresos_recientes,
+.clientes_recientes {
+    background-color: #fff;
+    border: 1px solid #A6A6A6;
+    border-radius: 8px;
+    width: 50%;
+    height: 280px;
+    padding: 10px;
+}
+
+/* Estilos al encabezado de los 2 contenedores ingresos recientes y clientes recientes */
+.ingresos_recientes .encabezado_actividades,
+.clientes_recientes .encabezado_actividades {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.ingresos_recientes .encabezado_actividades h4,
+.clientes_recientes .encabezado_actividades h4 {
+    font-family: RubikSemi;
+    font-size: 1.4vw;
+}
+
+.ingresos_recientes .encabezado_actividades a,
+.clientes_recientes .encabezado_actividades a {
+    color: black;
+    font-size: 0.9vw;
+    text-decoration: none;
+    padding: 7px 6px;
+}
+
+.ingresos_recientes .encabezado_actividades a:hover,
+.clientes_recientes .encabezado_actividades a:hover {
+    transform: scale(0.95);
+}
+
+/* Estilos al encabezado de la tabla de ingresos recientes */
+.ingresos_recientes .contenedor_contenido .encabezado_tabla_ingresos {
+    background-color: #FCA502;
+    color: #fff;
+    font-size: 1.1vw;
+    display: grid;
+    grid-template-columns: 20% 38% 28% 10%;
+    padding: 10px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.301);
+    margin-bottom: 8px;
+}
+
+/* Estilos al encabezado de la tabla de clientes recientes */
+.clientes_recientes .contenedor_contenido .encabezado_tabla_clientes {
+    background-color: #FCA502;
+    color: #fff;
+    font-size: 1.1vw;
+    display: grid;
+    grid-template-columns: 20% 22% 35% 35%;
+    padding: 10px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.301);
+    margin-bottom: 8px;
+}
+
+/* Estilos al contenido de ingresos recientes */
+.ingresos_recientes .contenedor_contenido #dashdboard_contenido_ingresos {
+    color: #5A5A5A;
+    font-size: 1vw;
+    display: grid;
+    grid-template-columns: 20% 38% 27% 5%;
+    padding: 8px 5px;
+}
+
+/* Estilos al contenido de ingresos recientes pero en amarillo */
+.ingresos_recientes .contenedor_contenido #dashdboard_contenido_ingresos_amarillo {
+    color: #5A5A5A;
+    background-color: rgba(252, 165, 2, 0.2);
+    font-size: 1vw;
+    display: grid;
+    grid-template-columns: 20% 38% 27% 5%;
+    padding: 8px 5px;
+}
+
+/* Estilos al contenido de clientes recientes */
+.clientes_recientes .contenedor_contenido #ashdboard_contenido_clientes {
+    color: #5A5A5A;
+    font-size: 1vw;
+    display: grid;
+    grid-template-columns: 20% 22% 35% 35%;
+    padding: 8px 5px; 
+}
+
+/* Estilos al contenido de clientes recientes pero en amarillo */
+.clientes_recientes .contenedor_contenido #ashdboard_contenido_clientes_amarillo {
+    color: #5A5A5A;
+    background-color: rgba(252, 165, 2, 0.2);
+    font-size: 1vw;
+    display: grid;
+    grid-template-columns: 20% 22% 35% 35%;
+    padding: 8px 5px;
+}
