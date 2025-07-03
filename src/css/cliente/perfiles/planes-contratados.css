@@ -1,9 +1,10 @@
 @import url(menu-perfiles.css);
 
 .beneficios {
-    background-color: red;
     width: 90%;
-    margin-top: 5%;
+    margin-top: 3.5%;
+    display: flex;
+    flex-direction: column;
 }
 
 .beneficios h2 {
@@ -13,19 +14,80 @@
     margin-bottom: 2%;
 }
 
-
-.columna {
-    background-color: blueviolet;
-}
-
 .beneficios .informacion .lista-beneficios {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2%;
     font-size: 1.6vw;
     font-family: rubik;
+    margin-bottom: 4%;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+}
+
+.beneficios .informacion .lista-beneficios li {
+    position: relative;
+    height: 5vh;
+    margin: 5% 2%;
+    display: flex;
+    align-items: center;
+}
+
+.beneficios .informacion .lista-beneficios li p {
+    margin-left: 12%;
 }
 
 .beneficios .informacion .lista-beneficios img {
     width: 2.5vw;
+    position: absolute;
+    left: 1%;
+}
+
+.beneficios .informacion .lista-beneficios #desactivado {
+    opacity: 0;
+}
+
+.beneficios .informacion .info {
+    display: flex; 
+    font-family: rubik;
+    align-items: center;
+    margin: 1% 0;
+}
+
+.beneficios .informacion .info h3 {
+    font-size: 1.8vw;
+    font-weight: 580;
+}
+
+.beneficios .informacion .info p {
+    font-size: 1.4vw;
+    margin-left: 1%;
+}
+
+.beneficios .informacion .info #estado {
+    color: #0BAB02;
+}
+
+.beneficios .btn {
+    width: 100%;
+    margin-top: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beneficios .btn button {
+    width: 50%;
+    height: 6vh;
+    border-radius: .5vw;
+    border: 1px;
+    background-color: #FF4640;
+    color: white;
+    font-size: 1.3vw;
+    font-family: rubik;
+    cursor: pointer;
+}
+
+.beneficios .btn button:hover {
+    scale: 1.02;
+    background-color: #e63d37;
 }

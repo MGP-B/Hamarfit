@@ -112,8 +112,8 @@ aside .user {
 /* Estilos para el icono de usuario */
 aside #icono-user {
     background-color: #ffa500;
-    width: 8vw;
-    height: 8vw;
+    width: 7vw;
+    height: 7vw;
     border-radius: 50%;
     
 
@@ -130,14 +130,14 @@ aside #icono-user {
 
 /* Estilos para el nombre de usuario */
 aside .nombre-user{
-    font-size: 1.8vw;
+    font-size: 1.6vw;
     font-family: rubik;
     text-align: center;
 }
 
 /* Estilos para el plan del usuario */
 aside .plan-user {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     text-align: center;
     font-family: rubik;
     font-weight: 600;
