@@ -60,7 +60,8 @@ form {
 /* Estilo de contenedor de inputs */
 form .cambio {
     width: 100%;
-    display: inline-flex;
+    display: none;
+    /* display: inline-flex; */
 }
 
 /* label de formularios */
