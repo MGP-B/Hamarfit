@@ -1,351 +1,144 @@
+@import url(/src/css/cliente/perfiles/menu-perfiles.css);
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    font-family: rubik;
 }
 
-body {
-    background-color: #fff;
+/* Estilos del titulo */
+main .contenedor h2 {
+    width: 80%;
+    font-family: rubiksemi;
+    font-size: 2.3vw;
+    margin-top: 4%;
 }
 
-header {
-    background-color: #fff;
-    display: flex;
-    padding: 5px;
-    width: 100%;
+/* Contenedor de datos */
+main .contenedor .datos {
+    display: grid;
+    width: 75%;
+    height: 25%;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20%;
+    margin-top: 2%;
 }
 
-header .logo {
-    width: 25%;
-    padding: 1.5vw;
+/* Titulo de cada dato */
+main .contenedor .datos div h4 {
+    font-weight: lighter;
+    font-size: 1.5vw;
+    opacity: .6;
 }
 
-
-header .icono-perfil {
-    text-align: right;
-    width: 100%;
-    padding: 0.4vw;
+/* Datos del usuario */
+main .contenedor .datos div p {
+    font-size: 1.7vw;
+    font-weight: normal;
 }
 
-.banner {
-    width: 100%;
+/* configuración de datos */
+main .contenedor .configurar-datos {
+    width: 75%;
+    margin-top: 2%;
 }
 
-.banner img {
-    height: 400px;
-    width: 100%;
-}
-
-.perfil-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #ffffff9c;
-    width: 28%;
-    margin-left: 7vw;
-    margin-top: -17vw;
-    padding: 3vw;
-    border-radius: 10px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #D9D9D9;
-    position: relative;
-}
-
-.perfil-container .icono-usuario2 {
-    margin-top: -0.2vw;
-    width: 53%;
-}
-
-.perfil-container .icono-usuario2 img {
-    width: 100%;
-}
-
-.nombre-membresia {
-    margin-top: 2.1vw;
-}
-
-.nombre-membresia h3 {
-    font-size: 1.8vw;
-    font-weight: 700;
-}
-
-.nombre-membresia p {
-    font-size: 1.8vw;
-    font-weight: 600;
-    text-align: center;
-}
-
-.nombre-membresia p span {
-    color: #FFA500;
-}
-
-.opciones-perfil {
-    color: black;
-    line-height: 2;
-    font-size: 1.8vw;
-    text-align: center;
-    margin-top: -0.5vw;
-}
-
-.opciones-perfil ul {
-    list-style: none;
-    margin-top: 2vw;
-}
-
-.opciones-perfil ul li {
-    padding: 0.2vw;
-}
-
-.opciones-perfil ul li a {
-    color: black;
-    text-decoration: none;
-}
-
-.opciones-perfil ul li .selection {
-    border-bottom: 2px solid #FFA500;
-}
-
-.opciones-perfil ul li .rojo {
-    color: red;
-}
-
-.opciones-perfil ul li .rojo:hover {
-    color: rgb(226, 0, 0);
-}
-
-.opciones-de-cuenta {
-    margin-left: 40vw;
-    margin-top: -25vw;
-    width: 50%;
-}
-
-form {
-    width: 100%;
-}
-
-.opciones-de-cuenta .formularios1 {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.opciones-de-cuenta .formularios1 ul {
-    list-style: none;
-}
-
-.opciones-de-cuenta .formularios1 ul li {
-    line-height: 1.2;
-}
-
-.opciones-de-cuenta .formularios1 ul li h2 {
+/* Titulo de configuración de datos */
+main .contenedor .configurar-datos h3 {
     font-size: 2vw;
-    color: black;
-}
-
-.opciones-de-cuenta .formularios1 ul li label {
-    width: 90%;
-}
-
-.opciones-de-cuenta .formularios1 ul li label img {
-    width: 35vw;
-    height: 13vw;
-}
-
-.opciones-de-cuenta .formularios1 ul li input {
-    border: none;
-    border-bottom: 2px solid black;
-    font-size: 1.8vw;
-    width: 100%;
-    padding: 0.5vw;
-    margin: 20px 0;
-}
-
-.boton-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 50px;
-    margin: 2vw;
-}
-
-.boton-container #boton-guardar {
-    color: #fff;
-    background-color: #FFA500;
-    border-radius: 15px;
-    border: none;
-    font-size: 1.4vw;
     font-weight: 600;
-    margin: 2vw;
-    padding: 0.8vw;
+    margin-bottom: 3%;
+}
+
+/* Formularios */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 1.2vw;
+    margin-bottom: 2%;
+}
+
+/* label de formularios */
+form label {
+    width: 80%;
+    display: inline-flex;
+    align-items: center;
+    
+}
+
+/* Imágenes de formularios */
+form label img {
+    margin-left: .4vw;
+    width: 1.3vw;
+}
+
+/* estilos de input */
+form input {
+    width: 35%;
+    margin-right: 2%;
+    border: none;
+    border-radius: .2vw;
+    padding-left: 5px;
+    background-color: rgba(217, 217, 217, 0.5);
+    
+}
+
+/* Estilos de botones */
+form button {
+    border: none;
+    border-radius: .3vw;
+    margin-right: 1%;
+    width: 8%;
+    height: 4vh;
     cursor: pointer;
-    transition: background-color 0.3s;
-    width: 25%;
-}
-
-.boton-container #boton-guardar:hover {
-    background-color: #e99c0c;
-}
-
-@media screen and (max-width: 479px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header .logo,
-    header .icono-perfil {
-        width: 100%;
-        padding: 1vw;
-    }
-
-    header .logo img {
-        width: 50%;
-    }
-
-    .banner img {
-        height: 150px;
-    }
-
-    .perfil-container {
-        width: 90%;
-        margin: 20px auto;
-        margin-top: -60px;
-        padding: 6vw;
-        box-shadow: none;
-    }
-
-    .perfil-container .icono-usuario2 {
-        width: 60%;
-    }
-
-    .nombre-membresia h3,
-    .nombre-membresia p {
-        font-size: 4.5vw;
-    }
-
-    .opciones-perfil {
-        font-size: 4vw;
-    }
-
-    .opciones-perfil ul li {
-        padding: 2vw;
-    }
-
-    .opciones-de-cuenta {
-        width: 95%;
-        margin: 20px auto;
-    }
-
-    .opciones-de-cuenta .formularios1 ul li h2 {
-        font-size: 5vw;
-        text-align: center;
-    }
-
-    .opciones-de-cuenta .formularios1 ul li label img {
-        width: 80vw;
-        height: auto;
-    }
-
-    .opciones-de-cuenta .formularios1 ul li input {
-        font-size: 4vw;
-        padding: 2vw;
-        width: 100%;
-    }
-
-    .boton-container {
-        margin: 20px auto;
-        width: 100%;
-    }
-
-    #boton-guardar {
-        font-size: 4vw;
-        width: 100%;
-    }
+    position: relative;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
 }
 
 
-@media screen and (min-width: 480px) and (max-width: 900px) {
-
-    header .logo {
-        width: 100%;
-    }
-
-    header .icono-perfil {
-        width: 70%;
-    }
-
-    .banner img {
-        height: 250px;
-    }
-
-    .perfil-container {
-        width: 70%;
-        margin: 30px auto;
-        margin-top: -100px;
-        padding: 5vw;
-    }
-
-    .perfil-container .icono-usuario2 {
-        width: 50%;
-    }
-
-    .nombre-membresia h3,
-    .nombre-membresia p,
-    .opciones-perfil {
-        font-size: 3.5vw;
-    }
-
-    .opciones-de-cuenta {
-        width: 90%;
-        margin: 30px auto;
-    }
-
-    .opciones-de-cuenta .formularios1 ul li h2 {
-        font-size: 4vw;
-    }
-
-    .opciones-de-cuenta .formularios1 ul li label img {
-        width: 60vw;
-        height: auto;
-    }
-
-    .opciones-de-cuenta .formularios1 ul li input {
-        font-size: 3vw;
-        padding: 1.5vw;
-    }
-
-    .boton-container {
-        width: 100%;
-        justify-content: center;
-        margin: 30px auto;
-    }
-
-    #boton-guardar {
-        font-size: 3vw;
-        width: 100%;
-    }
+form button:hover {
+    scale: 1.1;
 }
 
+/* Estilo de botón especifico */
+form #cancelar {
+    background-color: rgba(255, 0, 0, 0.29);
+}
 
-@media screen and (min-width: 901px) {
-    .opciones-de-cuenta {
-        margin-left: 40vw;
-        margin-top: -25vw;
-        width: 50%;
-    }
+form #cancelar:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}
 
-    .opciones-de-cuenta .formularios1 ul li h2 {
-        font-size: 2vw;
-    }
+/* Estilo de botón especifico */
+form #confirmar {
+    background-color: rgba(255, 165, 0, 0.29);
+}
 
-    .opciones-de-cuenta .formularios1 ul li input {
-        font-size: 1.8vw;
-    }
+form #confirmar:hover{
+    background-color: rgba(255, 165, 0, 0.8);
+}
 
-    #boton-guardar {
-        font-size: 1.4vw;
-        width: 25%;
-    }
+/* Imagen dentro de botón */
+form button img {
+    position: absolute;
+    width: 1.3vw;
+}
+
+/* Opacidad de imagen inactiva */
+form button #inactivo {
+    opacity: 1;
+}
+
+form button:hover #inactivo {
+    opacity: 0;
+}
+
+/* Opacidad de imagen activa */
+form button #activo {
+    opacity: 0;
+}
+
+form button:hover #activo {
+    opacity: 1;
 }
