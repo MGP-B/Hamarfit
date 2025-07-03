@@ -57,6 +57,12 @@ form {
     margin-bottom: 2%;
 }
 
+/* Estilo de contenedor de inputs */
+form .cambio {
+    width: 100%;
+    display: inline-flex;
+}
+
 /* label de formularios */
 form label {
     width: 80%;
