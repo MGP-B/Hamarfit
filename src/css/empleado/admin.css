@@ -184,25 +184,33 @@ aside .usuario .icono {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 3vw;
+    height: 3vw;
     background-color: #F97316;
     color: white;
     border-radius: 50%;
     font-family: Rubik;
+    margin-left: 20px;
 }
 
 
 aside .nombre-rol {
-    padding-left: 10px;
+    margin-left: 10px;
+    font-family: rubik;
 }
 
 aside .nombre-apellido {
     display: inline-flex;
+    font-size: 1.3vw;
 }
 
 aside .nombre-apellido p:last-child {
     padding-left: 4px;
+}
+
+aside #rol-usuario {
+    color: rgba(0,0,0,.7);
+    font-size: 1.1vw;
 }
 
 .contenedor_advertencia{display: none;}
