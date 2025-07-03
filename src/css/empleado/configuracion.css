@@ -118,3 +118,5 @@ main button:hover{
     margin-top: 170px;
     right: 1vw;
 }
+
+#contenedor_contenido #contenido .desplegable h2{font-weight: lighter;}
