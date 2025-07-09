@@ -6,6 +6,14 @@ body {
     flex-wrap: wrap;
 }
 
+#confirmacion-plan>div{
+    border-radius: 5px;
+}
+
+.precio-seleccion input[type='radio']{
+    accent-color: #ffa500;
+}
+
 /* Estilo de contenedor principal */
 main {
     width: 80%;
@@ -57,11 +65,6 @@ main form .plan-pro, main form .plan-basico {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-}
-
-/* Sombra de plan */
-main form .plan-pro {
-    box-shadow: 0 0 8px .5px #ffa500;
 }
 
 /* Estilos para el label */
@@ -137,6 +140,7 @@ main .sucursal {
     padding: 2vh 0;
     box-shadow: 0 0 4px 1px rgba(0,0,0,.3);
     background-color: white;
+    border-radius: 5px;
     position: relative;
     display: flex;
     flex-direction: column;

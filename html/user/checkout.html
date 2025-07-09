@@ -11,19 +11,20 @@
         <h1><a href="/index.html">HAMAR<span>FIT</span></a></h1>
 
         <form id="confirmacion-plan">
-            <div class="plan-pro">
-                <label for="plan-pro">Plan <span>Pro</span></label>
+            <div class="plan-pro" id="contenedor-plan-pro">
+                <label for="radio-plan-pro">Plan <span>Pro</span></label>
                 <div class="precio-seleccion">
                     <p id="mensualidad-pro">1500<span>/mes</span></p>
-                    <input type="radio" name="planes" id="plan-pro">
+                    <input type="radio" name="planes" id="radio-plan-pro">
                 </div>   
             </div>
 
-            <div class="plan-basico">
-                <label for="plan-basico">Plan <span>Básico</span></label>
+            <div class="plan-basico" id="contenedor-plan-basico">
+                <label for="radio-plan-basico">Plan <span>Básico</span></label>
                 <div class="precio-seleccion">
                     <p id="mensualidad-pro">1100<span>/mes</span></p>
-                    <input type="radio" name="planes" id="plan-basico">
+                    <input type="radio" name="planes" id="radio-plan-basico">
+                    <input type="radio" name="planes" id="radio-checked" checked style="display: none;">
                 </div>   
             </div>
         </form>
@@ -62,5 +63,6 @@
             </form>
         </div>
     </aside>
+    <script src="../../src/js/checkout.js"></script>
 </body>
 </html>
