@@ -279,7 +279,7 @@ main {
         width: 5vw;
         height: 5vw;        
         font-size: 1.8vw;
-        transition: all 0.5s;
+        transition: all .4s;
     }
 
     aside:hover #icono-user {
@@ -292,8 +292,8 @@ main {
 
     /* Estilos para el nombre de usuario */
     aside .nombre-user{
-        display: none;
-        transition: all 0.5s;
+        font-size: 0;
+        transition: all .4s;
     }
 
     aside:hover .nombre-user{
@@ -323,11 +323,13 @@ main {
     }
 
     aside li h4 {
-        display: none;
+        font-size: 0;
+        transition: all .4s;
     }
 
     aside:hover li h4 {
         display: block;
+        font-size: 1.7vw;
         margin-left: 20%;
     }
 
