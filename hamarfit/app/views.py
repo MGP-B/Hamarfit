@@ -2,14 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def aplication(req):
+def index(req):
     return HttpResponse('Bienvenido a HAMARFIT')
 
-def aplication(req):
+def index(req):
     return render(req,'index.html')
 
-def aplication(req):
+def sucursales(req):
     return render(req,'html/user/sucursales.html')
 
-# def aplication(req):
-#     return render(req,'html/user/checkout.html')
+def checkout(req):
+    return render(req,'html/user/checkout.html')

@@ -1,5 +1,5 @@
-@import url(../reset.css);
-@import url(../fuentes.css);
+@import "../reset.css";
+@import "../fuentes.css";
 
 body {
     display: flex;
