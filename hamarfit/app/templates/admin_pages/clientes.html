@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | Clientes</title>
-    <link rel="stylesheet" href="/src/css/empleado/clientes.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_styles/clientes.css' %}">
 </head>
 <body>
     <header>
@@ -14,8 +15,8 @@
         </div>
         <div class="setting">
             <a href="configuracion.html">
-                <img src="../../src/img/admin/menu/settings.svg" alt="" id="inactivo">
-                <img src="../../src/img/admin/menu/activos/settings-activo.svg" alt="" id="activo">
+                <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
+                <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
             </a>
         </div>
     </header>
@@ -23,29 +24,29 @@
         <ul id="opciones-menu">
             <a href="dashboard.html">
                 <li class="opcion">
-                    <img src="../../src/img/admin/menu/activos/dashboard-activo.svg" alt="" id="activo">
-                    <img src="../../src/img/admin/menu/dashboard.svg" alt="" id="inactivo">
+                    <img src="{% static 'img/admin_img/menu/activos/dashboard-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/dashboard.svg' %}" alt="" id="inactivo">
                     <h3>Dashboard</h3>
                 </li>
             </a>
             <a href="clientes.html">
                 <li class="opcion">
-                    <img src="../../src/img/admin/menu/activos/clientes-activo.svg" alt="" id="activo">
-                    <img src="../../src/img/admin/menu/clientes.svg" alt="" id="inactivo">
+                    <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
                     <h3>Clientes</h3>
                 </li>
             </a>
             <a href="sucursales.html">
                 <li class="opcion">
-                    <img src="../../src/img/admin/menu/activos/sucursales-activo.svg" alt="" id="activo">
-                    <img src="../../src/img/admin/menu/sucursales.svg" alt="" id="inactivo">
+                    <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
                     <h3>Sucursales</h3>
                 </li>
             </a>
             <a href="finanzas.html">
                 <li class="opcion">
-                    <img src="../../src/img/admin/menu/activos/finanzas-activo.svg" alt="" id="activo">
-                    <img src="../../src/img/admin/menu/finanzas.svg" alt="" id="inactivo">
+                    <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
                     <h3>Finanzas</h3>
                 </li>
             </a>
@@ -75,12 +76,12 @@
             <div class="barra-de-busqueda">
                 <input type="text" placeholder="Buscar productos...">
                 <button class="boton-buscar">
-                    <img src="/src/img/admin/global/lupa.svg" alt="">
+                    <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="">
                     <p>Buscar</p>
                 </button>
             </div>
             <button class="boton-agregar" onclick="agregar_popup('/html/admin/desplegables/clientes/registrar_nuevo_cliente.html')">
-                <img src="/src/img/admin/sucursales/user-plus 2.svg" alt="">
+                <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
                 <p>Agregar Cliente</p>
             </button>
         </div>
@@ -103,14 +104,14 @@
                 <p>Plan Pro</p>
                 <p>Activo</p>
                 <div class="div_acciones" onclick="visible()">
-                    <img src="/src/img/admin/global/tres_puntos.svg">
+                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
                 </div>
                 <!-- Desplegable de acciones -->
                 <div class="desplegable" id="desplegable">
                     <div class="encabezado_desplegable">
                         <h2>Acciones</h2>
                         <button onclick="cerrar_desplegable()" class="x">
-                            <img src="../../src/img/admin/global/x.svg">
+                            <img src="{% static 'img/admin_img/global/x.svg' %}">
                         </button>
                     </div>
                     

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../src/css/empleado/dashboard.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_styles/dashboard.css' %}">
     <title>Admin | Dashboard</title>
 </head>
 <body>
@@ -11,8 +12,8 @@
         <div class="logo"><h1>HAMAR<span>FIT</span></h1></div>
         <div class="setting">
             <a href="configuracion.html">
-                <img src="../../src/img/admin/menu/settings.svg" alt="" id="inactivo">
-                <img src="../../src/img/admin/menu/activos/settings-activo.svg" alt="" id="activo">
+                <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
+                <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
             </a>
         </div>
     </header>
@@ -20,29 +21,29 @@
         <ul id="opciones-menu">
             <a href="dashboard.html">
                 <li class="opcion">
-                    <img src="../../src/img/admin/menu/activos/dashboard-activo.svg" alt="" id="activo">
-                    <img src="../../src/img/admin/menu/dashboard.svg" alt="" id="inactivo"> 
+                    <img src="{% static 'img/admin_img/menu/activos/dashboard-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/dashboard.svg' %}" alt="" id="inactivo">
                     <h3>Dashboard</h3>
                 </li>
             </a>
             <a href="clientes.html">
                 <li class="opcion">
-                    <img src="../../src/img/admin/menu/activos/clientes-activo.svg" alt="" id="activo">
-                    <img src="../../src/img/admin/menu/clientes.svg" alt="" id="inactivo">
+                    <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
                     <h3>Clientes</h3>
                 </li>
             </a>
             <a href="sucursales.html">
                 <li class="opcion">
-                    <img src="../../src/img/admin/menu/activos/sucursales-activo.svg" alt="" id="activo">
-                    <img src="../../src/img/admin/menu/sucursales.svg" alt="" id="inactivo"> 
+                    <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
                     <h3>Sucursales</h3>
                 </li>
             </a>
             <a href="finanzas.html">
                 <li class="opcion">
-                    <img src="../../src/img/admin/menu/activos/finanzas-activo.svg" alt="" id="activo">
-                    <img src="../../src/img/admin/menu/finanzas.svg" alt="" id="inactivo">
+                    <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
                     <h3>Finanzas</h3>
                 </li>
             </a>
@@ -71,7 +72,7 @@
             <div class="div_suscripciones">
                 <div class="encabezado_suscripcion">
                     <h3>Suscripciones</h3>
-                    <img src="../../src/img/admin/global/estadisticas.svg">
+                    <img src="{% static 'img/admin_img/global/estadisticas.svg' %}">
                 </div>
                 <div id="ganancias_suscripciones">$12,345</div>
                 <div id="comparacion_suscripciones">
@@ -83,7 +84,7 @@
             <div class="div_ganancia_semanal">
                 <div class="encabezado_ganancias">
                     <h3>Ganancias de esta semana</h3>
-                    <img src="../../src/img/admin/global/dinero.svg">
+                    <img src="{% static 'img/admin_img/global/dinero.svg' %}">
                 </div>
                 <div id="ganancia_semanal">$6,085</div>
                 <div id="comparacion_ganancias">
