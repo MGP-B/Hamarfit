@@ -1,7 +1,3 @@
-body{
-    background-color: red;
-}
-
 @font-face {
     font-family: Paytone;
     src: url(../fuentes/Paytone_One/PaytoneOne-Regular.ttf);
@@ -14,10 +10,10 @@ body{
 
 @font-face {
     font-family: RubikSemi;
-    src: url(../fuentes/fuentes/static/Rubik-SemiBold.ttf);
+    src: url(../fuentes/Rubik/Rubik-SemiBold.ttf);
 }
 
 @font-face {
     font-family: RubikBlack;
-    src: url(../fuentes/fuentes/static/Rubik-Black.ttf);
+    src: url(../fuentes/Rubik/Rubik-Black.ttf);
 }
