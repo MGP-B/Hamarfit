@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +12,18 @@
 <body>
     <header class="cabecera">
         <div class="logo">
-            <a href="/index.html">
+            <a href="{% url 'index'%}">
                 <h2>HAMAR<span>FIT</span></h2>
             </a>
         </div>
 
         <div class="botones-navegacion">
-            <button id="inicio-sesion" style="color: #333;"> <a href="/html/admin/login.html">Iniciar Sesión</a></button>
-            <button id="register"><a href="/html/user/sucursales.html">Únete ahora</a></button>
+            <button id="inicio-sesion" style="color: #333;">
+                <a href="{% url 'admin/loginlogin'%}">Iniciar Sesión</a>
+            </button>
+            <button id="register">
+                <a href="{% url 'user/sucursales' %}">Únete ahora</a>
+            </button>
         </div>
     </header>
     <main>
@@ -28,7 +33,7 @@
             <p>Explora nuestras sucursales y selecciona la más cercana a tu ubicación.</p>
         </div>
 
-         <!-- Contenedores de sucursales -->
+        <!-- Contenedores de sucursales -->
         <div class="contenedor">
             <div class="sucursal">
                 <img src="{% static 'img/user_img/sucursales/sucursal.png' %}" alt="Sucursal" id="imagen">
@@ -37,7 +42,9 @@
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
                     <p id="ubicacion">Calle Principal 123, Ciudad</p>
                 </div>
-                <button id="boton-sucursal"><a href="../user/cuenta/registro.html">Quiero entrenar aquí</a></button>
+                <button id="boton-sucursal">
+                    <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
+                </button>
             </div>
 
             <div class="sucursal">
@@ -47,7 +54,9 @@
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
                     <p id="ubicacion">Calle Principal 123, Ciudad</p>
                 </div>
-                <button id="boton-sucursal"><a href="../user/cuenta/registro.html">Quiero entrenar aquí</a></button>
+                <button id="boton-sucursal">
+                    <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
+                </button>
             </div>
 
             <div class="sucursal">
@@ -57,7 +66,9 @@
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
                     <p id="ubicacion">Calle Principal 123, Ciudad</p>
                 </div>
-                <button id="boton-sucursal"><a href="../user/cuenta/registro.html">Quiero entrenar aquí</a></button>
+                <button id="boton-sucursal">
+                    <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
+                </button>
             </div>
 
             <div class="sucursal">
@@ -67,7 +78,9 @@
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
                     <p id="ubicacion">Calle Principal 123, Ciudad</p>
                 </div>
-                <button id="boton-sucursal"><a href="../user/cuenta/registro.html">Quiero entrenar aquí</a></button>
+                <button id="boton-sucursal">
+                    <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
+                </button>
             </div>
 
             <div class="sucursal">
@@ -77,9 +90,11 @@
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
                     <p id="ubicacion">Calle Principal 123, Ciudad</p>
                 </div>
-                <button id="boton-sucursal"><a href="../user/cuenta/registro.html">Quiero entrenar aquí</a></button>
+                <button id="boton-sucursal">
+                    <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
+                </button>
             </div>
-            
+
             <div class="sucursal">
                 <img src="{% static 'img/user_img/sucursales/sucursal.png' %}" alt="Sucursal" id="imagen">
                 <h2 id="nombre-sucursal">Sucursal</h2>
@@ -87,9 +102,12 @@
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
                     <p id="ubicacion">Calle Principal 123, Ciudad</p>
                 </div>
-                <button id="boton-sucursal"><a href="../user/cuenta/registro.html">Quiero entrenar aquí</a></button>
+                <button id="boton-sucursal">
+                    <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
+                </button>
             </div>
         </div>
     </main>
 </body>
+
 </html>

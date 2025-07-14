@@ -10,7 +10,7 @@ def index(req):
     return render(req,'index.html')
 
 # Paginas del apartado de 'user'
-def sucursales(req):
+def sucursales_user(req):
     return render(req,'user_pages/sucursales.html')
 
 def checkout(req):
@@ -46,5 +46,5 @@ def finanzas(req):
 def login(req):
     return render(req, 'admin_pages/login.html')
 
-def sucursales(req):
+def sucursales_admin(req):
     return render(req, 'admin_pages/sucursales.html')

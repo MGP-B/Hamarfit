@@ -6,7 +6,7 @@ urlpatterns = [
     path('',views.index, name='index'),
 
     # Apartado de 'user'
-    path('sucursales/',views.sucursales, name='user/sucursales'),
+    path('sucursales/',views.sucursales_user, name='user/sucursales'),
     path('checkout/',views.checkout, name='user/checkout'),
     path('ajustes_cuenta/',views.ajustes_cuenta, name='user/ajustes_cuenta'),
     path('metodo_pago/',views.metodo_pago, name='user/metodo_pago'),
@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/dashboard/',views.dashboard, name='admin/dashboard'),
     path('admin/finanzas/',views.finanzas, name='admin/finanzas'),
     path('admin/loginlogin/',views.login, name='admin/loginlogin'),
-    path('admin/sucursales/',views.sucursales, name='admin/sucursales'),
+    path('admin/sucursales/',views.sucursales_admin, name='admin/sucursales'),
 ]
