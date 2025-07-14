@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="../../../src/css/empleado/desplegables/detalles_de_factura.css">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/detalles_de_factura.css' %}">
 <div class="cuerpo_popup">
     <h2>Detalles de Factura</h2>
     <p class="descripcion">Información completa de la factura seleccionada</p>
@@ -49,7 +50,7 @@
         <div class="pago">
         <div>
             <h4>Método de Pago</h4>
-            <img src="../../../../src/img/admin/sucursales/credit-card 2.svg" alt="">
+            <img src="{% static 'img/admin_img/sucursales/credit-card 2.svg' %}" alt="">
             <p>Tarjeta</p>
         </div>
         <div class="total">
@@ -59,11 +60,11 @@
 
         <div class="acciones">
             <button class="descargar">
-                <img src="../../../../src/img/admin/sucursales/download 2.svg" alt="">
+                <img src="{% static 'img/admin_img/sucursales/download 2.svg' %}" alt="">
                 <p>Descargar PDF</p>
             </button>
             <button class="imprimir">
-                <img src="../../../../src/img/admin/sucursales/printer 1.svg" alt="">
+                <img src="{% static 'img/admin_img/sucursales/printer 1.svg' %}" alt="">
                 <p>Imprimir</p>
             </button>
         </div>

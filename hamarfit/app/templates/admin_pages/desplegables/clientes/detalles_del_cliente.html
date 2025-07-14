@@ -1,10 +1,11 @@
-<link rel="stylesheet" href="../../../../src/css/empleado/desplegables/clientes/detalles_del_cliente.css">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/clientes/detalles_del_cliente.css' %}">
 <div class="cuerpo_popup" id="cuerpo_popup">
     <h2>Detalles del Cliente</h2>
 
     <div class="info-contenedor">
         <div class="info1">
-            <img src="../../../../src/img/admin/sucursales/Ver Cliente.svg" alt="">
+            <img src="{% static 'img/admin_img/sucursales/Ver Cliente.svg' %}" alt="">
             <div class="negro">
                 <p>Activo</p>
             </div>
@@ -13,15 +14,15 @@
         <div class="info2">
             <h3>José Sosa</h3>
             <div class="mismo">
-                <img src="/src/img/admin/sucursales/mail (1) 1.svg" alt="">
+                <img src="{% static 'img/admin_img/sucursales/mail (1) 1.svg' %}" alt="">
                 <p>josealex@ejemplo.com</p>
             </div>
             <div class="mismo">
-                <img src="/src/img/admin/sucursales/phone (2) 1.svg" alt="">
+                <img src="{% static 'img/admin_img/sucursales/phone (2) 1.svg' %}" alt="">
                 <p>809-523-09543</p>
             </div>
             <div class="mismo">
-                <img src="/src/img/admin/sucursales/map-pinned 1.svg" alt="">
+                <img src="{% static 'img/admin_img/sucursales/map-pinned 1.svg' %}" alt="">
                 <p>Santiago de los Caballeros</p>
             </div>
         </div>
@@ -44,7 +45,7 @@
     <form action="">
         <div class="boton-container">
             <button type="button" id="agregar-nota">
-                <img src="/src/img/admin/sucursales/notebook-pen 1.svg" alt="">
+                <img src="{% static 'img/admin_img/sucursales/notebook-pen 1.svg' %}" alt="">
                 <p>Agregar Nota</p>
             </button>
             <button type="button" id="boton-cancelar">Cancelar</button>
@@ -53,4 +54,4 @@
     </form>
 </div>
 <div class="cerrar" onclick="cerrar_popup()"></div>
-<script src="../../src/js/clientes.js"></script>
+<script src="{% static 'js/admin_js/clientes.js' %}"></script>
