@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,14 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/admin_styles/clientes.css' %}">
 </head>
+
 <body>
     <header>
         <div class="logo">
             <h1>HAMAR<span>FIT</span></h1>
         </div>
         <div class="setting">
-            <a href="configuracion.html">
+            <a href="{% url 'admin/configuracion' %}">
                 <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
                 <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
             </a>
@@ -22,28 +24,28 @@
     </header>
     <aside class="menu">
         <ul id="opciones-menu">
-            <a href="dashboard.html">
+            <a href="{% url 'admin/dashboard'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/dashboard-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/dashboard.svg' %}" alt="" id="inactivo">
                     <h3>Dashboard</h3>
                 </li>
             </a>
-            <a href="clientes.html">
+            <a href="{% url 'admin/clientes'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
                     <h3>Clientes</h3>
                 </li>
             </a>
-            <a href="sucursales.html">
+            <a href="{% url 'admin/sucursales'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
                     <h3>Sucursales</h3>
                 </li>
             </a>
-            <a href="finanzas.html">
+            <a href="{% url 'admin/finanzas'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
@@ -80,7 +82,8 @@
                     <p>Buscar</p>
                 </button>
             </div>
-            <button class="boton-agregar" onclick="agregar_popup('/html/admin/desplegables/clientes/registrar_nuevo_cliente.html')">
+            <button class="boton-agregar"
+                onclick="agregar_popup('/html/admin/desplegables/clientes/registrar_nuevo_cliente.html')">
                 <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
                 <p>Agregar Cliente</p>
             </button>
@@ -95,7 +98,7 @@
                 <p>Estado</p>
                 <p>Acción</p>
             </div>
-        
+
             <div id="contenido">
                 <P>1</P>
                 <p>Winnar</p>
@@ -114,8 +117,9 @@
                             <img src="{% static 'img/admin_img/global/x.svg' %}">
                         </button>
                     </div>
-                    
-                    <div class="div_detalles" onclick="agregar_popup('/html/admin/desplegables/clientes/detalles_del_cliente.html')"
+
+                    <div class="div_detalles"
+                        onclick="agregar_popup('/html/admin/desplegables/clientes/detalles_del_cliente.html')"
                         title="Ver detalles">
                         <img src="{% static 'img/admin_img/global/ojo.svg' %}">
                         <p>Ver detalles</p>
@@ -135,4 +139,5 @@
     <script src="{% static 'js/admin_js/clientes.js' %}"></script>
 
 </body>
+
 </html>
