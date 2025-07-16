@@ -19,22 +19,26 @@
             </div>
         </header>
 
-        <main>  
-            
-                <form id="registro_usuario" method="post" autocomplete="off">
+        <main>
 
-                        <input type="text" name="titulartarjeta" id="titulartarjeta" placeholder="Titular de la tarjeta" required>
+            <form id="registro_usuario" method="post" autocomplete="off">
 
-                        <input type="number" name="numerotarjeta" id="numerotarjeta" placeholder="Número de la tarjeta" required>
-                    
-                        <input type="date" name="fechavencimiento" id="fechavencimiento" required>
-                    
-                        <input type="number" name="codigoseguridad" id="codigoseguridad" placeholder="CCV" required>
-                    
-                    <button type="submit"><a href="../checkout.html">Continuar registro</a></button>
-                    <a href="">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
-                </form>
-            
+                <input type="text" name="titulartarjeta" id="titulartarjeta" placeholder="Titular de la tarjeta"
+                    required>
+
+                <input type="number" name="numerotarjeta" id="numerotarjeta" placeholder="Número de la tarjeta"
+                    required>
+
+                <input type="date" name="fechavencimiento" id="fechavencimiento" required>
+
+                <input type="number" name="codigoseguridad" id="codigoseguridad" placeholder="CCV" required>
+
+                <button type="submit">
+                    <a href="../checkout.html">Continuar registro</a>
+                </button>
+                <a href="{% url 'admin/loginlogin'%}">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
+            </form>
+
         </main>
     </div>
 </body>
