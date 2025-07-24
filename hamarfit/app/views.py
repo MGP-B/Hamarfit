@@ -9,7 +9,7 @@ from django.http import HttpResponse
 def index(req):
     return render(req,'index.html')
 
-# Paginas del apartado de 'user'
+#  ----- Paginas del apartado de 'user' -----
 def sucursales_user(req):
     return render(req,'user_pages/sucursales.html')
 
@@ -30,7 +30,7 @@ def registro(req):
 
 
 
-# Paginas del apartado de 'admin'
+# ----- Paginas del apartado de 'admin' -----
 def clientes(req):
     return render(req, 'admin_pages/clientes.html')
 
@@ -48,3 +48,37 @@ def login(req):
 
 def sucursales_admin(req):
     return render(req, 'admin_pages/sucursales.html')
+
+
+
+# ----- Desplegables de 'admin' -----
+# Clientes
+def detalles_cliente(req):
+    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html')
+
+def registrar_cliente(req):
+    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html')
+
+def seleccionar_plan(req):
+    return render(req, 'admin_pages/desplegables/clientes/seleccionar_plan.html')
+
+
+# Configuración
+def editar_usuario(req):
+    return render(req, 'admin_pages/desplegables/configuracion/editar_usuario.html')
+
+def registrar_usuario(req):
+    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usurario.html')
+
+
+# Finanzas
+def registrar_transaccion(req):
+    return render(req, 'admin_pages/desplegables/finanzas/registrar_trasaccion.html')
+
+
+# Sucursales
+def registrar_sucursal(req):
+    return render(req, 'admin_pages/desplegables/sucursales/agregar_sucursal.html')
+
+def editar_sucursal(req):
+    return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')

@@ -85,7 +85,7 @@
                 </button>
             </div>
             <button class="boton-agregar"
-                onclick="agregar_popup('/html/admin/desplegables/sucursales/agregar_sucursal.html')">
+                onclick="agregar_popup(`{% url 'admin/sucursales/registrar_sucursal/' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/building-2 1.svg' %}" alt="Icono">
                 <p>Agregar Sucursal</p>
             </button>
@@ -114,7 +114,7 @@
                     </div>
 
                     <div class="div_detalles"
-                        onclick="agregar_popup('/html/admin/desplegables/sucursales/editar_sucursal.html')"
+                        onclick="agregar_popup(`{% url 'admin/sucursales/editar_sucursal/' %}`)"
                         title="Ver detalles">
                         <img src="{% static 'img/admin_img/global/ojo.svg' %}">
                         <p>Editar</p>

@@ -2,10 +2,10 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    # Index
+    # ----- Index -----
     path('',views.index, name='index'),
 
-    # Apartado de 'user'
+    # ----- Apartado de 'user' -----
     path('sucursales/',views.sucursales_user, name='user/sucursales'),
     path('checkout/',views.checkout, name='user/checkout'),
     path('ajustes_cuenta/',views.ajustes_cuenta, name='user/ajustes_cuenta'),
@@ -14,11 +14,29 @@ urlpatterns = [
     path('registro/',views.registro, name='user/registro'),
 
 
-    # Apartado de 'admin'
+    # ----- Apartado de 'admin' -----
     path('admin/clientes/',views.clientes, name='admin/clientes'),
     path('admin/configuracion/',views.configuracion, name='admin/configuracion'),
     path('admin/dashboard/',views.dashboard, name='admin/dashboard'),
     path('admin/finanzas/',views.finanzas, name='admin/finanzas'),
     path('admin/login/',views.login, name='admin/login'),
     path('admin/sucursales/',views.sucursales_admin, name='admin/sucursales'),
+
+
+    # ----- Desplegables de 'admin' -----
+    # Clientes
+    path('admin/clientes/detalles_cliente/', views.detalles_cliente, name= 'admin/clientes/detalles_cliente/'),
+    path('admin/clientes/registrar_cliente/', views.registrar_cliente, name='admin/clientes/registrar_cliente/'),
+    path('admin/clientes/seleccionar_plan/', views.seleccionar_plan, name='admin/clientes/seleccionar_plan/'),
+
+    # Configuración
+    path('admin/configuracion/editar_usuario/', views.editar_usuario, name='admin/configuracion/editar_usuario/'),
+    path('admin/configuracion/registrar_usuario/', views.registrar_usuario, name='admin/configuracion/registrar_usuario/'),
+
+    # Finanzas
+    path('admin/finanzas/registrar_transaccion/', views.registrar_transaccion, name='admin/finanzas/registrar_transaccion/'),
+
+    # Sucursales
+    path('admin/sucursales/registrar_sucursal/',views.registrar_sucursal, name='admin/sucursales/registrar_sucursal/'),
+    path('admin/sucursales/editar_sucursal/', views.editar_sucursal, name='admin/sucursales/editar_sucursal/')
 ]

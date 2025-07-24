@@ -78,7 +78,7 @@
             </div>
 
             <button id="nuevo_usuario"
-                onclick="agregar_popup('/html/admin/desplegables/configuracion/nuevo_usuario.html')">
+                onclick="agregar_popup(`{% url 'admin/configuracion/registrar_usuario/' %}`)">
                 <img src="{% static 'img/admin_img/global/mas.svg' %}" alt="">
                 <p>Nuevo Usuario</p>
             </button>
@@ -110,7 +110,7 @@
                         </div>
 
                         <div class="div_detalles"
-                            onclick="agregar_popup('/html/admin/desplegables/configuracion/editar_usuario.html')"
+                            onclick="agregar_popup(`{% url 'admin/configuracion/editar_usuario/' %}`)"
                             title="Ver detalles">
                             <img src="{% static 'img/admin_img/global/ojo.svg' %}">
                             <p>Editar</p>
