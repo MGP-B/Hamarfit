@@ -2,7 +2,7 @@
 
 /* Fondo de BODY y alineación del contenido */
 body{
-    background-image: url(/src/img/admin/login/fondo.png);
+    background-image: url(../../img/admin_img/login/fondo.png);
     background-size: cover;
     background-repeat: no-repeat;
     box-sizing: border-box;
@@ -32,9 +32,9 @@ main{
 
 /* Logo de la empresa */
 main .logo{
-    font-size: 1.5rem;
+    font-size: 3vw;
     font-family: Paytone;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     text-align: center;
 }
 /* color para FIT en el logo de la empresa */
@@ -73,10 +73,12 @@ main #formLogin button{
     width: 50%;
     margin: 10px auto;
     padding: 5px 10px;
+    font-size: 1.2vw;
+    font-family: rubik;
 }
 /* Enlace de contraseña olvidada */
 main #formLogin .olvidado{
-    font-size: small;
+    font-size: 1.2vw;
     font-weight: bold;
     text-align: center;
 }
@@ -85,10 +87,10 @@ main .registro{
     display: block;
     position: relative;
     text-align: center;
-    top: 11.5vh;
+    top: 14vh;
     color: white;
 
-    font-size: small;
+    font-size: 1.2vw;
     text-align: center;
 }
 /* Color para 'Crear cuenta' dentro del enlace de crear una cuenta */
