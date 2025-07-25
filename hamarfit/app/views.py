@@ -68,7 +68,7 @@ def editar_usuario(req):
     return render(req, 'admin_pages/desplegables/configuracion/editar_usuario.html')
 
 def registrar_usuario(req):
-    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usurario.html')
+    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html')
 
 
 # Finanzas
