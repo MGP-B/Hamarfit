@@ -33,7 +33,7 @@ class Clientes(models.Model):
     id_sucursal = models.ForeignKey('Sucursales', models.DO_NOTHING, db_column='id_sucursal')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'clientes'
 
 
