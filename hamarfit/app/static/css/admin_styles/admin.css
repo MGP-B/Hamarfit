@@ -213,6 +213,10 @@ aside #rol-usuario {
     font-size: 1.1vw;
 }
 
+button{
+    cursor: pointer;
+}
+
 .contenedor_advertencia{display: none;}
 
 @media screen and (max-width: 750px) {

@@ -3,13 +3,18 @@
 <div class="cuerpo_popup">
     <h2>Registrar Transacción</h2>
     <h3>Ingresa los detalles de la nueva transacción.</h3>
-    
+
     <form action="">
         <div class="div_fecha">
             <label for="fecha">Fecha</label>
             <input type="date" id="fecha">
         </div>
-        
+
+        <div class="div_cliente">
+            <label for="cliente">Cliente</label>
+            <input type="number" id="id_cliente" placeholder="ID de cliente">
+        </div>
+
         <div class="div_plan">
             <label for="plan">Plan</label>
             <select name="plano" id="plan">
@@ -18,12 +23,12 @@
                 <option value="Plan básico">Plan Básico</option>
             </select>
         </div>
-        
+
         <div class="div_monto">
             <label for="monto">Monto</label>
             <input type="number" id="monto" placeholder="Monto" min="0">
         </div>
-        
+
         <div class="div_metodo_pago">
             <label for="metodo-de-pago">Método de Pago</label>
             <select name="metodo-de-pago" id="metodo-de-pago">
