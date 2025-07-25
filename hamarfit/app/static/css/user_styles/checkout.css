@@ -82,10 +82,12 @@ main form .plan-pro label, main form .plan-basico label {
 
 main form .plan-pro label span {
     color: #ffa500;
+    cursor: pointer;
 }
 
 main form .plan-basico label span {
     color: #626262;
+    cursor: pointer;
 }
 
 /* Estilos para el contenedor del precio */

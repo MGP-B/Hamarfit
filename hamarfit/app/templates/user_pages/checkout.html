@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/user_styles/checkout.css' %}">
 </head>
+
 <body>
     <main>
         <h1><a href="/index.html">HAMAR<span>FIT</span></a></h1>
@@ -19,7 +21,7 @@
                 <div class="precio-seleccion">
                     <p id="mensualidad-pro">1500<span>/mes</span></p>
                     <input type="radio" name="planes" id="radio-plan-pro">
-                </div>   
+                </div>
             </div>
 
             <div class="plan-basico" id="contenedor-plan-basico">
@@ -28,7 +30,7 @@
                     <p id="mensualidad-pro">1100<span>/mes</span></p>
                     <input type="radio" name="planes" id="radio-plan-basico">
                     <input type="radio" name="planes" id="radio-checked" checked style="display: none;">
-                </div>   
+                </div>
             </div>
         </form>
 
@@ -40,7 +42,7 @@
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
                     <p id="ubicacion">Calle Principal 123, Ciudad</p>
                 </div>
-                <a href="../../html/user/sucursales.html">Cambiar sucursal</a>
+                <a href="{% url 'user/sucursales' %}">Cambiar sucursal</a>
             </div>
         </div>
     </main>
@@ -52,13 +54,13 @@
             </div>
 
             <div class="inscripcion">
-                <h3>Inscripción:</h3> 
+                <h3>Inscripción:</h3>
                 <p id="inscripcion-precio">0.00 $</p>
             </div>
 
             <div class="inscripcion">
                 <h3>Mensualidad:</h3>
-                 <p id="mensualidad-precio">0.00 $</p>
+                <p id="mensualidad-precio">0.00 $</p>
             </div>
 
             <form id="confirmacion-plan">
@@ -68,4 +70,5 @@
     </aside>
     <script src="{% static 'js/checkout.js' %}"></script>
 </body>
+
 </html>

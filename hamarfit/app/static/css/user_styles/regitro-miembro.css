@@ -5,7 +5,7 @@ body {
     
 
     /* Fondo de pantalla */
-    background-image: url('../../img/cuentas/wallpaper.png');
+    background-image: url('../../img/user_img/cuentas/wallpaper.png');
     background-position: 50vw;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,7 +21,7 @@ body {
 .contenedor {
     width: 50%;
     height: 100%;
-    background-color: red;
+    background-color: white;
 
     /* Contenedor flex box */
     display: flex;
