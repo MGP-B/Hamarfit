@@ -35,6 +35,7 @@ urlpatterns = [
 
     # Finanzas
     path('admin/finanzas/registrar_transaccion/', views.registrar_transaccion, name='admin/finanzas/registrar_transaccion/'),
+    path('admin/finanzas/detalles_factura/', views.detalles_factura, name='admin/finanzas/detalles_factura/' ),
 
     # Sucursales
     path('admin/sucursales/registrar_sucursal/',views.registrar_sucursal, name='admin/sucursales/registrar_sucursal/'),

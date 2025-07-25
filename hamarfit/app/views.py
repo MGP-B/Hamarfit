@@ -73,7 +73,10 @@ def registrar_usuario(req):
 
 # Finanzas
 def registrar_transaccion(req):
-    return render(req, 'admin_pages/desplegables/finanzas/registrar_trasaccion.html')
+    return render(req, 'admin_pages/desplegables/finanzas/registrar_transaccion.html')
+
+def detalles_factura(req):
+    return render(req, 'admin_pages/desplegables/finanzas/detalles_de_factura.html')
 
 
 # Sucursales

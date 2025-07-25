@@ -88,7 +88,7 @@
             </button>
 
             <button id="registrar_transaccion"
-                onclick="agregar_popup('/html/admin/desplegables/finanzas/registrar_transaccion.html')">
+                onclick="agregar_popup(`{% url 'admin/finanzas/registrar_transaccion/' %}`)">
                 <img src="{% static 'img/admin_img/global/registrar_transaccion.svg' %}" alt="">
                 <p>Registrar transacción</p>
             </button>
@@ -124,7 +124,7 @@
                         </button>
                     </div>
                     <div class="div_detalles"
-                        onclick="agregar_popup('/html/admin/desplegables/detalles_de_factura.html')"
+                        onclick="agregar_popup(`{% url 'admin/finanzas/detalles_factura/' %}`)"
                         title="Ver detalles">
                         <img src="{% static 'img/admin_img/global/ojo.svg' %}">
                         <p>Ver detalles</p>

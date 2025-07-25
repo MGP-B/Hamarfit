@@ -1,7 +1,5 @@
 @import '../desplegables.css';
 
-*{background-color: red;}
-
 /* Cuerpo del pop up */
 .cuerpo_popup{
     background-color: white;
