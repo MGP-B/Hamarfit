@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import *
 
 # Create your views here.
 # def index(req):
@@ -57,7 +58,18 @@ def detalles_cliente(req):
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html')
 
 def registrar_cliente(req):
-    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html')
+    if req.method == 'POST':
+        form = ClientesForm(req.POST)
+        if form.is_valid():
+            form.save()
+            # Redirige o muestra mensaje de éxito
+            return render(req, 'admin_pages/desplegables/clientes/seleccionar_plan.html', {'form': form})
+        else:
+            # Si el formulario no es válido, vuelve a mostrar el formulario con errores
+            return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
+    else:
+        form = ClientesForm()
+        return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
 
 def seleccionar_plan(req):
     return render(req, 'admin_pages/desplegables/clientes/seleccionar_plan.html')
@@ -85,3 +97,11 @@ def registrar_sucursal(req):
 
 def editar_sucursal(req):
     return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')
+
+
+# ----- Paginas de error -----
+# def error_404(req, exception):
+#     return render(req, 'error_pages/404.html', status=404)
+# def error_500(req):
+#     return render(req, 'error_pages/500.html', status=500)
+

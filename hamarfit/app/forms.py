@@ -1,7 +1,7 @@
 from django import forms
-from models import *
+from .models import *
 
-class ClientesForm(models.modelF):
+class ClientesForm(forms.ModelForm):
     class Meta:
         model = Clientes
         fields = [
@@ -10,7 +10,11 @@ class ClientesForm(models.modelF):
             'tipo_documento',
             'documento_cliente',
             'correo_cliente',
-            
+            'telefono_cliente',
+            'direccion_cliente',
+            'inscripcion',
+            'contrasena_cliente',
+            'id_plan',
+            'id_sucursal',
         ]
-    
 
