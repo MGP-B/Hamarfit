@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-07-2025 a las 20:17:44
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.13
+-- Tiempo de generación: 28-07-2025 a las 01:44:11
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `beneficios` (
   `id_beneficio` int(11) NOT NULL,
-  `nombre_beneficio` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_beneficio` varchar(100) NOT NULL,
   `id_plan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -42,18 +41,25 @@ CREATE TABLE `beneficios` (
 
 CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
-  `nombre_cliente` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
-  `apellido_cliente` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `tipo_documento` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `documento_cliente` varchar(13) COLLATE utf8_spanish_ci NOT NULL,
-  `correo_cliente` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
-  `telefono_cliente` char(12) COLLATE utf8_spanish_ci NOT NULL,
-  `direccion_cliente` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_cliente` varchar(80) NOT NULL,
+  `apellido_cliente` varchar(100) NOT NULL,
+  `tipo_documento` varchar(30) NOT NULL,
+  `documento_cliente` varchar(13) NOT NULL,
+  `correo_cliente` varchar(80) NOT NULL,
+  `telefono_cliente` char(12) NOT NULL,
+  `direccion_cliente` varchar(200) NOT NULL,
   `inscripcion` date NOT NULL,
   `contrasena_cliente` int(11) NOT NULL,
   `id_plan` int(11) NOT NULL,
   `id_sucursal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `tipo_documento`, `documento_cliente`, `correo_cliente`, `telefono_cliente`, `direccion_cliente`, `inscripcion`, `contrasena_cliente`, `id_plan`, `id_sucursal`) VALUES
+(1, 'Winnar', 'Peralta', 'DNI', '40219260863', 'winnarperalta3@gmail.com', '8293320768', 'El dorado 1', '2025-07-27', 123, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -63,15 +69,15 @@ CREATE TABLE `clientes` (
 
 CREATE TABLE `empleados` (
   `id_empleado` int(11) NOT NULL,
-  `nombre_empleado` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
-  `apellido_empleado` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `tipo-documento` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `documento_empleado` varchar(13) COLLATE utf8_spanish_ci NOT NULL,
-  `correo_empleado` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
-  `telefono_empleado` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
-  `direccion_empleado` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_empleado` varchar(80) NOT NULL,
+  `apellido_empleado` varchar(100) NOT NULL,
+  `tipo-documento` varchar(30) NOT NULL,
+  `documento_empleado` varchar(13) NOT NULL,
+  `correo_empleado` varchar(80) NOT NULL,
+  `telefono_empleado` varchar(12) NOT NULL,
+  `direccion_empleado` varchar(200) NOT NULL,
   `contratacion_empleado` date NOT NULL,
-  `contrasena_empleado` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `contrasena_empleado` varchar(20) NOT NULL,
   `id_rol` int(11) NOT NULL,
   `id_sucursal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -99,7 +105,7 @@ CREATE TABLE `finanzas` (
 
 CREATE TABLE `metodos_pagos` (
   `id_metodo` int(11) NOT NULL,
-  `metodo` varchar(40) COLLATE utf8_spanish_ci NOT NULL
+  `metodo` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -110,7 +116,7 @@ CREATE TABLE `metodos_pagos` (
 
 CREATE TABLE `nota_clientes` (
   `id_nota` int(11) NOT NULL,
-  `nota` varchar(800) COLLATE utf8_spanish_ci NOT NULL,
+  `nota` varchar(800) NOT NULL,
   `id_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -122,7 +128,7 @@ CREATE TABLE `nota_clientes` (
 
 CREATE TABLE `permisos` (
   `id_permiso` int(11) NOT NULL,
-  `permiso` varchar(80) COLLATE utf8_spanish_ci NOT NULL
+  `permiso` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -133,9 +139,17 @@ CREATE TABLE `permisos` (
 
 CREATE TABLE `planes` (
   `id_plan` int(11) NOT NULL,
-  `nombre_plan` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_plan` varchar(40) NOT NULL,
   `mensualidad` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `planes`
+--
+
+INSERT INTO `planes` (`id_plan`, `nombre_plan`, `mensualidad`) VALUES
+(1, 'Básico', 1500),
+(2, 'Pro', 2000);
 
 -- --------------------------------------------------------
 
@@ -145,8 +159,8 @@ CREATE TABLE `planes` (
 
 CREATE TABLE `roles` (
   `id_rol` int(11) NOT NULL,
-  `rol` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
-  `descripcion` varchar(300) COLLATE utf8_spanish_ci NOT NULL
+  `rol` varchar(40) NOT NULL,
+  `descripcion` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -168,12 +182,19 @@ CREATE TABLE `roles_permisos` (
 
 CREATE TABLE `sucursales` (
   `id_sucursal` int(11) NOT NULL,
-  `nombre_sucursal` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
-  `direccion_sucursal` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
-  `telefono_sucursal` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
-  `horario` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
-  `imagen` varchar(200) COLLATE utf8_spanish_ci NOT NULL
+  `nombre_sucursal` varchar(80) NOT NULL,
+  `direccion_sucursal` varchar(200) NOT NULL,
+  `telefono_sucursal` varchar(12) NOT NULL,
+  `horario` varchar(12) NOT NULL,
+  `imagen` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `sucursales`
+--
+
+INSERT INTO `sucursales` (`id_sucursal`, `nombre_sucursal`, `direccion_sucursal`, `telefono_sucursal`, `horario`, `imagen`) VALUES
+(1, 'HamarFit Central', 'URB. La Real', '8092220908', '6:00AM-9:00P', 'asdasd');
 
 --
 -- Índices para tablas volcadas
@@ -270,7 +291,7 @@ ALTER TABLE `beneficios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`
@@ -306,7 +327,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `planes`
 --
 ALTER TABLE `planes`
-  MODIFY `id_plan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_plan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -318,7 +339,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `sucursales`
 --
 ALTER TABLE `sucursales`
-  MODIFY `id_sucursal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

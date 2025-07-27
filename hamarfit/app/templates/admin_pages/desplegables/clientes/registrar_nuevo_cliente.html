@@ -4,14 +4,9 @@
     <h2>Registrar Nuevo Cliente</h2>
     <h3>Ingresa los datos del nuevo cliente y selecciona una membresía.</h3>
     
-    <div class="opciones">
-        <a href="#" id="seleccion">Datos personales</a>
-        <a href="#">Membresía</a>
-    </div>
-    
     <form action="{% url 'admin/clientes/registrar_cliente/' %}" method="POST">
         {% csrf_token %}
-        {% if form.errors %}
+        <!-- {% if form.errors %}
             <ul>
             {% for field in form %}
                 {% for error in field.errors %}
@@ -19,7 +14,7 @@
                 {% endfor %}
             {% endfor %}
             </ul>
-        {% endif %}
+        {% endif %} -->
         <div class="div-nombre-apellido">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre_cliente" placeholder="Tu nombre">
