@@ -4,11 +4,11 @@
 .cuerpo_popup {background-color: red;
     background-color: white;
     border-radius: 8px;
-    padding: 50px;
+    padding: 40px;
     padding-bottom: 30px;
-    max-width: 450px;
+    max-width: 430px;
     width: 40%;
-    transform: scale(0.9);
+    transform: scale(0.8);
 }
 
 .cuerpo_popup h2 {
@@ -68,6 +68,10 @@
     width: 100%;
 }
 
+.cuerpo_popup form div label {
+    font-size: 15px;
+}
+
 /* Los input y select en el formulario */
 .cuerpo_popup form div input,
 .cuerpo_popup form div select {
@@ -76,7 +80,7 @@
     border: 1.5px solid #A6A6A6;
     border-radius: 5px;
     margin-top: 5px;
-    padding: 7px 10px;
+    padding: 6px 10px;
     width: 100%;
 }
 
@@ -100,7 +104,7 @@
     color: white;
     padding: 6px;
     width: 60%;
-    font-size: 0.9vw;
+    font-size: 15px;
 }
 
 /* Botón de cancelar */
@@ -109,7 +113,7 @@
     border: 1px solid #7B7B7B;
     border-radius: 5px;
     width: 40%;
-    font-size: 0.9vw;
+    font-size: 15px;
 }
 
 .cuerpo_popup button:hover {
