@@ -33,7 +33,8 @@ def registro(req):
 
 # ----- Paginas del apartado de 'admin' -----
 def clientes(req):
-    return render(req, 'admin_pages/clientes.html')
+    clientes = Clientes.objects.all()
+    return render(req, 'admin_pages/clientes.html', {'clientes': clientes})
 
 def configuracion(req):
     return render(req, 'admin_pages/configuracion.html')
