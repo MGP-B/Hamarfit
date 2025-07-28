@@ -27,7 +27,16 @@ def planes_contratados(req):
     return render(req, 'user_pages/planes-contratados.html')
 
 def registro(req):
-    return render(req, 'user_pages/registro.html')
+    if req.method == 'POST':
+        form = ClientesForm(req.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('admin_pages/login.html')
+    
+    else:
+        form = ClientesForm()
+    return render(req, 'user_pages/registro.html', {'form': form})
 
 
 
