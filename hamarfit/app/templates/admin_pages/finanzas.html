@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_styles/admin.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_styles/finanzas.css' %}">
@@ -123,8 +124,7 @@
                             <img src="{% static 'img/admin_img/global/x.svg' %}">
                         </button>
                     </div>
-                    <div class="div_detalles"
-                        onclick="agregar_popup(`{% url 'admin/finanzas/detalles_factura/' %}`)"
+                    <div class="div_detalles" onclick="agregar_popup(`{% url 'admin/finanzas/detalles_factura/' %}`)"
                         title="Ver detalles">
                         <img src="{% static 'img/admin_img/global/ojo.svg' %}">
                         <p>Ver detalles</p>
