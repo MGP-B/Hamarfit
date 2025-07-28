@@ -12,7 +12,7 @@ class ClientesForm(forms.ModelForm):
             'correo_cliente',
             'telefono_cliente',
             'direccion_cliente',
-            'inscripcion',
+            # 'inscripcion',
             'contrasena_cliente',
             'id_plan',
             'id_sucursal',

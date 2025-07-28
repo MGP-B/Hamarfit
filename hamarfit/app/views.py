@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import *
 
@@ -64,7 +64,7 @@ def registrar_cliente(req):
         if form.is_valid():
             form.save()
             # Redirige o muestra mensaje de éxito
-            return render(req, 'admin_pages/clientes.html', {'form': form})
+            return redirect('../')
         else:
             # Si el formulario no es válido, vuelve a mostrar el formulario con errores
             return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
