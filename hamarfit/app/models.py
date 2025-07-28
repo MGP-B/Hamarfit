@@ -28,9 +28,10 @@ class Clientes(models.Model):
     telefono_cliente = models.CharField(max_length=12)
     direccion_cliente = models.CharField(max_length=200)
     inscripcion = models.DateField()
-    contrasena_cliente = models.IntegerField()
+    contrasena_cliente = models.CharField(max_length=20)
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_sucursal = models.ForeignKey('Sucursales', models.DO_NOTHING, db_column='id_sucursal')
+    id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default=1)
 
     class Meta:
         managed = True
@@ -54,6 +55,15 @@ class Empleados(models.Model):
     class Meta:
         managed = False
         db_table = 'empleados'
+
+
+class Estados(models.Model):
+    id_estado = models.AutoField(primary_key=True)
+    estado = models.CharField(max_length=10)
+
+    class Meta:
+        managed = False
+        db_table = 'estados'
 
 
 class Finanzas(models.Model):

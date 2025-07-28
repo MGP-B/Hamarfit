@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-07-2025 a las 01:44:11
+-- Tiempo de generación: 28-07-2025 a las 04:53:04
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,17 +49,18 @@ CREATE TABLE `clientes` (
   `telefono_cliente` char(12) NOT NULL,
   `direccion_cliente` varchar(200) NOT NULL,
   `inscripcion` date NOT NULL,
-  `contrasena_cliente` int(11) NOT NULL,
+  `contrasena_cliente` varchar(20) NOT NULL,
   `id_plan` int(11) NOT NULL,
-  `id_sucursal` int(11) NOT NULL
+  `id_sucursal` int(11) NOT NULL,
+  `id_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `tipo_documento`, `documento_cliente`, `correo_cliente`, `telefono_cliente`, `direccion_cliente`, `inscripcion`, `contrasena_cliente`, `id_plan`, `id_sucursal`) VALUES
-(1, 'Winnar', 'Peralta', 'DNI', '40219260863', 'winnarperalta3@gmail.com', '8293320768', 'El dorado 1', '2025-07-27', 123, 1, 1);
+INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `tipo_documento`, `documento_cliente`, `correo_cliente`, `telefono_cliente`, `direccion_cliente`, `inscripcion`, `contrasena_cliente`, `id_plan`, `id_sucursal`, `id_estado`) VALUES
+(8, 'Winnar', 'Peralta', 'DNI', '40219260863', 'winnarperalta3@gmail.com', '8293320768', 'El dorado 1', '2025-07-27', '12', 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -81,6 +82,25 @@ CREATE TABLE `empleados` (
   `id_rol` int(11) NOT NULL,
   `id_sucursal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estados`
+--
+
+CREATE TABLE `estados` (
+  `id_estado` int(11) NOT NULL,
+  `estado` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `estados`
+--
+
+INSERT INTO `estados` (`id_estado`, `estado`) VALUES
+(1, 'Activo'),
+(2, 'Inactivo');
 
 -- --------------------------------------------------------
 
@@ -213,7 +233,8 @@ ALTER TABLE `beneficios`
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`),
   ADD KEY `plan` (`id_plan`),
-  ADD KEY `id_sucursal` (`id_sucursal`);
+  ADD KEY `id_sucursal` (`id_sucursal`),
+  ADD KEY `id_estado_2` (`id_estado`);
 
 --
 -- Indices de la tabla `empleados`
@@ -222,6 +243,12 @@ ALTER TABLE `empleados`
   ADD PRIMARY KEY (`id_empleado`),
   ADD KEY `rol` (`id_rol`),
   ADD KEY `sucursal` (`id_sucursal`);
+
+--
+-- Indices de la tabla `estados`
+--
+ALTER TABLE `estados`
+  ADD PRIMARY KEY (`id_estado`);
 
 --
 -- Indices de la tabla `finanzas`
@@ -291,13 +318,19 @@ ALTER TABLE `beneficios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
   MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estados`
+--
+ALTER TABLE `estados`
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `finanzas`
@@ -356,6 +389,7 @@ ALTER TABLE `beneficios`
 --
 ALTER TABLE `clientes`
   ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`id_sucursal`) REFERENCES `sucursales` (`id_sucursal`),
+  ADD CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `estados` (`id_estado`),
   ADD CONSTRAINT `plan` FOREIGN KEY (`id_plan`) REFERENCES `planes` (`id_plan`);
 
 --

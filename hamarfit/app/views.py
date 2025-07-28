@@ -64,7 +64,7 @@ def registrar_cliente(req):
         if form.is_valid():
             form.save()
             # Redirige o muestra mensaje de éxito
-            return render(req, 'admin_pages/desplegables/clientes/seleccionar_plan.html', {'form': form})
+            return render(req, 'admin_pages/clientes.html', {'form': form})
         else:
             # Si el formulario no es válido, vuelve a mostrar el formulario con errores
             return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
