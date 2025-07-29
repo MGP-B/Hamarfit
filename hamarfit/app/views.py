@@ -42,8 +42,8 @@ def configuracion(req):
 def dashboard(req):
     return render(req, 'admin_pages/dashboard.html')
 
-def finanzas(req):
-    return render(req, 'admin_pages/finanzas.html')
+def inscripciones_renovaciones(req):
+    return render(req, 'admin_pages/inscripciones_renovaciones.html')
 
 def login(req):
     return render(req, 'admin_pages/login.html')
@@ -84,12 +84,12 @@ def registrar_usuario(req):
     return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html')
 
 
-# Finanzas
-def registrar_transaccion(req):
-    return render(req, 'admin_pages/desplegables/finanzas/registrar_transaccion.html')
+# inscripciones_renovaciones
+def registrar_renovacion(req):
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html')
 
 def detalles_factura(req):
-    return render(req, 'admin_pages/desplegables/finanzas/detalles_de_factura.html')
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html')
 
 
 # Sucursales

@@ -17,8 +17,8 @@ urlpatterns = [
     # ----- Apartado de 'admin' -----
     path('admin/clientes/',views.clientes, name='admin/clientes'),
     path('admin/configuracion/',views.configuracion, name='admin/configuracion'),
-    path('admin/dashboard/',views.dashboard, name='admin/dashboard'),
-    path('admin/finanzas/',views.finanzas, name='admin/finanzas'),
+    path('admin/',views.dashboard, name='admin/'),
+    path('admin/inscripciones_renovaciones/',views.inscripciones_renovaciones, name='admin/inscripciones_renovaciones'),
     path('admin/login/',views.login, name='admin/login'),
     path('admin/sucursales/',views.sucursales_admin, name='admin/sucursales'),
 
@@ -33,9 +33,9 @@ urlpatterns = [
     path('admin/configuracion/editar_usuario/', views.editar_usuario, name='admin/configuracion/editar_usuario/'),
     path('admin/configuracion/registrar_usuario/', views.registrar_usuario, name='admin/configuracion/registrar_usuario/'),
 
-    # Finanzas
-    path('admin/finanzas/registrar_transaccion/', views.registrar_transaccion, name='admin/finanzas/registrar_transaccion/'),
-    path('admin/finanzas/detalles_factura/', views.detalles_factura, name='admin/finanzas/detalles_factura/' ),
+    # inscripciones_renovaciones
+    path('admin/inscripciones_renovaciones/registrar_renovacion/', views.registrar_renovacion, name='admin/inscripciones_renovaciones/registrar_renovacion/'),
+    path('admin/inscripciones_renovaciones/detalles_factura/', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
 
     # Sucursales
     path('admin/sucursales/registrar_sucursal/',views.registrar_sucursal, name='admin/sucursales/registrar_sucursal/'),

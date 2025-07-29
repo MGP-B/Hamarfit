@@ -66,17 +66,18 @@ class Estados(models.Model):
         db_table = 'estados'
 
 
-class Finanzas(models.Model):
+class Inscripciones_renovaciones(models.Model):
     id_finanza = models.AutoField(primary_key=True)
     emision = models.DateField()
     id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
     id_metodo = models.ForeignKey('MetodosPagos', models.DO_NOTHING, db_column='id_metodo')
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
+    descripcion = models.CharField(max_length=60)
 
     class Meta:
         managed = False
-        db_table = 'finanzas'
+        db_table = 'inscripciones_renovaciones'
 
 
 class MetodosPagos(models.Model):
