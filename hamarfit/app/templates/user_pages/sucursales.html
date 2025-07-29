@@ -44,9 +44,15 @@
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
                     <p id="ubicacion">Calle Principal 123, Ciudad</p>
                 </div>
-                <button id="boton-sucursal">
+                <!-- <button id="boton-sucursal">
                     <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
-                </button>
+                </button> -->
+                <form method="GET" action="{% url 'user/registro' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_plan" value="{{ plan.id_plan }}">
+                    <input type="hidden" name="id_sucursal" value="1">
+                    <button type="submit" id="boton-sucursal">Quiero entrenar aquí</button>
+                </form>
             </div>
 
             <div class="sucursal">

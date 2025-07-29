@@ -113,7 +113,7 @@ class Planes(models.Model):
     mensualidad = models.FloatField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'planes'
 
 
@@ -145,5 +145,5 @@ class Sucursales(models.Model):
     imagen = models.CharField(max_length=200)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'sucursales'

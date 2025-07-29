@@ -11,8 +11,14 @@ def index(req):
     return render(req,'index.html')
 
 #  ----- Paginas del apartado de 'user' -----
+# def sucursales_user(req):
+#     return render(req,'user_pages/sucursales.html')
+
 def sucursales_user(req):
-    return render(req,'user_pages/sucursales.html')
+    id_plan = req.GET.get('id_plan')
+    plan = Planes.objects.get(id_plan=id_plan)
+    sucursales = Sucursales.objects.all()
+    return render(req, 'user_pages/sucursales.html', {'plan': plan, 'sucursales': sucursales})
 
 def checkout(req):
     return render(req,'user_pages/checkout.html')
@@ -27,16 +33,25 @@ def planes_contratados(req):
     return render(req, 'user_pages/planes-contratados.html')
 
 def registro(req):
+    id_plan = req.GET.get('id_plan')
+    id_sucursal = req.GET.get('id_sucursal')
+
+    plan = Planes.objects.get(id_plan=id_plan)
+    sucursal = Sucursales.objects.get(id_sucursal=id_sucursal)
+
     if req.method == 'POST':
         form = ClientesForm(req.POST)
-
         if form.is_valid():
-            form.save()
-            return redirect('admin_pages/login.html')
-    
+            cliente = form.save(commit=False)
+            cliente.id_plan = plan
+            cliente.id_sucursal = sucursal
+            cliente.id_estado = Estados.objects.get(id_estado=1)
+            cliente.save()
+            return redirect('login.html')
     else:
         form = ClientesForm()
-    return render(req, 'user_pages/registro.html', {'form': form})
+
+    return render(req, 'user_pages/sucursales.html', {'form': form, 'plan': plan, 'sucursal': sucursal})
 
 
 
