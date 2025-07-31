@@ -21,7 +21,7 @@
         </header>
 
         <main>
-            <form id="registro_usuario" method="POST" autocomplete="off">
+            <form id="registro_usuario" method="POST" action="{% url 'user/registro' %}" autocomplete="off">
                 {% csrf_token %}
 
                 <input type="text" id="nombre" name="nombre_cliente" required placeholder="Nombre">
