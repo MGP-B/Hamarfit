@@ -63,14 +63,10 @@ def registrar_cliente(req):
         form = ClientesForm(req.POST)
         if form.is_valid():
             form.save()
-            # Redirige o muestra mensaje de éxito
             return redirect('../')
-        else:
-            # Si el formulario no es válido, vuelve a mostrar el formulario con errores
-            return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
     else:
         form = ClientesForm()
-        return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
+    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
 
 def seleccionar_plan(req):
     return render(req, 'admin_pages/desplegables/clientes/seleccionar_plan.html')
@@ -81,7 +77,14 @@ def editar_usuario(req):
     return render(req, 'admin_pages/desplegables/configuracion/editar_usuario.html')
 
 def registrar_usuario(req):
-    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html')
+    if req.method == 'POST':
+        form = EmpleadosForm(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('../')
+    else:
+        form = EmpleadosForm()
+    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form})
 
 
 # inscripciones_renovaciones

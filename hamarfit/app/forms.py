@@ -17,3 +17,19 @@ class ClientesForm(forms.ModelForm):
             'id_sucursal',
         ]
 
+class EmpleadosForm(forms.ModelForm):
+    class Meta:
+        model = Empleados
+        fields = [
+            'nombre_empleado',
+            'apellido_empleado',
+            'tipo_documento',
+            'documento_empleado',
+            'correo_empleado',
+            'telefono_empleado',
+            'direccion_empleado',
+            'contratacion_empleado',
+            'contrasena_empleado',
+            'id_rol',
+            'id_sucursal'
+        ]

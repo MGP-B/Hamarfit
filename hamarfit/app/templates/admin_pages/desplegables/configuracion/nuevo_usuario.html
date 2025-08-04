@@ -4,7 +4,8 @@
     <h2>Nuevo usuario</h2>
     <h3>Ingresa los detalles para agregar el nuevo usuario</h3>
 
-    <form action="" id="datos_usuario">
+    <form action="" id="datos_usuario" method="POST">
+        {% csrf_token %}
         <div class="div_nombre">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" placeholder="Nombre">
@@ -19,6 +20,8 @@
             <label for="tipo_documento">Tipo de documento</label>
             <select id="tipo_documento">
                 <option disabled selected>Selecciona el tipo de documento</option>
+                <option value="DNI">DNI</option>
+                <option value="Pasaporte">Pasaporte</option>
             </select>
         </div>
 
