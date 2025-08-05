@@ -10,6 +10,10 @@ from . models import *
 
 # Index
 def index(req):
+    if req.method == 'GET' and 'id_plan' in req.GET:
+        id_plan = req.GET.get('id_plan')
+        req.session['id_plan'] = id_plan
+        return redirect('user/sucursales')
     return render(req,'index.html')
 
 #  ----- Paginas del apartado de 'user' -----
@@ -17,13 +21,22 @@ def index(req):
 #     return render(req,'user_pages/sucursales.html')
 
 def sucursales_user(req):
-    # Obtiene el ID del plan desde la URL (ej. ?id_plan=2)
-    id_plan = req.GET.get('id_plan')
-    # Busca el objeto Planes con ese ID en la base de datos
-    plan = Planes.objects.get(id_plan=id_plan)
-    # Obtiene todas las sucursales disponibles
+    # Obtener y guardar el id_plan en sesión (si viene de index)
+    if 'id_plan' in req.GET:
+        req.session['id_plan'] = req.GET.get('id_plan')
+    
+    # Obtener el plan desde sesión
+    id_plan = req.session.get('id_plan')
+    if not id_plan:
+        return redirect('index')
+    
+    # Si el usuario ya eligió una sucursal, guardar y redirigir
+    if 'id_sucursal' in req.GET:
+        req.session['id_sucursal'] = req.GET.get('id_sucursal')
+        return redirect('user/registro')
+    
+    plan = get_object_or_404(Planes, id_plan=id_plan)
     sucursales = Sucursales.objects.all()
-    # Renderiza la plantilla 'sucursales.html' y le pasa el plan y las sucursales
     return render(req, 'user_pages/sucursales.html', {'plan': plan, 'sucursales': sucursales})
 
 def checkout(req):
@@ -39,51 +52,39 @@ def planes_contratados(req):
     return render(req, 'user_pages/planes-contratados.html')
 
 def registro(req):
-    # Obtiene el ID del plan y la sucursal desde la URL (ej. ?id_plan=2&id_sucursal=1)
-    id_plan = req.GET.get('id_plan')
-    id_sucursal = req.GET.get('id_sucursal')
+    id_plan = req.session.get('id_plan')
+    id_sucursal = req.session.get('id_sucursal')
 
-    # Si falta alguno de los dos, redirige al selector de sucursales
     if not id_plan or not id_sucursal:
         return redirect('user/sucursales')
-
-    # Busca el plan y la sucursal en la base de datos, o lanza error 404 si no existen
+    
+    # Busca los objetos en la base de datos
     plan = get_object_or_404(Planes, id_plan=id_plan)
     sucursal = get_object_or_404(Sucursales, id_sucursal=id_sucursal)
 
-    # Si el usuario envió el formulario (método POST)
     if req.method == 'POST':
-        # Crea el formulario con los datos enviados
         form = ClientesForm(req.POST)
-
-        # Si el formulario es válido
         if form.is_valid():
-            # Crea el cliente sin guardarlo aún en la base de datos
             cliente = form.save(commit=False)
-
-            # Asigna el plan, la sucursal y el estado manualmente
             cliente.id_plan = plan
             cliente.id_sucursal = sucursal
             cliente.id_estado = Estados.objects.get(id_estado=1)
-            # print(cliente.__dict__)
-
-            # Guarda el cliente en la base de datos
             cliente.save()
 
-            # Redirige al login del admin después del registro exitoso
+            # Limpia la sesión (opcional, pero recomendable)
+            req.session.pop('id_plan', None)
+            req.session.pop('id_sucursal', None)
+
             return redirect('../')
-        
-        # Si el formulario no es válido, podrías imprimir los errores (comentado)
-        # else:
-        #     print(form.errors)
     else:
-        # Si es una petición GET, muestra el formulario vacío
         form = ClientesForm()
 
-    # Renderiza la plantilla 'registro.html' con el formulario y los datos del plan y sucursal
-    return render(req, 'user_pages/registro.html', {'form': form, 'plan': plan, 'sucursal': sucursal})
-
-
+    return render(req, 'user_pages/registro.html', {
+        'form': form,
+        'plan': plan,
+        'sucursal': sucursal
+    })
+            
 
 # ----- Paginas del apartado de 'admin' -----
 def clientes(req):
