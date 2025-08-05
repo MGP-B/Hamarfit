@@ -31,7 +31,7 @@ class Clientes(models.Model):
     contrasena_cliente = models.CharField(max_length=20)
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_sucursal = models.ForeignKey('Sucursales', models.DO_NOTHING, db_column='id_sucursal')
-    id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default=1)
+    id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado')
 
     class Meta:
         managed = True
