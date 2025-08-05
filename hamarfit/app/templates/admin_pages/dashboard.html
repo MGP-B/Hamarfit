@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,14 @@
     <link rel="stylesheet" href="{% static 'css/admin_styles/dashboard.css' %}">
     <title>Admin | Dashboard</title>
 </head>
+
 <body>
     <header>
-        <div class="logo"><h1>HAMAR<span>FIT</span></h1></div>
+        <div class="logo">
+            <h1>HAMAR<span>FIT</span></h1>
+        </div>
         <div class="setting">
-            <a href="configuracion.html">
+            <a href="{% url 'admin/configuracion'%}">
                 <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
                 <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
             </a>
@@ -19,28 +23,28 @@
     </header>
     <aside class="menu">
         <ul id="opciones-menu">
-            <a href="dashboard.html">
+            <a href="{% url 'admin/dashboard'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/dashboard-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/dashboard.svg' %}" alt="" id="inactivo">
                     <h3>Dashboard</h3>
                 </li>
             </a>
-            <a href="clientes.html">
+            <a href="{% url 'admin/clientes'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
                     <h3>Clientes</h3>
                 </li>
             </a>
-            <a href="sucursales.html">
+            <a href="{% url 'admin/sucursales'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
                     <h3>Sucursales</h3>
                 </li>
             </a>
-            <a href="finanzas.html">
+            <a href="{% url 'admin/finanzas'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
@@ -54,7 +58,8 @@
             </div>
             <div class="nombre-rol">
                 <div class="nombre-apellido">
-                    <p id="nombre-usuario">José</p> <p id="apellido-usuario">Miguel</p>
+                    <p id="nombre-usuario">José</p>
+                    <p id="apellido-usuario">Miguel</p>
                 </div>
                 <p id="rol-usuario">Administrador</p>
             </div>
@@ -64,7 +69,7 @@
         <!-- Encabezado de la página -->
         <div class="encabezado">
             <h2>Dashboard</h2>
-            <p class="subtitulo">Bienvenido al panel de control de HamarFit</p> 
+            <p class="subtitulo">Bienvenido al panel de control de HamarFit</p>
         </div>
 
         <div class="contenedor_flex">
@@ -79,7 +84,7 @@
                     <span>+8%</span> respecto al mes anterior
                 </div>
             </div>
-            
+
             <!-- Div de ganancias semanales -->
             <div class="div_ganancia_semanal">
                 <div class="encabezado_ganancias">
@@ -110,9 +115,8 @@
                             <p class="subtitulo">Últimos ingresos registrados</p>
                         </div>
                         <!-- Enlace al apartado de finanzas -->
-                        <a href="finanzas.html">Ver Más</a>
                     </div>
-                
+
                     <!-- Contenedor de los contenedores de datos -->
                     <div class="contenedor_contenido">
                         <!-- Contenedor de los encabezados -->
@@ -122,7 +126,7 @@
                             <p>Membresía</p>
                             <p>Monto</p>
                         </div>
-                
+
                         <!-- Contenedor de los datos -->
                         <div id="dashdboard_contenido_ingresos">
                             <p>19/05/2025</p>
@@ -138,8 +142,8 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <!-- Contenedor de clientes resientes -->
                 <div class="clientes_recientes">
                     <!-- Encabezado de la actividad "Ingresos" -->
@@ -150,9 +154,8 @@
                             <p class="subtitulo">Últimos Clientes registrados en la web</p>
                         </div>
                         <!-- Enlace al apartado de finanzas -->
-                        <a href="clientes.html">Ver Más</a>
                     </div>
-                
+
                     <!-- Contenedor de los contenedores de datos -->
                     <div class="contenedor_contenido">
                         <!-- Contenedor de los encabezados -->
@@ -162,7 +165,7 @@
                             <p>Email</p>
                             <p>Membresía</p>
                         </div>
-                
+
                         <!-- Contenedor de los datos -->
                         <div id="ashdboard_contenido_clientes">
                             <p>19/05/2025</p>
@@ -181,9 +184,10 @@
             </div>
         </div>
     </main>
-    
+
     <div class="contenedor_advertencia">
         <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (750px de ancho)</p>
     </div>
 </body>
+
 </html>

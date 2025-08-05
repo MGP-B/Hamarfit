@@ -1,6 +1,3 @@
-@import url(/src/css/reset.css);
-@import url('/src/css/fuentes.css');
-
 /* Estilo general para botones */
 button {
     cursor: pointer;
@@ -132,7 +129,7 @@ button:hover {
     height: 41vw;
 
     /* Configuración de imagen de fondo */
-    background-image: url(../../img/index/banner.jpeg);
+    background-image: url('../../img/user_img/index/banner.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -596,4 +593,3 @@ button:hover {
         height: 10vh;
     }
 }
-

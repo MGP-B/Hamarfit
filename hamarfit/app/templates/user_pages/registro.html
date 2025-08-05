@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/user_styles/regitro-miembro.css' %}">
 </head>
 
@@ -44,7 +46,7 @@
                 <input type="password" id="confirmar-contrasena" required autocomplete="off"
                     placeholder="Confirmar contraseña">
                 <button type="submit">Continuar Registro</button>
-                <a href="{% url 'admin/loginlogin'%}">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
+                <a href="{% url 'admin/login'%}">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
             </form>
         </main>
     </div>

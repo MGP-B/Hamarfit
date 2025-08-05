@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded',() =>{
-    alert('asdasdasd')
 
     const radio_pro = document.getElementById('radio-plan-pro');
     const radio_basico = document.getElementById('radio-plan-basico');

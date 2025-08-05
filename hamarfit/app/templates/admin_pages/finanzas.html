@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_styles/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_styles/finanzas.css' %}">
     <title>Admin | Finanzas</title>
 </head>
+
 <body>
     <header>
-        <div class="logo"><h1>HAMAR<span>FIT</span></h1></div>
+        <div class="logo">
+            <h1>HAMAR<span>FIT</span></h1>
+        </div>
         <div class="setting">
-            <a href="configuracion.html">
+            <a href="{% url 'admin/configuracion' %}">
                 <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
                 <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
             </a>
@@ -20,28 +27,28 @@
     </header>
     <aside class="menu">
         <ul id="opciones-menu">
-            <a href="dashboard.html">
+            <a href="{% url 'admin/dashboard' %}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/dashboard-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/dashboard.svg' %}" alt="" id="inactivo">
                     <h3>Dashboard</h3>
                 </li>
             </a>
-            <a href="clientes.html">
+            <a href="{% url 'admin/clientes' %}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
                     <h3>Clientes</h3>
                 </li>
             </a>
-            <a href="sucursales.html">
+            <a href="{% url 'admin/sucursales' %}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
                     <h3>Sucursales</h3>
                 </li>
             </a>
-            <a href="finanzas.html">
+            <a href="{% url 'admin/finanzas' %}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
@@ -55,7 +62,8 @@
             </div>
             <div class="nombre-rol">
                 <div class="nombre-apellido">
-                    <p id="nombre-usuario">José</p> <p id="apellido-usuario">Miguel</p>
+                    <p id="nombre-usuario">José</p>
+                    <p id="apellido-usuario">Miguel</p>
                 </div>
                 <p id="rol-usuario">Administrador</p>
             </div>
@@ -65,9 +73,9 @@
     <main>
         <div class="encabezado">
             <h2>Finanzas</h2>
-            <p>Gestiona tus ganancias y gastos</p> 
+            <p>Gestiona tus ganancias y gastos</p>
         </div>
-        
+
         <div class="contenedor_busqueda">
             <div class="barra_busqueda">
                 <!-- icono de la lupa -->
@@ -80,7 +88,8 @@
                 <p>Buscar</p>
             </button>
 
-            <button id="registrar_transaccion" onclick="agregar_popup('/html/admin/desplegables/finanzas/registrar_transaccion.html')">
+            <button id="registrar_transaccion"
+                onclick="agregar_popup(`{% url 'admin/finanzas/registrar_transaccion/' %}`)">
                 <img src="{% static 'img/admin_img/global/registrar_transaccion.svg' %}" alt="">
                 <p>Registrar transacción</p>
             </button>
@@ -115,7 +124,8 @@
                             <img src="{% static 'img/admin_img/global/x.svg' %}">
                         </button>
                     </div>
-                    <div class="div_detalles" onclick="agregar_popup('/html/admin/desplegables/detalles_de_factura.html')"  title="Ver detalles">
+                    <div class="div_detalles" onclick="agregar_popup(`{% url 'admin/finanzas/detalles_factura/' %}`)"
+                        title="Ver detalles">
                         <img src="{% static 'img/admin_img/global/ojo.svg' %}">
                         <p>Ver detalles</p>
                     </div>
@@ -132,4 +142,5 @@
     </div>
     <script src="{% static 'js/admin_js/desplegables.js' %}"></script>
 </body>
+
 </html>

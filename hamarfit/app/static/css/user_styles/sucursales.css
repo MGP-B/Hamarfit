@@ -1,7 +1,3 @@
-@import url(../reset.css);
-@import url(../fuentes.css);
-
-
 /* Cabecera */
 .cabecera {
     width: 100%;
@@ -126,18 +122,18 @@ main .contenedor {
 
 /* Estilo de sucursal */
 main .contenedor .sucursal {
-    width: 25%;
+    width: 23%;
     margin: 1.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 10px 4px rgba(0,0,0,.2);
+    box-shadow: 0 0 .8vw 1px rgba(0,0,0,.3);
     border-radius: 1vh;
 }
 
 main .contenedor .sucursal:hover {
     scale: 1.03;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .6);
+    box-shadow: 0 0 .8vw 3px rgba(255, 170, 0, 0.4);
 }
 
 /* Estilo de título en sucursal */
@@ -174,7 +170,7 @@ main .contenedor .sucursal .contenedor-ubicacion img {
 
 /* Estilo de botón en sucursal */
 main .contenedor .sucursal button {
-    width: 50%;
+    width: 54%;
     margin-bottom: 4vh;
     border-radius: .5vw;
     border: none;

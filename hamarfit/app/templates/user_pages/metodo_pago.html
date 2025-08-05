@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regitro</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/user_styles/regitro-miembro.css' %}">
     <link rel="stylesheet" href="{% static 'css/user_styles/metodo-pago.css' %}">
 </head>
@@ -36,7 +38,7 @@
                 <button type="submit">
                     <a href="../checkout.html">Continuar registro</a>
                 </button>
-                <a href="{% url 'admin/loginlogin'%}">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
+                <a href="{% url 'admin/login'%}">¿Ya tienes una cuenta? <span>Inicia sesión</span></a>
             </form>
 
         </main>

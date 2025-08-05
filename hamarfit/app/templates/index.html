@@ -7,6 +7,8 @@
     <title>HAMARFIT</title>
     {% load static %}
     <!-- Enlace al css -->
+    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/user_styles/index.css' %}">
 </head>
 
@@ -29,7 +31,7 @@
 
         <div class="botones-navegacion">
             <button id="inicio-sesion" style="color: #333;">
-                <a href="{% url 'admin/loginlogin'%}">Iniciar Sesión</a>
+                <a href="{% url 'admin/login' %}">Iniciar Sesión</a>
             </button>
             <button id="register">
                 <a href="{% url 'user/sucursales' %}">Únete ahora</a>
