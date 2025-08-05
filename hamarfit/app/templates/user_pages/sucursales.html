@@ -47,10 +47,12 @@
                 <!-- <button id="boton-sucursal">
                     <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
                 </button> -->
+                {% for sucursal in sucursales %}
                 <form method="GET" action="{% url 'user/sucursales' %}">
-                    <input type="hidden" name="id_sucursal" value="{{ sucursales.id_sucursal }}">
+                    <input type="hidden" name="id_sucursal" value="{{ sucursal.id_sucursal }}">
                     <button type="submit" id="boton-sucursal">Quiero entrenar aquí</button>
                 </form>
+                {% endfor %}
             </div>
 
             <div class="sucursal">

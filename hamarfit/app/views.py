@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import *
 from . models import *
+from datetime import date
 # from django.urls import reverse
 
 # Create your views here.
@@ -69,13 +70,17 @@ def registro(req):
             cliente.id_plan = plan
             cliente.id_sucursal = sucursal
             cliente.id_estado = Estados.objects.get(id_estado=1)
+            cliente.inscripcion = date.today()
             cliente.save()
 
             # Limpia la sesión (opcional, pero recomendable)
             req.session.pop('id_plan', None)
             req.session.pop('id_sucursal', None)
 
-            return redirect('../')
+            return redirect('admin/login')
+        else:
+            print("[DEBUG] Errores del formulario:", form.errors)
+
     else:
         form = ClientesForm()
 
@@ -115,17 +120,17 @@ def detalles_cliente(req):
 
 def registrar_cliente(req):
     if req.method == 'POST':
-        form = ClientesForm(req.POST)
+        form = anadirCliente(req.POST)
         if form.is_valid():
             form.save()
             # Redirige o muestra mensaje de éxito
             return redirect('../')
         else:
-            # Si el formulario no es válido, vuelve a mostrar el formulario con errores
-            return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
+            print("[DEBUG] Errores del formulario:", form.errors)
     else:
-        form = ClientesForm()
-        return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
+        form = anadirCliente()
+    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
+
 
 def seleccionar_plan(req):
     return render(req, 'admin_pages/desplegables/clientes/seleccionar_plan.html')
