@@ -78,10 +78,12 @@ def editar_usuario(req):
 
 def registrar_usuario(req):
     if req.method == 'POST':
+        print('El método es POST')
         form = EmpleadosForm(req.POST)
         if form.is_valid():
             form.save()
-            return redirect('../')
+            print('si se guarda')
+            # return redirect('../')
     else:
         form = EmpleadosForm()
     return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form})
