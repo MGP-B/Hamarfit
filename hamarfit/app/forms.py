@@ -53,3 +53,13 @@ class EmpleadosForm(forms.ModelForm):
             'id_rol',
             'id_sucursal',
         ]
+
+class SucursalesForm(forms.ModelForm):
+    model = Sucursales
+    fields = [
+        'nombre_sucursal',
+        'direccion_sucursal',
+        'telefono_sucursal',
+        'horario',
+        'imagen',
+    ]

@@ -146,12 +146,13 @@ def registrar_usuario(req):
         if form.is_valid():
             print('Formulario valido')
             form.save()
-            return redirect('../')
         else:
             print('Los errores del formulario son: ', form.errors)
     else:
         form = EmpleadosForm()
-    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form})
+
+    sucursales = Sucursales.objects.all()
+    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form,'sucursales': sucursales})
 
 
 # inscripciones_renovaciones
