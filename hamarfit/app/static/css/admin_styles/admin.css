@@ -5,6 +5,11 @@ html {
     font-size: 20px;
 }
 
+h2 {
+    font-size: 1.7rem;
+    font-family: rubiksemi;
+}
+
 /* Quitar todos los eventos del puntero */
 img,p,h1,h2,h3{pointer-events: none;}
 

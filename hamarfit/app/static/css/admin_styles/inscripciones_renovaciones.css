@@ -10,59 +10,68 @@ main{
     width: 82%;
 }
 
-/* Encabezado de la página */
-.encabezado h2{
-    font-family: RubikSemi;
-    font-size: 2.5vw;
-}
 
-/* Contenedor de la barra de búsqueda */
-.contenedor_busqueda{
-    align-items: center;
+.panel-control {
     display: flex;
-    margin: 15px 0;
-    width: 100%;
+    justify-content: space-between;
 }
 
-/* Icono de lupa de la barra de búsqueda */
-.contenedor_busqueda .barra_busqueda img{
-    left: 5px;
+.contenedor-sucursal {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+/* Barra de búsqueda */
+.panel-control .barra-de-busqueda {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        position: relative;
+        margin: 20px 0;
+}
+
+.panel-control .barra-de-busqueda img {
     position: relative;
-    top: 3.5px;
+    left: 5px;
     z-index: 1;
 }
 
-/* Buscador */
-.contenedor_busqueda .barra_busqueda #buscador{
-    background-color: white;
-    border: 1px solid #A6A6A6;
-    border-radius: 3px;
-    padding: 7px 10px;
-    position: relative;
-    right: 24px;
+.panel-control .barra-de-busqueda input {
+        display: flex;
+        align-items: center;
+        padding: 6px 12px;
+        background-color: white;
+        border: 1px solid #c7c7c7;
+        border-radius: 6px;
+        width: 40%;
 }
-/* Botón de búsqueda */
-.contenedor_busqueda  #boton_buscar{
-    align-items: center;
-    background-color: white;
-    border: 1px solid #A6A6A6;
-    border-radius: 3px;
-    display: flex;
-    padding: 5px 10px;
-    position: relative;
-    right: 20px;
+
+/* Boton buscar */
+.panel-control .barra-de-busqueda .boton-buscar {
+        padding: 6px 12px;
+        background-color: #f9f9f9;
+        border: 1px solid #c7c7c7;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        position: relative;
 }
-/* Textos del botón de búsqueda */
-.contenedor_busqueda #boton_buscar p{
-    margin-left: 5px;
+
+.panel-control .barra-de-busqueda .boton-buscar p {
+    margin-top: 2px;
+    margin-left: 8px;
 }
-/* Icono del botón de búsqueda */
-.contenedor_busqueda #boton_buscar img{
+
+.panel-control .barra-de-busqueda .boton-buscar img {
+    width: 18px;
     margin-top: -2px;
+    margin-left: -10px
 }
 
 /* Botón de registrar transacciones */
-.contenedor_busqueda #registrar_transaccion{
+#registrar_transaccion{
     align-items: center;
     background-color: #FCA502;
     border: 1px solid #FCA502;
@@ -104,6 +113,16 @@ main{
     box-sizing: border-box;
 }
 /* Contenido */
+#contenedor_contenido::-webkit-scrollbar {
+    display: none;
+}
+
+#contenedor_contenido::-webkit-scrollbar-thumb {
+    background-color: #FCA502;
+    margin: 2px;
+}
+
+
 #contenedor_contenido #contenido{
     /* Asignación de columnas y espaciados */
     display: grid;

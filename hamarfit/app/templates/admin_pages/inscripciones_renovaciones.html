@@ -75,16 +75,14 @@
             <p>Gestiona las creaciones de cuentas y la renovación de planes de tus clientes</p>
         </div>
 
-        <div class="contenedor_busqueda">
-            <div class="barra_busqueda">
-                <input type="search" id="buscador" placeholder="Buscar sucursales...">
+        <div class="panel-control">
+            <div class="barra-de-busqueda">
+                <input type="text" placeholder="Buscar transacción...">
+                <button class="boton-buscar">
+                    <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="Icono lupa">
+                    <p>Buscar</p>
+                </button>
             </div>
-            <button id="boton_buscar">
-                <!-- Icono de la lupa -->
-                <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="">
-                <p>Buscar</p>
-            </button>
-
             <button id="registrar_transaccion"
                 onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/registrar_renovacion/' %}`)">
                 <img src="{% static 'img/admin_img/global/registrar_transaccion.svg' %}" alt="">
@@ -129,6 +127,138 @@
                     </div>
                 </div>
             </div>
+            <div id="contenido">
+                <p>1</p>
+                <p>16/05/2025</p>
+                <p>Renovación Plan anual</p>
+                <p>Plan Pro</p>
+                <p>María Rodríguez</p>
+                <p>$1,200.00</p>
+                <div class="div_acciones" onclick="visible()">
+                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                </div>
+                <!-- Desplegable de acciones -->
+                <div class="desplegable" id="desplegable">
+                    <div class="encabezado_desplegable">
+                        <h2>Acciones</h2>
+                        <button onclick="cerrar_desplegable()" class="x">
+                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                        </button>
+                    </div>
+                    <div class="div_detalles"
+                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
+                        title="Ver detalles">
+                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                        <p>Ver detalles</p>
+                    </div>
+                </div>
+            </div>
+            <div id="contenido">
+                <p>1</p>
+                <p>16/05/2025</p>
+                <p>Renovación Plan anual</p>
+                <p>Plan Pro</p>
+                <p>María Rodríguez</p>
+                <p>$1,200.00</p>
+                <div class="div_acciones" onclick="visible()">
+                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                </div>
+                <!-- Desplegable de acciones -->
+                <div class="desplegable" id="desplegable">
+                    <div class="encabezado_desplegable">
+                        <h2>Acciones</h2>
+                        <button onclick="cerrar_desplegable()" class="x">
+                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                        </button>
+                    </div>
+                    <div class="div_detalles"
+                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
+                        title="Ver detalles">
+                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                        <p>Ver detalles</p>
+                    </div>
+                </div>
+            </div>
+            <div id="contenido">
+                <p>1</p>
+                <p>16/05/2025</p>
+                <p>Renovación Plan anual</p>
+                <p>Plan Pro</p>
+                <p>María Rodríguez</p>
+                <p>$1,200.00</p>
+                <div class="div_acciones" onclick="visible()">
+                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                </div>
+                <!-- Desplegable de acciones -->
+                <div class="desplegable" id="desplegable">
+                    <div class="encabezado_desplegable">
+                        <h2>Acciones</h2>
+                        <button onclick="cerrar_desplegable()" class="x">
+                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                        </button>
+                    </div>
+                    <div class="div_detalles"
+                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
+                        title="Ver detalles">
+                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                        <p>Ver detalles</p>
+                    </div>
+                </div>
+            </div>
+            <div id="contenido">
+                <p>1</p>
+                <p>16/05/2025</p>
+                <p>Renovación Plan anual</p>
+                <p>Plan Pro</p>
+                <p>María Rodríguez</p>
+                <p>$1,200.00</p>
+                <div class="div_acciones" onclick="visible()">
+                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                </div>
+                <!-- Desplegable de acciones -->
+                <div class="desplegable" id="desplegable">
+                    <div class="encabezado_desplegable">
+                        <h2>Acciones</h2>
+                        <button onclick="cerrar_desplegable()" class="x">
+                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                        </button>
+                    </div>
+                    <div class="div_detalles"
+                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
+                        title="Ver detalles">
+                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                        <p>Ver detalles</p>
+                    </div>
+                </div>
+            </div>
+            <div id="contenido">
+                <p>1</p>
+                <p>16/05/2025</p>
+                <p>Renovación Plan anual</p>
+                <p>Plan Pro</p>
+                <p>María Rodríguez</p>
+                <p>$1,200.00</p>
+                <div class="div_acciones" onclick="visible()">
+                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                </div>
+                <!-- Desplegable de acciones -->
+                <div class="desplegable" id="desplegable">
+                    <div class="encabezado_desplegable">
+                        <h2>Acciones</h2>
+                        <button onclick="cerrar_desplegable()" class="x">
+                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                        </button>
+                    </div>
+                    <div class="div_detalles"
+                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
+                        title="Ver detalles">
+                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                        <p>Ver detalles</p>
+                    </div>
+                </div>
+            </div>
+            
+            
         </div>
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->
