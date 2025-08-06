@@ -141,13 +141,14 @@ def editar_usuario(req):
 
 def registrar_usuario(req):
     if req.method == 'POST':
+        print('El metodo es POST')
         form = EmpleadosForm(req.POST)
         if form.is_valid():
+            print('Formulario valido')
             form.save()
             return redirect('../')
         else:
-            return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html')
-        
+            print('Los errores del formulario son: ', form.errors)
     else:
         form = EmpleadosForm()
     return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form})
