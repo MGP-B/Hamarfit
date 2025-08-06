@@ -18,7 +18,7 @@ urlpatterns = [
     path('admin/clientes/',views.clientes, name='admin/clientes'),
     path('admin/configuracion/',views.configuracion, name='admin/configuracion'),
     path('admin/dashboard/',views.dashboard, name='admin/dashboard'),
-    path('admin/finanzas/',views.finanzas, name='admin/finanzas'),
+    path('admin/renovaciones/',views.renovaciones, name='admin/renovaciones'),
     path('admin/login/',views.login, name='admin/login'),
     path('admin/sucursales/',views.sucursales_admin, name='admin/sucursales'),
 
