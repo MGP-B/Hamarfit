@@ -150,7 +150,6 @@ main button:hover {
 
     /* Estilos del contenido */
     box-sizing: border-box;
-    border-bottom: 1px solid black;
     font-size: 1.15vw;
     align-items: center;
     margin-top: 5px;
