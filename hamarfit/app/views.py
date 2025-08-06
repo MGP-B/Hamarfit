@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import *
 from . models import *
 from datetime import date
+from django.views.decorators.cache import never_cache
 # from django.urls import reverse
 
 # Create your views here.
@@ -52,6 +53,7 @@ def metodo_pago(req):
 def planes_contratados(req):
     return render(req, 'user_pages/planes-contratados.html')
 
+@never_cache
 def registro(req):
     id_plan = req.session.get('id_plan')
     id_sucursal = req.session.get('id_sucursal')
@@ -102,8 +104,8 @@ def configuracion(req):
 def dashboard(req):
     return render(req, 'admin_pages/dashboard.html')
 
-def finanzas(req):
-    return render(req, 'admin_pages/finanzas.html')
+def renovaciones(req):
+    return render(req, 'admin_pages/renovaciones.html')
 
 def login(req):
     return render(req, 'admin_pages/login.html')
