@@ -4,18 +4,38 @@ from .models import *
 class ClientesForm(forms.ModelForm):
     class Meta:
         model = Clientes
-        fields = [
-            'nombre_cliente',
-            'apellido_cliente',
-            'tipo_documento',
-            'documento_cliente',
-            'correo_cliente',
-            'telefono_cliente',
-            'direccion_cliente',
-            'contrasena_cliente',
-            'id_plan',
-            'id_sucursal',
-        ]
+        # fields = [
+        #     'nombre_cliente',
+        #     'apellido_cliente',
+        #     'tipo_documento',
+        #     'documento_cliente',
+        #     'correo_cliente',
+        #     'telefono_cliente',
+        #     'direccion_cliente',
+        #     'contrasena_cliente',
+        #     'id_plan',
+        #     'id_sucursal',
+        #     'id_estado',
+        # ]
+        exclude = ['inscripcion', 'id_plan', 'id_sucursal', 'id_estado']
+
+class anadirCliente(forms.ModelForm):
+    class Meta:
+        model = Clientes
+        # fields = [
+        #     'nombre_cliente',
+        #     'apellido_cliente',
+        #     'tipo_documento',
+        #     'documento_cliente',
+        #     'correo_cliente',
+        #     'telefono_cliente',
+        #     'direccion_cliente',
+        #     'contrasena_cliente',
+        #     'id_plan',
+        #     'id_sucursal',
+        #     'id_estado',
+        # ]
+        exclude = ['id_estado']
 
 class EmpleadosForm(forms.ModelForm):
     class Meta:
@@ -31,5 +51,5 @@ class EmpleadosForm(forms.ModelForm):
             'contratacion_empleado',
             'contrasena_empleado',
             'id_rol',
-            'id_sucursal'
+            'id_sucursal',
         ]

@@ -4,21 +4,21 @@
     <h2>Nuevo usuario</h2>
     <h3>Ingresa los detalles para agregar el nuevo usuario</h3>
 
-    <form action="" id="datos_usuario" method="POST">
+    <form action="{% url 'admin/configuracion/registrar_usuario/' %}" method="POST" id="datos_usuario">
         {% csrf_token %}
         <div class="div_nombre">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="nombre" name="nombre_empleado" placeholder="Nombre">
         </div>
 
         <div class="div_apellido">
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" placeholder="Apellido">
+            <input type="text" id="apellido" name="apellido_empleado" placeholder="Apellido">
         </div>
 
         <div class="div_tipo_documento">
             <label for="tipo_documento">Tipo de documento</label>
-            <select id="tipo_documento">
+            <select id="tipo_documento" name="tipo_documento">
                 <option disabled selected>Selecciona el tipo de documento</option>
                 <option value="DNI">DNI</option>
                 <option value="Pasaporte">Pasaporte</option>
@@ -27,34 +27,34 @@
 
         <div class="div_documento">
             <label for="documento">Documento</label>
-            <input type="text" id="documento" placeholder="Documento">
+            <input type="text" id="documento" name="documento_empleado" placeholder="Documento">
         </div>
 
         <div class="div_correo">
             <label for="Correo">Correo</label>
-            <input type="text" id="Correo" placeholder="example@gmail.com">
+            <input type="text" id="Correo" name="correo_empleado" placeholder="example@gmail.com">
         </div>
 
         <div class="div_telefono">
             <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" placeholder="Teléfono">
+            <input type="tel" id="telefono" name="telefono_empleado" placeholder="Teléfono">
         </div>
 
         <div class="div_direccion">
             <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" placeholder="Dirección">
+            <input type="text" id="direccion" name="direccion_empleado" placeholder="Dirección">
         </div>
 
         <div class="div_sucursal">
             <label for="sucursal">Sucursal</label>
-            <select id="sucursal">
+            <select id="sucursal" name="id_sucursal">
                 <option disabled selected>Selecciona la sucursal</option>
             </select>
         </div>
 
         <div class="div_rol">
             <label for="rol">Rol</label>
-            <select id="rol">
+            <select id="rol" name="id_rol">
                 <option disabled selected>Selecciona el rol</option>
                 <option value="admin">Admin</option>
                 <option value="entrenador">Entrenador</option>

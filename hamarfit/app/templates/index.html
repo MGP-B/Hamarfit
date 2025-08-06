@@ -199,9 +199,13 @@
                         <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Descuentos en suplementos
                     </li>
                 </ul>
-                <button class="seleccionar">
+                <!-- <button class="seleccionar">
                     <a href="{% url 'user/sucursales' %}" class="boton boton-plan">Seleccionar este plan</a>
-                </button>
+                </button> -->
+                <form method="GET" action="{% url 'index' %}">
+                    <input type="hidden" name="id_plan" value="2">
+                    <button type="submit" class="boton boton-plan">Seleccionar este plan</button>
+                </form>
             </div>
 
             <div class="tarjeta-plan plan-basico">
@@ -233,9 +237,13 @@
                         <img src="{% static 'img/user_img/index/iconos/x.png' %}" alt="">Descuentos en suplementos
                     </li>
                 </ul>
-                <button class="seleccionar">
+                <!-- <button class="seleccionar">
                     <a href="{% url 'user/sucursales' %}" class="boton boton-plan">Seleccionar este plan</a>
-                </button>
+                </button> -->
+                <form method="GET" action="{% url 'index' %}">
+                    <input type="hidden" name="id_plan" value="1">
+                    <button type="submit" class="boton boton-plan">Seleccionar este plan</button>
+                </form>
             </div>
         </div>
     </section>

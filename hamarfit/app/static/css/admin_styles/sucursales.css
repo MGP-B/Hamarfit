@@ -1,5 +1,5 @@
-@import url(admin.css);
-@import url(../../css/admin_styles/desplegables/desplegables.css);
+@import './admin.css';
+@import './desplegables/desplegables.css';
 
 
 body {

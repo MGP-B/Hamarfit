@@ -1,22 +1,34 @@
-@import url(/src/css/reset.css);
-@import url(/src/css/fuentes.css);
+@import './../global_styles/fuentes.css';
+@import './../global_styles/reset.css';
+
+html {
+    font-size: 20px;
+}
 
 /* Quitar todos los eventos del puntero */
 img,p,h1,h2,h3{pointer-events: none;}
 
 /* Estilo del body */
 body {
+    /* Margenes y tamaños */
     width: 100%;
     height: 100vh;
+
+    /* Contenedor flex */
     display: flex;
     flex-wrap: wrap;
+
+    /* Colores */
     background-color: #ECECEC;
 }
 
 /* Estilos del header */
 header {
+    /* Margenes y tamaños */
     width: 100%;
-    height: 8%;
+    height: 8%; 
+
+    /* Bordes y colores */
     box-shadow: 0 0 4px 4px rgba(0,0,0,.3);
     background-color: white;
 
@@ -30,11 +42,15 @@ header {
 
 /* Contenedor del logo */
 header .logo {
+    /* Margenes y tamaños */
     width: 18%;
     height: 100%;
-    font-size: 2.3vw;
+
+    /* Fuentes*/
+    font-size: 1.8rem;
     font-family: paytone;
 
+    /* Flexbox */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,9 +62,12 @@ header .logo span {
 
 /* Contenedor del icono de ajustes */
 header .setting {
+
+    /* Margenes y tamaños */
     width: 10%;
     height: 100%;
 
+    /* Flexbox */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,9 +76,11 @@ header .setting {
 
 /* Estilo del link en header */
 header .setting a{
+    /* Margenes y tamaños */
     width: 100%;
     height: 100%;
 
+    /* Flexbox */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,49 +112,74 @@ header a:hover #inactivo {
 }
 
 
-
+/* Estilos en el aside */
 aside {
-    /* padding: 5px 5px 0; */
+    /* Posición del contenedor */
     position: relative;
-    z-index: 1;
+
+    /* Margenes, tamaños */
     height: 91%;
     width: 18%;
+
+    /* Fondos y colores */
     background-color: white;
+
+    /* Contenedor flex */
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
+/* Lista en el aside */
 aside ul{
+    /* Margenes y tamaños */
     width: 95%;
     height: 90%;
+
+    /* Flexbox */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Links en lista */
 aside ul a {
+    /* Margenes y tamaños */
     width: 95%;
-    height: 4vh;
-    margin: 5px 0;
+    height: 30px;
+    margin: 10px 0;
     padding: 5px 3px;
+
+    /* Colores y fondos */
     background-color: white;
     color: #635C50;
+
+    /* Bordes */
     border-radius: 5px;
+
+    /* Fuentes */
     text-decoration: none;
     font-family: Rubik;
+
+    /* Flexbox */
     display: flex;
     align-items: center;
     align-content: center;
 }
 
+/* Li dentro de links */
 aside .opcion {
+    /* Margenes y tamaños */
     width: 100%;
+
+    /* Flexbox */
     position: relative;
     display: flex;
     align-items: center;
 }
 
+/* Imágenes dentro de li */
 aside a #inactivo,
 aside a #activo {
     position: absolute;
@@ -141,6 +187,7 @@ aside a #activo {
     width: 10%;
 }
 
+/* Filtro de imágenes */
 aside a #activo {
   opacity: 0;
 }
@@ -153,27 +200,36 @@ aside a:hover #inactivo {
   opacity: 0;
 }
 
+/* h3 en li */
 .opcion h3 {
     position: relative;
     left: 20%;
-    font-size: 1.3vw;
+    font-size: 1rem;
 }
 
+/* imagen en li */
 aside ul a li img {
     padding-left: 5px;
     margin-right: 5px;
 }
 
+/* hover */
 aside ul a:hover, aside ul #activo:hover {
     scale: 1.009;
     color: #FCA502;
     background-color: rgba(252, 165, 2, 0.25);  
 }
 
+/* informaciones de usuario */
 aside .usuario {
+    /* Margenes y tamaños */
     height: 10%;
     width: 100%;
+
+    /* Colores */
     background-color: #CFCFCF;
+
+    /* Flexbox */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -181,18 +237,25 @@ aside .usuario {
 }
 
 aside .usuario .icono {
+    /* Margenes y tamaños */
+    width: 3vw;
+    height: 3vw;
+    margin-left: 20px;
+    border-radius: 50%;
+
+    /* Colores */
+    background-color: #F97316;
+    color: white;
+
+    /* Fuentes */
+    font-family: Rubik;
+    font-size: 1rem;
+
+    /* Flexbox */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3vw;
-    height: 3vw;
-    background-color: #F97316;
-    color: white;
-    border-radius: 50%;
-    font-family: Rubik;
-    margin-left: 20px;
 }
-
 
 aside .nombre-rol {
     margin-left: 10px;
@@ -201,7 +264,7 @@ aside .nombre-rol {
 
 aside .nombre-apellido {
     display: inline-flex;
-    font-size: 1.3vw;
+    font-size: 1rem
 }
 
 aside .nombre-apellido p:last-child {
@@ -219,7 +282,7 @@ button{
 
 .contenedor_advertencia{display: none;}
 
-@media screen and (max-width: 750px) {
+/* @media screen and (max-width: 750px) {
     header,aside,main{display: none;}
 
     .contenedor_advertencia{
@@ -237,4 +300,4 @@ button{
         width: 80vw;
     }
 
-}
+} */

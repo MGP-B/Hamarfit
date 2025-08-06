@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_styles/admin.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_styles/configuracion.css' %}">
@@ -78,8 +79,7 @@
                 <p>Administra los Empleados y roles del sistema.</p>
             </div>
 
-            <button id="nuevo_usuario"
-                onclick="agregar_popup(`{% url 'admin/configuracion/registrar_usuario/' %}`)">
+            <button id="nuevo_usuario" onclick="agregar_popup(`{% url 'admin/configuracion/registrar_usuario/' %}`)">
                 <img src="{% static 'img/admin_img/global/mas.svg' %}" alt="">
                 <p>Nuevo Empleado</p>
             </button>
