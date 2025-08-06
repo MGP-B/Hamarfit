@@ -1,8 +1,8 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/configuracion/nuevo_usuario.css' %}">
 <div class="cuerpo_popup">
-    <h2>Nuevo usuario</h2>
-    <h3>Ingresa los detalles para agregar el nuevo usuario</h3>
+    <h2>Nuevo Empleado</h2>
+    <h3>Ingresa los detalles para agregar el nuevo Empleado</h3>
 
     <form action="{% url 'admin/configuracion/registrar_usuario/' %}" method="POST" id="datos_usuario">
         {% csrf_token %}
