@@ -108,7 +108,25 @@ def renovaciones(req):
     return render(req, 'admin_pages/renovaciones.html')
 
 def login(req):
+    if req.method == 'POST':
+        correo = req.POST.get('correo_cliente')
+        contrasena = req.POST.get('contrasena_cliente')
+
+        try:
+            cliente = Clientes.objects.get(correo_cliente=correo, contrasena_cliente=contrasena)
+            req.session['cliente_id'] = cliente.id_cliente
+            return redirect('inicio_user')
+        except Clientes.DoesNotExist:
+            error = "Correo o contraseña incorrectos."
+            return render(req, 'admin_pages/login.html', {'error': error})
     return render(req, 'admin_pages/login.html')
+
+def inicio_user(req):
+    return render(req, 'user_pages/inicio_user.html')
+
+def logout_user(req):
+    req.session.flush()
+    return redirect('index')
 
 def sucursales_admin(req):
     return render(req, 'admin_pages/sucursales.html')
@@ -131,7 +149,8 @@ def registrar_cliente(req):
             print("[DEBUG] Errores del formulario:", form.errors)
     else:
         form = anadirCliente()
-    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
+    sucursales = Sucursales.objects.all()
+    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form, 'sucursales': sucursales})
 
 
 def seleccionar_plan(req):

@@ -20,6 +20,10 @@
                 </a>
             </div>
             <form id="formLogin" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
                 <input type="email" placeholder="Correo electrónico" name="correo_cliente">
                 <input type="password" placeholder="Contraseña" name="contrasena_cliente">
                 <button type="submit">Inicia sesión</button>
