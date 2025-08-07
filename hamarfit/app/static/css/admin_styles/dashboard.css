@@ -10,11 +10,6 @@ main {
     height: 92vh;
 }
 
-/* Encabezado de la página */
-.encabezado h2 {
-    font-family: RubikSemi;
-    font-size: 2vw;
-}
 
 .encabezado .subtitulo {
     font-size: 1.2vw;
