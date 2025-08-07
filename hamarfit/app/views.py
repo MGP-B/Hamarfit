@@ -121,6 +121,7 @@ def login(req):
             return render(req, 'admin_pages/login.html', {'error': error})
     return render(req, 'admin_pages/login.html')
 
+@never_cache
 def proteger_vista(req):
     if not req.session.get('cliente_id'):
         return redirect('admin/login')
