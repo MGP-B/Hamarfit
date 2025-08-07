@@ -168,6 +168,11 @@ main .contenedor .sucursal .contenedor-ubicacion img {
     width: 2.2vw;
 }
 
+main .contenedor .sucursal .boton-sucursal {
+    width: 100%;
+    text-align: center;
+}
+
 /* Estilo de botón en sucursal */
 main .contenedor .sucursal button {
     width: 54%;

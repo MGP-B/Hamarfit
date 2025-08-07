@@ -20,10 +20,14 @@
                     <h1>HAMAR<span>FIT</span></h1>
                 </a>
             </div>
-            <form id="formLogin">
-                <input type="email" placeholder="Correo electrónico">
-                <input type="password" placeholder="Contraseña">
-                <button>Inicia sesión</button>
+            <form id="formLogin" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+                <input type="email" placeholder="Correo electrónico" name="correo_cliente">
+                <input type="password" placeholder="Contraseña" name="contrasena_cliente">
+                <button type="submit">Inicia sesión</button>
                 <a href="#" class="olvidado">¿Haz olvidado tu contraseña?</a>
             </form>
             <a href="{% url 'user/registro' %}" class="registro">
