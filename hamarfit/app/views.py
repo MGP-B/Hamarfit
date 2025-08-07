@@ -121,7 +121,10 @@ def login(req):
             return render(req, 'admin_pages/login.html', {'error': error})
     return render(req, 'admin_pages/login.html')
 
-def inicio_user(req):
+def proteger_vista(req):
+    if not req.session.get('cliente_id'):
+        return redirect('admin/login')
+    
     return render(req, 'user_pages/inicio_user.html')
 
 def logout_user(req):

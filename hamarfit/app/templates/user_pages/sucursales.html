@@ -37,25 +37,25 @@
 
         <!-- Contenedores de sucursales -->
         <div class="contenedor">
+            {% for sucursal in sucursales %}
             <div class="sucursal">
                 <img src="{% static 'img/user_img/sucursales/sucursal.png' %}" alt="Sucursal" id="imagen">
-                <h2 id="nombre-sucursal">Sucursal</h2>
+                <h2 id="nombre-sucursal">{{ sucursal.nombre_sucursal }}</h2>
                 <div class="contenedor-ubicacion">
                     <img src="{% static 'img/user_img/sucursales/logo-ubicacion.png' %}" alt="Ubicacion">
-                    <p id="ubicacion">Calle Principal 123, Ciudad</p>
+                    <p id="ubicacion">{{ sucursal.direccion_sucursal }}</p>
                 </div>
                 <!-- <button id="boton-sucursal">
                     <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
                 </button> -->
-                {% for sucursal in sucursales %}
-                <form method="GET" action="{% url 'user/sucursales' %}">
+                <form method="GET" action="{% url 'user/sucursales' %}" class="boton-sucursal">
                     <input type="hidden" name="id_sucursal" value="{{ sucursal.id_sucursal }}">
-                    <button type="submit" id="boton-sucursal">Quiero entrenar aquí</button>
+                    <button type="submit">Quiero entrenar aquí</button>
                 </form>
-                {% endfor %}
             </div>
+            {% endfor %}
 
-            <div class="sucursal">
+            <!-- <div class="sucursal">
                 <img src="{% static 'img/user_img/sucursales/sucursal.png' %}" alt="Sucursal" id="imagen">
                 <h2 id="nombre-sucursal">Sucursal</h2>
                 <div class="contenedor-ubicacion">
@@ -113,7 +113,7 @@
                 <button id="boton-sucursal">
                     <a href="{% url 'user/registro' %}">Quiero entrenar aquí</a>
                 </button>
-            </div>
+            </div> -->
         </div>
     </main>
 </body>
