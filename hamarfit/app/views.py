@@ -97,7 +97,8 @@ def clientes(req):
     return render(req, 'admin_pages/clientes.html', {'clientes': clientes})
 
 def configuracion(req):
-    return render(req, 'admin_pages/configuracion.html')
+    empleados = Empleados.objects.all()
+    return render(req, 'admin_pages/configuracion.html', {'empleados':empleados})
 
 def dashboard(req):
     return render(req, 'admin_pages/dashboard.html')
@@ -146,11 +147,12 @@ def registrar_usuario(req):
             form.save()
             return redirect('../')
         else:
-            return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html')
-        
+            print('Los errores del formulario son: ', form.errors)
     else:
         form = EmpleadosForm()
-    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form})
+
+    sucursales = Sucursales.objects.all()
+    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form,'sucursales': sucursales})
 
 
 # inscripciones_renovaciones

@@ -86,18 +86,20 @@
                     <p>Usuario</p>
                     <p>Email</p>
                     <p>Rol</p>
-                    <p>Estado</p>
+                    <p>Sucursal</p>
                     <p>Acciones</p>
                 </div>
 
                 <div id="contenido">
-                    <div id="nombre-usuario">José Miguel</div>
-                    <p>josemiguel@gmail.com</p>
-                    <p>Administrador</p>
-                    <p>Activo</p>
+                    {% for empleado in empleados %}
+                    <div id="nombre-usuario">{{empleado.nombre_empleado}}</div>
+                    <p>{{empleado.correo_empleado}}</p>
+                    <p>{{empleado.id_rol.rol}}</p>
+                    <p>{{empleado.id_sucursal.nombre_sucursal}}</p>
                     <div class="div_acciones" onclick="visible()">
                         <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
                     </div>
+                    {% endfor %}
                     <!-- Desplegable de acciones -->
                     <div class="desplegable" id="desplegable">
                         <div class="encabezado_desplegable">
