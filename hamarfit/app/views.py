@@ -97,7 +97,8 @@ def clientes(req):
     return render(req, 'admin_pages/clientes.html', {'clientes': clientes})
 
 def configuracion(req):
-    return render(req, 'admin_pages/configuracion.html')
+    empleados = Empleados.objects.all()
+    return render(req, 'admin_pages/configuracion.html', {'empleados':empleados})
 
 def dashboard(req):
     return render(req, 'admin_pages/dashboard.html')
@@ -141,11 +142,10 @@ def editar_usuario(req):
 
 def registrar_usuario(req):
     if req.method == 'POST':
-        print('El metodo es POST')
         form = EmpleadosForm(req.POST)
         if form.is_valid():
-            print('Formulario valido')
             form.save()
+            return redirect('../')
         else:
             print('Los errores del formulario son: ', form.errors)
     else:
