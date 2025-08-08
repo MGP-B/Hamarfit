@@ -4,6 +4,7 @@ from .forms import *
 from . models import *
 from datetime import date
 from django.views.decorators.cache import never_cache
+from .decorators import cliente_required, empleado_required
 # from django.urls import reverse
 
 # Create your views here.
@@ -101,32 +102,65 @@ def clientes(req):
 def configuracion(req):
     return render(req, 'admin_pages/configuracion.html')
 
+@empleado_required
+@never_cache
 def dashboard(req):
     return render(req, 'admin_pages/dashboard.html')
 
 def renovaciones(req):
     return render(req, 'admin_pages/renovaciones.html')
 
+# def login(req):
+#     if req.method == 'POST':
+#         correo = req.POST.get('correo_cliente')
+#         contrasena = req.POST.get('contrasena_cliente')
+
+#         try:
+#             cliente = Clientes.objects.get(correo_cliente=correo, contrasena_cliente=contrasena)
+#             req.session['cliente_id'] = cliente.id_cliente
+#             return redirect('inicio_user')
+#         except Clientes.DoesNotExist:
+#             error = "Correo o contraseña incorrectos."
+#             return render(req, 'admin_pages/login.html', {'error': error})
+#     return render(req, 'admin_pages/login.html')
+
 def login(req):
     if req.method == 'POST':
-        correo = req.POST.get('correo_cliente')
-        contrasena = req.POST.get('contrasena_cliente')
+            correo = req.POST.get('correo')
+            contrasena = req.POST.get('contrasena')
 
-        try:
-            cliente = Clientes.objects.get(correo_cliente=correo, contrasena_cliente=contrasena)
-            req.session['cliente_id'] = cliente.id_cliente
-            return redirect('inicio_user')
-        except Clientes.DoesNotExist:
-            error = "Correo o contraseña incorrectos."
-            return render(req, 'admin_pages/login.html', {'error': error})
+            # Verificar si es un empleado
+            try:
+                empleado = Empleados.objects.get(correo_empleado=correo, contrasena_empleado=contrasena)
+                req.session['empleado_id'] = empleado.id_empleado
+                return redirect('admin/dashboard') # Dashboard para empleados
+            except Empleados.DoesNotExist:
+                pass # Si no es empleado, sigue con cliente
+
+            # Verificar si es cliente
+            try:
+                cliente = Clientes.objects.get(correo_cliente=correo, contrasena_cliente=contrasena)
+                req.session['cliente_id'] = cliente.id_cliente
+                return redirect('inicio_user')
+            except Clientes.DoesNotExist:
+                error = "Correo o contraseña incorrectos."
+                return render(req, 'admin_pages/login.html', {'error': error})
+            
     return render(req, 'admin_pages/login.html')
 
+@cliente_required
 @never_cache
-def proteger_vista(req):
-    if not req.session.get('cliente_id'):
-        return redirect('admin/login')
-    
+def inicio_user(req):
     return render(req, 'user_pages/inicio_user.html')
+
+
+
+# @never_cache
+# def proteger_vista(req):
+#     if not req.session.get('cliente_id'):
+#         return redirect('admin/login')
+    
+#     return render(req, 'user_pages/inicio_user.html')
 
 def logout_user(req):
     req.session.flush()
