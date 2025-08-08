@@ -133,6 +133,7 @@ def logout_user(req):
     return redirect('index')
 
 def sucursales_admin(req):
+
     return render(req, 'admin_pages/sucursales.html')
 
 
@@ -189,7 +190,19 @@ def detalles_factura(req):
 
 # Sucursales
 def registrar_sucursal(req):
-    return render(req, 'admin_pages/desplegables/sucursales/agregar_sucursal.html')
+    if req.method == 'POST':
+        print('[DEBUG] El metodo SI es post')
+        form = SucursalesForm(req.POST, req.FILES)
+        if form.is_valid():
+            print("[DEBUG] Archivos recibidos:", req.FILES)
+            form.save()
+            return redirect('../')
+        else:
+            print("[DEBUG] Errores del formulario:", form.errors)
+    else:
+        print('[DEBUG] El metodo no es post')
+        form = SucursalesForm()
+    return render(req, 'admin_pages/desplegables/sucursales/agregar_sucursal.html', {'form': form})
 
 def editar_sucursal(req):
     return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')

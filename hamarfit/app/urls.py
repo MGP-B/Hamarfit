@@ -43,3 +43,9 @@ urlpatterns = [
     path('admin/sucursales/registrar_sucursal/',views.registrar_sucursal, name='admin/sucursales/registrar_sucursal/'),
     path('admin/sucursales/editar_sucursal/', views.editar_sucursal, name='admin/sucursales/editar_sucursal/')
 ]
+
+# Pillow
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
