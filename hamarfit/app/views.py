@@ -204,6 +204,7 @@ def registrar_sucursal(req):
         form = SucursalesForm()
     return render(req, 'admin_pages/desplegables/sucursales/agregar_sucursal.html', {'form': form})
 
+
 def editar_sucursal(req):
     return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')
 

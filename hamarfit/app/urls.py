@@ -40,8 +40,9 @@ urlpatterns = [
     path('admin/inscripciones_renovaciones/detalles_factura/', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
 
     # Sucursales
-    path('admin/sucursales/registrar_sucursal/',views.registrar_sucursal, name='admin/sucursales/registrar_sucursal/'),
-    path('admin/sucursales/editar_sucursal/', views.editar_sucursal, name='admin/sucursales/editar_sucursal/')
+    path('admin/sucursales/registrar_sucursal/', views.registrar_sucursal, name='registrar_sucursal'),
+    path('admin/sucursales/editar_sucursal/', views.editar_sucursal, name='editar_sucursal'),
+
 ]
 
 # Pillow

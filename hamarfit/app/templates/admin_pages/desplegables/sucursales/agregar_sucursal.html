@@ -4,7 +4,7 @@
     <h2>Agregar Nueva Sucursal</h2>
     <h3>Completa los detalles de la sucursal para registrarlo en el sistema.</h3>
     
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="{% url 'registrar_sucursal' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <section class="contenedor_inputs">
             <div class="div-nombre">
@@ -28,7 +28,7 @@
             </div>
     
             <div class="div-imagen">
-                <p>Imagen de la Sucursal</p>
+                <label>Imagen de la Sucursal</label>
                 <input type="file" name="imagen" id="imagen-sucursal">
             </div>
 
