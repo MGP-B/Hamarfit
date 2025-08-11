@@ -33,6 +33,12 @@
             <label for="Correo">Correo</label>
             <input type="text" id="Correo" name="correo_empleado" placeholder="example@gmail.com">
         </div>
+        <p>
+            {{ form.correo_empleado.label_tag }}
+            {{ form.correo_empleado }}
+            {{ form.correo_empleado.errors }}
+        </p>
+
 
         <div class="div_telefono">
             <label for="telefono">Teléfono</label>

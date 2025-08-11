@@ -27,3 +27,16 @@ class EmpleadosForm(forms.ModelForm):
             'id_rol',
             'id_sucursal',
         ]
+
+    def clean_correo_empleado(self):
+        correo = self.cleaned_data['correo_empleado']
+
+        # Revisar si el correo ya existe en empleados
+        if Empleados.objects.filter(correo_empleado=correo).exclude(pk=self.instance.pk).exists():
+            raise forms.ValidationError('Este correo ya esta registrado en el sistema.')
+        
+        # Revisar si el correo ya existe en clientes
+        if Clientes.objects.filter(correo_cliente=correo).exists():
+            raise forms.ValidationError('Este correo ya esta registrado en el sistema.')
+        
+        return correo
