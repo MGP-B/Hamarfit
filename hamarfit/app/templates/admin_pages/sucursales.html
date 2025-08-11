@@ -95,15 +95,15 @@
 
         <!-- Contenedor y tarjeta de sucursal -->
         <div class="contenedor-sucursal">
+            {% for sucursal in sucursales %}
             <div class="tarjeta-sucursal">
                 <!-- Imagen de la sucursal -->
-                <img src="{% static 'img/admin_img/sucursales/image.svg' %}" alt="" id="imagen-sucursal">
+                <img src="{{ sucursal.imagen.url }}" id="imagen-sucursal">
                 <!-- Encabezado de la tarjeta de sucursal -->
                 <div class="encabezado-tarjeta">
-                    <h4>Hamarfit Central</h4>
+                    <h4>{{ sucursal.nombre_sucursal }}</h4>
                     <p>Activo</p>
-                    <a href="#" onclick="visible()"><img src="{% static 'img/admin_img/sucursales/list 1.svg' %}"
-                            alt="Icono"></a>
+                    <a href="#" onclick="visible()"><img src="{% static 'img/admin_img/sucursales/list 1.svg' %}" alt="Icono"></a>
                 </div>
 
                 <!-- Desplegable de acciones -->
@@ -129,23 +129,25 @@
                 <!-- Ubicación con su icono -->
                 <div class="ubicacion-sucursal">
                     <img src="{% static 'img/admin_img/sucursales/map-pin 2.svg' %}" alt="Ubicacion">
-                    <p>Av. Principal #21, Santiago</p>
+                    <p>{{ sucursal.direccion_sucursal }}</p>
                 </div>
                 <!-- Contenedor flex -->
                 <div class="flex">
                     <!-- Télefono con su icono -->
                     <div class="telefono-sucursal">
                         <img src="{% static 'img/admin_img/sucursales/phone 1.svg' %}" alt="Telefono">
-                        <p>809-842-2719</p>
+                        <p>{{ sucursal.telefono_sucursal }}</p>
                     </div>
                     <!-- Horario con su icono -->
                     <div class="horario-sucursal">
                         <img src="{% static 'img/admin_img/sucursales/clock 1.svg' %}" alt="Horario">
-                        <p>6:00 AM - 10:00 PM</p>
+                        <p>{{ sucursal.hora_apertura }} - {{ sucursal.hora_cierre }}</p>
                     </div>
                 </div>
             </div>
-            
+            {% empty %}
+            <p>No hay sucursales</p>
+            {% endfor %}
         </div>
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->
