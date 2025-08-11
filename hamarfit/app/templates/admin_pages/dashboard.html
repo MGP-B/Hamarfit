@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_styles/dashboard.css' %}">
+    <title>Admin | Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>HAMAR<span>FIT</span></h1>
+        </div>
+        <div class="setting">
+            <a href="{% url 'admin/configuracion'%}">
+                <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
+                <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
+            </a>
+        </div>
+    </header>
+    <aside class="menu">
+        <ul id="opciones-menu">
+            <a href="{% url 'admin/'%}">
+                <li class="opcion">
+                    <img src="{% static 'img/admin_img/menu/activos/dashboard-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/dashboard.svg' %}" alt="" id="inactivo">
+                    <h3>Dashboard</h3>
+                </li>
+            </a>
+            <a href="{% url 'admin/clientes'%}">
+                <li class="opcion">
+                    <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
+                    <h3>Clientes</h3>
+                </li>
+            </a>
+            <a href="{% url 'admin/sucursales'%}">
+                <li class="opcion">
+                    <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
+                    <h3>Sucursales</h3>
+                </li>
+            </a>
+            <a href="{% url 'admin/inscripciones_renovaciones'%}">
+                <li class="opcion">
+                    <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
+                    <h3>Insc y Reno</h3>
+                </li>
+            </a>
+        </ul>
+        <div class="usuario">
+            <div class="icono">
+                <p id="icono-usuario">J</p>
+            </div>
+            <div class="nombre-rol">
+                <div class="nombre-apellido">
+                    <p id="nombre-usuario">José</p>
+                    <p id="apellido-usuario">Miguel</p>
+                </div>
+                <p id="rol-usuario">Administrador</p>
+            </div>
+        </div>
+    </aside>
+    <main>
+        <!-- Encabezado de la página -->
+        <div class="encabezado">
+            <h2>Dashboard</h2>
+            <p class="subtitulo">Bienvenido al panel de control de HamarFit</p>
+        </div>
+
+        <!-- Div de actividades recientes -->
+        <div class="actividades_recientes">
+            <h3>Actividades Recientes</h3>
+            <p class="subtitulo">Eventos Realizados recientemente</p>
+
+
+            <div class="flex">
+                <!-- Contenedor de ingresos recientes -->
+                <div class="ingresos_recientes">
+                    <!-- Encabezado de la actividad "Ingresos" -->
+                    <div class="encabezado_actividades">
+                        <!-- Div con el título y subtítulo -->
+                        <div>
+                            <h4>Ingresos Recientes</h4>
+                            <p class="subtitulo">Últimos ingresos registrados</p>
+                        </div>
+                        <!-- Enlace al apartado de finanzas -->
+                    </div>
+
+                    <!-- Contenedor de los contenedores de datos -->
+                    <div class="contenedor_contenido">
+                        <!-- Contenedor de los encabezados -->
+                        <div class="encabezado_tabla_ingresos">
+                            <p>Fecha</p>
+                            <p>Descripción</p>
+                            <p>Membresía</p>
+                            <p>Monto</p>
+                        </div>
+
+                        <!-- Contenedor de los datos -->
+                        <div id="dashdboard_contenido_ingresos">
+                            <p>19/05/2025</p>
+                            <p>Renovación Plan Anual</p>
+                            <p>Plan Pro</p>
+                            <p>$3,200.00</p>
+                        </div>
+                        <div id="dashdboard_contenido_ingresos_amarillo">
+                            <p>19/05/2025</p>
+                            <p>Suscripción Plan Mensual</p>
+                            <p>Plan Básico</p>
+                            <p>$900.00</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Contenedor de clientes resientes -->
+                <div class="clientes_recientes">
+                    <!-- Encabezado de la actividad "Ingresos" -->
+                    <div class="encabezado_actividades">
+                        <!-- Div con el título y subtítulo -->
+                        <div>
+                            <h4>Clientes Recientes</h4>
+                            <p class="subtitulo">Últimos Clientes registrados en la web</p>
+                        </div>
+                        <!-- Enlace al apartado de finanzas -->
+                    </div>
+
+                    <!-- Contenedor de los contenedores de datos -->
+                    <div class="contenedor_contenido">
+                        <!-- Contenedor de los encabezados -->
+                        <div class="encabezado_tabla_clientes">
+                            <p>Fecha</p>
+                            <p>Nombre</p>
+                            <p>Email</p>
+                            <p>Membresía</p>
+                        </div>
+
+                        <!-- Contenedor de los datos -->
+                        <div id="ashdboard_contenido_clientes">
+                            <p>19/05/2025</p>
+                            <p>José Miguel</p>
+                            <p>jmiguel@gmail.com</p>
+                            <p>Plan Pro</p>
+                        </div>
+                        <div id="ashdboard_contenido_clientes_amarillo">
+                            <p>19/05/2025</p>
+                            <p>María Rodríguez</p>
+                            <p>mrodriguez@gmail.com</p>
+                            <p>Plan Básico</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="contenedor_advertencia">
+        <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (750px de ancho)</p>
+    </div>
+</body>
+
+</html>

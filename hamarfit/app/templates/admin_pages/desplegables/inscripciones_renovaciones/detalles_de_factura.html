@@ -1,0 +1,73 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/detalles_de_factura.css' %}">
+<div class="cuerpo_popup">
+    <h2>Detalles de Factura</h2>
+    <p class="descripcion">Información completa de la factura seleccionada</p>
+
+    <div class="factura-card">
+        <div class="header">
+        <div>
+            <h3>Factura <span>#FAC-001</span></h3>
+            <span class="amarillo">Pagada</span>
+        </div>
+        <div class="fechas">
+            <p><strong>Fecha de Emisión:</strong> 01/03/2025</p>
+            <p><strong>Fecha de Vencimiento:</strong> 01/04/2025</p>
+        </div>
+        </div>
+
+        <div class="datos">
+        <div>
+            <p><strong>Atendido por:</strong><br>José Miguel<br><span class="sub">Administrador</span></p>
+        </div>
+        <div>
+            <p><strong>Cliente:</strong><br>José Sosa<br><span class="sub">ID: CLI-001</span></p>
+        </div>
+        </div>
+
+        <table>
+        <thead>
+            <tr>
+            <th>Plan</th>
+            <th>Sucursal</th>
+            <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><span class="plan-pro">PlanPro</span></td>
+            <td>Santiago - Center</td>
+            <td>$1,500</td>
+            </tr>
+        </tbody>
+        </table>
+
+        <div class="notas">
+        <h4>Notas</h4>
+        <p>Gracias por su preferencia. Los pagos no son reembolsables.</p>
+        </div>
+
+        <div class="pago">
+        <div>
+            <h4>Método de Pago</h4>
+            <img src="{% static 'img/admin_img/sucursales/credit-card 2.svg' %}" alt="">
+            <p>Tarjeta</p>
+        </div>
+        <div class="total">
+            <strong>Total:</strong> RD$ 99.99
+        </div>
+        </div>
+
+        <div class="acciones">
+            <button class="descargar">
+                <img src="{% static 'img/admin_img/sucursales/download 2.svg' %}" alt="">
+                <p>Descargar PDF</p>
+            </button>
+            <button class="imprimir">
+                <img src="{% static 'img/admin_img/sucursales/printer 1.svg' %}" alt="">
+                <p>Imprimir</p>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="cerrar" onclick="cerrar_popup()"></div>

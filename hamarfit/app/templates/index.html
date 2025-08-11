@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMARFIT</title>
+    {% load static %}
+    <!-- Enlace al css -->
+    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user_styles/index.css' %}">
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <header class="cabecera">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <h2>HAMAR<span>FIT</span></h2>
+            </a>
+        </div>
+
+        <nav class="menu-navegacion">
+            <ul>
+                <li><a href="#beneficios">¿Por qué elegirnos?</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#planes">Planes</a></li>
+            </ul>
+        </nav>
+
+        <div class="botones-navegacion">
+            <button id="inicio-sesion" style="color: #333;">
+                <a href="{% url 'admin/login' %}">Iniciar Sesión</a>
+            </button>
+            <button id="register">
+                <a href="#planes">Únete ahora</a>
+            </button>
+        </div>
+
+    </header>
+
+    <!-- Sección principal -->
+    <section id="principal" class="principal">
+        <h1>TRANSFORMA TU CUERPO<br><span>TRANSFORMA TU VIDA.</span></h1>
+        <p>Únete a la comunidad fitness más completa con entrenadores profesionales y equipamiento de última
+            generación.</p>
+        <!-- Link a otro HTML -->
+        <button id="boton-unirse"><a href="{% url 'user/sucursales' %}">Comienza hoy</a></button>
+    </section>
+
+    <!-- Sección de beneficios -->
+    <section id="beneficios" class="beneficios">
+        <h2>¿Por qué elegir <span id="negro">HAMAR<span id="naranja">FIT</span></span>?</h2>
+        <p class="subtitulo">Ofrecemos todo lo que necesitas para alcanzar tus objetivos fitness</p>
+
+        <div class="tarjetas-beneficios">
+            <div class="tarjeta">
+                <div class="iconos">
+                    <div class="icono">
+                        <img src="{% static 'img/user_img/index/iconos/dumbbell 1.png' %}" alt="">
+                    </div>
+                </div>
+                <h3>Equipamiento Premium</h3>
+                <p>Contamos con máquinas de última generación y pesos libres para todo tipo de entrenamiento.</p>
+            </div>
+
+            <div class="tarjeta">
+                <div class="iconos">
+                    <div class="icono">
+                        <img src="{% static 'img/user_img/index/iconos/users 3.png' %}" alt="">
+                    </div>
+                </div>
+                <h3>Entrenadores Expertos</h3>
+                <p>Nuestro equipo de profesionales certificados te guiará en cada paso de tu entrenamiento.</p>
+            </div>
+
+            <div class="tarjeta">
+                <div class="iconos">
+                    <div class="icono">
+                        <img src="{% static 'img/user_img/index/iconos/clock-8 1.png' %}" alt="">
+                    </div>
+                </div>
+                <h3>Abierto 24/7</h3>
+                <p>Entrena cuando quieras. Nuestras instalaciones están disponibles las 24 horas, todos los días.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de servicios -->
+    <section id="servicios" class="servicios">
+        <h2>Nuestros Servicios</h2>
+        <p class="parrafo">Explora los servicios que tenemos diseñados especialmente para ti y alcanza tus
+            objetivos de salud y bienestar.</p>
+
+        <!-- Contenedor de tarjetas -->
+        <div class="tarjetas-servicios">
+            <div class="tarjeta-servicio">
+                <div class="imagen-servicio">
+                    <img src="{% static 'img/user_img/index/images 2.jpeg' %}" alt="Entrenamiento personal">
+                </div>
+                <div class="info-servicio">
+                    <h3>Entrenamiento personal</h3>
+                    <p>Nuestros entrenadores diseñan rutinas personalizadas, supervisando la técnica para maximizar
+                        resultados y prevenir lesiones.</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <div class="imagen-servicio">
+                    <img src="{% static 'img/user_img/index/download 3.png' %}" alt="Clases grupales">
+                </div>
+                <div class="info-servicio">
+                    <h3>Clases grupales</h3>
+                    <p>Ofrecemos clases como yoga, pilates, spinning y HIIT, guiadas por instructores que te
+                        inspirarán constantemente.</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <div class="imagen-servicio">
+                    <img src="{% static 'img/user_img/index/images 3.png' %}" alt="Acceso a maquinaria">
+                </div>
+                <div class="info-servicio">
+                    <h3>Acceso a maquinaria</h3>
+                    <p>Disfruta de equipos como cintas, bicicletas estáticas y pesas libres, ideales para
+                        entrenamientos de fuerza y cardio.</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <div class="imagen-servicio">
+                    <img src="{% static 'img/user_img/index/download 4.png' %}" alt="Área de relajación y bienestar">
+                </div>
+                <div class="info-servicio">
+                    <h3>Área de relajación y bienestar</h3>
+                    <p>Relájate en nuestra sauna, baño de vapor o jacuzzi, perfectos para recuperar tus músculos
+                        después del entrenamiento.</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <div class="imagen-servicio">
+                    <img src="{% static 'img/user_img/index/images 4.png' %}" alt="Nutrición y asesoría dietética">
+                </div>
+                <div class="info-servicio">
+                    <h3>Nutrición y asesoría dietética</h3>
+                    <p>Nuestros nutricionistas te brindarán planes de alimentación personalizados para complementar
+                        tu entrenamiento y lograr tus objetivos.</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <div class="imagen-servicio">
+                    <img src="{% static 'img/user_img/index/especializado.png' %}" alt="Entrenamiento especializado">
+                </div>
+                <div class="info-servicio">
+                    <h3>Entrenamiento especializado</h3>
+                    <p>Ofrecemos programas enfocados en rehabilitación, deportes o mejora de fuerza específica para
+                        atletas de nivel avanzado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de precios -->
+    <section id="planes" class="planes">
+        <h2>Planes y Precios</h2>
+        <p class="subtitulo">Elige el plan que mejor se adapte a tus necesidades</p>
+
+        <div class="tarjetas-planes">
+            <div class="tarjeta-plan plan-pro">
+                <div class="nombre-precio">
+                    <h3>Plan <span id="pro">Pro</span></h3>
+                    <div class="precio">
+                        <span id="monto">$1,500</span>
+                        <span id="periodo">/mes</span>
+                    </div>
+                </div>
+                <ul class="caracteristicas">
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Acceso a musculación
+                    </li>
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Clases grupales ilimitadas
+                    </li>
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Rutina de entrenamiento
+                        incluida
+                    </li>
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Uso libre de lockers
+                    </li>
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Asesoramiento personalizado
+                    </li>
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Descuentos en suplementos
+                    </li>
+                </ul>
+                <!-- <button class="seleccionar">
+                    <a href="{% url 'user/sucursales' %}" class="boton boton-plan">Seleccionar este plan</a>
+                </button> -->
+                <form method="GET" action="{% url 'index' %}">
+                    <input type="hidden" name="id_plan" value="2">
+                    <button type="submit" class="boton boton-plan">Seleccionar este plan</button>
+                </form>
+            </div>
+
+            <div class="tarjeta-plan plan-basico">
+                <div class="nombre-precio">
+                    <h3>Plan <span id="basico">Básico</span></h3>
+                    <div class="precio">
+                        <span id="monto">$1,100</span>
+                        <span id="periodo">/mes</span>
+                    </div>
+                </div>
+                <ul class="caracteristicas">
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Acceso a musculación
+                    </li>
+                    <li class="beneficio no-incluido">
+                        <img src="{% static 'img/user_img/index/iconos/x.png' %}" alt="">Clases grupales ilimitadas
+                    </li>
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Rutina de entrenamiento
+                        incluida
+                    </li>
+                    <li class="beneficio no-incluido">
+                        <img src="{% static 'img/user_img/index/iconos/x.png' %}" alt="">Uso libre de lockers
+                    </li>
+                    <li class="beneficio incluido">
+                        <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Asesoramiento personalizado
+                    </li>
+                    <li class="beneficio no-incluido">
+                        <img src="{% static 'img/user_img/index/iconos/x.png' %}" alt="">Descuentos en suplementos
+                    </li>
+                </ul>
+                <!-- <button class="seleccionar">
+                    <a href="{% url 'user/sucursales' %}" class="boton boton-plan">Seleccionar este plan</a>
+                </button> -->
+                <form method="GET" action="{% url 'index' %}">
+                    <input type="hidden" name="id_plan" value="1">
+                    <button type="submit" class="boton boton-plan">Seleccionar este plan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

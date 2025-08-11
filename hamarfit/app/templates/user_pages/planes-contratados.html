@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user_styles/planes-contratados.css' %}">
+    <title>Hamarfit - Perfil de usuario</title>
+</head>
+
+<body>
+    <header>
+        <a href="{% url 'index' %}">
+            <h1>HAMAR<span>FIT</span></h1>
+        </a>
+        <div class="icono-header">
+            <a href="{% url 'user/planes_contratados'%}">
+                <div class="icono">N</div>
+            </a>
+        </div>
+    </header>
+
+    <aside>
+        <div class="user">
+            <div id="icono-user">
+                N
+            </div>
+            <div id="nombre-plan">
+                <div class="nombre-user">Nombre de usuario</div>
+                <div class="plan-user">Plan <span>Pro</span></div>
+            </div>
+        </div>
+        <ul class="opciones-menu">
+            <li id="menu-user">
+                <a href="{% url 'user/planes_contratados'%}" style="background-color: rgba(242, 180, 66, 0.25);">
+                    <img src="{% static 'img/user_img/perfiles/Term-1.svg' %}" alt="" id="activo" style="opacity: 1;">
+                    <img src="{% static 'img/user_img/perfiles/Term.svg' %}" alt="" id="inactivo" style="opacity: 0;">
+                    <h4 style="color: #ffa500;">Planes contratados</h4>
+                </a>
+            </li>
+            <li id="menu-user">
+                <a href="{% url 'user/ajustes_cuenta'%}">
+                    <img src="{% static 'img/user_img/perfiles/Settings.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/user_img/perfiles/Settings-1.svg' %}" alt="" id="inactivo">
+                    <h4>Ajustes de Cuenta</h4>
+                </a>
+            </li>
+        </ul>
+        <ul class="logout-menu">
+            <li id="logout">
+                <a href="#">
+                    <img src="{% static 'img/user_img/perfiles/Logout.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/user_img/perfiles/Logout-1.svg' %}" alt="" id="inactivo">
+                    <h4>Cerrar Sesión</h4>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main>
+        <div class="contenedor">
+            <div class="beneficios">
+                <h2>Beneficios</h2>
+                <div class="informacion">
+                    <ul class="lista-beneficios">
+                        <div class="columna">
+                            <li>
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-green.svg' %}" alt=""
+                                    id="activado">
+                                <p>Acceso a musculación</p>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-green.svg' %}" alt=""
+                                    id="activado">
+                                <p>Asesoramiento Personalizado</p>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-green.svg' %}" alt=""
+                                    id="activado">
+                                <p>Rutinas de entrenamiento</p>
+                            </li>
+                        </div>
+                        <div class="columna">
+                            <li>
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-green.svg' %}" alt=""
+                                    id="activado">
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/x-grey.svg' %}" alt=""
+                                    id="desactivado">
+                                <p>Uso libre de lockers</p>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-green.svg' %}" alt=""
+                                    id="activado">
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/x-grey.svg' %}" alt=""
+                                    id="desactivado">
+                                <p>Clases grupales ilimitadas</p>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-green.svg' %}" alt=""
+                                    id="activado">
+                                <img src="{% static 'img/user_img/perfiles/iconos-contenido/x-grey.svg' %}" alt=""
+                                    id="desactivado">
+                                <p>Descuentos de suplementos</p>
+                            </li>
+                        </div>
+                    </ul>
+
+                    <div class="info fecha-contratacion">
+                        <h3>Fecha de contratación:</h3>
+                        <p id="fecha">18/04/2025</p>
+                    </div>
+                    <div class="info estado-cuenta">
+                        <h3>Estado:</h3>
+                        <p id="estado">Activado</p>
+                    </div>
+                    <div class="info precio-mensualidad">
+                        <h3>Mensualidad:</h3>
+                        <p id="mensualidad">1,500</p>
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <button id="cancelar-membresia">Cancelar Membresía</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/clientes/seleccionar_plan.css' %}">
+<div class="cuerpo_popup">
+    <form action="">
+        <label for="seleccionar-plan">Plan Membresía</label>
+        <select name="seleccionar-plan" id="seleccionar-plan">
+            <option selected disabled>Seleccionar Membresía</option>
+            <option>Plan Básico</option>
+            <option>Plan Pro</option>
+        </select>
+    </form>
+    
+    <div class="contenedor-planes">
+        <h3>Resumen de Membresía</h3>
+        <p>Plan: <span>PlanPro</span></p>
+        <p>Precio: <span>$1,500</span></p>
+        <p>Fecha Inicio: <span>06/05/2025</span></p>
+        <p>Fecha Final: <span>06/06/2025</span></p>
+    </div>
+    
+    <form action="">
+        <div class="boton-container">
+            <button id="boton-cancelar">Cancelar</button>
+            <button type="submit" id="boton-completar">Completar Registro</button>
+        </div>
+    </form>
+</div>
+<div class="cerrar" onclick="cerrar_popup()"></div>

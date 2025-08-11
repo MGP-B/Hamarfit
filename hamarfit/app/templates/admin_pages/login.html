@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_styles/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_styles/login.css' %}">
+    <title>HAMARFIT | Inicio de sesión</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <main>
+            <div class="logo">
+                <a href="{% url 'index' %}">
+                    <h1>HAMAR<span>FIT</span></h1>
+                </a>
+            </div>
+            <form id="formLogin" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+                <input type="email" placeholder="Correo electrónico" name="correo_cliente">
+                <input type="password" placeholder="Contraseña" name="contrasena_cliente">
+                <button type="submit">Inicia sesión</button>
+                <a href="#" class="olvidado">¿Haz olvidado tu contraseña?</a>
+            </form>
+            <a href="{% url 'user/registro' %}" class="registro">
+                ¿No tienes una cuenta? <span>Crea una</span>
+            </a>
+        </main>
+    </div>
+</body>
+
+</html>
