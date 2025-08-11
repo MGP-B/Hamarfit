@@ -100,15 +100,16 @@ def clientes(req):
     return render(req, 'admin_pages/clientes.html', {'clientes': clientes})
 
 def configuracion(req):
-    return render(req, 'admin_pages/configuracion.html')
+    empleados = Empleados.objects.all()
+    return render(req, 'admin_pages/configuracion.html', {'empleados':empleados})
 
 @empleado_required
 @never_cache
 def dashboard(req):
     return render(req, 'admin_pages/dashboard.html')
 
-def renovaciones(req):
-    return render(req, 'admin_pages/renovaciones.html')
+def inscripciones_renovaciones(req):
+    return render(req, 'admin_pages/inscripciones_renovaciones.html')
 
 # def login(req):
 #     if req.method == 'POST':
@@ -167,7 +168,8 @@ def logout_user(req):
     return redirect('index')
 
 def sucursales_admin(req):
-    return render(req, 'admin_pages/sucursales.html')
+    sucursales = Sucursales.objects.all()
+    return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales})
 
 
 
@@ -181,7 +183,6 @@ def registrar_cliente(req):
         form = anadirCliente(req.POST)
         if form.is_valid():
             form.save()
-            # Redirige o muestra mensaje de éxito
             return redirect('../')
         else:
             print("[DEBUG] Errores del formulario:", form.errors)
@@ -206,24 +207,36 @@ def registrar_usuario(req):
             form.save()
             return redirect('../')
         else:
-            return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html')
-        
+            print('Los errores del formulario son: ', form.errors)
     else:
         form = EmpleadosForm()
-    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form})
+
+    sucursales = Sucursales.objects.all()
+    return render(req, 'admin_pages/desplegables/configuracion/nuevo_usuario.html', {'form': form,'sucursales': sucursales})
 
 
-# Finanzas
-def registrar_transaccion(req):
-    return render(req, 'admin_pages/desplegables/finanzas/registrar_transaccion.html')
+# inscripciones_renovaciones
+def registrar_renovacion(req):
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html')
 
 def detalles_factura(req):
-    return render(req, 'admin_pages/desplegables/finanzas/detalles_de_factura.html')
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html')
 
 
 # Sucursales
 def registrar_sucursal(req):
-    return render(req, 'admin_pages/desplegables/sucursales/agregar_sucursal.html')
+    if req.method == 'POST':
+        form = SucursalesForm(req.POST, req.FILES)
+        if form.is_valid():
+            print("[DEBUG] Archivos recibidos:", req.FILES)
+            form.save()
+            return redirect('../')
+        else:
+            print("[DEBUG] Errores del formulario:", form.errors)
+    else:
+        form = SucursalesForm()
+    return render(req, 'admin_pages/desplegables/sucursales/agregar_sucursal.html', {'form': form})
+
 
 def editar_sucursal(req):
     return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')

@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
-    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_styles/configuracion.css' %}">
 
     <title>Admin | Configuración</title>
@@ -26,7 +24,7 @@
     </header>
     <aside class="menu">
         <ul id="opciones-menu">
-            <a href="{% url 'admin/dashboard'%}">
+            <a href="{% url 'admin/'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/dashboard-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/dashboard.svg' %}" alt="" id="inactivo">
@@ -47,11 +45,11 @@
                     <h3>Sucursales</h3>
                 </li>
             </a>
-            <a href="{% url 'admin/renovaciones'%}">
+            <a href="{% url 'admin/inscripciones_renovaciones'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
-                    <h3>Renovación</h3>
+                    <h3>Insc y Reno</h3>
                 </li>
             </a>
         </ul>
@@ -74,14 +72,13 @@
 
         <div class="contenedor">
             <div class="encabezado">
-                <h3>Gestión de usuarios</h3>
-                <p>Administra los usuarios y roles del sistema.</p>
+                <h3>Gestión de Empleados</h3>
+                <p>Administra los Empleados y roles del sistema.</p>
             </div>
 
-            <button id="nuevo_usuario"
-                onclick="agregar_popup(`{% url 'admin/configuracion/registrar_usuario/' %}`)">
+            <button id="nuevo_usuario" onclick="agregar_popup(`{% url 'admin/configuracion/registrar_usuario/' %}`)">
                 <img src="{% static 'img/admin_img/global/mas.svg' %}" alt="">
-                <p>Nuevo Usuario</p>
+                <p>Nuevo Empleado</p>
             </button>
 
             <div id="contenedor_contenido">
@@ -89,18 +86,20 @@
                     <p>Usuario</p>
                     <p>Email</p>
                     <p>Rol</p>
-                    <p>Estado</p>
+                    <p>Sucursal</p>
                     <p>Acciones</p>
                 </div>
 
                 <div id="contenido">
-                    <div id="nombre-usuario">José Miguel</div>
-                    <p>josemiguel@gmail.com</p>
-                    <p>Administrador</p>
-                    <p>Activo</p>
+                    {% for empleado in empleados %}
+                    <div id="nombre-usuario">{{empleado.nombre_empleado}}</div>
+                    <p>{{empleado.correo_empleado}}</p>
+                    <p>{{empleado.id_rol.rol}}</p>
+                    <p>{{empleado.id_sucursal.nombre_sucursal}}</p>
                     <div class="div_acciones" onclick="visible()">
                         <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
                     </div>
+                    {% endfor %}
                     <!-- Desplegable de acciones -->
                     <div class="desplegable" id="desplegable">
                         <div class="encabezado_desplegable">

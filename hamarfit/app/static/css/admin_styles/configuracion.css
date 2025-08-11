@@ -9,12 +9,6 @@ main{
     width: 82%;
 }
 
-/* Titulo de la página */
-h2{
-    font-family: RubikSemi;
-    font-size: 2.5vw;
-}
-
 /* Contenedor de los contenedores */
 .contenedor{
     background-color: white;

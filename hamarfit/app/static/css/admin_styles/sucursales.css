@@ -1,6 +1,9 @@
-@import url(admin.css);
-@import url(../../css/admin_styles/desplegables/desplegables.css);
+@import './admin.css';
+@import './desplegables/desplegables.css';
 
+html {
+    overflow:hidden;
+}
 
 body {
     background-color: #ECECEC;
@@ -18,30 +21,19 @@ main {
     line-height: 1.5;
 }
 
-.encabezado-sucursales h2 {
-    font-family: RubikSemi;
-    font-size: 2.5vw;
-}
-
 /* Estilos del panel de control y contenedor de sucursal */
 .panel-control {
     display: flex;
     justify-content: space-between;
 }
 
-.contenedor-sucursal {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
 /* Barra de búsqueda */
 .panel-control .barra-de-busqueda {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        width: 100%;
-        position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    position: relative;
 }
 
 .panel-control .barra-de-busqueda img {
@@ -121,8 +113,22 @@ main button:hover {
 
 /* Contenedor de sucural */
 .contenedor-sucursal {
-    width: 100%;
+    width: 99%;
+    height: 420px;
     padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 10px 0;
+    overflow: auto;
+}
+
+.contenedor-sucursal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.contenedor-sucursal::-webkit-scrollbar-thumb {
+    background-color: #FCA502;
 }
 
 /* Estilos a la tarjeta de sucursal */
@@ -130,9 +136,10 @@ main button:hover {
     background-color: #fff;
     border: 1px solid #a6a6a6;
     border-radius: 6px;
-    height: 10;
-    padding: 20px;
-    width: 235px;
+    padding: 15px;
+    width: 230px;
+    height: 200px;
+    margin: 10px;
 }
 
 /* Aplicando estilo a la imagen de la sucursal en la tarjeta */
@@ -236,4 +243,9 @@ main button:hover {
 /* Desplegable del icono de acciones */
 .desplegable{
     margin-left: 14rem;
+}
+
+/* Media required para pantallas de 1280px */
+@media screen and (max-width: 1280px) {
+    
 }

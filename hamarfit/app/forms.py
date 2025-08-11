@@ -40,3 +40,14 @@ class EmpleadosForm(forms.ModelForm):
             raise forms.ValidationError('Este correo ya esta registrado en el sistema.')
         
         return correo
+class SucursalesForm(forms.ModelForm):
+    class Meta:
+        model = Sucursales
+        fields = [
+            'nombre_sucursal',
+            'direccion_sucursal',
+            'telefono_sucursal',
+            'hora_apertura',
+            'hora_cierre',
+            'imagen',
+        ]

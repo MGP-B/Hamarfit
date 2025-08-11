@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | Sucursales</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_styles/admin.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_styles/sucursales.css' %}">
@@ -26,7 +27,7 @@
     </header>
     <aside class="menu">
         <ul id="opciones-menu">
-            <a href="{% url 'admin/dashboard' %}">
+            <a href="{% url 'admin/' %}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/dashboard-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/dashboard.svg' %}" alt="" id="inactivo">
@@ -47,11 +48,11 @@
                     <h3>Sucursales</h3>
                 </li>
             </a>
-            <a href="{% url 'admin/renovaciones'%}">
+            <a href="{% url 'admin/inscripciones_renovaciones'%}">
                 <li class="opcion">
                     <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
-                    <h3>Renovación</h3>
+                    <h3>Insc y Reno</h3>
                 </li>
             </a>
         </ul>
@@ -68,7 +69,9 @@
             </div>
         </div>
     </aside>
+
     <main>
+
         <!-- Encabezado -->
         <div class="encabezado-sucursales">
             <h2>Sucursales</h2>
@@ -84,8 +87,7 @@
                     <p>Buscar</p>
                 </button>
             </div>
-            <button class="boton-agregar"
-                onclick="agregar_popup(`{% url 'admin/sucursales/registrar_sucursal/' %}`)">
+            <button class="boton-agregar" onclick="agregar_popup(`{% url 'registrar_sucursal' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/building-2 1.svg' %}" alt="Icono">
                 <p>Agregar Sucursal</p>
             </button>
@@ -93,15 +95,15 @@
 
         <!-- Contenedor y tarjeta de sucursal -->
         <div class="contenedor-sucursal">
+            {% for sucursal in sucursales %}
             <div class="tarjeta-sucursal">
                 <!-- Imagen de la sucursal -->
-                <img src="{% static 'img/admin_img/sucursales/image.svg' %}" alt="" id="imagen-sucursal">
+                <img src="{{ sucursal.imagen.url }}" id="imagen-sucursal">
                 <!-- Encabezado de la tarjeta de sucursal -->
                 <div class="encabezado-tarjeta">
-                    <h4>Hamarfit Central</h4>
+                    <h4>{{ sucursal.nombre_sucursal }}</h4>
                     <p>Activo</p>
-                    <a href="#" onclick="visible()"><img src="{% static 'img/admin_img/sucursales/list 1.svg' %}"
-                            alt="Icono"></a>
+                    <a href="#" onclick="visible()"><img src="{% static 'img/admin_img/sucursales/list 1.svg' %}" alt="Icono"></a>
                 </div>
 
                 <!-- Desplegable de acciones -->
@@ -113,8 +115,7 @@
                         </button>
                     </div>
 
-                    <div class="div_detalles"
-                        onclick="agregar_popup(`{% url 'admin/sucursales/editar_sucursal/' %}`)"
+                    <div class="div_detalles" onclick="agregar_popup(`{% url 'editar_sucursal' %}`)"
                         title="Ver detalles">
                         <img src="{% static 'img/admin_img/global/ojo.svg' %}">
                         <p>Editar</p>
@@ -128,22 +129,25 @@
                 <!-- Ubicación con su icono -->
                 <div class="ubicacion-sucursal">
                     <img src="{% static 'img/admin_img/sucursales/map-pin 2.svg' %}" alt="Ubicacion">
-                    <p>Av. Principal #21, Santiago</p>
+                    <p>{{ sucursal.direccion_sucursal }}</p>
                 </div>
                 <!-- Contenedor flex -->
                 <div class="flex">
                     <!-- Télefono con su icono -->
                     <div class="telefono-sucursal">
                         <img src="{% static 'img/admin_img/sucursales/phone 1.svg' %}" alt="Telefono">
-                        <p>809-842-2719</p>
+                        <p>{{ sucursal.telefono_sucursal }}</p>
                     </div>
                     <!-- Horario con su icono -->
                     <div class="horario-sucursal">
                         <img src="{% static 'img/admin_img/sucursales/clock 1.svg' %}" alt="Horario">
-                        <p>6:00 AM - 10:00 PM</p>
+                        <p>{{ sucursal.hora_apertura }} - {{ sucursal.hora_cierre }}</p>
                     </div>
                 </div>
             </div>
+            {% empty %}
+            <p>No hay sucursales</p>
+            {% endfor %}
         </div>
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->

@@ -18,11 +18,6 @@ main {
     line-height: 1.5;
 }
 
-.encabezado h2 {
-    font-family: RubikSemi;
-    font-size: 2.5vw;
-}
-
 /* Estilos del panel de control y contenedor de sucursal */
 .panel-control {
     display: flex;
@@ -126,6 +121,10 @@ main button:hover {
     margin-top: 3vh;
     overflow-x: auto;
 }
+
+#contenedor_contenido::-webkit-scrollbar {
+    display: none;
+}
 /* Encabezado del contenido */
 #contenedor_contenido .encabezado_contenido{
     display: grid;
@@ -150,7 +149,6 @@ main button:hover {
 
     /* Estilos del contenido */
     box-sizing: border-box;
-    border-bottom: 1px solid black;
     font-size: 1.15vw;
     align-items: center;
     margin-top: 5px;

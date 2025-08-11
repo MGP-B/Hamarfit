@@ -11,12 +11,22 @@
 }
 
 /* Formulario */
-.cuerpo_popup form{
+.cuerpo_popup form,
+.cuerpo_popup form .contenedor_inputs{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 15px;
     justify-content: space-between;
 }
+
+.cuerpo_popup form .contenedor_inputs{
+    height: 300px;
+    overflow: auto;
+    padding: 15px;
+}
+
+.cuerpo_popup form .contenedor_inputs::-webkit-scrollbar{opacity: 0;}
 
 .cuerpo_popup form .div_nombre,
 .cuerpo_popup form .div_apellido, 

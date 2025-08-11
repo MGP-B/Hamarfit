@@ -6,8 +6,6 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-
-
 class Beneficios(models.Model):
     id_beneficio = models.AutoField(primary_key=True)
     nombre_beneficio = models.CharField(max_length=100)
@@ -31,10 +29,10 @@ class Clientes(models.Model):
     contrasena_cliente = models.CharField(max_length=20)
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_sucursal = models.ForeignKey('Sucursales', models.DO_NOTHING, db_column='id_sucursal')
-    id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default=1)
+    id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default = 1)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'clientes'
 
 
@@ -66,17 +64,18 @@ class Estados(models.Model):
         db_table = 'estados'
 
 
-class Finanzas(models.Model):
+class InscripcionesRenovaciones(models.Model):
     id_finanza = models.AutoField(primary_key=True)
     emision = models.DateField()
     id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
     id_metodo = models.ForeignKey('MetodosPagos', models.DO_NOTHING, db_column='id_metodo')
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
+    descripcion = models.CharField(max_length=60)
 
     class Meta:
         managed = False
-        db_table = 'finanzas'
+        db_table = 'inscripciones_renovaciones'
 
 
 class MetodosPagos(models.Model):
@@ -141,9 +140,11 @@ class Sucursales(models.Model):
     nombre_sucursal = models.CharField(max_length=80)
     direccion_sucursal = models.CharField(max_length=200)
     telefono_sucursal = models.CharField(max_length=12)
-    horario = models.CharField(max_length=12)
-    imagen = models.CharField(max_length=200)
+    hora_apertura = models.TimeField()
+    hora_cierre = models.TimeField()
+    # Pillow
+    imagen = models.ImageField(upload_to='productos/%y/%m/%d', blank=True, max_length=200)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'sucursales'
