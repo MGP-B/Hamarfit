@@ -32,7 +32,7 @@ class Clientes(models.Model):
     id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default = 1)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'clientes'
 
 
@@ -74,8 +74,8 @@ class InscripcionesRenovaciones(models.Model):
     descripcion = models.CharField(max_length=60)
 
     class Meta:
-        managed = False
-        db_table = 'inscripciones_renovaciones'
+        managed = True
+        db_table = 'inscripciones_Renovaciones'
 
 
 class MetodosPagos(models.Model):
