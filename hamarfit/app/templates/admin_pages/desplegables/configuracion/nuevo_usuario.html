@@ -6,58 +6,6 @@
 
     <form action="{% url 'admin/configuracion/registrar_usuario/' %}" method="POST" id="datos_usuario">
         {% csrf_token %}
-<<<<<<< HEAD
-        <div class="div_nombre">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre_empleado" placeholder="Nombre">
-        </div>
-
-        <div class="div_apellido">
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido_empleado" placeholder="Apellido">
-        </div>
-
-        <div class="div_tipo_documento">
-            <label for="tipo_documento">Tipo de documento</label>
-            <select id="tipo_documento" name="tipo_documento">
-                <option disabled selected>Selecciona el tipo de documento</option>
-                <option value="cedula">Cedúla</option>
-            </select>
-        </div>
-
-        <div class="div_documento">
-            <label for="documento">Documento</label>
-            <input type="text" id="documento" name="documento_empleado" placeholder="Documento">
-        </div>
-
-        <div class="div_correo">
-            <label for="Correo">Correo</label>
-            <input type="text" id="Correo" name="correo_empleado" placeholder="example@gmail.com">
-        </div>
-        <p>
-            {{ form.correo_empleado.label_tag }}
-            {{ form.correo_empleado }}
-            {{ form.correo_empleado.errors }}
-        </p>
-
-
-        <div class="div_telefono">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono_empleado" placeholder="Teléfono">
-        </div>
-
-        <div class="div_direccion">
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion_empleado" placeholder="Dirección">
-        </div>
-
-        <div class="div_sucursal">
-            <label for="sucursal">Sucursal</label>
-            <select id="sucursal" name="id_sucursal">
-                <option disabled selected>Selecciona la sucursal</option>
-            </select>
-        </div>
-=======
         <div class="contenedor_inputs">
             <div class="div_nombre">
                 <label for="nombre">Nombre</label>
@@ -83,10 +31,31 @@
                 <input type="text" id="documento" name="documento_empleado" placeholder="Documento">
             </div>
     
-            <div class="div_correo">
+            <!-- <div class="div_correo">
                 <label for="Correo">Correo</label>
                 <input type="text" id="Correo" name="correo_empleado" placeholder="example@gmail.com">
+            </div> -->
+
+            <div class="div_correo">
+                <label for="Correo">Correo</label>
+                <input type="text" id="Correo" name="correo_empleado" placeholder="example@gmail.com"
+                    value="{{ form.correo_empleado.value|default:'' }}">
+
+                <!-- Aquí mostramos el mensaje de error si existe -->
+                {% if form.correo_empleado.errors %}
+                <div class="error" style="color: red; font-size: 0.9em;">
+                    {{ form.correo_empleado.errors.0 }}
+                </div>
+                {% endif %}
             </div>
+
+
+            <!-- <p>
+                {{ form.correo_empleado.label_tag }}
+                {{ form.correo_empleado }}
+                {{ form.correo_empleado.errors }}
+            </p> -->
+
     
             <div class="div_telefono">
                 <label for="telefono">Teléfono</label>
@@ -107,7 +76,6 @@
                 <label for="contrasena_empleado">Contrasena empleado</label>
                 <input type="password" name="contrasena_empleado" id="contrasena_empleado">
             </div>
->>>>>>> 2f637adb6058004a5e88062811393bf0fd5a4721
 
             <div class="div_sucursal">
                 <label for="sucursal">Sucursal</label>
