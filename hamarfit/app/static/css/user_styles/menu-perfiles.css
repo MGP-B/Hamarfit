@@ -7,6 +7,7 @@
 }
 
 body {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -15,6 +16,7 @@ body {
 
 /* Estilos para el header */
 header {
+    position: relative;
     width: 100%;
     height: 10%;
     display: inline-flex;
@@ -100,10 +102,9 @@ aside{
 
 /* Contenedor de la información del usuario */
 aside .user {
-    margin-bottom: 5%;
+    padding-bottom: 10px;
     padding-top: 10%;
     width: 100%;
-    height: 30%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -116,7 +117,6 @@ aside #icono-user {
     height: 7vw;
     border-radius: 50%;
     
-
     font-weight: 600;
     font-size: 3vw;
     font-family: rubik;
@@ -162,12 +162,12 @@ aside .logout-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: end;
 }
 
 /* Estilos para los elementos del menú */
 aside li {
     width: 90%;
-    height: 6vh;
     margin: 4%;
     background-color: #fff;
     border-radius: 0.5vw;
@@ -184,7 +184,7 @@ aside li a {
     text-decoration: none;
     font-size: 1.3vw;
     width: 100%;
-    height: 100%;
+    height: 3vw;
     display: inline-flex;
     align-items: center;
     font-family: rubik;
@@ -244,3 +244,105 @@ main {
     z-index: 1;
 }
 
+@media (max-width: 750px) {
+    /* estilos del main */
+    main {
+        width: 92%;
+        height: 90%;
+        position: relative;
+        left: 8%;
+        z-index: 0;
+    }
+
+    /* Estilos del aside */
+    aside{
+        position: absolute;
+        top: 10%;
+        background-color: #fff;
+        width: 8%;
+        transition: all .4s;
+        z-index: 1;
+    }
+
+    aside:hover{
+        width: 30%;
+    }
+
+    aside .user {
+        padding-bottom: 10px;
+        padding-top: 12px;
+    }
+
+    /* Estilos para el icono de usuario */
+    aside #icono-user {
+        background-color: #ffa500;
+        width: 5vw;
+        height: 5vw;        
+        font-size: 1.8vw;
+        transition: all .4s;
+    }
+
+    aside:hover #icono-user {
+        background-color: #ffa500;
+        width: 8vw;
+        height: 8vw;
+        border-radius: 50%;
+        font-size: 4vw;
+    }
+
+    /* Estilos para el nombre de usuario */
+    aside .nombre-user{
+        font-size: 0;
+        transition: all .4s;
+    }
+
+    aside:hover .nombre-user{
+        font-size: 2vw;
+        font-family: rubik;
+        text-align: center;
+        display: block;
+    }
+
+    /* Estilos para el plan del usuario */
+    aside .plan-user {
+        margin-top: 5px;
+    }
+
+    aside:hover .plan-user {
+        font-size: 1.8vw;
+        text-align: center;
+        font-family: rubik;
+        font-weight: 600;
+    }
+
+    /* Estilos para los elementos del menú */
+    aside li {
+        width: 80%;
+        margin: 4%;
+        height: 4vw;
+    }
+
+    aside li h4 {
+        font-size: 0;
+        transition: all .4s;
+    }
+
+    aside:hover li h4 {
+        display: block;
+        font-size: 1.7vw;
+        margin-left: 20%;
+    }
+
+    /* Estilos para enlace en el menú */
+    aside li a {
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+    }
+
+    aside:hover li a {
+        font-size: 1.6vw;
+        justify-content: start;
+        padding-left: 10px;
+    }
+}

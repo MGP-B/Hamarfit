@@ -12,6 +12,8 @@ urlpatterns = [
     path('metodo_pago/',views.metodo_pago, name='user/metodo_pago'),
     path('planes_contratados/',views.planes_contratados, name='user/planes_contratados'),
     path('registro/',views.registro, name='user/registro'),
+    path('inicio_user/',views.proteger_vista, name='inicio_user'),
+    path('logout_user/',views.logout_user, name='logout_user'),
 
 
     # ----- Apartado de 'admin' -----
@@ -38,6 +40,13 @@ urlpatterns = [
     path('admin/inscripciones_renovaciones/detalles_factura/', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
 
     # Sucursales
-    path('admin/sucursales/registrar_sucursal/',views.registrar_sucursal, name='admin/sucursales/registrar_sucursal/'),
-    path('admin/sucursales/editar_sucursal/', views.editar_sucursal, name='admin/sucursales/editar_sucursal/')
+    path('admin/sucursales/registrar_sucursal/', views.registrar_sucursal, name='registrar_sucursal'),
+    path('admin/sucursales/editar_sucursal/', views.editar_sucursal, name='editar_sucursal'),
+
 ]
+
+# Pillow
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

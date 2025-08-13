@@ -140,9 +140,11 @@ class Sucursales(models.Model):
     nombre_sucursal = models.CharField(max_length=80)
     direccion_sucursal = models.CharField(max_length=200)
     telefono_sucursal = models.CharField(max_length=12)
-    horario = models.CharField(max_length=12)
-    imagen = models.CharField(max_length=200)
+    hora_apertura = models.TimeField()
+    hora_cierre = models.TimeField()
+    # Pillow
+    imagen = models.ImageField(upload_to='productos/%y/%m/%d', blank=True, max_length=200)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'sucursales'

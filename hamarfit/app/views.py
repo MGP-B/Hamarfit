@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import *
 from . models import *
 from datetime import date
+from django.views.decorators.cache import never_cache
 # from django.urls import reverse
 
 # Create your views here.
@@ -52,6 +53,7 @@ def metodo_pago(req):
 def planes_contratados(req):
     return render(req, 'user_pages/planes-contratados.html')
 
+@never_cache
 def registro(req):
     id_plan = req.session.get('id_plan')
     id_sucursal = req.session.get('id_sucursal')
@@ -107,10 +109,32 @@ def inscripciones_renovaciones(req):
     return render(req, 'admin_pages/inscripciones_renovaciones.html')
 
 def login(req):
+    if req.method == 'POST':
+        correo = req.POST.get('correo_cliente')
+        contrasena = req.POST.get('contrasena_cliente')
+
+        try:
+            cliente = Clientes.objects.get(correo_cliente=correo, contrasena_cliente=contrasena)
+            req.session['cliente_id'] = cliente.id_cliente
+            return redirect('inicio_user')
+        except Clientes.DoesNotExist:
+            error = "Correo o contraseña incorrectos."
+            return render(req, 'admin_pages/login.html', {'error': error})
     return render(req, 'admin_pages/login.html')
 
+def proteger_vista(req):
+    if not req.session.get('cliente_id'):
+        return redirect('admin/login')
+    
+    return render(req, 'user_pages/inicio_user.html')
+
+def logout_user(req):
+    req.session.flush()
+    return redirect('index')
+
 def sucursales_admin(req):
-    return render(req, 'admin_pages/sucursales.html')
+    sucursales = Sucursales.objects.all()
+    return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales})
 
 
 
@@ -129,7 +153,8 @@ def registrar_cliente(req):
             print("[DEBUG] Errores del formulario:", form.errors)
     else:
         form = anadirCliente()
-    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form})
+    sucursales = Sucursales.objects.all()
+    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form, 'sucursales': sucursales})
 
 
 def seleccionar_plan(req):
@@ -165,7 +190,18 @@ def detalles_factura(req):
 
 # Sucursales
 def registrar_sucursal(req):
-    return render(req, 'admin_pages/desplegables/sucursales/agregar_sucursal.html')
+    if req.method == 'POST':
+        form = SucursalesForm(req.POST, req.FILES)
+        if form.is_valid():
+            print("[DEBUG] Archivos recibidos:", req.FILES)
+            form.save()
+            return redirect('../')
+        else:
+            print("[DEBUG] Errores del formulario:", form.errors)
+    else:
+        form = SucursalesForm()
+    return render(req, 'admin_pages/desplegables/sucursales/agregar_sucursal.html', {'form': form})
+
 
 def editar_sucursal(req):
     return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')

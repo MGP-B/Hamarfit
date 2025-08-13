@@ -74,7 +74,9 @@
         <div class="sucursal">
             <label for="sucursal">Selecciona una Sucursal</label>
             <select id="sucursal" name="id_sucursal">
-                <option value="1">HamarFit Central</option>
+                {% for sucursal in sucursales %}
+                <option value="{{ sucursal.id_sucursal }}">{{ sucursal.nombre_sucursal }}</option>
+                {% endfor %}
             </select>
         </div>
         

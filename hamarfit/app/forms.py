@@ -55,11 +55,13 @@ class EmpleadosForm(forms.ModelForm):
         ]
 
 class SucursalesForm(forms.ModelForm):
-    model = Sucursales
-    fields = [
-        'nombre_sucursal',
-        'direccion_sucursal',
-        'telefono_sucursal',
-        'horario',
-        'imagen',
-    ]
+    class Meta:
+        model = Sucursales
+        fields = [
+            'nombre_sucursal',
+            'direccion_sucursal',
+            'telefono_sucursal',
+            'hora_apertura',
+            'hora_cierre',
+            'imagen',
+        ]
