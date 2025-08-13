@@ -76,9 +76,10 @@ def login(req):
 
             # Verificar si es un empleado
             try:
-                empleado = Empleados.objects.get(correo_empleado=correo, contrasena_empleado=contrasena)
+                empleado = Empleados.objects.select_related('id_rol').get(correo_empleado=correo, contrasena_empleado=contrasena)
                 req.session['empleado_id'] = empleado.id_empleado
-                return redirect('admin/dashboard') # Dashboard para empleados
+                req.session['rol'] = empleado.id_rol.rol
+                return redirect('admin/') # Dashboard para empleados
             except Empleados.DoesNotExist:
                 pass # Si no es empleado, sigue con cliente
 
