@@ -7,8 +7,6 @@
     <title>HAMARFIT</title>
     {% load static %}
     <!-- Enlace al css -->
-    <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
-    <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/user_styles/index.css' %}">
 </head>
 
@@ -17,7 +15,7 @@
     <header class="cabecera">
         <div class="logo">
             <a href="{% url 'index' %}">
-                <h2>HAMAR<span>FIT</span></h2>
+                <h1>HAMAR<span>FIT</span></h1>
             </a>
         </div>
 
@@ -26,15 +24,13 @@
                 <li><a href="#beneficios">¿Por qué elegirnos?</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#planes">Planes</a></li>
+                <li><a href="#sucursales">Sucursales</a></li>
             </ul>
         </nav>
 
         <div class="botones-navegacion">
             <button id="inicio-sesion" style="color: #333;">
                 <a href="{% url 'admin/login' %}">Iniciar Sesión</a>
-            </button>
-            <button id="register">
-                <a href="#planes">Únete ahora</a>
             </button>
         </div>
 
@@ -46,7 +42,6 @@
         <p>Únete a la comunidad fitness más completa con entrenadores profesionales y equipamiento de última
             generación.</p>
         <!-- Link a otro HTML -->
-        <button id="boton-unirse"><a href="{% url 'user/sucursales' %}">Comienza hoy</a></button>
     </section>
 
     <!-- Sección de beneficios -->
@@ -199,13 +194,6 @@
                         <img src="{% static 'img/user_img/index/iconos/check.png' %}" alt="">Descuentos en suplementos
                     </li>
                 </ul>
-                <!-- <button class="seleccionar">
-                    <a href="{% url 'user/sucursales' %}" class="boton boton-plan">Seleccionar este plan</a>
-                </button> -->
-                <form method="GET" action="{% url 'index' %}">
-                    <input type="hidden" name="id_plan" value="2">
-                    <button type="submit" class="boton boton-plan">Seleccionar este plan</button>
-                </form>
             </div>
 
             <div class="tarjeta-plan plan-basico">
@@ -237,14 +225,25 @@
                         <img src="{% static 'img/user_img/index/iconos/x.png' %}" alt="">Descuentos en suplementos
                     </li>
                 </ul>
-                <!-- <button class="seleccionar">
-                    <a href="{% url 'user/sucursales' %}" class="boton boton-plan">Seleccionar este plan</a>
-                </button> -->
-                <form method="GET" action="{% url 'index' %}">
-                    <input type="hidden" name="id_plan" value="1">
-                    <button type="submit" class="boton boton-plan">Seleccionar este plan</button>
-                </form>
             </div>
+        </div>
+    </section>
+    <section id="sucursales">
+        <h2>Nuestras Sucursales</h2>
+        <div class="contenedor-sucursales">
+            
+            <div class="tarjeta-sucursal">
+                <div class="imagen">
+                    <img src="" alt="">
+                </div>
+                <div class="nombre-sucursal">
+                    <p>Nombre sucursal</p>
+                </div>
+                <div class="direccion-sucursal">
+                    <p>Dirección de la sucursal</p>
+                </div>
+            </div>
+
         </div>
     </section>
 </body>

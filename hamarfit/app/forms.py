@@ -4,37 +4,11 @@ from .models import *
 class ClientesForm(forms.ModelForm):
     class Meta:
         model = Clientes
-        # fields = [
-        #     'nombre_cliente',
-        #     'apellido_cliente',
-        #     'tipo_documento',
-        #     'documento_cliente',
-        #     'correo_cliente',
-        #     'telefono_cliente',
-        #     'direccion_cliente',
-        #     'contrasena_cliente',
-        #     'id_plan',
-        #     'id_sucursal',
-        #     'id_estado',
-        # ]
         exclude = ['inscripcion', 'id_plan', 'id_sucursal', 'id_estado']
 
 class anadirCliente(forms.ModelForm):
     class Meta:
         model = Clientes
-        # fields = [
-        #     'nombre_cliente',
-        #     'apellido_cliente',
-        #     'tipo_documento',
-        #     'documento_cliente',
-        #     'correo_cliente',
-        #     'telefono_cliente',
-        #     'direccion_cliente',
-        #     'contrasena_cliente',
-        #     'id_plan',
-        #     'id_sucursal',
-        #     'id_estado',
-        # ]
         exclude = ['id_estado']
 
 class EmpleadosForm(forms.ModelForm):
@@ -54,6 +28,18 @@ class EmpleadosForm(forms.ModelForm):
             'id_sucursal',
         ]
 
+    def clean_correo_empleado(self):
+        correo = self.cleaned_data['correo_empleado']
+
+        # Revisar si el correo ya existe en empleados
+        if Empleados.objects.filter(correo_empleado=correo).exclude(pk=self.instance.pk).exists():
+            raise forms.ValidationError('Este correo ya esta registrado en el sistema.')
+        
+        # Revisar si el correo ya existe en clientes
+        if Clientes.objects.filter(correo_cliente=correo).exists():
+            raise forms.ValidationError('Este correo ya esta registrado en el sistema.')
+        
+        return correo
 class SucursalesForm(forms.ModelForm):
     class Meta:
         model = Sucursales
