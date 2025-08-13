@@ -106,7 +106,8 @@ def dashboard(req):
     return render(req, 'admin_pages/dashboard.html')
 
 def inscripciones_renovaciones(req):
-    return render(req, 'admin_pages/inscripciones_renovaciones.html')
+    inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
+    return render(req, 'admin_pages/inscripciones_renovaciones.html', {'inscripciones_renovaciones':inscripciones_renovaciones})
 
 def login(req):
     if req.method == 'POST':
@@ -182,7 +183,23 @@ def registrar_usuario(req):
 
 # inscripciones_renovaciones
 def registrar_renovacion(req):
-    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html')
+    if req.method == 'POST':
+        form = RenovacionesForm(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('../')  # Redirige después de guardar
+        else:
+            print('Los errores del formulario son: ', form.errors)
+    else:
+        form = RenovacionesForm()
+    planes = Planes.objects.all()
+    metodos_pago = MetodosPagos.objects.all()
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {
+        'form': form,
+        'planes': planes,
+        'metodos_pago': metodos_pago
+        })
+
 
 def detalles_factura(req):
     return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html')

@@ -66,7 +66,7 @@ class Estados(models.Model):
 
 class InscripcionesRenovaciones(models.Model):
     id_finanza = models.AutoField(primary_key=True)
-    emision = models.DateField()
+    emision = models.DateField( auto_now = True)
     id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
     id_metodo = models.ForeignKey('MetodosPagos', models.DO_NOTHING, db_column='id_metodo')
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')

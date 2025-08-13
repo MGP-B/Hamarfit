@@ -65,3 +65,15 @@ class SucursalesForm(forms.ModelForm):
             'hora_cierre',
             'imagen',
         ]
+
+class RenovacionesForm(forms.ModelForm):
+    class Meta:
+        model = InscripcionesRenovaciones
+        fields = [
+            'id_empleado',
+            'id_metodo',
+            'id_plan',
+            'id_cliente',
+            'descripcion',
+        ]
+        exclude = ['emision']
