@@ -1,6 +1,10 @@
 @import url(./../global_styles/fuentes.css);
 @import url(./../global_styles/reset.css);
 
+body {
+    overflow-x: hidden;
+}
+
 html {
     font-size: 20px;
 }
@@ -30,17 +34,23 @@ button:hover {
 
 * h2 {
     font-family: rubiksemi;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 * h3 {
     font-family: rubiksemi;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 * p {
     font-family: rubik;
+    font-size: 1.1rem;
+}
+
+* a {
+    font-family: rubik;
     font-size: 1rem;
+    font-weight: 600;
 }
 
 /* Cabeceras y menú de navegación */
@@ -80,9 +90,9 @@ button:hover {
 
 /* Opciones en enlaces de navegación */
 .menu-navegacion {
-    width: 55%;
+    width: 60%;
     font-family: RubikSemi;
-    font-size: 1.3vw;
+    font-size: .9rem;
 }
 
 /* Estilo del contenedor de listas en menú de navegación */
@@ -96,7 +106,7 @@ button:hover {
 
 /* estilo de elemento lista */
 .menu-navegacion ul li {
-    margin: 1vw;
+    margin: 10px;
 }
 
 /* Estilo link del elemento lista */
@@ -114,52 +124,34 @@ button:hover {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 25%;
+    width: 20%;
     font-family: Rubik;
 }
 
 /* Estilos de botones de registre e inicio de sesión */
 .botones-navegacion button {
-    width: 40%;
-    height: 70%;
-    margin: 1vw;
+    width: 60%;
+    height: 80%;
+    margin: 10px;
 }
 
 /* Estilo del botón inicio de sesión */
 .botones-navegacion #inicio-sesion {
-    background-color: transparent;
-    border: solid #ffa500;
-    border-radius: .5vw;
-    color: black;
-    font-size: 1.2vw;
+    background-color: #ffa500;
+    border: none;
+    border-radius: 5px;
 }
 
 /* Estilo del link en el botón */
 .botones-navegacion #inicio-sesion a {
-    color: black;
-    text-decoration: none;
-}
-
-/* Esto;p del botón registro */
-.botones-navegacion #register {
-    background-color: #ffa500;
-    border: none;
-    border-radius: 0.5vw;
-    color: black;
-    color: white;
-    font-size: 1.2vw;
-}
-
-/* Link dentro del botón */
-.botones-navegacion #register a {
-    color: white;
+    color: #fff;
     text-decoration: none;
 }
 
 /* estilo del contenedor de sección principal con el banner */
 .principal {
     width: 100%;
-    height: 45vw;
+    height: 50vw;
 
     /* Configuración de imagen de fondo */
     background-image: url('../../img/user_img/index/banner.jpeg');
@@ -172,380 +164,327 @@ button:hover {
     flex-direction: column;
     justify-content:center;
     align-content: center;
-    align-items: center;
     flex-wrap: wrap;
-
-    margin-bottom: 8vh;
 }
 
 /* Estilo del eslogan */
-.principal h1 {
+.principal h2 {
     width: 100%;
-    text-align: center;
+    margin-top: -2%;
+    margin-left: 10%;
     font-family: Rubiksemi;
-    font-size: 5vw;
     color: white;
-    margin-bottom: 0.5vh;
+    margin-bottom: 5px;
+    font-size: 3rem;
 }
 
-.principal h1 span {
+.principal h2 span {
     color: #ffa500;
 }
 
 /* Estilo de párrafo en el banner */
 .principal p {
-    text-align: center;
     width: 50%;
     color: white;
-    font-size: 1.3vw;
-    margin-bottom: 2.5vh;
-    font-family: rubik;
-}
-
-/* Estilos del botón en el banner */
-.principal #boton-unirse {
-    background-color: #ffa500;
-    width: 12%;
-    height: 8%;
-    color: white;
-    border: none;
-    border-radius: .5vw;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.3);
-    font-size: 1.2vw;
-}
-
-/* Estilo del link */
-.principal #boton-unirse a {
-    color: white;
-    text-decoration: none;
+    margin-left: 11%;
 }
 
 /* Estilos del contenedor en sección de servicios */
-/* .beneficios {
+.beneficios {
+    margin-top: 6px;
     width: 100%;
-    
+    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
+    flex-direction: column;
     justify-content: center;
-} */
+    margin-bottom: 20px;
+}
 
 /* Enunciado de contenedor de servicio */
-/* .beneficios h2 {
+.beneficios h2 {
     width: 100%;
+    height: 8%;
     text-align: center;
-    font-size: 3vw;
-    font-family: RubikSemi;
-    margin-bottom: 1vh;
-    margin-top: 5vh;
-} */
+    margin-bottom: 10px;
+}
 
-/* .beneficios h2 span {
+.beneficios h2 span {
     color: black;
     font-family: Paytone;
-} */
+}
 
-/* .beneficios h2 #naranja {
+.beneficios h2 #naranja {
     color: #FFA500;
-} */
+}
 
 /* Párrafo en contenedor de servicio */
-/* .beneficios .subtitulo {
+.beneficios .subtitulo {
     text-align: center;
     width: 100%;
-    font-size: 1.9vw;
-    margin-bottom: 6vh;
-    font-size: rubik;
-} */
+    margin-bottom: 4%;
+}
 
 /* Contenedor de tarjetas de beneficios */
-/* .beneficios .tarjetas-beneficios {
+.beneficios .tarjetas-beneficios {
     width: 100%;
 
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    align-content: center;
-} */
+}
 
 /* Tarjetas de beneficios */
-/* .beneficios .tarjeta {
+.beneficios .tarjeta {
     width: 25%;
     background-color: white;
-    padding: 1vh 1vh 4vw 1vh;
+    padding: 10px 10px 40px 10px;
     border-radius: 1vw;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
-    margin: 2vh 2vw 4%;
-} */
+    margin: 20px 20px 4%;
+}
 
-/* .beneficios .tarjeta:hover{
+.beneficios .tarjeta:hover{
     scale: 1.02;
-} */
+}
 
 /* Estilo del contenedor de iconos en las tarjetas */
-/* .beneficios .iconos  {
+.beneficios .iconos  {
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     background-color: #fff;
     width: 100%;
-    margin-bottom: 3vh;
-    margin-top: 2vh;
-} */
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
 
 /* Estilo de iconos */
-/* .beneficios .icono {
+.beneficios .icono {
     background-color: #FFEAC3;
-    width: 4vw;
-    height: 4vw;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
-} */
+}
 
 /* Estilo de imagen en el icono */
-/* .beneficios .icono img {
-    width: 2.5vw;
-} */
+.beneficios .icono img {
+    width: 60%;
+}
 
 /* Estilo del título en el icono */
-/* .beneficios .tarjeta h3 {
-    font-size: 1.5vw;
+.beneficios .tarjeta h3 {
     text-align: center;
     font-family: RubikSemi;
-    margin-bottom: 1vh;
-} */
+    margin-bottom: 10px;
+}
 
 /* Estilo de párrafos en tarjetas */
-/* .beneficios .tarjeta p {
-    font-size: 1.1vw;
+.beneficios .tarjeta p {
+    font-size: .9rem;
     text-align: center;
     font-family: Rubik;
-} */
+}
 
 
 /* Contenedor de servicios */
-/* .servicios {
-    background-color: #E4E4E4;
+.servicios {
+    background-color: rgba(228, 228, 228, 1);
     width: 100%;
+    height: 130vh;
 
     display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
     flex-direction: column;
-} */
+    justify-content: center;
+}
 
 /* Estilo del título de servicios */
-/* .servicios h2 {
-    margin-top: 7%;
-    font-family: rubiksemi;
-    font-size: 2.5vw;
-} */
+.servicios h2 {
+    margin-top: 80px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
 
 /* Estilo del párrafo en servicios */
-/* .servicios .parrafo{
+.servicios .parrafo{
+    width: 100%;
     text-align: center;
-    font-family: rubik;
-    font-size: 1.5vw;
-    width: 55%;
-    margin-top: 2%;
-    margin-bottom: 10vh;
-} */
+    margin-bottom: 40px;
+}
 
 /* Tarjetas de servicios */
-/* .tarjetas-servicios {
+.servicios .tarjetas-servicios {
     width: 100%;
-    margin-bottom: 5%;
+    height: 89%;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
     justify-content: center;
-} */
+}
 
 /* Estilos de tarjetas individuales */
-/* .tarjetas-servicios .tarjeta-servicio {
+.servicios .tarjetas-servicios .tarjeta-servicio {
     background-color: white;
     width: 25%;
-    margin: 1vh 2.3vw 3vh;
-    border-radius: 1vw;
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+
     display: flex;
     flex-direction: column;
     align-items: center;
-} */
+    scale: .90;
+}
 
 /* contenedor de imágenes dentro de las tarjetas de servicios */
-/* .tarjetas-servicios .tarjeta-servicio .imagen-servicio {
+.servicios .tarjetas-servicios .tarjeta-servicio .imagen-servicio {
     width: 100%;
-    height: 10vw;
+    height: 55%;
     overflow: hidden;
-} */
+}
 
 /* Contenedor de la información de servicios */
-/* .tarjeta-servicio .info-servicio {
+.servicios .tarjeta-servicio .info-servicio {
     width: 90%;
-    height: 18vh;
-} */
+    height: 45%;
+}
 
-/* .tarjetas-servicios .tarjeta-servicio:hover {
-    scale: 1.02;
-} */
+.servicios .tarjetas-servicios .tarjeta-servicio:hover {
+    scale: .93;
+}
 
 /* Estilo de imágenes */
-/* .tarjetas-servicios .tarjeta-servicio .imagen-servicio img {
+.servicios .tarjetas-servicios .tarjeta-servicio .imagen-servicio img {
     width: 100%;
     height: 100%;
-    border-radius: 1vw 1vw 0 0;
-} */
+    border-radius: 10px 10px 0 0;
+}
 
 /* Estilo en el título de tarjeta */
-/* .tarjetas-servicios .tarjeta-servicio .info-servicio h3{
-    font-size: 1.5vw;
+.servicios .tarjetas-servicios .tarjeta-servicio .info-servicio h3{
     text-align: center;
     font-family: RubikSemi;
-    margin-top: 2vh;
-    margin-bottom: 1.5vh;
-} */
+}
 
 /* Estilo en el párrafo de tarjeta */
-/* .tarjetas-servicios .tarjeta-servicio .info-servicio p {
-    font-size: 1.1vw;
-    margin: 2vh 0;
+.servicios .tarjetas-servicios .tarjeta-servicio .info-servicio p {
+    margin-top: 10px;
+    font-size: .8rem;
     text-align: center;
-    font-family: rubik;
-} */
+}
 
-/* .info-servicio {
-    padding: 1vw;
-} */
+.servicios .info-servicio {
+    padding: 10px;
+}
 
 /* Estilos de planes */
-/* .planes {
-    padding: 10vh 0 18vh;
+.planes {
     width: 100%;
+    height: 100vh;
+
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-} */
+    align-items: center;
+}
 
 /* Título de planes */
-/* .planes h2 {
-    font-size: 3vw;
+.planes h2 {
     width: 100%;
     text-align: center;
-    margin: 5vh 0 1vh;
-    font-family: Rubik;
-    font-weight: 600;
-} */
+    margin: 50px 0 10px;
+}
 
 /* Párrafo de planes */
-/* .planes p {
-    font-size: 1.8vw;
+.planes p {
     width: 100%;
     text-align: center;
-    margin-bottom: 4vh;
-    font-size: rubik;
-} */
+    margin-bottom: 5%;
+}
 
 /* Contenedor de tarjetas de planes */
-/* .tarjetas-planes {
+.tarjetas-planes {
     width: 90%;
     display: flex;
     justify-content: center;
-} */
+}
 
 /* Tarjetas de planes */
-/* .tarjeta-plan {
+.tarjeta-plan {
     width: 50%;
-    margin: 2vh 2vw 4vh;
+    height: 100%;
+    margin: 20px 20px 40px;
     box-shadow: 0 3px 6px 1px rgba(0,0,0,.3);
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: rubik;
-} */
+    justify-content: center;
+}
 
-/* .tarjeta-plan:hover {
-    scale: 1.01;
+.tarjeta-plan:hover {
     border: solid 0.01px #ffa500;
-} */
+}
 
 /* Estilos en el nombre y precio del plan */
-/* .tarjeta-plan .nombre-precio {
+.tarjeta-plan .nombre-precio {
     width: 100%;
+    height: 20%;
     display: inline-flex;
-    font-size: 1.9vw;
-    font-family: Rubiksemi;
     justify-content: space-between;
-    margin: 4vh 0 2vh;
-} */
+    align-items: center;
+    margin-bottom: 10px;
+}
 
 /* Título del plan */
-/* .tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio {
-    margin: 0 2.5vw;
-} */
+.tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio {
+    margin: 0 25px;
+    display: flex;
+}
 
 /* Span pro */
-/* .tarjeta-plan .nombre-precio #pro {
+.tarjeta-plan .nombre-precio #pro {
     color: #FFA500;
-} */
+}
 
 /* Span básico */
-/* .tarjeta-plan .nombre-precio #basico {
+.tarjeta-plan .nombre-precio #basico {
     color: #626262;
-} */
+}
 
 /* contenedor de características del plan */
-/* .tarjeta-plan .caracteristicas {
+.tarjeta-plan .caracteristicas {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-} */
+    background-color: white;
+}
 
 /* Beneficios dentro de las características */
-/* .tarjeta-plan .caracteristicas .beneficio{
+.tarjeta-plan .caracteristicas .beneficio{
     width: 44%;
     margin: 1.5vh 1.2vw;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     align-content: center;
-    font-size: 1.2vw;
-    font-family: rubik;
-} */
+}
+
+.tarjeta-plan .caracteristicas .beneficio p {
+    font-size: .8rem;
+    text-align: left;
+}
 
 /* imagen de iconos checked y x */
-/* .tarjeta-plan .caracteristicas .beneficio img {
-    width: 3vw;
-    height: 3vw;
-} */
-
-/* Botón de planes */
-/* .tarjeta-plan .seleccionar {
-    width: 70%;
-    padding: .7vh 20%;
-    background-color: #ffa500;
-    margin: 2vh 0;
-    text-align: center;
-    font-size: 1.2vw;
-    border: none;
-    border-radius: .5vw;
-    box-shadow: 0 0 4px 2px rgba(0,0,0,.3);
-} */
-
-/* Link dentro del botón */
-/* .tarjeta-plan .seleccionar a {
-    height: 100%;
-    color: white;
-    text-decoration: none;
-} */
+.tarjeta-plan .caracteristicas .beneficio img {
+    width: 32px;
+    height: 32px;
+}
 
 /* Responsive para pantallas de 800px*/
 /* @media (max-width: 800px) { */
