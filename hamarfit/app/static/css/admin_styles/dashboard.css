@@ -12,7 +12,7 @@ main {
 
 
 .encabezado .subtitulo {
-    font-size: 1.2vw;
+    font-size: 18px;
 }
 
 /* Contenedor para el display= flex */
@@ -87,16 +87,40 @@ main {
     transform: scale(0.95);
 }
 
+.ingresos_recientes .contenedor_contenido{
+    overflow: auto;
+    height: 230px;
+    width: 450px;
+}
+
 /* Estilos al encabezado de la tabla de ingresos recientes */
 .ingresos_recientes .contenedor_contenido .encabezado_tabla_ingresos {
     background-color: #FCA502;
     color: #fff;
     font-size: 1.1vw;
     display: grid;
-    grid-template-columns: 20% 38% 28% 10%;
+    grid-template-columns: 25% 20% 25% 25%;
     padding: 10px;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.301);
     margin-bottom: 8px;
+    width: 450px;
+
+    position: fixed;
+}
+
+/* Estilos al contenido de ingresos recientes */
+.ingresos_recientes .contenedor_contenido .dashdboard_contenido_ingresos {
+    color: #5A5A5A;
+    font-size: 1vw;
+    display: grid;
+    grid-template-columns: 25% 20% 25% 25%;
+    padding: 8px 5px;
+}
+
+/* Estilos al contenido de ingresos recientes pero en amarillo */
+.ingresos_recientes .contenedor_contenido div:nth-child(even) {
+    color: #5A5A5A;
+    background-color: rgba(252, 165, 2, 0.2);
 }
 
 /* Estilos al encabezado de la tabla de clientes recientes */
@@ -109,25 +133,6 @@ main {
     padding: 10px;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.301);
     margin-bottom: 8px;
-}
-
-/* Estilos al contenido de ingresos recientes */
-.ingresos_recientes .contenedor_contenido #dashdboard_contenido_ingresos {
-    color: #5A5A5A;
-    font-size: 1vw;
-    display: grid;
-    grid-template-columns: 20% 38% 27% 5%;
-    padding: 8px 5px;
-}
-
-/* Estilos al contenido de ingresos recientes pero en amarillo */
-.ingresos_recientes .contenedor_contenido #dashdboard_contenido_ingresos_amarillo {
-    color: #5A5A5A;
-    background-color: rgba(252, 165, 2, 0.2);
-    font-size: 1vw;
-    display: grid;
-    grid-template-columns: 20% 38% 27% 5%;
-    padding: 8px 5px;
 }
 
 /* Estilos al contenido de clientes recientes */

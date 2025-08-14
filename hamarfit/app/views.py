@@ -103,7 +103,12 @@ def configuracion(req):
     return render(req, 'admin_pages/configuracion.html', {'empleados':empleados})
 
 def dashboard(req):
-    return render(req, 'admin_pages/dashboard.html')
+    renovaciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Renovación')
+    inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción')
+    return render(req, 'admin_pages/dashboard.html', {
+        'renovaciones': renovaciones, 
+        'inscripciones': inscripciones
+        })
 
 def inscripciones_renovaciones(req):
     inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
