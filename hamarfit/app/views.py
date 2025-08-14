@@ -192,8 +192,10 @@ def registrar_renovacion(req):
             print('Los errores del formulario son: ', form.errors)
     else:
         form = RenovacionesForm()
+
     planes = Planes.objects.all()
     metodos_pago = MetodosPagos.objects.all()
+    
     return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {
         'form': form,
         'planes': planes,
