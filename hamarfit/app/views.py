@@ -39,21 +39,33 @@ def registro(req):
             
 
 # ----- Paginas del apartado de 'admin' -----
+@empleado_required
 def clientes(req):
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
     clientes = Clientes.objects.all()
-    return render(req, 'admin_pages/clientes.html', {'clientes': clientes})
+    return render(req, 'admin_pages/clientes.html', {'clientes': clientes, 'empleado': empleado})
 
+@empleado_required
 def configuracion(req):
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
     empleados = Empleados.objects.all()
-    return render(req, 'admin_pages/configuracion.html', {'empleados':empleados})
+    return render(req, 'admin_pages/configuracion.html', {'empleados':empleados, 'empleado': empleado})
 
 @empleado_required
 @never_cache
 def dashboard(req):
-    return render(req, 'admin_pages/dashboard.html')
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
 
+    return render(req, 'admin_pages/dashboard.html', {'empleado': empleado})
+
+@empleado_required
 def inscripciones_renovaciones(req):
-    return render(req, 'admin_pages/inscripciones_renovaciones.html')
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
+    return render(req, 'admin_pages/inscripciones_renovaciones.html', {'empleado': empleado})
 
 # def login(req):
 #     if req.method == 'POST':
@@ -112,9 +124,13 @@ def logout_user(req):
     req.session.flush()
     return redirect('index')
 
+
+@empleado_required
 def sucursales_admin(req):
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
     sucursales = Sucursales.objects.all()
-    return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales})
+    return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales, 'empleado': empleado})
 
 
 
