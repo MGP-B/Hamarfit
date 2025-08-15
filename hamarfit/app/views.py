@@ -62,17 +62,17 @@ def dashboard(req):
     inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción')
     return render(req, 'admin_pages/dashboard.html', {
         'renovaciones': renovaciones, 
-        'inscripciones': inscripciones
+        'inscripciones': inscripciones,
+        'empleado': empleado
         })
 
-    return render(req, 'admin_pages/dashboard.html', {'empleado': empleado})
 
 @empleado_required
 def inscripciones_renovaciones(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-    return render(req, 'admin_pages/inscripciones_renovaciones.html', {'empleado': empleado})
-
+    inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
+    return render(req, 'admin_pages/inscripciones_renovaciones.html', {'inscripciones_renovaciones':inscripciones_renovaciones, 'empleado': empleado})
 # def login(req):
 #     if req.method == 'POST':
 #         correo = req.POST.get('correo_cliente')
@@ -86,8 +86,6 @@ def inscripciones_renovaciones(req):
 #             error = "Correo o contraseña incorrectos."
 #             return render(req, 'admin_pages/login.html', {'error': error})
 #     return render(req, 'admin_pages/login.html')
-    # inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
-    # return render(req, 'admin_pages/inscripciones_renovaciones.html', {'inscripciones_renovaciones':inscripciones_renovaciones})
 
 def login(req):
     if req.method == 'POST':
@@ -186,6 +184,8 @@ def registrar_usuario(req):
 
 # inscripciones_renovaciones
 def registrar_renovacion(req):
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
     if req.method == 'POST':
         form = RenovacionesForm(req.POST)
         if form.is_valid():
@@ -202,7 +202,8 @@ def registrar_renovacion(req):
     return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {
         'form': form,
         'planes': planes,
-        'metodos_pago': metodos_pago
+        'metodos_pago': metodos_pago,
+        'empleado': empleado
         })
 
 
