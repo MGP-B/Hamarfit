@@ -58,6 +58,12 @@ def configuracion(req):
 def dashboard(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
+    renovaciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Renovación')
+    inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción')
+    return render(req, 'admin_pages/dashboard.html', {
+        'renovaciones': renovaciones, 
+        'inscripciones': inscripciones
+        })
 
     return render(req, 'admin_pages/dashboard.html', {'empleado': empleado})
 
@@ -80,6 +86,8 @@ def inscripciones_renovaciones(req):
 #             error = "Correo o contraseña incorrectos."
 #             return render(req, 'admin_pages/login.html', {'error': error})
 #     return render(req, 'admin_pages/login.html')
+    # inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
+    # return render(req, 'admin_pages/inscripciones_renovaciones.html', {'inscripciones_renovaciones':inscripciones_renovaciones})
 
 def login(req):
     if req.method == 'POST':
@@ -178,7 +186,25 @@ def registrar_usuario(req):
 
 # inscripciones_renovaciones
 def registrar_renovacion(req):
-    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html')
+    if req.method == 'POST':
+        form = RenovacionesForm(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('../')  # Redirige después de guardar
+        else:
+            print('Los errores del formulario son: ', form.errors)
+    else:
+        form = RenovacionesForm()
+
+    planes = Planes.objects.all()
+    metodos_pago = MetodosPagos.objects.all()
+    
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {
+        'form': form,
+        'planes': planes,
+        'metodos_pago': metodos_pago
+        })
+
 
 def detalles_factura(req):
     return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html')
