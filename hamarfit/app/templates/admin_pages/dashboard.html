@@ -103,29 +103,11 @@
 
                         <!-- Contenedor de los datos -->
                         {% for renovacion in renovaciones %}
-                        <div class="dashdboard_contenido_ingresos">
+                        <div class="dashboard_contenido_ingresos">
                             <p>{{renovacion.emision}}</p>
                             <p>{{renovacion.id_plan.nombre_plan}}</p>
                             <p>{{renovacion.id_cliente.nombre_cliente}} {{renovacion.id_cliente.apellido_cliente}}</p>
                             <p>{{renovacion.id_empleado.nombre_empleado}} {{renovacion.id_empleado.apellido_empleado}}</p>
-                        </div>
-                        {% endfor %}
-                        {% for renovacion in renovaciones %}
-                        <div class="dashdboard_contenido_ingresos">
-                            <p>{{renovacion.emision}}</p>
-                            <p>{{renovacion.id_plan.nombre_plan}}</p>
-                            <p>{{renovacion.id_cliente.nombre_cliente}} {{renovacion.id_cliente.apellido_cliente}}</p>
-                            <p>{{renovacion.id_empleado.nombre_empleado}} {{renovacion.id_empleado.apellido_empleado}}
-                            </p>
-                        </div>
-                        {% endfor %}
-                        {% for renovacion in renovaciones %}
-                        <div class="dashdboard_contenido_ingresos">
-                            <p>{{renovacion.emision}}</p>
-                            <p>{{renovacion.id_plan.nombre_plan}}</p>
-                            <p>{{renovacion.id_cliente.nombre_cliente}} {{renovacion.id_cliente.apellido_cliente}}</p>
-                            <p>{{renovacion.id_empleado.nombre_empleado}} {{renovacion.id_empleado.apellido_empleado}}
-                            </p>
                         </div>
                         {% endfor %}
                     </div>
@@ -139,7 +121,7 @@
                         <!-- Div con el título y subtítulo -->
                         <div>
                             <h4>Clientes Recientes</h4>
-                            <p class="subtitulo">Últimos Clientes registrados en la web</p>
+                            <p class="subtitulo">Últimos Clientes agregados al sistema</p>
                         </div>
                         <!-- Enlace al apartado de finanzas -->
                     </div>
@@ -147,26 +129,23 @@
                     <!-- Contenedor de los contenedores de datos -->
                     <div class="contenedor_contenido">
                         <!-- Contenedor de los encabezados -->
+                        
                         <div class="encabezado_tabla_clientes">
                             <p>Fecha</p>
+                            <p>Plan</p>
                             <p>Nombre</p>
                             <p>Email</p>
-                            <p>Membresía</p>
                         </div>
-
                         <!-- Contenedor de los datos -->
-                        <div id="ashdboard_contenido_clientes">
-                            <p>19/05/2025</p>
-                            <p>José Miguel</p>
-                            <p>jmiguel@gmail.com</p>
-                            <p>Plan Pro</p>
+                        {% for inscripcion in inscripciones %}
+                        <div class="dashboard_contenido_clientes">
+                            <p>{{inscripcion.emision}}</p>
+                            <p>{{inscripcion.id_plan.nombre_plan}}</p>
+                            <p>{{inscripcion.id_cliente.nombre_cliente}} {{inscripcion.id_cliente.apellido_cliente}}</p>
+                            <p>{{inscripcion.id_empleado.nombre_empleado}} {{inscripcion.id_empleado.apellido_empleado}}
+                            </p>
                         </div>
-                        <div id="ashdboard_contenido_clientes_amarillo">
-                            <p>19/05/2025</p>
-                            <p>María Rodríguez</p>
-                            <p>mrodriguez@gmail.com</p>
-                            <p>Plan Básico</p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
