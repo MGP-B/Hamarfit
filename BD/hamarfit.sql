@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-08-2025 a las 21:12:17
+-- Tiempo de generación: 15-08-2025 a las 20:37:34
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.13
 
@@ -72,7 +72,14 @@ INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `tip
 (18, 'weslling', 'Garcia', 'DNI', '402-0881258-6', 'weslling89@gmail.com', '8294567896', 'S', '2025-08-05', '123', 2, 1, 1),
 (19, 'Jose', 'Encarnacion', 'DNI', '123-5689563-2', 'joseencarnacion@gmail.com', '8294568787', 'Gurabo', '2025-08-06', '123', 1, 1, 1),
 (20, 'Juan', 'Soto', 'cedula', '402-9634585-1', 'juansoto50@gmail.com', '8095894756', 'Nizao', '2025-08-06', '478', 2, 1, 1),
-(21, 'Yo', 'Mimito', 'cedula', '1', 'yo@gmail.com', '829-000-0001', 'A veces', '2025-08-07', '12345', 2, 1, 1);
+(21, 'Yo', 'Mimito', 'cedula', '1', 'yo@gmail.com', '829-000-0001', 'A veces', '2025-08-07', '12345', 2, 1, 1),
+(22, 'Luis', 'Martínez', 'DNI', '123456789', 'luis@example.com', '8091234567', 'Calle 1', '2025-08-12', 'segura123', 1, 1, 1),
+(23, 'Luis', 'Martínez', 'DNI', '123456789', 'luis@example.com', '8091234567', 'Calle 1', '2025-08-12', 'segura123', 1, 1, 1),
+(24, 'Luis', 'Martínez', 'DNI', '123456789', 'luis@example.com', '8091234567', 'Calle 1', '2025-08-12', 'segura123', 1, 1, 1),
+(25, 'Luis', 'Martínez', 'DNI', '123456789', 'luis@example.com', '8091234567', 'Calle 1', '2025-08-12', 'segura123', 1, 1, 1),
+(26, 'Luis', 'Martínez', 'DNI', '123456789', 'luis@example.com', '8091234567', 'Calle 1', '2025-08-12', 'segura123', 1, 1, 1),
+(27, 'Luis', 'Martínez', 'DNI', '123456789', 'luis@example.com', '8091234567', 'Calle 1', '2025-08-12', 'segura123', 1, 1, 1),
+(28, 'Juan', 'Paredes', 'DNI', '402-1243265-1', 'jpa@gmail.com', '839-020-3443', 'Hacagua', '2025-08-13', '123456', 2, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -168,17 +175,29 @@ INSERT INTO `estados` (`id_estado`, `estado`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `finanzas`
+-- Estructura de tabla para la tabla `inscripciones_renovaciones`
 --
 
-CREATE TABLE `finanzas` (
+CREATE TABLE `inscripciones_renovaciones` (
   `id_finanza` int(11) NOT NULL,
   `emision` date NOT NULL,
+  `descripcion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `id_empleado` int(11) NOT NULL,
   `id_metodo` int(11) NOT NULL,
   `id_plan` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `inscripciones_renovaciones`
+--
+
+INSERT INTO `inscripciones_renovaciones` (`id_finanza`, `emision`, `descripcion`, `id_empleado`, `id_metodo`, `id_plan`, `id_cliente`) VALUES
+(1, '2025-08-12', 'Inscripción', 1, 1, 1, 27),
+(2, '2025-08-13', 'Renovación', 1, 1, 1, 24),
+(3, '2025-08-13', 'Renovación', 1, 1, 1, 8),
+(4, '2025-08-13', 'Inscripción', 1, 1, 2, 28),
+(5, '2025-08-13', 'Renovación', 1, 2, 2, 9);
 
 -- --------------------------------------------------------
 
@@ -190,6 +209,14 @@ CREATE TABLE `metodos_pagos` (
   `id_metodo` int(11) NOT NULL,
   `metodo` varchar(40) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `metodos_pagos`
+--
+
+INSERT INTO `metodos_pagos` (`id_metodo`, `metodo`) VALUES
+(1, 'Efectivo'),
+(2, 'Tarjeta');
 
 -- --------------------------------------------------------
 
@@ -289,7 +316,8 @@ CREATE TABLE `sucursales` (
 
 INSERT INTO `sucursales` (`id_sucursal`, `nombre_sucursal`, `direccion_sucursal`, `telefono_sucursal`, `hora_apertura`, `hora_cierre`, `imagen`) VALUES
 (1, 'HamarFit Central', 'Av. Principal #21, Santiago', '809-222-0908', '05:00:00', '21:00:00', 'productos/25/08/11/Central_Hamarfit.png'),
-(4, 'HamarFit Quinigua', 'Quinigua', '829-009-2919', '05:00:00', '21:00:00', 'productos/25/08/11/estufa_de_induccion.png');
+(4, 'HamarFit Quinigua', 'Quinigua', '829-009-2919', '05:00:00', '21:00:00', 'productos/25/08/11/estufa_de_induccion.png'),
+(5, 'Hamarfit Hacagua', 'Hacagua', '829-008-8800', '05:00:00', '21:00:00', 'productos/25/08/14/Central_Hamarfit.png');
 
 --
 -- Índices para tablas volcadas
@@ -339,9 +367,9 @@ ALTER TABLE `estados`
   ADD PRIMARY KEY (`id_estado`);
 
 --
--- Indices de la tabla `finanzas`
+-- Indices de la tabla `inscripciones_renovaciones`
 --
-ALTER TABLE `finanzas`
+ALTER TABLE `inscripciones_renovaciones`
   ADD PRIMARY KEY (`id_finanza`),
   ADD KEY `empleado` (`id_empleado`),
   ADD KEY `id_metodo` (`id_metodo`),
@@ -406,7 +434,7 @@ ALTER TABLE `beneficios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `django_migrations`
@@ -427,16 +455,16 @@ ALTER TABLE `estados`
   MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `finanzas`
+-- AUTO_INCREMENT de la tabla `inscripciones_renovaciones`
 --
-ALTER TABLE `finanzas`
-  MODIFY `id_finanza` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `inscripciones_renovaciones`
+  MODIFY `id_finanza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `metodos_pagos`
 --
 ALTER TABLE `metodos_pagos`
-  MODIFY `id_metodo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_metodo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `nota_clientes`
@@ -494,9 +522,9 @@ ALTER TABLE `empleados`
   ADD CONSTRAINT `sucursal` FOREIGN KEY (`id_sucursal`) REFERENCES `sucursales` (`id_sucursal`);
 
 --
--- Filtros para la tabla `finanzas`
+-- Filtros para la tabla `inscripciones_renovaciones`
 --
-ALTER TABLE `finanzas`
+ALTER TABLE `inscripciones_renovaciones`
   ADD CONSTRAINT `empleado` FOREIGN KEY (`id_empleado`) REFERENCES `empleados` (`id_empleado`),
   ADD CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
   ADD CONSTRAINT `id_metodo` FOREIGN KEY (`id_metodo`) REFERENCES `metodos_pagos` (`id_metodo`),
