@@ -54,14 +54,15 @@
         </ul>
         <div class="usuario">
             <div class="icono">
-                <p id="icono-usuario">J</p>
+                <p id="icono-usuario">
+                    {{ empleado.nombre_empleado|slice:":1" }}{{ empleado.apellido_empleado|slice:":1" }}</p>
             </div>
             <div class="nombre-rol">
                 <div class="nombre-apellido">
-                    <p id="nombre-usuario">José</p>
-                    <p id="apellido-usuario">Miguel</p>
+                    <p id="nombre-usuario">{{ empleado.nombre_empleado }}</p>
+                    <p id="apellido-usuario">{{ empleado.apellido_empleado }}</p>
                 </div>
-                <p id="rol-usuario">Administrador</p>
+                <p id="rol-usuario">{{ empleado.id_rol.rol }}</p>
             </div>
         </div>
     </aside>

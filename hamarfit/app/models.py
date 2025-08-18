@@ -22,7 +22,7 @@ class Clientes(models.Model):
     apellido_cliente = models.CharField(max_length=100)
     tipo_documento = models.CharField(max_length=30)
     documento_cliente = models.CharField(max_length=13)
-    correo_cliente = models.CharField(max_length=80)
+    correo_cliente = models.CharField(max_length=80, unique=True)
     telefono_cliente = models.CharField(max_length=12)
     direccion_cliente = models.CharField(max_length=200)
     inscripcion = models.DateField(auto_now=True)
@@ -42,7 +42,7 @@ class Empleados(models.Model):
     apellido_empleado = models.CharField(max_length=100)
     tipo_documento = models.CharField(db_column='tipo-documento', max_length=30)  # Field renamed to remove unsuitable characters.
     documento_empleado = models.CharField(max_length=13)
-    correo_empleado = models.CharField(max_length=80)
+    correo_empleado = models.CharField(max_length=80, unique=True)
     telefono_empleado = models.CharField(max_length=12)
     direccion_empleado = models.CharField(max_length=200)
     contratacion_empleado = models.DateTimeField()
