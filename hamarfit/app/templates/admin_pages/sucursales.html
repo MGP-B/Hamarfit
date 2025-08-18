@@ -74,25 +74,18 @@
     <main>
 
         <!-- Encabezado -->
-        <div class="encabezado-sucursales">
-            <h2>Sucursales</h2>
-            <p>Gestiona tus sucursales</p>
-        </div>
-
-        <!-- Panel de Control -->
         <div class="panel-control">
-            <div class="barra-de-busqueda">
-                <input type="text" placeholder="Buscar productos...">
-                <button class="boton-buscar">
-                    <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="Icono lupa">
-                    <p>Buscar</p>
-                </button>
+            <div class="encabezado-sucursales">
+                <h2>Sucursales</h2>
+                <p>Gestiona tus sucursales</p>
             </div>
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'registrar_sucursal' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/building-2 1.svg' %}" alt="Icono">
                 <p>Agregar Sucursal</p>
             </button>
         </div>
+
+        <!-- Panel de Control -->
 
         <!-- Contenedor y tarjeta de sucursal -->
         <div class="contenedor-sucursal">
@@ -103,7 +96,6 @@
                 <!-- Encabezado de la tarjeta de sucursal -->
                 <div class="encabezado-tarjeta">
                     <h4>{{ sucursal.nombre_sucursal }}</h4>
-                    <p>Activo</p>
                     <a href="#" onclick="visible()"><img src="{% static 'img/admin_img/sucursales/list 1.svg' %}" alt="Icono"></a>
                 </div>
 
