@@ -4,7 +4,7 @@ from .forms import *
 from . models import *
 from datetime import date
 from django.views.decorators.cache import never_cache
-from .decorators import cliente_required, empleado_required
+from .decorators import cliente_required, empleado_required, role_required
 # from django.urls import reverse
 
 # Create your views here.
@@ -40,6 +40,7 @@ def registro(req):
 
 # ----- Paginas del apartado de 'admin' -----
 @empleado_required
+@role_required(['Admin', 'Gerente'])
 def clientes(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
