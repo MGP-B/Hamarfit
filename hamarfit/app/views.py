@@ -40,7 +40,7 @@ def registro(req):
 
 # ----- Paginas del apartado de 'admin' -----
 @empleado_required
-@role_required(['Admin', 'Gerente'])
+@role_required(['Admin', 'Gerente', 'Entrenador'])
 def clientes(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
@@ -48,6 +48,7 @@ def clientes(req):
     return render(req, 'admin_pages/clientes.html', {'clientes': clientes, 'empleado': empleado})
 
 @empleado_required
+@role_required(['Admin', 'Gerente'])
 def configuracion(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
@@ -69,24 +70,12 @@ def dashboard(req):
 
 
 @empleado_required
+@role_required(['Admin', 'Gerente', 'Recepcionista'])
 def inscripciones_renovaciones(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
     inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
     return render(req, 'admin_pages/inscripciones_renovaciones.html', {'inscripciones_renovaciones':inscripciones_renovaciones, 'empleado': empleado})
-# def login(req):
-#     if req.method == 'POST':
-#         correo = req.POST.get('correo_cliente')
-#         contrasena = req.POST.get('contrasena_cliente')
-
-#         try:
-#             cliente = Clientes.objects.get(correo_cliente=correo, contrasena_cliente=contrasena)
-#             req.session['cliente_id'] = cliente.id_cliente
-#             return redirect('inicio_user')
-#         except Clientes.DoesNotExist:
-#             error = "Correo o contraseña incorrectos."
-#             return render(req, 'admin_pages/login.html', {'error': error})
-#     return render(req, 'admin_pages/login.html')
 
 def login(req):
     if req.method == 'POST':
@@ -133,6 +122,7 @@ def logout_user(req):
 
 
 @empleado_required
+@role_required(['Admin', 'Gerente'])
 def sucursales_admin(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
@@ -146,6 +136,7 @@ def sucursales_admin(req):
 def detalles_cliente(req):
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html')
 
+@role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):
     if req.method == 'POST':
         form = anadirCliente(req.POST)

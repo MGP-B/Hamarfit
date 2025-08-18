@@ -142,3 +142,11 @@ main {
     background-color: rgba(252, 165, 2, 0.2);
 }
 
+a.disabled {
+    cursor: none;
+    background-color: gray;
+}
+
+.opcion.deshabilitado {
+    opacity: 2; /* grisado */
+}
