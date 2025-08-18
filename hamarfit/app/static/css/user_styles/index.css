@@ -198,6 +198,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -222,7 +223,7 @@ button:hover {
 .beneficios .subtitulo {
     text-align: center;
     width: 100%;
-    margin-bottom: 4%;
+    margin-bottom: 60px;
 }
 
 /* Contenedor de tarjetas de beneficios */
@@ -493,7 +494,6 @@ button:hover {
 .sucursales {
     width: 100%;
     height: 100vh;
-    background-color: rebeccapurple;
 
     display: flex;
     flex-direction: column;
@@ -513,7 +513,6 @@ button:hover {
     width: 100%;
     height: 85%;
     overflow: hidden;
-    background-color: red;
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
@@ -524,3 +523,86 @@ button:hover {
 .sucursales .contenedor-sucursales::-webkit-scrollbar {
     display: none;
 }
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal {
+    width: 25%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
+    border-radius: 10px;
+    margin: 10px;
+    scale: 0.9;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .imagen {
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .imagen img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .nombre-direccion {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .nombre-sucursal {
+    background-color: rebeccapurple;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .direccion-sucursal {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 5px;
+    background-color: chartreuse;
+}
+
+/*
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .nombre-sucursal::-webkit-scrollbar {
+    display: none;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .horario-sucursal {
+    margin-top: 10px;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .horario-sucursal p {
+    font-size: 0.9rem;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .direccion-sucursal {
+    width: 100%;
+    height: 20%;
+    margin-top: 8px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .direccion-sucursal::-webkit-scrollbar {
+    display: none;
+}
+
+.sucursales .contenedor-sucursales .tarjeta-sucursal .direccion-sucursal p{
+    font-size: .95rem;
+} */
