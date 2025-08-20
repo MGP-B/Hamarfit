@@ -113,13 +113,13 @@
 
         <!-- Panel de Control -->
         <div class="panel-control">
-            <div class="barra-de-busqueda">
-                <input type="text" placeholder="Buscar productos...">
+            <form method="GET" class="barra-de-busqueda">
+                <input type="text" name = 'q' placeholder="Buscar cliente (por nombre)...">
                 <button class="boton-buscar">
                     <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="">
                     <p>Buscar</p>
                 </button>
-            </div>
+            </form>
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'admin/clientes/registrar_cliente/' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
                 <p>Agregar Cliente</p>
@@ -131,15 +131,15 @@
                 <p>Nombre</p>
                 <p>Email</p>
                 <p>Teléfono</p>
-                <p>Membresía</p>
+                <p>Plan</p>
                 <p>Estado</p>
                 <p>Acción</p>
             </div>
 
+            {% for cliente in clientes %}
             <div id="contenido">
-                {% for cliente in clientes %}
                 <p>{{ cliente.id_cliente }}</p>
-                <p>{{ cliente.nombre_cliente }}</p>
+                <p>{{ cliente.nombre_cliente }} {{ cliente.apellido_cliente }}</p>
                 <p>{{ cliente.correo_cliente }}</p>
                 <p>{{ cliente.telefono_cliente }}</p>
                 <p>{{ cliente.id_plan.nombre_plan }}</p>
@@ -164,9 +164,13 @@
                 </div>
 
                 {% empty %}
-                <p class="no-resultados">No hay clientes registrados</p>
-                {% endfor %}
+                {%if query%}
+                El cliente '' no existe...
+                {%else%}
+                <p style="padding-top: 50px; text-align: center;">No hay nada que mostrar...</p>
+                {%endif%}
             </div>
+            {% endfor %}
         </div>
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->

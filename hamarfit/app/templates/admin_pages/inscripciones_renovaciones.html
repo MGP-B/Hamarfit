@@ -112,13 +112,14 @@
         </div>
 
         <div class="panel-control">
-            <div class="barra-de-busqueda">
-                <input type="text" placeholder="Buscar transacción...">
+            <form class="barra-de-busqueda" method="GET">
+                <input type="text" name="q" placeholder="Buscar registro (por nombre del cliente)..."
+                    required>
                 <button class="boton-buscar">
                     <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="Icono lupa">
                     <p>Buscar</p>
                 </button>
-            </div>
+            </form>
             <button id="registrar_transaccion"
                 onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/registrar_renovacion/' %}`)">
                 <img src="{% static 'img/admin_img/global/registrar_transaccion.svg' %}" alt="">
@@ -132,7 +133,7 @@
                 <p>Fecha</p>
                 <p>Descripción</p>
                 <p>Cliente</p>
-                <p>Membresía</p>
+                <p>Plan</p>
                 <p>Monto</p>
                 <p>Acción</p>
             </div>
@@ -166,7 +167,7 @@
                 </div>
             </div>
             {% empty %}
-            No hay nada que mostrar, ingrese una inscripcion o una renovacion para poder visualizarlas aquí
+            <p style="padding-top: 50px; text-align: center;">No hay nada que mostrar...</p>
             {% endfor %}
             
         </div>
