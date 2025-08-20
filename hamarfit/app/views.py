@@ -5,6 +5,9 @@ from . models import *
 from datetime import date
 from django.views.decorators.cache import never_cache
 from .decorators import cliente_required, empleado_required, role_required
+from django.db.models import Value
+from django.db.models import Q
+from django.db.models.functions import Concat  # Asegúrate de importar esto correctamente
 # from django.urls import reverse
 
 # Create your views here.
@@ -42,10 +45,43 @@ def registro(req):
 @empleado_required
 @role_required(['Admin', 'Gerente'])
 def clientes(req):
+    # Barra de búsqueda
+    query = req.GET.get('q', '').strip()
+
+    # Solo si hay texto de búsqueda
+    if query:
+        # Normaliza el input
+        palabras = query.lower().split()
+
+        # Anota el nombre completo para búsquedas combinadas
+        clientes = Clientes.objects.annotate(
+            nombre_completo= Concat(
+                'nombre_cliente',
+                Value(' '),
+                'apellido_cliente'
+            )
+        )
+
+        # Construye condiciones dinámicas
+        condiciones = Q()
+        for palabra in palabras:
+            condiciones |= Q(nombre_cliente__icontains=palabra)
+            condiciones |= Q(apellido_cliente__icontains=palabra)
+            condiciones |= Q(nombre_completo__icontains=palabra)
+
+        resultados = clientes.filter(condiciones)
+    else:
+        resultados = Clientes.objects.none()
+
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-    clientes = Clientes.objects.all()
-    return render(req, 'admin_pages/clientes.html', {'clientes': clientes, 'empleado': empleado})
+
+    if query:
+        clientes = resultados
+    else:
+        clientes = Clientes.objects.all()
+
+    return render(req, 'admin_pages/clientes.html', {'clientes': clientes, 'empleado': empleado, 'resultados': resultados})
 
 @empleado_required
 def configuracion(req):
@@ -67,13 +103,47 @@ def dashboard(req):
         'empleado': empleado
         })
 
-
 @empleado_required
 def inscripciones_renovaciones(req):
+    # Barra de búsqueda
+    query = req.GET.get('q', '').strip()
+
+    # Solo si hay texto de búsqueda
+    if query:
+        # Normaliza el input
+        palabras = query.lower().split()
+
+        # Anota el nombre completo para búsquedas combinadas
+        inscripciones = InscripcionesRenovaciones.objects.annotate(
+            nombre_completo= Concat(
+                'id_cliente__nombre_cliente',
+                Value(' '),
+                'id_cliente__apellido_cliente'
+            )
+        )
+
+        # Construye condiciones dinámicas
+        condiciones = Q()
+        for palabra in palabras:
+            condiciones |= Q(id_cliente__nombre_cliente__icontains=palabra)
+            condiciones |= Q(id_cliente__apellido_cliente__icontains=palabra)
+            condiciones |= Q(nombre_completo__icontains=palabra)
+
+        resultados = inscripciones.filter(condiciones)
+    else:
+        resultados = InscripcionesRenovaciones.objects.none()
+
+    # Cuenta iniciada
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-    inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
-    return render(req, 'admin_pages/inscripciones_renovaciones.html', {'inscripciones_renovaciones':inscripciones_renovaciones, 'empleado': empleado})
+    
+    # Mostrar los registros
+    if query:
+        inscripciones_renovaciones = resultados
+    else:
+        inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
+
+    return render(req, 'admin_pages/inscripciones_renovaciones.html', {'inscripciones_renovaciones':inscripciones_renovaciones, 'empleado': empleado, 'resultados': resultados, 'query': query})
 # def login(req):
 #     if req.method == 'POST':
 #         correo = req.POST.get('correo_cliente')
