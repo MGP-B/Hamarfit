@@ -138,11 +138,21 @@ def inscripciones_renovaciones(req):
     
     # Mostrar los registros
     if query:
-        inscripciones_renovaciones = resultados
+        inscripciones_renovaciones_qs = resultados
     else:
-        inscripciones_renovaciones = InscripcionesRenovaciones.objects.all()
+        inscripciones_renovaciones_qs = InscripcionesRenovaciones.objects.all()
 
-    return render(req, 'admin_pages/inscripciones_renovaciones.html', {'inscripciones_renovaciones':inscripciones_renovaciones, 'empleado': empleado, 'resultados': resultados, 'query': query})
+    paginator = Paginator(inscripciones_renovaciones_qs, 10)  # 10 clientes por página
+    page_number = req.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(req, 'admin_pages/inscripciones_renovaciones.html', {
+    'inscripciones_renovaciones': page_obj, 
+    'empleado': empleado, 
+    'resultados': resultados, 
+    'query': query,
+    'page_obj': page_obj,
+    })
 # def login(req):
 #     if req.method == 'POST':
 #         correo = req.POST.get('correo_cliente')

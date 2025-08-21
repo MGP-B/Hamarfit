@@ -129,9 +129,24 @@
                 </tbody>
             </table>
         </div>
+
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->
         </div>
+
+        <div class="paginacion">
+            {% if inscripciones_renovaciones.has_previous %}
+            <a href="?page={{ inscripciones_renovaciones.previous_page_number }}&q={{ request.GET.q }}">Anterior</a>
+            {% endif %}
+            <span>Página {{ inscripciones_renovaciones.number }} de
+                {{ inscripciones_renovaciones.paginator.num_pages }}</span>
+            {% if inscripciones_renovaciones.has_next %}
+            <a href="?page={{ inscripciones_renovaciones.next_page_number }}&q={{ request.GET.q }}">Siguiente</a>
+            {% endif %}
+            
+            <div id="contenedor_popup">
+                <!-- Aquí se van a agregar los pop ups -->
+            </div>
     </main>
 
     <div class="contenedor_advertencia">
