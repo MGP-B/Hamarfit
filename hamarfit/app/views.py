@@ -7,6 +7,7 @@ from django.views.decorators.cache import never_cache
 from .decorators import cliente_required, empleado_required, role_required
 from django.db.models import Value
 from django.db.models import Q
+from django.core.paginator import Paginator
 from django.db.models.functions import Concat  # Asegúrate de importar esto correctamente
 # from django.urls import reverse
 
@@ -45,31 +46,18 @@ def registro(req):
 @empleado_required
 @role_required(['Admin', 'Gerente'])
 def clientes(req):
-    # Barra de búsqueda
     query = req.GET.get('q', '').strip()
-
-    # Solo si hay texto de búsqueda
     if query:
-        # Normaliza el input
         palabras = query.lower().split()
-
-        # Anota el nombre completo para búsquedas combinadas
-        clientes = Clientes.objects.annotate(
-            nombre_completo= Concat(
-                'nombre_cliente',
-                Value(' '),
-                'apellido_cliente'
-            )
+        clientes_qs = Clientes.objects.annotate(
+            nombre_completo=Concat('nombre_cliente', Value(' '), 'apellido_cliente')
         )
-
-        # Construye condiciones dinámicas
         condiciones = Q()
         for palabra in palabras:
             condiciones |= Q(nombre_cliente__icontains=palabra)
             condiciones |= Q(apellido_cliente__icontains=palabra)
             condiciones |= Q(nombre_completo__icontains=palabra)
-
-        resultados = clientes.filter(condiciones)
+        resultados = clientes_qs.filter(condiciones)
     else:
         resultados = Clientes.objects.none()
 
@@ -77,11 +65,22 @@ def clientes(req):
     empleado = Empleados.objects.get(id_empleado=empleado_id)
 
     if query:
-        clientes = resultados
+        clientes_qs = resultados
     else:
-        clientes = Clientes.objects.all()
+        clientes_qs = Clientes.objects.all()
 
-    return render(req, 'admin_pages/clientes.html', {'clientes': clientes, 'empleado': empleado, 'resultados': resultados})
+    paginator = Paginator(clientes_qs, 10)  # 10 clientes por página
+    page_number = req.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(req, 'admin_pages/clientes.html', {
+        'clientes': page_obj,
+        'empleado': empleado,
+        'resultados': resultados,
+        'query': query,
+        'page_obj': page_obj,
+    })
+
 
 @empleado_required
 def configuracion(req):
