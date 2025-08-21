@@ -57,7 +57,7 @@
                 </a>
             {% endif %}
 
-            {% if empleado.id_rol.rol == 'Admin' %}
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/sucursales'%}">
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
@@ -125,60 +125,72 @@
                 <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
                 <p>Agregar Cliente</p>
             </button>
-        {% else %}
-            <button class="boton-agregar" onclick="agregar_popup(`{% url 'admin/clientes/registrar_cliente/' %}`)" disabled>
-                <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
-                <p>Agregar Cliente</p>
-            </button>
         {% endif %}
         </div>
         <div id="contenedor_contenido">
-            <div class="encabezado_contenido">
-                <p>ID</p>
-                <p>Nombre</p>
-                <p>Email</p>
-                <p>Teléfono</p>
-                <p>Plan</p>
-                <p>Estado</p>
-                <p>Acción</p>
-            </div>
+            <table class="tabla-clientes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Plan</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente.id_cliente }}</td>
+                        <td>{{ cliente.nombre_cliente }} {{ cliente.apellido_cliente }}</td>
+                        <td>{{ cliente.correo_cliente }}</td>
+                        <td>{{ cliente.telefono_cliente }}</td>
+                        <td>{{ cliente.id_plan.nombre_plan }}</td>
+                        <td>{{ cliente.id_estado.estado }}</td>
+                        <td>
+                            <div class="div_acciones" onclick="visible()">
+                                <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                                <!-- Aquí puedes agregar el desplegable si lo necesitas -->
+                                <div class="desplegable" id="desplegable">
+                                    <div class="encabezado_desplegable">
+                                        <h2>Acciones</h2>
+                                        <button onclick="cerrar_desplegable()" class="x">
+                                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                                        </button>
+                                    </div>
 
-            {% for cliente in clientes %}
-            <div id="contenido">
-                <p>{{ cliente.id_cliente }}</p>
-                <p>{{ cliente.nombre_cliente }} {{ cliente.apellido_cliente }}</p>
-                <p>{{ cliente.correo_cliente }}</p>
-                <p>{{ cliente.telefono_cliente }}</p>
-                <p>{{ cliente.id_plan.nombre_plan }}</p>
-                <p>{{ cliente.id_estado.estado }}</p>
-                <div class="div_acciones" onclick="visible()">
-                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                </div>
-                <!-- Desplegable de acciones -->
-                <div class="desplegable" id="desplegable">
-                    <div class="encabezado_desplegable">
-                        <h2>Acciones</h2>
-                        <button onclick="cerrar_desplegable()" class="x">
-                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                        </button>
-                    </div>
-
-                    <div class="div_detalles" onclick="agregar_popup(`{% url 'admin/clientes/detalles_cliente/' %}`)"
-                        title="Ver detalles">
-                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                        <p>Ver detalles</p>
-                    </div>
-                </div>
-
-                {% empty %}
-                {%if query%}
-                El cliente '' no existe...
-                {%else%}
-                <p style="padding-top: 50px; text-align: center;">No hay nada que mostrar...</p>
-                {%endif%}
-            </div>
-            {% endfor %}
+                                    <div class="div_detalles" onclick="agregar_popup(`{% url 'editar_sucursal' %}`)"
+                                        title="Ver detalles">
+                                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                                        <p>Editar</p>
+                                    </div>
+                                    <div class="div_eliminar" title="Eliminar Permanentemente">
+                                        <img src="{% static 'img/admin_img/global/eliminar.svg' %}">
+                                        <p>Eliminar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" style="text-align: center;">No hay nada que mostrar...</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
+
+        <div class="paginacion">
+            {% if clientes.has_previous %}
+            <a href="?page={{ clientes.previous_page_number }}&q={{ request.GET.q }}">Anterior</a>
+            {% endif %}
+            <span>Página {{ clientes.number }} de {{ clientes.paginator.num_pages }}</span>
+            {% if clientes.has_next %}
+            <a href="?page={{ clientes.next_page_number }}&q={{ request.GET.q }}">Siguiente</a>
+            {% endif %}
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->
         </div>
