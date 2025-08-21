@@ -120,10 +120,17 @@
                     <p>Buscar</p>
                 </button>
             </form>
+        {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'admin/clientes/registrar_cliente/' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
                 <p>Agregar Cliente</p>
             </button>
+        {% else %}
+            <button class="boton-agregar" onclick="agregar_popup(`{% url 'admin/clientes/registrar_cliente/' %}`)" disabled>
+                <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
+                <p>Agregar Cliente</p>
+            </button>
+        {% endif %}
         </div>
         <div id="contenedor_contenido">
             <div class="encabezado_contenido">
