@@ -83,45 +83,36 @@
             </button>
 
             <div id="contenedor_contenido">
-                <div class="encabezado_contenido">
-                    <p>Usuario</p>
-                    <p>Email</p>
-                    <p>Rol</p>
-                    <p>Sucursal</p>
-                    <p>Acciones</p>
-                </div>
-
-                <div id="contenido">
-                    {% for empleado in empleados %}
-                    <div id="nombre-usuario">{{empleado.nombre_empleado}}</div>
-                    <p>{{empleado.correo_empleado}}</p>
-                    <p>{{empleado.id_rol.rol}}</p>
-                    <p>{{empleado.id_sucursal.nombre_sucursal}}</p>
-                    <div class="div_acciones" onclick="visible()">
-                        <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                    </div>
-                    {% endfor %}
-                    <!-- Desplegable de acciones -->
-                    <div class="desplegable" id="desplegable">
-                        <div class="encabezado_desplegable">
-                            <h2>Acciones</h2>
-                            <button onclick="cerrar_desplegable()" class="x">
-                                <img src="{% static 'img/admin_img/global/x.svg' %}">
-                            </button>
-                        </div>
-
-                        <div class="div_detalles"
-                            onclick="agregar_popup(`{% url 'admin/configuracion/editar_usuario/' %}`)"
-                            title="Ver detalles">
-                            <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                            <p>Editar</p>
-                        </div>
-                        <div class="div_eliminar" title="Eliminar Permanentemente">
-                            <img src="{% static 'img/admin_img/global/eliminar.svg' %}">
-                            <p>Eliminar</p>
-                        </div>
-                    </div>
-                </div>
+                <table class="tabla-empleados">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Sucursal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for empleado in empleados %}
+                        <tr>
+                            <td>{{ empleado.nombre_empleado }} {{ empleado.apellido_empleado }}</td>
+                            <td>{{ empleado.correo_empleado }}</td>
+                            <td>{{ empleado.id_rol.rol }}</td>
+                            <td>{{ empleado.id_sucursal.nombre_sucursal }}</td>
+                            <td>
+                                <div class="div_acciones" onclick="visible()">
+                                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                                </div>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5" style="text-align: center;">No hay empleados registrados...</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
         <div id="contenedor_popup">
