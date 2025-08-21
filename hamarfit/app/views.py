@@ -44,7 +44,7 @@ def registro(req):
 
 # ----- Paginas del apartado de 'admin' -----
 @empleado_required
-@role_required(['Admin', 'Gerente'])
+@role_required(['Admin', 'Gerente', 'Entrenador', 'Recepcionista'])
 def clientes(req):
     query = req.GET.get('q', '').strip()
     if query:
@@ -83,6 +83,7 @@ def clientes(req):
 
 
 @empleado_required
+@role_required(['Admin', 'Gerente'])
 def configuracion(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
@@ -103,6 +104,7 @@ def dashboard(req):
         })
 
 @empleado_required
+@role_required(['Admin', 'Gerente', 'Recepcionista'])
 def inscripciones_renovaciones(req):
     # Barra de búsqueda
     query = req.GET.get('q', '').strip()
@@ -212,6 +214,7 @@ def logout_user(req):
 
 
 @empleado_required
+@role_required(['Admin', 'Gerente'])
 def sucursales_admin(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
@@ -225,6 +228,7 @@ def sucursales_admin(req):
 def detalles_cliente(req):
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html')
 
+@role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):
     if req.method == 'POST':
         form = anadirCliente(req.POST)

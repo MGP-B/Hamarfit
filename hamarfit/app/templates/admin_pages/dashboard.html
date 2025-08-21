@@ -14,11 +14,18 @@
         <div class="logo">
             <h1>HAMAR<span>FIT</span></h1>
         </div>
+
         <div class="setting">
-            <a href="{% url 'admin/configuracion'%}">
-                <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
-                <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
-            </a>
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
+                <a href="{% url 'admin/configuracion'%}">
+                    <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
+                    <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="">
+                </a>
+            {% endif %}
         </div>
     </header>
     <aside class="menu">
@@ -30,27 +37,56 @@
                     <h3>Dashboard</h3>
                 </li>
             </a>
-            <a href="{% url 'admin/clientes'%}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
-                    <h3>Clientes</h3>
-                </li>
-            </a>
-            <a href="{% url 'admin/sucursales'%}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
-                    <h3>Sucursales</h3>
-                </li>
-            </a>
-            <a href="{% url 'admin/inscripciones_renovaciones'%}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
-                    <h3>Insc y Reno</h3>
-                </li>
-            </a>
+            {% if empleado.id_rol.rol in 'Admin,Gerente,Entrenador,Recepcionista' %}
+                <a href="{% url 'admin/clientes'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
+                        <h3>Clientes</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="">
+                        <h3>Clientes</h3>
+                    </li>
+                </a>
+            {% endif %}
+
+            {% if empleado.id_rol.rol == 'Admin' %}
+                <a href="{% url 'admin/sucursales'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
+                        <h3>Sucursales</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="">
+                        <h3>Sucursales</h3>
+                    </li>
+                </a>
+            {% endif %}
+
+            {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
+                <a href="{% url 'admin/inscripciones_renovaciones'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
+                        <h3>Insc y Reno</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" >
+                        <h3>Insc y Reno</h3>
+                    </li>
+                </a>
+            {% endif %}
         </ul>
         <div class="usuario">
             <div class="icono">

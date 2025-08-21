@@ -203,6 +203,23 @@ main button:hover {
     margin-left: 14rem;
 }
 
+a.disabled {
+    pointer-events: none;     /* Bloquea el clic */
+    cursor: not-allowed;      /* Cursor indica prohibido */
+    display: inline-block;    /* Mantiene estructura */
+    text-decoration: none;    /* Igual que los demás */
+    width: 95%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 5px 3px;
+    opacity: 0.5;
+}
+a.disabled li {
+    display: flex;            /* Mantén la alineación del ícono y el texto */
+    align-items: center;
+    gap: 8px;                 /* Ajusta separación como los demás */
+}
+
 /* Media required para pantallas de 1280px */
 @media screen and (max-width: 1280px) {
     
