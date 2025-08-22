@@ -18,12 +18,17 @@ const observador = new MutationObserver(() =>{
     // Evento al botón de agregar_notas
     boton_agregar.addEventListener('click', ()=>{
         if(textarea.hasAttribute('disabled')){
+            const texto = textarea.value;
             textarea.removeAttribute('disabled');
-            
+            if (texto.include('Este cliente no tiene ninguna nota...')){
+                textarea.value = ''
+            }
+
+
             boton_guardar.style.display = 'block';
             boton_cancelar.style.display = 'block';
         }else{
-            alert('Ya se están agregando notas');
+            alert('Ya se está agregando una nota');
         }
     })
 

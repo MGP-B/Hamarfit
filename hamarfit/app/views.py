@@ -90,6 +90,7 @@ def configuracion(req):
     empleados = Empleados.objects.all()
     return render(req, 'admin_pages/configuracion.html', {'empleados':empleados, 'empleado': empleado})
 
+
 @empleado_required
 @never_cache
 def dashboard(req):
@@ -102,6 +103,7 @@ def dashboard(req):
         'inscripciones': inscripciones,
         'empleado': empleado
         })
+
 
 @empleado_required
 @role_required(['Admin', 'Gerente', 'Recepcionista'])
@@ -155,19 +157,7 @@ def inscripciones_renovaciones(req):
     'query': query,
     'page_obj': page_obj,
     })
-# def login(req):
-#     if req.method == 'POST':
-#         correo = req.POST.get('correo_cliente')
-#         contrasena = req.POST.get('contrasena_cliente')
 
-#         try:
-#             cliente = Clientes.objects.get(correo_cliente=correo, contrasena_cliente=contrasena)
-#             req.session['cliente_id'] = cliente.id_cliente
-#             return redirect('inicio_user')
-#         except Clientes.DoesNotExist:
-#             error = "Correo o contraseña incorrectos."
-#             return render(req, 'admin_pages/login.html', {'error': error})
-#     return render(req, 'admin_pages/login.html')
 
 def login(req):
     if req.method == 'POST':
@@ -194,19 +184,12 @@ def login(req):
             
     return render(req, 'admin_pages/login.html')
 
+
 @cliente_required
 @never_cache
 def inicio_user(req):
     return render(req, 'user_pages/inicio_user.html')
 
-
-
-# @never_cache
-# def proteger_vista(req):
-#     if not req.session.get('cliente_id'):
-#         return redirect('admin/login')
-    
-#     return render(req, 'user_pages/inicio_user.html')
 
 def logout_user(req):
     req.session.flush()
@@ -225,8 +208,11 @@ def sucursales_admin(req):
 
 # ----- Desplegables de 'admin' -----
 # Clientes
-def detalles_cliente(req):
-    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html')
+def detalles_cliente(req, id):
+    cliente = get_object_or_404(Clientes, id_cliente = id)
+    nota_cliente = NotaClientes.objects.filter(id_cliente = id)
+    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {'cliente': cliente, 'nota_cliente': nota_cliente})
+
 
 @role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):
@@ -250,6 +236,7 @@ def seleccionar_plan(req):
 # Configuración
 def editar_usuario(req):
     return render(req, 'admin_pages/desplegables/configuracion/editar_usuario.html')
+
 
 def registrar_usuario(req):
     if req.method == 'POST':
@@ -312,11 +299,4 @@ def registrar_sucursal(req):
 
 def editar_sucursal(req):
     return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')
-
-
-# ----- Paginas de error -----
-# def error_404(req, exception):
-#     return render(req, 'error_pages/404.html', status=404)
-# def error_500(req):
-#     return render(req, 'error_pages/500.html', status=500)
 
