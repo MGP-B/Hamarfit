@@ -36,15 +36,19 @@
     <div class="encabezado-notas">
         <h3>Notas del Cliente</h3>
     </div>
-    <textarea disabled class="notas-del-cliente" id="notas-del-cliente">
-        {% if nota_cliente.nota.exist %}
-        {{nota_cliente.nota}}
-        {% else %}
-        {{cliente.nombre_cliente}} no tiene ninguna nota aun...
-        {% endif %}
-    </textarea>
 
-    <form action="">
+    <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
+        {% csrf_token %}
+        <input type="number" style="display: none;" name="id_cliente" value="{{cliente.id_cliente}}">
+        
+        <textarea disabled class="notas-del-cliente" id="notas-del-cliente" name="nota">
+            {% if mostrar_nota %}
+            {{ nota_cliente.nota }}
+            {% else %}
+            {{ cliente.nombre_cliente }} no tiene ninguna nota aún...
+            {% endif %}
+        </textarea>
+
         <div class="boton-container">
             <button type="button" id="agregar-nota">
                 <img src="{% static 'img/admin_img/sucursales/notebook-pen 1.svg' %}" alt="">

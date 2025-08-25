@@ -208,11 +208,49 @@ def sucursales_admin(req):
 
 # ----- Desplegables de 'admin' -----
 # Clientes
-def detalles_cliente(req, id):
-    cliente = get_object_or_404(Clientes, id_cliente = id)
-    nota_cliente = NotaClientes.objects.filter(id_cliente = id)
-    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {'cliente': cliente, 'nota_cliente': nota_cliente})
+# def detalles_cliente(req, id):
+#     cliente = get_object_or_404(Clientes, id_cliente = id)
+#     nota_cliente = NotaClientes.objects.filter(id_cliente = id)
 
+#     mostrar_nota = get_object_or_404(NotaClientes, id_cliente = id)
+#     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {'cliente': cliente, 'nota_cliente': nota_cliente, 'mostrar_nota': mostrar_nota})
+
+def detalles_cliente(req, id):
+    # Obtener el cliente (esto es igual para GET y POST)
+    cliente = get_object_or_404(Clientes, id_cliente=id)
+    
+    # Inicializar el formulario, vacío para GET o con datos para POST
+    form = NotaClientesForm(req.POST or None)
+
+    if req.method == 'POST':
+        if form.is_valid():
+            # Procesar el formulario de agregar nota
+            nota = form.save(commit=False)
+            # Asignar el cliente a la nota antes de guardar
+            nota.id_cliente = cliente
+            nota.save()
+            # Redirigir para evitar que se envíe el formulario de nuevo
+            return redirect('../', id=id)
+        else:
+            # Imprimir errores del formulario para depurar
+            print('Errores del formulario:', form.errors)
+
+    # Lógica para manejar solicitudes GET
+    try:
+        nota_cliente = NotaClientes.objects.filter(id_cliente=id).latest('id_nota')
+        mostrar_nota = True
+    except NotaClientes.DoesNotExist:
+        nota_cliente = None
+        mostrar_nota = False
+
+    contexto = {
+        'cliente': cliente,
+        'nota_cliente': nota_cliente,
+        'mostrar_nota': mostrar_nota,
+        'form': form
+    }
+    
+    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', contexto)
 
 @role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):
