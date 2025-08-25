@@ -57,7 +57,7 @@
                 </a>
             {% endif %}
 
-            {% if empleado.id_rol.rol == 'Admin' %}
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/sucursales'%}">
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
@@ -114,10 +114,12 @@
                 <h2>Sucursales</h2>
                 <p>Gestiona tus sucursales</p>
             </div>
+        {% if empleado.id_rol.rol == 'Admin' %}
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'registrar_sucursal' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/building-2 1.svg' %}" alt="Icono">
                 <p>Agregar Sucursal</p>
             </button>
+        {% endif %}
         </div>
 
         <!-- Panel de Control -->

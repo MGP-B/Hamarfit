@@ -54,7 +54,7 @@
                 </a>
             {% endif %}
 
-            {% if empleado.id_rol.rol == 'Admin' %}
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/sucursales'%}">
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">

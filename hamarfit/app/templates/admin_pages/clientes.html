@@ -57,7 +57,7 @@
                 </a>
             {% endif %}
 
-            {% if empleado.id_rol.rol == 'Admin' %}
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/sucursales'%}">
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
@@ -120,10 +120,12 @@
                     <p>Buscar</p>
                 </button>
             </form>
+        {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'admin/clientes/registrar_cliente/' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
                 <p>Agregar Cliente</p>
             </button>
+        {% endif %}
         </div>
         <div id="contenedor_contenido">
             <table class="tabla-clientes">
