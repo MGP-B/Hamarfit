@@ -215,9 +215,11 @@ def detalles_cliente(req, id):
 
 def agregar_nota(req, id):
     if req.method == 'POST':
+        print('[DEBUG]: El método es POST')
         form = NotaClientesForm(req.POST)
         if form.is_valid():
             form.save()
+            print('[DEBUG]: Guardado correctamente')
             return redirect('../')
         else:
             print('Los errores del formulario son: ', form.errors)
