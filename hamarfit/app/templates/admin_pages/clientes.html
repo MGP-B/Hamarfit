@@ -150,21 +150,23 @@
                         <td>{{ cliente.id_plan.nombre_plan }}</td>
                         <td>{{ cliente.id_estado.estado }}</td>
                         <td>
-                            <div class="div_acciones" onclick="visible()">
+                            <div id="div_acciones_{{cliente.id_cliente}}" onclick="visible('{{ cliente.id_cliente }}')">
                                 <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
                                 <!-- Aquí puedes agregar el desplegable si lo necesitas -->
-                                <div class="desplegable" id="desplegable">
+                                <div class="desplegable" id="desplegable_{{cliente.id_cliente}}">
                                     <div class="encabezado_desplegable">
                                         <h2>Acciones</h2>
-                                        <button onclick="cerrar_desplegable()" class="x">
+                                        <button
+                                            onclick="cerrar_desplegable('{{ cliente.id_cliente }}'); event.stopPropagation()" class="x">
                                             <img src="{% static 'img/admin_img/global/x.svg' %}">
                                         </button>
                                     </div>
 
-                                    <div class="div_detalles" onclick="agregar_popup(`{% url 'editar_sucursal' %}`)"
+                                    <div class="div_detalles"
+                                        onclick="agregar_popup(`{% url 'admin/clientes/detalles_cliente/' cliente.id_cliente %}`)"
                                         title="Ver detalles">
                                         <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                                        <p>Editar</p>
+                                        <p>Ver detalles</p>
                                     </div>
                                     <div class="div_eliminar" title="Eliminar Permanentemente">
                                         <img src="{% static 'img/admin_img/global/eliminar.svg' %}">

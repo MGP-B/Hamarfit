@@ -153,6 +153,23 @@
                             <div class="div_acciones" onclick="visible()">
                                 <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
                                 <!-- Aquí puedes agregar el desplegable si lo necesitas -->
+                                
+                                <div class="desplegable" id="desplegable">
+                                    <div class="encabezado_desplegable">
+                                        <h2>Acciones</h2>
+                                        <button onclick="cerrar_desplegable()" class="x">
+                                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                                        </button>
+                                    </div>
+
+                                    <div class="div_detalles"
+                                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
+                                        title="Ver detalles">
+                                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                                        <p>ver detalles</p>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </td>
                     </tr>
@@ -178,7 +195,7 @@
             {% if inscripciones_renovaciones.has_next %}
             <a href="?page={{ inscripciones_renovaciones.next_page_number }}&q={{ request.GET.q }}">Siguiente</a>
             {% endif %}
-            
+
             <div id="contenedor_popup">
                 <!-- Aquí se van a agregar los pop ups -->
             </div>

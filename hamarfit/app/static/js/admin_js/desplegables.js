@@ -34,11 +34,23 @@ function agregar_popup(ruta){
 };
 
 // Obtener el elemento desplegable
-const desplegable = document.getElementById('desplegable');
+// const desplegable = document.getElementById('desplegable');
 // Hacerlo visible
-function visible(){
-    desplegable.style.display = 'block';
+function visible(id) {
+    // Cierra todos los desplegables
+    document.querySelectorAll('.desplegable').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    // Abre el desplegable correspondiente
+    const desplegable = document.getElementById(`desplegable_${id}`);
+    if (desplegable) {
+        desplegable.style.display = 'block';
+    } else {
+        console.warn(`No se encontró el desplegable con ID: desplegable_${id}`);
+    }
 }
+
 
 // Cerrar el pop up
 function cerrar_popup(){
@@ -47,6 +59,21 @@ function cerrar_popup(){
 }
 
 // Cerrar el desplegable
-function cerrar_desplegable(){
-    desplegable.style.display = 'none'
+function cerrar_desplegable(id){
+    const desplegable = document.getElementById(`desplegable_${id}`);
+    if (desplegable) {
+        desplegable.style.display = 'none';
+    }
 }
+
+document.addEventListener('click', function(event, id) {
+    // Verifica si el clic fue dentro de algún .div_acciones
+    const isAcciones = event.target.closest('[id^="div_acciones_"]');
+    
+    // Si no fue dentro, cierra todos los desplegables
+    if (!isAcciones) {
+        document.querySelectorAll('.desplegable').forEach(el => {
+            el.style.display = 'none';
+        });
+    }
+});
