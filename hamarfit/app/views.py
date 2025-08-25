@@ -213,6 +213,18 @@ def detalles_cliente(req, id):
     nota_cliente = NotaClientes.objects.filter(id_cliente = id)
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {'cliente': cliente, 'nota_cliente': nota_cliente})
 
+def agregar_nota(req, id):
+    if req.method == 'POST':
+        form = NotaClientesForm(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('../')
+        else:
+            print('Los errores del formulario son: ', form.errors)
+    else:
+        form = NotaClientes()
+    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html')
+
 
 @role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):
