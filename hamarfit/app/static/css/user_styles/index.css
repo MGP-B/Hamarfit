@@ -303,7 +303,7 @@ button:hover {
 .servicios {
     background-color: rgba(243, 243, 243, 0.9647);
     width: 100%;
-    height: 120vh;
+    height: 140vh;
 
     display: flex;
     flex-direction: column;
@@ -467,7 +467,7 @@ button:hover {
 }
 
 .tarjeta-plan .nombre-precio .nombre h3{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 /* Título del plan */
@@ -547,12 +547,15 @@ button:hover {
 .sucursales .contenedor-sucursales {
     width: 100%;
     height: 85%;
+
     overflow: hidden;
     overflow: auto;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 25px;
+
+    
 }
 
 .sucursales .contenedor-sucursales::-webkit-scrollbar {
@@ -784,6 +787,47 @@ button:hover {
         margin: 10px 5px;
         font-size: .66rem;
     }
+
+    /* Tarjetas de planes */
+    .tarjeta-plan {
+        width: 40%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .tarjeta-plan .nombre-precio {
+        width: 100%;
+        padding: 5px;
+        height: 20%;
+    }
+
+    .tarjeta-plan .nombre-precio .nombre h3{
+        font-size: 1.2rem;
+    }
+    .tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio .monto p {
+        font-size: 1rem;
+    }
+
+    /* Beneficios dentro de las características */
+    .tarjeta-plan .caracteristicas .beneficio{
+        width: 42%;
+        height: 60px;
+        margin: 5px 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .tarjeta-plan .caracteristicas .beneficio p {
+        font-size: .8rem;
+        text-align: left;
+    }
+
+    .div-img img {
+        width: .9rem;
+    }
+    .div-p p {
+        font-size: .75rem;
+    }
 }
 
 @media (max-width: 824px) {
@@ -843,8 +887,51 @@ button:hover {
         font-size: .6rem;
     }
     
+    /* Tarjetas de planes */
+    .tarjeta-plan {
+        width: 40%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .tarjeta-plan .nombre-precio {
+        width: 100%;
+        padding: 5px;
+        height: 20%;
+    }
+
+    .tarjeta-plan .nombre-precio .nombre h3{
+        font-size: 1.1rem;
+    }
+    .tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio .monto p {
+        font-size: .9rem;
+    }
+
+    /* Beneficios dentro de las características */
+    .tarjeta-plan .caracteristicas .beneficio{
+        width: 42%;
+        height: 60px;
+        margin: 5px 10px;
+        display: flex;
+        align-items: center;
+    }
+
     .tarjeta-plan .caracteristicas .beneficio p {
-        font-size: .6rem;
+        font-size: .7rem;
+        text-align: left;
+    }
+
+    /* imagen de iconos checked y x */
+    .tarjeta-plan .caracteristicas .beneficio img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .div-img img {
+        width: .9rem;
+    }
+    .div-p p {
+        font-size: .7rem;
     }
 }
 
@@ -912,87 +999,172 @@ button:hover {
         font-size: .56rem;
     }
 
-    /* Estilos de planes */
-    .planes {
-        background-color: red;
-    }
-
-    .planes .subtitulo-parrafo {
-        background-color: green;
-        width: 100%;
-        height: 30%;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    /* Contenedor de tarjetas de planes */
-    .tarjetas-planes {
-        width: 100%;
-        height: 80%;
-
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Tarjetas de planes */
+        /* Tarjetas de planes */
     .tarjeta-plan {
         width: 40%;
-        height: 80%;
+        height: auto;
+        padding: 20px;
     }
 
-    /* Estilos en el nombre y precio del plan */
-    /* .tarjeta-plan .nombre-precio {
+    .tarjeta-plan .nombre-precio {
         width: 100%;
+        padding: 5px;
         height: 20%;
-        display: inline-flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    } */
 
-    /* Título del plan */
-    /* .tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio {
-        margin: 0 25px;
-        display: flex;
-    } */
+        justify-content: center;
+    }
 
-    /* Span pro */
-    /* .tarjeta-plan .nombre-precio #pro {
-        color: #FFA500;
-    } */
-
-    /* Span básico */
-    /* .tarjeta-plan .nombre-precio #basico {
-        color: #626262;
-    } */
-
-    /* contenedor de características del plan */
-    /* .tarjeta-plan .caracteristicas {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    } */
+    .tarjeta-plan .nombre-precio .nombre h3{
+        font-size: 1rem;
+    }
+    .tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio .monto p {
+        font-size: .8rem;
+    }
 
     /* Beneficios dentro de las características */
-    /* .tarjeta-plan .caracteristicas .beneficio{
-        width: 44%;
-        margin: 15px 12px;
+    .tarjeta-plan .caracteristicas .beneficio{
+        width: 42%;
+        height: 60px;
+        margin: 5px 10px;
         display: flex;
         align-items: center;
-    } */
+    }
 
-    /* .tarjeta-plan .caracteristicas .beneficio p {
-        font-size: .8rem;
+    .tarjeta-plan .caracteristicas .beneficio p {
+        font-size: .7rem;
         text-align: left;
-    } */
+    }
 
     /* imagen de iconos checked y x */
-    /* .tarjeta-plan .caracteristicas .beneficio img {
-        width: 32px;
-        height: 32px;
-    } */
+    .tarjeta-plan .caracteristicas .beneficio img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 670px) {
+    * h1 {
+        font-size: 1.1rem;
+    }
+
+    * h2 {
+        font-size: 1rem;
+    }
+
+    * p {
+        font-size: .5rem;
+    }
+    
+    * a {
+        font-size: .5rem;
+    }
+
+    /* Estilo del eslogan */
+    .principal h2 {
+        font-size: 1.6rem;
+    } 
+
+    /* Estilo de párrafo en el banner */
+    .principal p {
+        font-size: .5rem;
+    }
+
+        /* Tarjetas de planes */
+    .tarjeta-plan {
+        width: 40%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .tarjeta-plan .nombre-precio {
+        width: 100%;
+        padding: 5px;
+        height: 20%;
+
+        justify-content: center;
+    }
+
+    .tarjeta-plan .nombre-precio .nombre h3{
+        font-size: .9rem;
+    }
+    .tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio .monto p {
+        font-size: .7rem;
+    }
+
+    /* Beneficios dentro de las características */
+    .tarjeta-plan .caracteristicas .beneficio{
+        width: 42%;
+        height: 60px;
+        margin: 5px 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .tarjeta-plan .caracteristicas .beneficio p {
+        font-size: .6rem;
+        text-align: left;
+    }
+
+    /* imagen de iconos checked y x */
+    .tarjeta-plan .caracteristicas .beneficio img {
+        width: 30px;
+        height: 30px;
+    }
+  
+    .sucursales .contenedor-sucursales .tarjeta-sucursal {
+        width: 35%;
+    }
+
+    .sucursales .contenedor-sucursales .tarjeta-sucursal .nombre-sucursal p{
+        font-size: .9rem;
+    }
+    
+    .sucursales .contenedor-sucursales .tarjeta-sucursal .direccion-sucursal {
+        display: inline-flex;
+        width: 100%;
+        height: 50px;
+        margin-top: 5px;
+    }
+    
+    .sucursales .contenedor-sucursales .tarjeta-sucursal .telefono-sucursal {
+        display: inline-flex;
+        width: 100%;
+        height: 50px;
+        margin-top: 5px;
+    }
+    
+    .sucursales .contenedor-sucursales .tarjeta-sucursal .horario-sucursal {
+        display: inline-flex;
+        width: 100%;
+        height: 50px;
+        margin-top: 5px;
+    }
+    
+    .div-img {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .div-img img {
+        width: 1rem;
+    }
+    
+    .div-p {
+        width: 85%;  
+        overflow: auto;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+    
+    .div-p::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .div-p p {
+        font-size: .85rem;
+    }
 }
