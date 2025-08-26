@@ -47,7 +47,7 @@
             <tbody>
                 {% for nota in nota_cliente %}
                 <tr>
-                    <td>- 25/08/25</td>
+                    <td>- {{nota.fecha}}</td>
                     <td>{{nota.nota}}</td>
                 </tr>
                 {% endfor %}

@@ -37,7 +37,7 @@ urlpatterns = [
 
     # inscripciones_renovaciones
     path('admin/inscripciones_renovaciones/registrar_renovacion/', views.registrar_renovacion, name='admin/inscripciones_renovaciones/registrar_renovacion/'),
-    path('admin/inscripciones_renovaciones/detalles_factura/', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
+    path('admin/inscripciones_renovaciones/detalles_factura/<int:id>', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
 
     # Sucursales
     path('admin/sucursales/registrar_sucursal/', views.registrar_sucursal, name='registrar_sucursal'),

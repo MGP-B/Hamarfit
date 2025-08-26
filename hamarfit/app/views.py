@@ -204,17 +204,7 @@ def sucursales_admin(req):
     sucursales = Sucursales.objects.all()
     return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales, 'empleado': empleado})
 
-
-
-# ----- Desplegables de 'admin' -----
-# Clientes
-# def detalles_cliente(req, id):
-#     cliente = get_object_or_404(Clientes, id_cliente = id)
-#     nota_cliente = NotaClientes.objects.filter(id_cliente = id)
-
-#     mostrar_nota = get_object_or_404(NotaClientes, id_cliente = id)
-#     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {'cliente': cliente, 'nota_cliente': nota_cliente, 'mostrar_nota': mostrar_nota})
-
+# ----- Desplegables de Admin -----
 def detalles_cliente(req, id):
     # Obtener el cliente (esto es igual para GET y POST)
     cliente = get_object_or_404(Clientes, id_cliente=id)
@@ -316,8 +306,10 @@ def registrar_renovacion(req):
         })
 
 
-def detalles_factura(req):
-    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html')
+def detalles_factura(req, id):
+    factura = InscripcionesRenovaciones.objects.get(id_finanza = id)
+
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html', {'factura': factura})
 
 
 # Sucursales
