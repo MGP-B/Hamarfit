@@ -1,3 +1,4 @@
+
 // Crear un observador de cambios
 const observador = new MutationObserver(() =>{
     // Llamar elementos del html
@@ -20,10 +21,11 @@ const observador = new MutationObserver(() =>{
         if(textarea.hasAttribute('disabled')){
             textarea.removeAttribute('disabled');
             
+
             boton_guardar.style.display = 'block';
             boton_cancelar.style.display = 'block';
         }else{
-            alert('Ya se están agregando notas');
+            alert('Ya se está agregando una nota');
         }
     })
 

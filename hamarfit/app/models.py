@@ -32,7 +32,7 @@ class Clientes(models.Model):
     id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default = 1)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'clientes'
 
 
@@ -66,7 +66,7 @@ class Estados(models.Model):
 
 class InscripcionesRenovaciones(models.Model):
     id_finanza = models.AutoField(primary_key=True)
-    emision = models.DateField()
+    emision = models.DateField( auto_now = True)
     id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
     id_metodo = models.ForeignKey('MetodosPagos', models.DO_NOTHING, db_column='id_metodo')
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
@@ -74,8 +74,8 @@ class InscripcionesRenovaciones(models.Model):
     descripcion = models.CharField(max_length=60)
 
     class Meta:
-        managed = False
-        db_table = 'inscripciones_renovaciones'
+        managed = True
+        db_table = 'inscripciones_Renovaciones'
 
 
 class MetodosPagos(models.Model):

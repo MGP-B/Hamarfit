@@ -23,7 +23,7 @@ urlpatterns = [
 
     # ----- Desplegables de 'admin' -----
     # Clientes
-    path('admin/clientes/detalles_cliente/', views.detalles_cliente, name= 'admin/clientes/detalles_cliente/'),
+    path('admin/clientes/detalles_cliente/<int:id>', views.detalles_cliente, name= 'admin/clientes/detalles_cliente/'),
     path('admin/clientes/registrar_cliente/', views.registrar_cliente, name='admin/clientes/registrar_cliente/'),
     path('admin/clientes/seleccionar_plan/', views.seleccionar_plan, name='admin/clientes/seleccionar_plan/'),
 

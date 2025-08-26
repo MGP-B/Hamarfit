@@ -128,7 +128,7 @@ main button:hover {
 /* Encabezado del contenido */
 #contenedor_contenido .encabezado_contenido{
     display: grid;
-    grid-template-columns: 5% 10% 25% 15% 20% 10% 5%;
+    grid-template-columns: 5% 20% 25% 15% 10% 10% 5%;
     gap: 10px;
 
     background-color: #FCA502;
@@ -144,7 +144,7 @@ main button:hover {
 #contenedor_contenido #contenido{
     /* Asignación de columnas y espaciados */
     display: grid;
-    grid-template-columns: 5% 10% 25% 15% 20% 10% 5%;
+    grid-template-columns: 5% 20% 25% 15% 10% 10% 5%;
     gap: 10px;
 
     /* Estilos del contenido */
@@ -177,4 +177,21 @@ main button:hover{
 .desplegable{
     margin-top: 130px;
     right: 1vw;
+}
+
+a.disabled {
+    pointer-events: none;     /* Bloquea el clic */
+    cursor: not-allowed;      /* Cursor indica prohibido */
+    display: inline-block;    /* Mantiene estructura */
+    text-decoration: none;    /* Igual que los demás */
+    width: 95%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 5px 3px;
+    opacity: 0.5;
+}
+a.disabled li {
+    display: flex;            /* Mantén la alineación del ícono y el texto */
+    align-items: center;
+    gap: 8px;                 /* Ajusta separación como los demás */
 }

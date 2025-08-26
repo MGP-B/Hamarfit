@@ -1,5 +1,7 @@
 from django import forms
 from .models import *
+from django.core.exceptions import ValidationError
+
 
 class ClientesForm(forms.ModelForm):
     class Meta:
@@ -50,4 +52,24 @@ class SucursalesForm(forms.ModelForm):
             'hora_apertura',
             'hora_cierre',
             'imagen',
+        ]
+
+class RenovacionesForm(forms.ModelForm):
+    class Meta:
+        model = InscripcionesRenovaciones
+        # fields = [
+        #     'id_empleado',
+        #     'id_metodo',
+        #     'id_plan',
+        #     'id_cliente',
+        #     'descripcion',
+        # ]
+        exclude = ['emision']
+
+class NotaClientesForm(forms.ModelForm):
+    class Meta:
+        model = NotaClientes
+        fields = [
+            'nota',
+            'id_cliente'
         ]

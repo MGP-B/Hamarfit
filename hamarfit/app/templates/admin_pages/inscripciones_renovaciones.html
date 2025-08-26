@@ -18,10 +18,16 @@
             <h1>HAMAR<span>FIT</span></h1>
         </div>
         <div class="setting">
-            <a href="{% url 'admin/configuracion' %}">
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
+            <a href="{% url 'admin/configuracion'%}">
                 <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
                 <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
             </a>
+            {% else %}
+            <a class="disabled">
+                <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="">
+            </a>
+            {% endif %}
         </div>
     </header>
     <aside class="menu">
@@ -33,38 +39,68 @@
                     <h3>Dashboard</h3>
                 </li>
             </a>
-            <a href="{% url 'admin/clientes' %}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
-                    <h3>Clientes</h3>
-                </li>
-            </a>
-            <a href="{% url 'admin/sucursales' %}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
-                    <h3>Sucursales</h3>
-                </li>
-            </a>
-            <a href="{% url 'admin/inscripciones_renovaciones' %}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
-                    <h3>Insc y Reno</h3>
-                </li>
-            </a>
+            {% if empleado.id_rol.rol in 'Admin,Gerente,Entrenador,Recepcionista' %}
+                <a href="{% url 'admin/clientes'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
+                        <h3>Clientes</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="">
+                        <h3>Clientes</h3>
+                    </li>
+                </a>
+            {% endif %}
+
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
+                <a href="{% url 'admin/sucursales'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
+                        <h3>Sucursales</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="">
+                        <h3>Sucursales</h3>
+                    </li>
+                </a>
+            {% endif %}
+
+            {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
+                <a href="{% url 'admin/inscripciones_renovaciones'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
+                        <h3>Insc y Reno</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="">
+                        <h3>Insc y Reno</h3>
+                    </li>
+                </a>
+            {% endif %}
         </ul>
         <div class="usuario">
             <div class="icono">
-                <p id="icono-usuario">J</p>
+                <p id="icono-usuario">
+                    {{ empleado.nombre_empleado|slice:":1" }}{{ empleado.apellido_empleado|slice:":1" }}</p>
             </div>
             <div class="nombre-rol">
                 <div class="nombre-apellido">
-                    <p id="nombre-usuario">José</p>
-                    <p id="apellido-usuario">Miguel</p>
+                    <p id="nombre-usuario">{{ empleado.nombre_empleado }}</p>
+                    <p id="apellido-usuario">{{ empleado.apellido_empleado }}</p>
                 </div>
-                <p id="rol-usuario">Administrador</p>
+                <p id="rol-usuario">{{ empleado.id_rol.rol }}</p>
             </div>
         </div>
     </aside>
@@ -76,13 +112,14 @@
         </div>
 
         <div class="panel-control">
-            <div class="barra-de-busqueda">
-                <input type="text" placeholder="Buscar transacción...">
+            <form class="barra-de-busqueda" method="GET">
+                <input type="text" name="q" placeholder="Buscar registro (por nombre del cliente)..."
+                    required>
                 <button class="boton-buscar">
                     <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="Icono lupa">
                     <p>Buscar</p>
                 </button>
-            </div>
+            </form>
             <button id="registrar_transaccion"
                 onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/registrar_renovacion/' %}`)">
                 <img src="{% static 'img/admin_img/global/registrar_transaccion.svg' %}" alt="">
@@ -91,178 +128,77 @@
         </div>
 
         <div id="contenedor_contenido">
-            <div class="encabezado_contenido">
-                <p>ID</p>
-                <p>Fecha</p>
-                <p>Descripción</p>
-                <p>Membresía</p>
-                <p>Cliente</p>
-                <p>Monto</p>
-                <p>Acción</p>
-            </div>
+            <table class="tabla-inscripciones">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Cliente</th>
+                        <th>Plan</th>
+                        <th>Monto</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inscripcion_renovacion in inscripciones_renovaciones %}
+                    <tr>
+                        <td>{{ inscripcion_renovacion.id_finanza }}</td>
+                        <td>{{ inscripcion_renovacion.emision }}</td>
+                        <td>{{ inscripcion_renovacion.descripcion }}</td>
+                        <td>{{ inscripcion_renovacion.id_cliente.nombre_cliente }} {{ inscripcion_renovacion.id_cliente.apellido_cliente }}</td>
+                        <td>{{ inscripcion_renovacion.id_plan.nombre_plan }}</td>
+                        <td>{{ inscripcion_renovacion.id_plan.mensualidad }}</td>
+                        <td>
+                            <div class="div_acciones" onclick="visible()">
+                                <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                                <!-- Aquí puedes agregar el desplegable si lo necesitas -->
+                                
+                                <div class="desplegable" id="desplegable">
+                                    <div class="encabezado_desplegable">
+                                        <h2>Acciones</h2>
+                                        <button onclick="cerrar_desplegable()" class="x">
+                                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                                        </button>
+                                    </div>
 
-            <div id="contenido">
-                <p>1</p>
-                <p>16/05/2025</p>
-                <p>Renovación Plan anual</p>
-                <p>Plan Pro</p>
-                <p>María Rodríguez</p>
-                <p>$1,200.00</p>
-                <div class="div_acciones" onclick="visible()">
-                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                </div>
-                <!-- Desplegable de acciones -->
-                <div class="desplegable" id="desplegable">
-                    <div class="encabezado_desplegable">
-                        <h2>Acciones</h2>
-                        <button onclick="cerrar_desplegable()" class="x">
-                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                        </button>
-                    </div>
-                    <div class="div_detalles"
-                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
-                        title="Ver detalles">
-                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                        <p>Ver detalles</p>
-                    </div>
-                </div>
-            </div>
-            <div id="contenido">
-                <p>1</p>
-                <p>16/05/2025</p>
-                <p>Renovación Plan anual</p>
-                <p>Plan Pro</p>
-                <p>María Rodríguez</p>
-                <p>$1,200.00</p>
-                <div class="div_acciones" onclick="visible()">
-                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                </div>
-                <!-- Desplegable de acciones -->
-                <div class="desplegable" id="desplegable">
-                    <div class="encabezado_desplegable">
-                        <h2>Acciones</h2>
-                        <button onclick="cerrar_desplegable()" class="x">
-                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                        </button>
-                    </div>
-                    <div class="div_detalles"
-                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
-                        title="Ver detalles">
-                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                        <p>Ver detalles</p>
-                    </div>
-                </div>
-            </div>
-            <div id="contenido">
-                <p>1</p>
-                <p>16/05/2025</p>
-                <p>Renovación Plan anual</p>
-                <p>Plan Pro</p>
-                <p>María Rodríguez</p>
-                <p>$1,200.00</p>
-                <div class="div_acciones" onclick="visible()">
-                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                </div>
-                <!-- Desplegable de acciones -->
-                <div class="desplegable" id="desplegable">
-                    <div class="encabezado_desplegable">
-                        <h2>Acciones</h2>
-                        <button onclick="cerrar_desplegable()" class="x">
-                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                        </button>
-                    </div>
-                    <div class="div_detalles"
-                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
-                        title="Ver detalles">
-                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                        <p>Ver detalles</p>
-                    </div>
-                </div>
-            </div>
-            <div id="contenido">
-                <p>1</p>
-                <p>16/05/2025</p>
-                <p>Renovación Plan anual</p>
-                <p>Plan Pro</p>
-                <p>María Rodríguez</p>
-                <p>$1,200.00</p>
-                <div class="div_acciones" onclick="visible()">
-                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                </div>
-                <!-- Desplegable de acciones -->
-                <div class="desplegable" id="desplegable">
-                    <div class="encabezado_desplegable">
-                        <h2>Acciones</h2>
-                        <button onclick="cerrar_desplegable()" class="x">
-                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                        </button>
-                    </div>
-                    <div class="div_detalles"
-                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
-                        title="Ver detalles">
-                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                        <p>Ver detalles</p>
-                    </div>
-                </div>
-            </div>
-            <div id="contenido">
-                <p>1</p>
-                <p>16/05/2025</p>
-                <p>Renovación Plan anual</p>
-                <p>Plan Pro</p>
-                <p>María Rodríguez</p>
-                <p>$1,200.00</p>
-                <div class="div_acciones" onclick="visible()">
-                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                </div>
-                <!-- Desplegable de acciones -->
-                <div class="desplegable" id="desplegable">
-                    <div class="encabezado_desplegable">
-                        <h2>Acciones</h2>
-                        <button onclick="cerrar_desplegable()" class="x">
-                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                        </button>
-                    </div>
-                    <div class="div_detalles"
-                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
-                        title="Ver detalles">
-                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                        <p>Ver detalles</p>
-                    </div>
-                </div>
-            </div>
-            <div id="contenido">
-                <p>1</p>
-                <p>16/05/2025</p>
-                <p>Renovación Plan anual</p>
-                <p>Plan Pro</p>
-                <p>María Rodríguez</p>
-                <p>$1,200.00</p>
-                <div class="div_acciones" onclick="visible()">
-                    <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                </div>
-                <!-- Desplegable de acciones -->
-                <div class="desplegable" id="desplegable">
-                    <div class="encabezado_desplegable">
-                        <h2>Acciones</h2>
-                        <button onclick="cerrar_desplegable()" class="x">
-                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                        </button>
-                    </div>
-                    <div class="div_detalles"
-                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
-                        title="Ver detalles">
-                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                        <p>Ver detalles</p>
-                    </div>
-                </div>
-            </div>
-            
-            
+                                    <div class="div_detalles"
+                                        onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/detalles_factura/' %}`)"
+                                        title="Ver detalles">
+                                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                                        <p>ver detalles</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" style="text-align: center;">No hay nada que mostrar...</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
+
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->
         </div>
+
+        <div class="paginacion">
+            {% if inscripciones_renovaciones.has_previous %}
+            <a href="?page={{ inscripciones_renovaciones.previous_page_number }}&q={{ request.GET.q }}">Anterior</a>
+            {% endif %}
+            <span>Página {{ inscripciones_renovaciones.number }} de
+                {{ inscripciones_renovaciones.paginator.num_pages }}</span>
+            {% if inscripciones_renovaciones.has_next %}
+            <a href="?page={{ inscripciones_renovaciones.next_page_number }}&q={{ request.GET.q }}">Siguiente</a>
+            {% endif %}
+
+            <div id="contenedor_popup">
+                <!-- Aquí se van a agregar los pop ups -->
+            </div>
     </main>
 
     <div class="contenedor_advertencia">

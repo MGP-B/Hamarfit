@@ -11,8 +11,9 @@ main {
 }
 
 
+
 .encabezado .subtitulo {
-    font-size: 1.2vw;
+    font-size: 18px;
 }
 
 /* Contenedor para el display= flex */
@@ -38,7 +39,7 @@ main {
 
 .actividades_recientes .subtitulo {
     color: #8A8A89;
-    font-size: 0.8vw;
+    font-size: 14px;
     padding-top: 3px;
     padding-bottom: 8px;
 }
@@ -58,6 +59,12 @@ main {
     width: 50%;
     height: 280px;
     padding: 10px;
+
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Estilos al encabezado de los 2 contenedores ingresos recientes y clientes recientes */
@@ -66,6 +73,7 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    width: 100%;
 }
 
 .ingresos_recientes .encabezado_actividades h4,
@@ -87,64 +95,66 @@ main {
     transform: scale(0.95);
 }
 
-/* Estilos al encabezado de la tabla de ingresos recientes */
-.ingresos_recientes .contenedor_contenido .encabezado_tabla_ingresos {
-    background-color: #FCA502;
-    color: #fff;
-    font-size: 1.1vw;
-    display: grid;
-    grid-template-columns: 20% 38% 28% 10%;
-    padding: 10px;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.301);
-    margin-bottom: 8px;
+.ingresos_recientes .contenedor_contenido,
+.clientes_recientes .contenedor_contenido{
+    overflow: auto;
+    height: 230px;
+    width: 450px;
 }
 
-/* Estilos al encabezado de la tabla de clientes recientes */
+/* Estilos al encabezado de la tabla de ingresos recientes */
+.ingresos_recientes .contenedor_contenido .encabezado_tabla_ingresos,
 .clientes_recientes .contenedor_contenido .encabezado_tabla_clientes {
     background-color: #FCA502;
     color: #fff;
-    font-size: 1.1vw;
+    font-size: 1vw;
     display: grid;
-    grid-template-columns: 20% 22% 35% 35%;
+    grid-template-columns: 25% 18% 1fr 1fr;
     padding: 10px;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.301);
     margin-bottom: 8px;
+    width: 430px;
+
+    position: fixed;
 }
 
+
+
 /* Estilos al contenido de ingresos recientes */
-.ingresos_recientes .contenedor_contenido #dashdboard_contenido_ingresos {
+.ingresos_recientes .contenedor_contenido .dashboard_contenido_ingresos,
+.clientes_recientes .contenedor_contenido .dashboard_contenido_clientes{
     color: #5A5A5A;
     font-size: 1vw;
     display: grid;
-    grid-template-columns: 20% 38% 27% 5%;
+    grid-template-columns: 25% 18% 1fr 1fr;
     padding: 8px 5px;
+}
+
+.ingresos_recientes .contenedor_contenido div:nth-child(2),
+.clientes_recientes .contenedor_contenido div:nth-child(2){
+    margin-top: 40px;
 }
 
 /* Estilos al contenido de ingresos recientes pero en amarillo */
-.ingresos_recientes .contenedor_contenido #dashdboard_contenido_ingresos_amarillo {
+.ingresos_recientes .contenedor_contenido div:nth-child(even),
+.clientes_recientes .contenedor_contenido div:nth-child(even) {
     color: #5A5A5A;
     background-color: rgba(252, 165, 2, 0.2);
-    font-size: 1vw;
-    display: grid;
-    grid-template-columns: 20% 38% 27% 5%;
-    padding: 8px 5px;
 }
 
-/* Estilos al contenido de clientes recientes */
-.clientes_recientes .contenedor_contenido #ashdboard_contenido_clientes {
-    color: #5A5A5A;
-    font-size: 1vw;
-    display: grid;
-    grid-template-columns: 20% 22% 35% 35%;
-    padding: 8px 5px; 
+a.disabled {
+    pointer-events: none;     /* Bloquea el clic */
+    cursor: not-allowed;      /* Cursor indica prohibido */
+    display: inline-block;    /* Mantiene estructura */
+    text-decoration: none;    /* Igual que los demás */
+    width: 95%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 5px 3px;
+    opacity: 0.5;
 }
-
-/* Estilos al contenido de clientes recientes pero en amarillo */
-.clientes_recientes .contenedor_contenido #ashdboard_contenido_clientes_amarillo {
-    color: #5A5A5A;
-    background-color: rgba(252, 165, 2, 0.2);
-    font-size: 1vw;
-    display: grid;
-    grid-template-columns: 20% 22% 35% 35%;
-    padding: 8px 5px;
+a.disabled li {
+    display: flex;            /* Mantén la alineación del ícono y el texto */
+    align-items: center;
+    gap: 8px;                 /* Ajusta separación como los demás */
 }
