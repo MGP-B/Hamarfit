@@ -96,8 +96,9 @@ def configuracion(req):
 def dashboard(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-    renovaciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Renovación')
-    inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción')
+    renovaciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Renovación').order_by('-id_finanza')[:5]
+
+    inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción').order_by('-id_finanza')[:5]
     return render(req, 'admin_pages/dashboard.html', {
         'renovaciones': renovaciones, 
         'inscripciones': inscripciones,
