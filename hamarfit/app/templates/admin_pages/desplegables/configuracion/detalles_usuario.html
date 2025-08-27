@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/clientes/detalles_del_cliente.css' %}">
+<div class="cuerpo_popup" id="cuerpo_popup">
+    <h2>Detalles del Empleado</h2>
+
+    <div class="info-contenedor">
+        <div class="info2">
+            <h3>{{empleado.nombre_empleado}} {{empleado.apellido_empleado}}</h3>
+            <h4>{{empleado.id_rol.rol}}</h4>
+        </div>
+
+        <div class="info3">
+            <p><span>Correo:</span> {{empleado.correo_empleado}}</p>
+            <p><span>Teléfono:</span>{{empleado.telefono_empleado}}</p>
+            <p><span>Dirección:</span> {{empleado.direccion_empleado}}</p>
+            <p><span>ID:</span> {{empleado.id_empleado}}</p>
+            <p><span>Tipo de documento:</span> {{empleado.tipo_documento}}</p>
+            <p><span>Documento:</span> {{empleado.documento_empleado}}</p>
+            <p><span>Fecha de contatación</span> {{empleado.contratacion_empleado}}</p>
+        </div>
+    </div>
+</div>
+<div class="cerrar" onclick="cerrar_popup()"></div>
+<script src="{% static 'js/admin_js/clientes.js' %}"></script>

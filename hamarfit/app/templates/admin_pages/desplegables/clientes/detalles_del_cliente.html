@@ -7,7 +7,7 @@
         <div class="info1">
             <img src="{% static 'img/admin_img/sucursales/Ver Cliente.svg' %}" alt="">
             <div class="negro">
-                <p>Activo</p>
+                <p>{{cliente.id_estado.estado}}</p>
             </div>
         </div>
 
@@ -47,7 +47,7 @@
             <tbody>
                 {% for nota in nota_cliente %}
                 <tr>
-                    <td>- 25/08/25</td>
+                    <td>- {{nota.fecha}}</td>
                     <td>{{nota.nota}}</td>
                 </tr>
                 {% endfor %}

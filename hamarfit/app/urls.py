@@ -28,12 +28,12 @@ urlpatterns = [
     path('admin/clientes/seleccionar_plan/', views.seleccionar_plan, name='admin/clientes/seleccionar_plan/'),
 
     # Configuración
-    path('admin/configuracion/editar_usuario/', views.editar_usuario, name='admin/configuracion/editar_usuario/'),
+    path('admin/configuracion/detalles_usuario/<int:id>', views.detalles_usuario, name='admin/configuracion/detalles_usuario/'),
     path('admin/configuracion/registrar_usuario/', views.registrar_usuario, name='admin/configuracion/registrar_usuario/'),
 
     # inscripciones_renovaciones
     path('admin/inscripciones_renovaciones/registrar_renovacion/', views.registrar_renovacion, name='admin/inscripciones_renovaciones/registrar_renovacion/'),
-    path('admin/inscripciones_renovaciones/detalles_factura/', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
+    path('admin/inscripciones_renovaciones/detalles_factura/<int:id>', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
 
     # Sucursales
     path('admin/sucursales/registrar_sucursal/', views.registrar_sucursal, name='registrar_sucursal'),
