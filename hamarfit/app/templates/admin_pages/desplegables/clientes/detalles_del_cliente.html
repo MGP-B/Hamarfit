@@ -35,19 +35,36 @@
 
     <div class="encabezado-notas">
         <h3>Notas del Cliente</h3>
+        
+        
+        <table class="historial_notas">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nota in nota_cliente %}
+                <tr>
+                    <td>- 25/08/25</td>
+                    <td>{{nota.nota}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 
     <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
         {% csrf_token %}
         <input type="number" style="display: none;" name="id_cliente" value="{{cliente.id_cliente}}">
         
-        <textarea disabled class="notas-del-cliente" id="notas-del-cliente" name="nota">
-            {% if mostrar_nota %}
+        <input disabled class="notas-del-cliente" id="notas-del-cliente" name="nota" placeholder="Agregar nota ...">
+            <!-- {% if mostrar_nota %}
             {{ nota_cliente.nota }}
             {% else %}
             {{ cliente.nombre_cliente }} no tiene ninguna nota aún...
-            {% endif %}
-        </textarea>
+            {% endif %} -->
 
         <div class="boton-container">
             <button type="button" id="agregar-nota">

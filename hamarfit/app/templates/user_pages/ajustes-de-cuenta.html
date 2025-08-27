@@ -29,8 +29,8 @@
                 {{ cliente.nombre_cliente|slice:":1" }}
             </div>
             <div id="nombre-plan">
-                <div class="nombre-user">{{ cliente.nombre_cliente }}</div>
-                <div class="plan-user">Plan <span>Pro</span></div>
+                <div class="nombre-user">{{ cliente.nombre_cliente }} {{ cliente.apellido_cliente }}</div>
+                <div class="plan-user">Plan <span>{{ cliente.id_plan.nombre_plan }}</span></div>
             </div>
         </div>
         <ul class="opciones-menu">
@@ -52,7 +52,7 @@
         </ul>
         <ul class="logout-menu">
             <li id="logout">
-                <a href="#">
+                <a href="{% url 'logout_user' %}">
                     <img src="{% static 'img/user_img/perfiles/Logout.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/user_img/perfiles/Logout-1.svg' %}" alt="" id="inactivo">
                     <h4>Cerrar Sesión</h4>
@@ -69,28 +69,28 @@
                 <div class="miembro">
                     <h4>Miembro:</h4>
                     <div id="nombre-cliente">
-                        <p>Nombre de usuario</p>
+                        <p>{{ cliente.nombre_cliente }} {{ cliente.apellido_cliente }}</p>
                     </div>
                 </div>
 
                 <div class="membresia-user">
                     <h4>Membresía:</h4>
                     <div id="membresia">
-                        <p>Plan Pro</p>
+                        <p>Plan {{ cliente.id_plan.nombre_plan }}</p>
                     </div>
                 </div>
 
                 <div class="correo-user">
                     <h4>Correo:</h4>
                     <div id="correo">
-                        <p>correo@gmail.com</p>
+                        <p>{{ cliente.correo_cliente }}</p>
                     </div>
                 </div>
 
                 <div class="telefono-user">
                     <h4>teléfono:</h4>
                     <div id="telefono">
-                        <p>809-462-1235</p>
+                        <p>{{ cliente.telefono_cliente }}</p>
                     </div>
                 </div>
             </div>

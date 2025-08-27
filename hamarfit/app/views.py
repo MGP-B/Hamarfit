@@ -37,14 +37,13 @@ def ajustes_cuenta(req):
     cliente = Clientes.objects.get(id_cliente=cliente_id)
     return render(req, 'user_pages/ajustes-de-cuenta.html', {'cliente': cliente})
 
-def metodo_pago(req):
-    return render(req, 'user_pages/metodo_pago.html')
 
+@cliente_required
+@never_cache
 def planes_contratados(req):
-    return render(req, 'user_pages/planes-contratados.html')
-
-def registro(req):
-    return render(req, 'user_pages/registro.html')
+    cliente_id = req.session.get('cliente_id')
+    cliente = Clientes.objects.get(id_cliente=cliente_id)
+    return render(req, 'user_pages/planes-contratados.html', {'cliente': cliente})
             
 
 # ----- Paginas del apartado de 'admin' -----
@@ -244,7 +243,7 @@ def detalles_cliente(req, id):
 
     # Lógica para manejar solicitudes GET
     try:
-        nota_cliente = NotaClientes.objects.filter(id_cliente=id).latest('id_nota')
+        nota_cliente = NotaClientes.objects.filter(id_cliente=id)
         mostrar_nota = True
     except NotaClientes.DoesNotExist:
         nota_cliente = None

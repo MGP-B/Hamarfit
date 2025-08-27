@@ -6,12 +6,8 @@ urlpatterns = [
     path('',views.index, name='index'),
 
     # ----- Apartado de 'user' -----
-    path('sucursales/',views.sucursales_user, name='user/sucursales'),
-    path('checkout/',views.checkout, name='user/checkout'),
     path('ajustes_cuenta/',views.ajustes_cuenta, name='user/ajustes_cuenta'),
-    path('metodo_pago/',views.metodo_pago, name='user/metodo_pago'),
     path('planes_contratados/',views.planes_contratados, name='user/planes_contratados'),
-    path('registro/',views.registro, name='user/registro'),
     path('inicio_user/',views.inicio_user, name='inicio_user'),
     path('logout_user/',views.logout_user, name='logout_user'),
 
