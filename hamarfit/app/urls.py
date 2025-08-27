@@ -32,7 +32,7 @@ urlpatterns = [
     path('admin/clientes/seleccionar_plan/', views.seleccionar_plan, name='admin/clientes/seleccionar_plan/'),
 
     # Configuración
-    path('admin/configuracion/editar_usuario/', views.editar_usuario, name='admin/configuracion/editar_usuario/'),
+    path('admin/configuracion/detalles_usuario/<int:id>', views.detalles_usuario, name='admin/configuracion/detalles_usuario/'),
     path('admin/configuracion/registrar_usuario/', views.registrar_usuario, name='admin/configuracion/registrar_usuario/'),
 
     # inscripciones_renovaciones

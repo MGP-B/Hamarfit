@@ -262,8 +262,9 @@ def seleccionar_plan(req):
 
 
 # Configuración
-def editar_usuario(req):
-    return render(req, 'admin_pages/desplegables/configuracion/editar_usuario.html')
+def detalles_usuario(req, id):
+    empleado = Empleados.objects.get(id_empleado = id)
+    return render(req, 'admin_pages/desplegables/configuracion/detalles_usuario.html', {'empleado' : empleado})
 
 
 def registrar_usuario(req):
