@@ -30,12 +30,17 @@
         </nav>
 
         <div class="botones-navegacion">
-            <button id="inicio-sesion" style="color: #333;">
+            <!-- <button id="inicio-sesion" style="color: #333;">
                 <a href="{% url 'logout_user' %}">Cerrar Sesión</a>
-            </button>
+            </button> -->
             <!-- <button id="register">
                 <a href="{% url 'user/sucursales' %}">Únete ahora</a>
             </button> -->
+            <div class="icono-header">
+                <a href="{% url 'user/planes_contratados'%}">
+                    <div class="icono">{{ cliente.nombre_cliente|slice:":1" }}</div>
+                </a>
+            </div>
         </div>
 
     </header>

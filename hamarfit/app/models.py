@@ -70,7 +70,7 @@ class InscripcionesRenovaciones(models.Model):
     id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
     id_metodo = models.ForeignKey('MetodosPagos', models.DO_NOTHING, db_column='id_metodo')
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
-    id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
+    id_cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE, db_column='id_cliente')
     descripcion = models.CharField(max_length=60)
 
     class Meta:

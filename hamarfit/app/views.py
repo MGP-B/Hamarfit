@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseForbidden
 from .forms import *
 from . models import *
 from datetime import date
@@ -9,6 +9,7 @@ from django.db.models import Value
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.db.models.functions import Concat  # Asegúrate de importar esto correctamente
+from django.views.decorators.http import require_POST
 # from django.urls import reverse
 
 # Create your views here.
@@ -29,8 +30,12 @@ def sucursales_user(req):
 def checkout(req):
     return render(req,'user_pages/checkout.html')
 
+@cliente_required
+@never_cache
 def ajustes_cuenta(req):
-    return render(req, 'user_pages/ajustes-de-cuenta.html')
+    cliente_id = req.session.get('cliente_id')
+    cliente = Clientes.objects.get(id_cliente=cliente_id)
+    return render(req, 'user_pages/ajustes-de-cuenta.html', {'cliente': cliente})
 
 def metodo_pago(req):
     return render(req, 'user_pages/metodo_pago.html')
@@ -188,7 +193,9 @@ def login(req):
 @cliente_required
 @never_cache
 def inicio_user(req):
-    return render(req, 'user_pages/inicio_user.html')
+    cliente_id = req.session.get('cliente_id')
+    cliente = Clientes.objects.get(id_cliente=cliente_id)
+    return render(req, 'user_pages/inicio_user.html', {'cliente': cliente})
 
 
 def logout_user(req):
@@ -251,6 +258,21 @@ def detalles_cliente(req, id):
     }
     
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', contexto)
+
+@require_POST
+def eliminar_cliente(req, id):
+    empleado_id = req.session.get('empleado_id')
+    empleado = get_object_or_404(Empleados, id_empleado=empleado_id)
+
+    if empleado.id_rol.rol not in ['Admin', 'Recepcionista']:
+        return HttpResponseForbidden("No tienes permiso para eliminar clientes.")
+
+    cliente = get_object_or_404(Clientes, id_cliente=id)
+
+    # Aquí podrías validar si el cliente tiene inscripciones activas
+    cliente.delete()
+
+    return JsonResponse({'success': True, 'message': 'Cliente eliminado correctamente.'})
 
 @role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):

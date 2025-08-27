@@ -13,12 +13,12 @@
 
 <body>
     <header>
-        <a href="{% url 'index' %}">
+        <a href="{% url 'inicio_user' %}">
             <h1>HAMAR<span>FIT</span></h1>
         </a>
         <div class="icono-header">
             <a href="{% url 'user/planes_contratados'%}">
-                <div class="icono">N</div>
+                <div class="icono">{{ cliente.nombre_cliente|slice:":1" }}</div>
             </a>
         </div>
     </header>
@@ -26,10 +26,10 @@
     <aside>
         <div class="user">
             <div id="icono-user">
-                N
+                {{ cliente.nombre_cliente|slice:":1" }}
             </div>
             <div id="nombre-plan">
-                <div class="nombre-user">Nombre de usuario</div>
+                <div class="nombre-user">{{ cliente.nombre_cliente }}</div>
                 <div class="plan-user">Plan <span>Pro</span></div>
             </div>
         </div>
