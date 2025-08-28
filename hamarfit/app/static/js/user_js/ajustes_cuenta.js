@@ -74,3 +74,43 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
     })
 })
+
+document.getElementById('nueva-contrasena').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nueva = document.getElementById('input_contrasena').value;
+    const confirmar = document.getElementById('confirmar-contrasena').value;
+
+    fetch('/ajustes_cuenta/cambiar_contrasena/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: `nueva=${encodeURIComponent(nueva)}&confirmar=${encodeURIComponent(confirmar)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.status === 'success') {
+            document.getElementById('input_contrasena').value = '';
+            document.getElementById('confirmar-contrasena').value = '';
+        }
+    });
+});
+
+// Función para obtener el token CSRF
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}

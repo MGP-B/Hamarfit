@@ -99,6 +99,7 @@
                 <h3>Configuración</h3>
 
                 <form id="nueva-contrasena">
+                    {% csrf_token %}
                     <label for="password">
                         Cambiar contraseña
                         <img src="{% static 'img/user_img/perfiles/iconos-contenido/Edit.svg' %}" alt=""
@@ -124,6 +125,7 @@
                 </form>
 
                 <form id="nuevo-correo">
+                    {% csrf_token %}
                     <label for="correo">
                         Cambiar correo
                         <img src="{% static 'img/user_img/perfiles/iconos-contenido/Edit.svg' %}" alt=""
@@ -148,6 +150,7 @@
                 </form>
 
                 <form id="nuevo-telefono">
+                    {% csrf_token %}
                     <label for="telefono">
                         Cambiar número de teléfono
                         <img src="{% static 'img/user_img/perfiles/iconos-contenido/Edit.svg' %}" alt=""

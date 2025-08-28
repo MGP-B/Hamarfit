@@ -210,7 +210,36 @@ def sucursales_admin(req):
     sucursales = Sucursales.objects.all()
     return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales, 'empleado': empleado})
 
+@cliente_required
+def cambiar_contrasena(request):
+    if request.method == 'POST':
+        nueva = request.POST.get('nueva')
+        confirmar = request.POST.get('confirmar')
 
+        if not nueva or not confirmar:
+            return JsonResponse({'status': 'error', 'message': 'Campos vacíos.'})
+
+        if nueva != confirmar:
+            return JsonResponse({'status': 'error', 'message': 'Las contraseñas no coinciden.'})
+
+        if len(nueva) < 8:
+            return JsonResponse({'status': 'error', 'message': 'La contraseña debe tener al menos 8 caracteres.'})
+
+        id_cliente = request.session.get('id_cliente')
+        if not id_cliente:
+            return JsonResponse({'status': 'error', 'message': 'Sesión inválida. Por favor inicia sesión nuevamente.'})
+
+        try:
+            cliente = Clientes.objects.get(id_cliente=id_cliente)
+        except Clientes.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Cliente no encontrado.'})
+
+        cliente.contrasena_cliente = nueva  # ← Se guarda en texto plano
+        cliente.save()
+
+        return JsonResponse({'status': 'success', 'message': 'Contraseña actualizada correctamente.'})
+
+    return JsonResponse({'status': 'error', 'message': 'Método no permitido.'})
 
 # ----- Desplegables de 'admin' -----
 # Clientes
