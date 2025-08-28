@@ -40,6 +40,7 @@ main {
     padding: 25px;
     font-family: Rubik;
     overflow-y: auto;
+    overflow-x: hidden;
     box-sizing: border-box;
 }
 
@@ -348,35 +349,87 @@ button{
         width: 25px;
     }
 
+    main {
+        width: 95%;
+        margin-left: 5%;
+    }
+
+    /* Estilos en el aside */
+    aside {
+        position: absolute;
+        width: 5%;
+        top: 8%;
+        display: flex;
+        justify-content: center;
+    }
+
     /* Imágenes dentro de li */
     aside a #inactivo,
     aside a #activo {
         position: absolute;
-        left: 1%;
-        width: .9rem;
+        left: 25%;
+        width: 1rem;
     }
- 
-    /* h3 en li */
-    .opcion h3 {
-        font-size: .9rem;
+
+    aside h3 {
+        display: none;
     }
 
     aside .usuario .icono {
         /* Margenes y tamaños */
         width: 35px;
         height: 35px;
-        margin-left: 10px;
+        margin: 0 auto;
+    }
+
+    aside .usuario .nombre-apellido, aside .usuario .nombre-rol {
+        display: none;
+    }   
+
+    aside:hover {
+        width: 18%;
+        box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    aside:hover a #inactivo,
+    aside:hover a #activo {
+        position: absolute;
+        left: 1%;
+        width: 1rem;
+    }
+
+    aside:hover .opcion h3 {
+        display: block;
+        position: relative;
+        left: 20%;
+        font-size: .9rem;
+    }
+
+    aside:hover .usuario .icono {
+        /* Margenes y tamaños */
+        width: 35px;
+        height: 35px;
+        margin: 0 0 0 10px;
         font-size: .7rem;
     }
     
-    aside .nombre-apellido {
-        display: inline-flex;
-        font-size: .7rem
+    aside:hover .nombre-rol {
+        display: block;
+        margin-left: 10px;
     }
-
-    aside #rol-usuario {
+    
+    aside:hover .nombre-apellido {
+        display: inline-flex;
+        font-size: .8rem
+    }
+    
+    aside:hover .nombre-apellido p:last-child {
+        padding-left: 4px;
+    }
+    
+    aside:hover #rol-usuario {
         color: rgba(0,0,0,.7);
-        font-size: .5rem;
+        font-size: .6rem;
     }
 }
 
@@ -418,9 +471,52 @@ button{
     aside .usuario .nombre-apellido, aside .usuario .nombre-rol {
         display: none;
     }   
-    
 
+    aside:hover {
+        width: 18%;
+        box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    aside:hover a #inactivo,
+    aside:hover a #activo {
+        position: absolute;
+        left: 1%;
+        width: 1rem;
+    }
+
+    aside:hover .opcion h3 {
+        display: block;
+        position: relative;
+        left: 20%;
+        font-size: .9rem;
+    }
+
+    aside:hover .usuario .icono {
+        /* Margenes y tamaños */
+        width: 35px;
+        height: 35px;
+        margin: 0 0 0 10px;
+        font-size: .7rem;
+    }
     
+    aside:hover .nombre-rol {
+        display: block;
+        margin-left: 10px;
+    }
+    
+    aside:hover .nombre-apellido {
+        display: inline-flex;
+        font-size: .8rem
+    }
+    
+    aside:hover .nombre-apellido p:last-child {
+        padding-left: 4px;
+    }
+    
+    aside:hover #rol-usuario {
+        color: rgba(0,0,0,.7);
+        font-size: .6rem;
+    }   
 }
 
 @media screen and (max-width: 800px) {
@@ -436,9 +532,13 @@ button{
         height: 100vh;
         width: 100vw;
     }
+
     .contenedor_advertencia .advertencia{
         text-align: center;
         width: 80vw;
     }
+
+    
+    
 
 }
