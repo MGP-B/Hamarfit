@@ -96,7 +96,6 @@ main button:hover {
     border: 1px solid #7B7B7B;
     border-radius: 3px;
     overflow: hidden;
-    position: relative;
 }
 
 #contenedor_contenido::-webkit-scrollbar {
@@ -131,6 +130,10 @@ main button:hover {
 #contenedor_contenido thead #id-user {
     width: 5%;
     margin: auto 0;
+}
+
+#contenedor_contenido thead #accion-user {
+    text-align: center;
 }
 
 #contenedor_contenido tbody td {
