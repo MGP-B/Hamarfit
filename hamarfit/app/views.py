@@ -277,26 +277,26 @@ def registrar_renovacion(req):
     id_cliente = req.POST.get('id_cliente')
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-    if req.method == 'POST':
-        form = RenovacionesForm(req.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('../')  # Redirige después de guardar
-        else:
-            print('Los errores del formulario son: ', form.errors)
-    else:
-        form = RenovacionesForm()
 
     planes = Planes.objects.all()
     metodos_pago = MetodosPagos.objects.all()
-    
-    try:
-        cliente = Clientes.objects.get(id_cliente = id_cliente)
-    except Clientes.DoesNotExist:
-        error = "No existe ningún cliente con el id introducido."
-        return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {'form': form,'planes': planes,'metodos_pago': metodos_pago,'empleado': empleado,'error': error})
-        
+
+    if req.method == 'POST':
+        form = RenovacionesForm(req.POST)
+        try:
+            cliente = Clientes.objects.get(id_cliente=id_cliente)
+            if form.is_valid():
+                form.save()
+                return redirect('../')
+            else:
+                print('Los errores del formulario son: ', form.errors)
+        except Clientes.DoesNotExist:
+            return redirect('../')
+    else:
+        form = RenovacionesForm()
+
     return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {'form': form,'planes': planes,'metodos_pago': metodos_pago,'empleado': empleado})
+
 
 
 def detalles_factura(req, id):
