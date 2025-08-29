@@ -17,7 +17,8 @@ from django.db.models.functions import Concat  # Asegúrate de importar esto cor
 
 # Index
 def index(req):
-    return render(req,'index.html')
+    sucursales = Sucursales.objects.all()
+    return render(req,'index.html', {'sucursales': sucursales})
 
 #  ----- Paginas del apartado de 'user' -----
 # def sucursales_user(req):
