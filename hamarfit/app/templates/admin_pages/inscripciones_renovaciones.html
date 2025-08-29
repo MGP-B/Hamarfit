@@ -18,7 +18,7 @@
             <h1>HAMAR<span>FIT</span></h1>
         </div>
         <div class="cerrar-sesion">
-            <a href="">
+            <a href="{% url 'logout_user' %}">
                 <img src="{% static 'img/admin_img/menu/activos/Logout-activo.svg' %}" alt="" id="activo">
                 <img src="{% static 'img/admin_img/menu/Logout.svg' %}" alt="" id="inactivo">
             </a>
@@ -84,13 +84,6 @@
                 </a>
             {% endif %}
 
-            <a id="cerrar-sesion" href="{% url 'logout_user' %}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/Logout-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/Logout.svg' %}" alt="" id="inactivo">
-                    <h3>Cerrar sesión</h3>
-                </li>
-            </a>
             {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/configuracion'%}">
                     <li class="opcion">
