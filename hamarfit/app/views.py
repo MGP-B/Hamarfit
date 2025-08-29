@@ -17,29 +17,18 @@ from django.db.models.functions import Concat  # Asegúrate de importar esto cor
 
 # Index
 def index(req):
-    return render(req,'index.html')
+    sucursales = Sucursales.objects.all()
+    return render(req,'index.html', {'sucursales': sucursales})
 
 #  ----- Paginas del apartado de 'user' -----
 # def sucursales_user(req):
 #     return render(req,'user_pages/sucursales.html')
 
-def sucursales_user(req):
-    return render(req, 'user_pages/sucursales.html')
-
-def checkout(req):
-    return render(req,'user_pages/checkout.html')
-
 def ajustes_cuenta(req):
     return render(req, 'user_pages/ajustes-de-cuenta.html')
 
-def metodo_pago(req):
-    return render(req, 'user_pages/metodo_pago.html')
-
 def planes_contratados(req):
     return render(req, 'user_pages/planes-contratados.html')
-
-def registro(req):
-    return render(req, 'user_pages/registro.html')
             
 
 # ----- Paginas del apartado de 'admin' -----
