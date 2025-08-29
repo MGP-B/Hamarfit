@@ -54,7 +54,7 @@
                 </a>
             {% endif %}
 
-            {% if empleado.id_rol.rol == 'Admin' %}
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/sucursales'%}">
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
@@ -135,9 +135,29 @@
                             <td>{{ empleado.correo_empleado }}</td>
                             <td>{{ empleado.id_rol.rol }}</td>
                             <td>{{ empleado.id_sucursal.nombre_sucursal }}</td>
-                            <td>
-                                <div class="div_acciones" onclick="visible()">
+                            <td id="div_acciones_{{empleado.id_empleado}}">
+                                <div class="div_acciones" onclick="visible('{{ empleado.id_empleado }}')">
                                     <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+
+                                    <!-- Desplegable de acciones -->
+                                    <div class="desplegable" id="desplegable_{{empleado.id_empleado}}">
+                                        <div class="encabezado_desplegable">
+                                            <h2>Acciones</h2>
+                                            <button onclick="cerrar_desplegable('{{ empleado.id_empleado }}'); event.stopPropagation()" class="x">
+                                                <img src="{% static 'img/admin_img/global/x.svg' %}">
+                                            </button>
+                                        </div>
+                                    
+                                        <div class="div_detalles" onclick="agregar_popup(`{% url 'admin/configuracion/detalles_usuario/' empleado.id_empleado%}`)"
+                                            title="Ver detalles">
+                                            <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                                            <p>Ver detalles</p>
+                                        </div>
+                                        <div class="div_eliminar" title="Eliminar Permanentemente">
+                                            <img src="{% static 'img/admin_img/global/eliminar.svg' %}">
+                                            <p>Eliminar</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </td>
                         </tr>

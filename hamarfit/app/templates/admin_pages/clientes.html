@@ -57,7 +57,7 @@
                 </a>
             {% endif %}
 
-            {% if empleado.id_rol.rol == 'Admin' %}
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/sucursales'%}">
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
@@ -120,10 +120,12 @@
                     <p>Buscar</p>
                 </button>
             </form>
+        {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'admin/clientes/registrar_cliente/' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
                 <p>Agregar Cliente</p>
             </button>
+        {% endif %}
         </div>
         <div id="contenedor_contenido">
             <table class="tabla-clientes">
@@ -150,7 +152,7 @@
                         <td>
                             <div id="div_acciones_{{cliente.id_cliente}}" onclick="visible('{{ cliente.id_cliente }}')">
                                 <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                                <!-- Aquí puedes agregar el desplegable si lo necesitas -->
+                                
                                 <div class="desplegable" id="desplegable_{{cliente.id_cliente}}">
                                     <div class="encabezado_desplegable">
                                         <h2>Acciones</h2>

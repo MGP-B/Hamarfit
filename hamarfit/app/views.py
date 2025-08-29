@@ -96,8 +96,9 @@ def configuracion(req):
 def dashboard(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-    renovaciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Renovación')
-    inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción')
+    renovaciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Renovación').order_by('-id_finanza')[:5]
+
+    inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción').order_by('-id_finanza')[:5]
     return render(req, 'admin_pages/dashboard.html', {
         'renovaciones': renovaciones, 
         'inscripciones': inscripciones,
@@ -204,15 +205,43 @@ def sucursales_admin(req):
     sucursales = Sucursales.objects.all()
     return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales, 'empleado': empleado})
 
-
-
-# ----- Desplegables de 'admin' -----
-# Clientes
+# ----- Desplegables de Admin -----
 def detalles_cliente(req, id):
-    cliente = get_object_or_404(Clientes, id_cliente = id)
-    nota_cliente = NotaClientes.objects.filter(id_cliente = id)
-    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {'cliente': cliente, 'nota_cliente': nota_cliente})
+    # Obtener el cliente (esto es igual para GET y POST)
+    cliente = get_object_or_404(Clientes, id_cliente=id)
+    
+    # Inicializar el formulario, vacío para GET o con datos para POST
+    form = NotaClientesForm(req.POST or None)
 
+    if req.method == 'POST':
+        if form.is_valid():
+            # Procesar el formulario de agregar nota
+            nota = form.save(commit=False)
+            # Asignar el cliente a la nota antes de guardar
+            nota.id_cliente = cliente
+            nota.save()
+            # Redirigir para evitar que se envíe el formulario de nuevo
+            return redirect('../', id=id)
+        else:
+            # Imprimir errores del formulario para depurar
+            print('Errores del formulario:', form.errors)
+
+    # Lógica para manejar solicitudes GET
+    try:
+        nota_cliente = NotaClientes.objects.filter(id_cliente=id)
+        mostrar_nota = True
+    except NotaClientes.DoesNotExist:
+        nota_cliente = None
+        mostrar_nota = False
+
+    contexto = {
+        'cliente': cliente,
+        'nota_cliente': nota_cliente,
+        'mostrar_nota': mostrar_nota,
+        'form': form
+    }
+    
+    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', contexto)
 
 @role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):
@@ -234,8 +263,9 @@ def seleccionar_plan(req):
 
 
 # Configuración
-def editar_usuario(req):
-    return render(req, 'admin_pages/desplegables/configuracion/editar_usuario.html')
+def detalles_usuario(req, id):
+    empleado = Empleados.objects.get(id_empleado = id)
+    return render(req, 'admin_pages/desplegables/configuracion/detalles_usuario.html', {'empleado' : empleado})
 
 
 def registrar_usuario(req):
@@ -278,8 +308,10 @@ def registrar_renovacion(req):
         })
 
 
-def detalles_factura(req):
-    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html')
+def detalles_factura(req, id):
+    factura = InscripcionesRenovaciones.objects.get(id_finanza = id)
+
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html', {'factura': factura})
 
 
 # Sucursales

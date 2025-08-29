@@ -57,7 +57,7 @@
                 </a>
             {% endif %}
 
-            {% if empleado.id_rol.rol == 'Admin' %}
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/sucursales'%}">
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
@@ -114,10 +114,12 @@
                 <h2>Sucursales</h2>
                 <p>Gestiona tus sucursales</p>
             </div>
+        {% if empleado.id_rol.rol == 'Admin' %}
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'registrar_sucursal' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/building-2 1.svg' %}" alt="Icono">
                 <p>Agregar Sucursal</p>
             </button>
+        {% endif %}
         </div>
 
         <!-- Panel de Control -->
@@ -129,28 +131,20 @@
                 <!-- Imagen de la sucursal -->
                 <img src="{{ sucursal.imagen.url }}" id="imagen-sucursal">
                 <!-- Encabezado de la tarjeta de sucursal -->
-                <div class="encabezado-tarjeta">
+                <div id="div_acciones_{{sucursal.id_sucursal}}" class="encabezado-tarjeta">
                     <h4>{{ sucursal.nombre_sucursal }}</h4>
-                    <a href="#" onclick="visible()"><img src="{% static 'img/admin_img/sucursales/list 1.svg' %}" alt="Icono"></a>
-                </div>
-
-                <!-- Desplegable de acciones -->
-                <div class="desplegable" id="desplegable">
-                    <div class="encabezado_desplegable">
-                        <h2>Acciones</h2>
-                        <button onclick="cerrar_desplegable()" class="x">
-                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                        </button>
-                    </div>
-
-                    <div class="div_detalles" onclick="agregar_popup(`{% url 'editar_sucursal' %}`)"
-                        title="Ver detalles">
-                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                        <p>Editar</p>
-                    </div>
-                    <div class="div_eliminar" title="Eliminar Permanentemente">
-                        <img src="{% static 'img/admin_img/global/eliminar.svg' %}">
-                        <p>Eliminar</p>
+                    <div onclick="visible('{{ sucursal.id_sucursal }}')">
+                        <img src="{% static 'img/admin_img/global/eliminar.svg' %}" alt="Icono">
+                        
+                        <!-- Desplegable de acciones -->
+                        <div class="desplegable" id="desplegable_{{sucursal.id_sucursal}}">
+                            <div class="encabezado_desplegable">
+                                <h2>Atención!!</h2>
+                                <p>Está a punto de eliminar la sucursal "{{sucursal.nombre_sucursal}}", desea continuar?</p>
+                            </div>
+                            <button class="boton_cancelar" title="Cancelar la eliminación de la sucursal" onclick="cerrar_desplegable('{{ sucursal.id_sucursal }}'); event.stopPropagation()">Cancelar</button>
+                            <button type="button" class="div_eliminar" title="Eliminar Permanentemente">Eliminar</button>
+                        </div>
                     </div>
                 </div>
 

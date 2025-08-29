@@ -65,3 +65,13 @@ class RenovacionesForm(forms.ModelForm):
         #     'descripcion',
         # ]
         exclude = ['emision']
+
+class NotaClientesForm(forms.ModelForm):
+    class Meta:
+        model = NotaClientes
+        # fields = [
+        #     'fecha_hora',
+        #     'nota',
+        #     'id_cliente'
+        # ]
+        exclude = ['fecha']

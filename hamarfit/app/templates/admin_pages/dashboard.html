@@ -54,7 +54,7 @@
                 </a>
             {% endif %}
 
-            {% if empleado.id_rol.rol == 'Admin' %}
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
                 <a href="{% url 'admin/sucursales'%}">
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
@@ -88,6 +88,7 @@
                 </a>
             {% endif %}
         </ul>
+        
         <div class="usuario">
             <div class="icono">
                 <p id="icono-usuario">
@@ -122,7 +123,7 @@
                     <div class="encabezado_actividades">
                         <!-- Div con el título y subtítulo -->
                         <div>
-                            <h4>Renovaciones Recientes</h4>
+                            <h4>Renovaciones </h4>
                             <p class="subtitulo">Últimas renovaciones registradas</p>
                         </div>
                         <!-- Enlace al apartado de finanzas -->
@@ -157,7 +158,7 @@
                     <div class="encabezado_actividades">
                         <!-- Div con el título y subtítulo -->
                         <div>
-                            <h4>Clientes Recientes</h4>
+                            <h4>Clientes </h4>
                             <p class="subtitulo">Últimos Clientes agregados al sistema</p>
                         </div>
                         <!-- Enlace al apartado de finanzas -->
