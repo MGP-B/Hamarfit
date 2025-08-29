@@ -18,17 +18,11 @@
         <div class="logo">
             <h1>HAMAR<span>FIT</span></h1>
         </div>
-        <div class="setting">
-            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
-                <a href="{% url 'admin/configuracion'%}">
-                    <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
-                    <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
-                </a>
-            {% else %}
-                <a class="disabled">
-                    <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="">
-                </a>
-            {% endif %}
+        <div class="cerrar-sesion">
+            <a href="">
+                <img src="{% static 'img/admin_img/menu/activos/Logout-activo.svg' %}" alt="" id="activo">
+                <img src="{% static 'img/admin_img/menu/Logout.svg' %}" alt="" id="inactivo">
+            </a>
         </div>
     </header>
     <aside class="menu">
@@ -91,14 +85,24 @@
                 </a>
             {% endif %}
 
-            <a id="cerrar-sesion" href="">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/Logout-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/Logout.svg' %}" alt="" id="inactivo">
-                    <h3>Cerrar sesión</h3>
-                </li>
-            </a>
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
+                <a href="{% url 'admin/configuracion'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/Staff-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/Staff.svg' %}" alt="" id="inactivo">
+                        <h3>Empleados</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="">
+                        <h3>Empleados</h3>
+                    </li>
+                </a>
+            {% endif %}
         </ul>
+
         <div class="usuario">
             <div class="icono">
                 <p id="icono-usuario">{{ empleado.nombre_empleado|slice:":1" }}{{ empleado.apellido_empleado|slice:":1" }}</p>

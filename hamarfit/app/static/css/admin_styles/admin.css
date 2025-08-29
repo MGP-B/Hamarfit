@@ -79,7 +79,7 @@ header .logo span {
 }
 
 /* Contenedor del icono de ajustes */
-header .setting {
+header .cerrar-sesion {
     /* Margenes y tamaños */
     width: 10%;
     height: 100%;
@@ -92,7 +92,7 @@ header .setting {
 }
 
 /* Estilo del link en header */
-header .setting a{
+header .cerrar-sesion a{
     /* Margenes y tamaños */
     width: 100%;
     height: 100%;
@@ -104,14 +104,11 @@ header .setting a{
 }
 
 /* Estilo de imagen en el link */
-header .setting a img {
+header .cerrar-sesion a img {
+    width: 20%;
     position: absolute;
     transition: 1s all;
-}
-
-/* Rotación de imagen */
-header .setting a:hover img {
-    transform: rotate(180deg);
+    opacity: .8;
 }
 
 /* imagen activa */
@@ -227,11 +224,6 @@ aside ul a:hover, aside ul #activo:hover {
     scale: 1.009;
     color: #FCA502;
     background-color: rgba(252, 165, 2, 0.25);  
-}
-
-aside #cerrar-sesion:hover {
-    color: #ff0000;
-    background-color: rgba(255, 0, 0, 0.435);
 }
 
 /* informaciones de usuario */
