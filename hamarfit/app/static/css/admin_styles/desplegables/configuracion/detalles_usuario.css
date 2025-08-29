@@ -8,6 +8,8 @@
     max-width: 450px;
     width: 50%;
     transform: scale(0.9);
-    display: none
-    ;
+}
+
+span{
+    font-weight: bold;
 }

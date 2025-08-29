@@ -274,6 +274,7 @@ def registrar_usuario(req):
 
 # inscripciones_renovaciones
 def registrar_renovacion(req):
+    id_cliente = req.POST.get('id_cliente')
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
     if req.method == 'POST':
@@ -289,12 +290,13 @@ def registrar_renovacion(req):
     planes = Planes.objects.all()
     metodos_pago = MetodosPagos.objects.all()
     
-    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {
-        'form': form,
-        'planes': planes,
-        'metodos_pago': metodos_pago,
-        'empleado': empleado
-        })
+    try:
+        cliente = Clientes.objects.get(id_cliente = id_cliente)
+    except Clientes.DoesNotExist:
+        error = "No existe ningún cliente con el id introducido."
+        return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {'form': form,'planes': planes,'metodos_pago': metodos_pago,'empleado': empleado,'error': error})
+        
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {'form': form,'planes': planes,'metodos_pago': metodos_pago,'empleado': empleado})
 
 
 def detalles_factura(req, id):
