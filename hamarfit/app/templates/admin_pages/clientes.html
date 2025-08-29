@@ -131,13 +131,13 @@
             <table class="tabla-clientes">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Teléfono</th>
-                        <th>Plan</th>
-                        <th>Estado</th>
-                        <th>Acción</th>
+                        <th id="id-user">ID</th>
+                        <th id="nombre-user">Nombre</th>
+                        <th id="email-user">Email</th>
+                        <th id="telefono-user">Teléfono</th>
+                        <th id="plan-user">Plan</th>
+                        <th id="estado-user">Estado</th>
+                        <th id="accion-user">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -149,10 +149,10 @@
                         <td>{{ cliente.telefono_cliente }}</td>
                         <td>{{ cliente.id_plan.nombre_plan }}</td>
                         <td>{{ cliente.id_estado.estado }}</td>
-                        <td>
+                        <td id="accion">
                             <div id="div_acciones_{{cliente.id_cliente}}" onclick="visible('{{ cliente.id_cliente }}')">
                                 <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                                <!-- Aquí puedes agregar el desplegable si lo necesitas -->
+                                
                                 <div class="desplegable" id="desplegable_{{cliente.id_cliente}}">
                                     <div class="encabezado_desplegable">
                                         <h2>Acciones</h2>
@@ -200,7 +200,7 @@
     </main>
 
     <div class="contenedor_advertencia">
-        <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (750px de ancho)</p>
+        <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (800px de ancho)</p>
     </div>
     <script src="{% static 'js/admin_js/desplegables.js' %}"></script>
     <script src="{% static 'js/admin_js/clientes.js' %}"></script>

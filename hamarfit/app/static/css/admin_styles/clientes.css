@@ -2,32 +2,10 @@
 @import './admin.css';
 @import './desplegables/desplegables.css';
 
-body {
-    background-color: #ECECEC;
-}
-
-main {
-    box-sizing: border-box;
-    font-family: Rubik;
-    padding: 30px;
-    width: 82%;
-}
-
-/* Estilos del encabezado */
-.encabezado {
-    line-height: 1.5;
-}
-
 /* Estilos del panel de control y contenedor de sucursal */
 .panel-control {
     display: flex;
     justify-content: space-between;
-}
-
-.contenedor-sucursal {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
 }
 
 /* Barra de búsqueda */
@@ -35,7 +13,7 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 400px;
+    width: 400px;   
 }
 
 .panel-control .barra-de-busqueda img {
@@ -109,59 +87,66 @@ main button:hover {
     transform: scale(0.95);
 }
 
-
-
 /* Contenedor de los contenidos o datos */
 #contenedor_contenido{
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
     background-color: white;
     border: 1px solid #7B7B7B;
     border-radius: 3px;
-    height: 60vh;
-    max-height: 350px;
-    margin-top: 3vh;
-    overflow-x: auto;
+    overflow: hidden;
+    position: relative;
 }
 
 #contenedor_contenido::-webkit-scrollbar {
     display: none;
 }
+
+
 /* Encabezado del contenido */
-#contenedor_contenido .encabezado_contenido{
-    display: grid;
-    grid-template-columns: 5% 20% 25% 15% 10% 10% 5%;
-    gap: 10px;
+#contenedor_contenido .tabla-clientes{
+    width: 100%;
+    height: 100%;
+}
 
-    background-color: #FCA502;
+#contenedor_contenido thead {
+    background-color: #ffa500;
+    height: 30px;  
+}
+
+#contenedor_contenido tbody {
+    height: 88%;
+}
+
+#contenedor_contenido thead th {
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 10px;
+    font-size: .9rem;
+    font-family: rubik;
     color: white;
-    padding: 15px;
-    font-weight: bolder;
-    font-size: 1.4vw;
-    width: fit-content;
-    min-width: 100%;
-    box-sizing: border-box;
 }
-/* Contenido */
-#contenedor_contenido #contenido{
-    /* Asignación de columnas y espaciados */
-    display: grid;
-    grid-template-columns: 5% 20% 25% 15% 10% 10% 5%;
-    gap: 10px;
 
-    /* Estilos del contenido */
-    box-sizing: border-box;
-    font-size: 1.15vw;
-    align-items: center;
-    margin-top: 5px;
-    min-width: 100%;
-    padding: 15px;
-    width: fit-content;
+#contenedor_contenido thead #id-user {
+    width: 5%;
+    margin: auto 0;
 }
-/* icono de acciones */
-#contenedor_contenido #contenido img{
-    margin-left: 2vw;
-    width: .6vw;
-    height: auto;
+
+#contenedor_contenido tbody td {
+    padding-left: 10px;
+    vertical-align: middle;
+    font-size: .8rem;
 }
+
+#contenedor_contenido tbody #accion {
+    text-align: center;
+}
+
+.despegable {
+    right: 300px;
+}
+
 /* Transición a todos los botones */
 main button{
     transition: all .15s;
@@ -171,12 +156,6 @@ main button{
 main button:hover{
     cursor: pointer;
     transform: scale(.95);
-}
-
-/* Desplegable del icono de acciones */
-.desplegable{
-    margin-top: 130px;
-    right: 1vw;
 }
 
 a.disabled {
@@ -194,4 +173,52 @@ a.disabled li {
     display: flex;            /* Mantén la alineación del ícono y el texto */
     align-items: center;
     gap: 8px;                 /* Ajusta separación como los demás */
+}
+
+@media (max-width: 1130px) {
+
+    .panel-control .boton-agregar p {
+        font-size: .7rem;
+    }
+
+    #contenedor_contenido {
+        overflow: hidden;
+    }
+
+    #contenedor_contenido thead {
+        background-color: #ffa500;
+        height: 25px;  
+    }
+
+    #contenedor_contenido thead th {
+        font-size: .75rem;
+    }
+
+    #contenedor_contenido tbody td {
+        font-size: .7rem;
+    }
+}
+
+@media (max-width: 960px) {
+
+    .panel-control .boton-agregar p {
+        font-size: .7rem;
+    }
+
+    #contenedor_contenido {
+        overflow: hidden;
+    }
+
+    #contenedor_contenido thead {
+        background-color: #ffa500;
+        height: 25px;  
+    }
+
+    #contenedor_contenido thead th {
+        font-size: .7rem;
+    }
+
+    #contenedor_contenido tbody td {
+        font-size: .65rem;
+    }
 }

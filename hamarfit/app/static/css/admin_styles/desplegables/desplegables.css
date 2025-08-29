@@ -31,7 +31,6 @@
 
 
 /* Desplegable del icono de acciones */
-#contenedor_contenido #contenido .desplegable,
 .desplegable{
     display: none;
     background-color: #F6F6F4;
@@ -42,9 +41,8 @@
     width: fit-content;
 }
 
-#contenedor_contenido #contenido .desplegable .contenedor_desplegable,
-.desplegable .encabezado_desplegable{
-    /* background-color: red; */
+.encabezado_desplegable{
+    background-color: red;
     width: 100%;
     display: flex;
     justify-content: space-between;

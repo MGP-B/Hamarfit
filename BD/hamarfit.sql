@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-08-2025 a las 20:37:34
+-- Tiempo de generación: 29-08-2025 a las 19:49:50
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.13
 
@@ -118,6 +118,8 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('406k09zu0acymiyxpr4rx4ranznjxzf0', 'eyJlbXBsZWFkb19pZCI6MSwicm9sIjoiQWRtaW4ifQ:1uqzEP:l-zCxT4bGSdRG9LKqpgr7b6AIRZQxRna-atFi7YbZZw', '2025-09-09 19:21:21.811124'),
+('6l5rmhooteoywjo0z1e3isjkppnbiuc8', 'eyJlbXBsZWFkb19pZCI6MSwicm9sIjoiQWRtaW4ifQ:1urKSf:8PChbaSLSX1WwQwgAKQbXmuI83oVKH9UgU5nHTqgb5k', '2025-09-10 18:01:29.356072'),
 ('99dn1jcjnjmw0gcga2h4lryb71t56lh3', 'eyJpZF9wbGFuIjoiMiIsImlkX3N1Y3Vyc2FsIjoiMSIsImNsaWVudGVfaWQiOjIxfQ:1uk83g:VXDLF3sSWeyQCzKNbJTwDzSC-RpN0fNogUPi3QykzRQ', '2025-08-21 21:21:56.735074'),
 ('abg2263unqaefx5hkexrwnvubxjl0jmy', 'e30:1ujMij:OsKMQhUiXkzGGD5kvl1SCMcIZYS7TncUuIvqUhr8WBc', '2025-08-19 18:49:09.112085'),
 ('ka0qqvwt7r8ygjigzhegek4s80kbjhw8', 'e30:1ujipk:oleJrLQoGPp-49BrGj1OqACjmuJ8wPvU3j1r4ec8MX8', '2025-08-20 18:25:52.443486');
@@ -226,9 +228,17 @@ INSERT INTO `metodos_pagos` (`id_metodo`, `metodo`) VALUES
 
 CREATE TABLE `nota_clientes` (
   `id_nota` int(11) NOT NULL,
+  `fecha` date NOT NULL,
   `nota` varchar(800) COLLATE utf8_spanish_ci NOT NULL,
   `id_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `nota_clientes`
+--
+
+INSERT INTO `nota_clientes` (`id_nota`, `fecha`, `nota`, `id_cliente`) VALUES
+(2, '2025-08-26', 'Tiene problemas en la rodilla derecha', 8);
 
 -- --------------------------------------------------------
 
@@ -470,7 +480,7 @@ ALTER TABLE `metodos_pagos`
 -- AUTO_INCREMENT de la tabla `nota_clientes`
 --
 ALTER TABLE `nota_clientes`
-  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`

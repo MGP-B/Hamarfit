@@ -89,11 +89,12 @@ class MetodosPagos(models.Model):
 
 class NotaClientes(models.Model):
     id_nota = models.AutoField(primary_key=True)
+    fecha = models.DateField( auto_now = True)
     nota = models.CharField(max_length=800)
     id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'nota_clientes'
 
 

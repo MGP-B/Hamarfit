@@ -18,7 +18,8 @@ from django.views.decorators.http import require_POST
 
 # Index
 def index(req):
-    return render(req,'index.html')
+    sucursales = Sucursales.objects.all()
+    return render(req,'index.html', {'sucursales': sucursales})
 
 #  ----- Paginas del apartado de 'user' -----
 # def sucursales_user(req):
@@ -100,8 +101,9 @@ def configuracion(req):
 def dashboard(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-    renovaciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Renovación')
-    inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción')
+    renovaciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Renovación').order_by('-id_finanza')[:5]
+
+    inscripciones = InscripcionesRenovaciones.objects.filter(descripcion = 'Inscripción').order_by('-id_finanza')[:5]
     return render(req, 'admin_pages/dashboard.html', {
         'renovaciones': renovaciones, 
         'inscripciones': inscripciones,
@@ -322,8 +324,9 @@ def seleccionar_plan(req):
 
 
 # Configuración
-def editar_usuario(req):
-    return render(req, 'admin_pages/desplegables/configuracion/editar_usuario.html')
+def detalles_usuario(req, id):
+    empleado = Empleados.objects.get(id_empleado = id)
+    return render(req, 'admin_pages/desplegables/configuracion/detalles_usuario.html', {'empleado' : empleado})
 
 
 def registrar_usuario(req):
@@ -366,8 +369,10 @@ def registrar_renovacion(req):
         })
 
 
-def detalles_factura(req):
-    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html')
+def detalles_factura(req, id):
+    factura = InscripcionesRenovaciones.objects.get(id_finanza = id)
+
+    return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/detalles_de_factura.html', {'factura': factura})
 
 
 # Sucursales
