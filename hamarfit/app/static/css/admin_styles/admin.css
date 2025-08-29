@@ -229,6 +229,11 @@ aside ul a:hover, aside ul #activo:hover {
     background-color: rgba(252, 165, 2, 0.25);  
 }
 
+aside #cerrar-sesion:hover {
+    color: #ff0000;
+    background-color: rgba(255, 0, 0, 0.435);
+}
+
 /* informaciones de usuario */
 aside .usuario {
     /* Margenes y tamaños */
