@@ -9,17 +9,6 @@ body {
     background-color: #ECECEC;
 }
 
-main {
-    box-sizing: border-box;
-    font-family: Rubik;
-    padding: 30px;
-    width: 82%;
-}
-
-/* Estilos del encabezado */
-.encabezado-sucursales {
-    line-height: 1.5;
-}
 
 /* Estilos del panel de control y contenedor de sucursal */
 .panel-control {
@@ -71,13 +60,13 @@ main button:hover {
 
 /* Contenedor de sucural */
 .contenedor-sucursal {
-    width: 99%;
-    height: 420px;
+    background-color: red;
+    width: 85%;
+    height: 85%;
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    margin: 10px 0;
     overflow: auto;
 }
 
@@ -95,15 +84,17 @@ main button:hover {
     border: 1px solid #a6a6a6;
     border-radius: 6px;
     padding: 15px;
-    width: 230px;
-    height: 200px;
+    width: 240px;
+    height: 220px;
     margin: 10px;
+    overflow: hidden;
 }
 
 /* Aplicando estilo a la imagen de la sucursal en la tarjeta */
 .contenedor-sucursal .tarjeta-sucursal #imagen-sucursal {
     border-radius: 5px;
     width: 100%;
+    height: 130px;
 }
 
 /* Aplicando estilos al encabezado de la tarjeta de sucursal */

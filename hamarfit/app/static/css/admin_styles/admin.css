@@ -39,7 +39,7 @@ main {
     height: 92%;
     padding: 25px;
     font-family: Rubik;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     box-sizing: border-box;
 }
