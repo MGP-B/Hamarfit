@@ -273,6 +273,8 @@ def registrar_usuario(req):
 
 
 # inscripciones_renovaciones
+from django.core.paginator import Paginator
+
 def registrar_renovacion(req):
     id_cliente = req.POST.get('id_cliente')
     empleado_id = req.session.get('empleado_id')
@@ -284,17 +286,55 @@ def registrar_renovacion(req):
     if req.method == 'POST':
         form = RenovacionesForm(req.POST)
         try:
-            cliente = Clientes.objects.get(id_cliente=id_cliente)
+            Clientes.objects.get(id_cliente=id_cliente)
             if form.is_valid():
                 form.save()
                 return redirect('../')
             else:
                 print('Los errores del formulario son: ', form.errors)
         except Clientes.DoesNotExist:
-            return redirect('../')
+            error = 'El ID del cliente no existe.'
+
+            # --- RECONSTRUIR EL CONTEXTO COMO EN LA VISTA PRINCIPAL ---
+            query = req.GET.get('q', '').strip()
+            if query:
+                palabras = query.lower().split()
+                inscripciones = InscripcionesRenovaciones.objects.annotate(
+                    nombre_completo=Concat(
+                        'id_cliente__nombre_cliente',
+                        Value(' '),
+                        'id_cliente__apellido_cliente'
+                    )
+                )
+                condiciones = Q()
+                for palabra in palabras:
+                    condiciones |= Q(id_cliente__nombre_cliente__icontains=palabra)
+                    condiciones |= Q(id_cliente__apellido_cliente__icontains=palabra)
+                    condiciones |= Q(nombre_completo__icontains=palabra)
+                resultados = inscripciones.filter(condiciones)
+            else:
+                resultados = InscripcionesRenovaciones.objects.none()
+
+            if query:
+                inscripciones_renovaciones_qs = resultados
+            else:
+                inscripciones_renovaciones_qs = InscripcionesRenovaciones.objects.all()
+
+            paginator = Paginator(inscripciones_renovaciones_qs, 10)
+            page_number = req.GET.get('page')
+            page_obj = paginator.get_page(page_number)
+
+            contexto = {
+                'error': error,
+                'empleado': empleado,
+                'inscripciones_renovaciones': page_obj,
+                'resultados': resultados,
+                'query': query,
+                'page_obj': page_obj,
+            }
+            return render(req, 'admin_pages/inscripciones_renovaciones.html', contexto)
     else:
         form = RenovacionesForm()
-
     return render(req, 'admin_pages/desplegables/inscripciones_renovaciones/registrar_renovacion.html', {'form': form,'planes': planes,'metodos_pago': metodos_pago,'empleado': empleado})
 
 
