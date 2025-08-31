@@ -1,5 +1,4 @@
 @import './admin.css';
-@import './desplegables/desplegables.css';
 
 html {
     overflow:hidden;
@@ -185,12 +184,6 @@ main button:hover {
 .horario-sucursal img {
     width: 12%;
     margin-right: 2px;
-}
-
-
-/* Desplegable del icono de acciones */
-.desplegable{
-    margin-left: 14rem;
 }
 
 a.disabled {

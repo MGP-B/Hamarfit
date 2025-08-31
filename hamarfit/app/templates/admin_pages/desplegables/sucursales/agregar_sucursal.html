@@ -14,33 +14,33 @@
     
             <div class="div-telefono">
                 <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono_sucursal" placeholder="Teléfono de la sucursal..." maxlength="12">
+                <input type="tel" id="telefono" name="telefono_sucursal" placeholder="Teléfono de la sucursal..." maxlength="12" required>
             </div>
     
             <div class="div-direccion">
                 <label for="direccion">Dirección</label>
-                <input type="text" id="direccion" name="direccion_sucursal" placeholder="Dirección de sucursal...">
+                <input type="text" id="direccion" name="direccion_sucursal" placeholder="Dirección de sucursal..." maxlength="200" required>
             </div>
     
             <div class="div-horario">
                 <label for="hora-apertura">Hora de Apertura</label>
-                <input type="time" name="hora_apertura" id="hora-apertura">
+                <input type="time" name="hora_apertura" id="hora-apertura" required>
             </div>
     
             <div class="div-imagen">
                 <label>Imagen de la Sucursal</label>
-                <input type="file" name="imagen" id="imagen-sucursal">
+                <input type="file" name="imagen" id="imagen-sucursal" required>
             </div>
 
             <div class="div-horario">
                 <label for="hora-cierre">Hora de Cierre</label>
-                <input type="time" name="hora_cierre" id="hora-cierre">
+                <input type="time" name="hora_cierre" id="hora-cierre" required>
             </div>
     
         </section>
     
         <div class="boton-container">
-            <button type="button" id="boton-cancelar">Cancelar</button>
+            <button id="boton-cancelar" onclick="cerrar_popup()" type="reset">Cancelar</button>
             <button type="submit" id="boton-guardar">Guardar Sucursal</button>
         </div>
     </form>

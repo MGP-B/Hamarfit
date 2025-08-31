@@ -211,6 +211,12 @@
             <div id="contenedor_popup">
                 <!-- Aquí se van a agregar los pop ups -->
             </div>
+        </div>
+
+        {% if error %}
+            <p style="display: none;" id="mensaje_error">{{ error }}</p>
+            <script src="{% static 'js/admin_js/evitar_recarga.js' %}"></script>
+        {% endif %}
     </main>
 
     <div class="contenedor_advertencia">
