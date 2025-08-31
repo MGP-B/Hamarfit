@@ -134,16 +134,17 @@ main button:hover {
 
 #contenedor_contenido thead #accion-user {
     text-align: center;
+    width: 10%;
 }
 
 #contenedor_contenido tbody td {
     padding-left: 10px;
-    vertical-align: middle;
     font-size: .8rem;
 }
 
 #contenedor_contenido tbody #accion {
     text-align: center;
+    cursor: pointer;
 }
 
 .despegable {

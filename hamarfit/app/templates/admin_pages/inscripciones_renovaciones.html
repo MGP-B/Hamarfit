@@ -95,7 +95,7 @@
             {% else %}
                 <a class="disabled">
                     <li class="opcion_desabilitada">
-                        <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="">
+                        <img src="{% static 'img/admin_img/menu/Staff.svg' %}" alt="">
                         <h3>Empleados</h3>
                     </li>
                 </a>
@@ -142,13 +142,13 @@
             <table class="tabla-inscripciones">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Fecha</th>
-                        <th>Descripción</th>
-                        <th>Cliente</th>
-                        <th>Plan</th>
-                        <th>Monto</th>
-                        <th>Acción</th>
+                        <th id="id-ins">ID</th>
+                        <th id="fecha-">Fecha</th>
+                        <th id="descripcion-ins">Descripción</th>
+                        <th id="cliente-ins">Cliente</th>
+                        <th id="plan-ins">Plan</th>
+                        <th id="monto-ins">Monto</th>
+                        <th id="accion-ins">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -160,7 +160,7 @@
                         <td>{{ inscripcion_renovacion.id_cliente.nombre_cliente }} {{ inscripcion_renovacion.id_cliente.apellido_cliente }}</td>
                         <td>{{ inscripcion_renovacion.id_plan.nombre_plan }}</td>
                         <td>{{ inscripcion_renovacion.id_plan.mensualidad }}</td>
-                        <td id="div_acciones_{{inscripcion_renovacion.id_finanza}}">
+                        <td id="div_acciones_{{inscripcion_renovacion.id_finanza}}" class="accion">
 
                             <div onclick="visible('{{ inscripcion_renovacion.id_finanza }}')">
                                 <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">

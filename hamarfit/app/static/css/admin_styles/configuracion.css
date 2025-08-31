@@ -1,14 +1,6 @@
 @import './admin.css';
 @import './desplegables/desplegables.css';
 
-/* Tamaño del main */
-main{
-    box-sizing: border-box;
-    font-family: Rubik;
-    padding: 20px;
-    width: 82%;
-}
-
 /* Contenedor de los contenedores */
 .contenedor{
     background-color: white;
@@ -29,7 +21,7 @@ main{
 /* Botón de nuevo usuario */
 .contenedor #nuevo_usuario{
     align-items: center;
-    background-color: black;
+    background-color: #ffa500;
     border: none;
     border-radius: 3px;
     color: white;
@@ -47,53 +39,65 @@ main{
 
 /* Contenedor de los contenidos o datos */
 #contenedor_contenido{
+    width: 100%;
+    height: 80%;
+    margin-top: 20px;
     background-color: white;
     border: 1px solid #7B7B7B;
     border-radius: 3px;
-    box-sizing: border-box;
-    height: calc(100% - 65px);
-    max-height: 350px;
-    margin-top: 20px;
-    overflow-x: auto;
-    padding: 20px;
+    overflow: hidden;
 }
+
 /* Encabezado del contenido */
-#contenedor_contenido .encabezado_contenido{
-    /* Asignación de columnas y espaciados */
-    display: grid;
-    grid-template-columns: 20% 1fr 20% 15% 8%;
-    gap: 15px;
-    /* Estilos del contenido */
-    border-bottom: 1px solid #7B7B7B;
-    box-sizing: border-box;
-    font-weight: bolder;
-    font-size: 1.4vw;
-    min-width: 100%;
-    padding: 15px;
-    width: fit-content;
+#contenedor_contenido .tabla-empleados{
+    width: 100%;
+    height: 100%;
 }
 
-#contenedor_contenido #contenido{
-    /* Asignación de columnas y espaciados */
-    display: grid;
-    grid-template-columns: 20% 1fr 20% 15% 8%;
-    gap: 15px;
-    /* Estilos del contenido */
-    box-sizing: border-box;
-    border-bottom: 1px solid #7B7B7B;
-    font-size: 1.15vw;
-    align-items: center;
-    margin-top: 15px;
-    min-width: 100%;
-    padding: 10px;
-    width: fit-content;
+#contenedor_contenido thead {
+    background-color: #ffa500;
+    height: 30px;  
 }
 
-/* icono de acciones */
-#contenedor_contenido #contenido img{
-    display: block;
-    margin: auto;
-    width: .6vw;
+#contenedor_contenido tbody {
+    height: 88%;
+}
+
+#contenedor_contenido thead th {
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 10px;
+    font-size: .9rem;
+    font-family: rubik;
+    color: white;
+}
+
+#contenedor_contenido thead #user-emp {
+    width: 20%;
+    margin: auto 0;
+}
+
+#contenedor_contenido thead #email-emp {
+    width: 30%;
+}
+
+#contenedor_contenido thead #rol-emp {
+    width: 15%;
+}
+
+#contenedor_contenido thead #accion-emp {
+    text-align: center;
+    width: 15%;
+}
+
+#contenedor_contenido tbody td {
+    padding-left: 10px;
+    font-size: .8rem;
+}
+
+#contenedor_contenido tbody .accion {
+    text-align: center;
+    cursor: pointer;
 }
 
 /* Transición a todos los botones */
@@ -107,13 +111,9 @@ main button:hover{
     transform: scale(.95);
 }
 
-/* Desplegable del icono de acciones */
-.desplegable{
-    margin-top: 170px;
-    right: 1vw;
+.despegable {
+    top: 100%;
 }
-
-#contenedor_contenido #contenido .desplegable h2{font-weight: lighter;}
 
 a.disabled {
     pointer-events: none;     /* Bloquea el clic */
