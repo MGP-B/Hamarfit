@@ -393,3 +393,34 @@ def registrar_sucursal(req):
 def editar_sucursal(req):
     return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')
 
+def reasignar_inscripciones(request, id_empleado):
+    empleado_origen = get_object_or_404(Empleados, pk=id_empleado)
+
+    empleados_destino = Empleados.objects.exclude(pk=id_empleado) \
+        .exclude(id_rol__rol='Entrenador')  # Excluye entrenadores
+
+    return render(request, 'admin_pages/desplegables/configuracion/reasignar_inscripciones.html', {
+        'empleado_origen': empleado_origen,
+        'empleados_destino': empleados_destino
+    })
+
+def ejecutar_reasignacion(request):
+    if request.method == 'POST':
+        origen_id = request.POST.get('origen_id')
+        destino_id = request.POST.get('destino_id')
+
+        try:
+            origen = Empleados.objects.get(pk=origen_id)
+            destino = Empleados.objects.get(pk=destino_id)
+
+            # Reasignar todas las inscripciones del empleado origen al destino
+            InscripcionesRenovaciones.objects.filter(id_empleado=origen).update(id_empleado=destino)
+
+            # Eliminar el empleado origen
+            origen.delete()
+
+            return JsonResponse({'success': True, 'message': 'Inscripciones reasignadas correctamente.'})
+        except Empleados.DoesNotExist:
+            return JsonResponse({'success': False, 'message': 'Empleado no encontrado.'}, status=404)
+    else:
+        return JsonResponse({'success': False, 'message': 'Método no permitido.'}, status=405)

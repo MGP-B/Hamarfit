@@ -32,6 +32,8 @@ urlpatterns = [
     # Configuración
     path('admin/configuracion/detalles_usuario/<int:id>', views.detalles_usuario, name='admin/configuracion/detalles_usuario/'),
     path('admin/configuracion/registrar_usuario/', views.registrar_usuario, name='admin/configuracion/registrar_usuario/'),
+    path('admin/configuracion/reasignar_inscripciones/<int:id_empleado>/', views.reasignar_inscripciones, name='reasignar_inscripciones'),
+    path('admin/configuracion/ejecutar_reasignacion/', views.ejecutar_reasignacion, name='ejecutar_reasignacion'),
 
     # inscripciones_renovaciones
     path('admin/inscripciones_renovaciones/registrar_renovacion/', views.registrar_renovacion, name='admin/inscripciones_renovaciones/registrar_renovacion/'),

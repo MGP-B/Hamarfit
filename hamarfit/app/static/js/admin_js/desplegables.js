@@ -77,3 +77,56 @@ document.addEventListener('click', function(event, id) {
         });
     }
 });
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+// ✅ Función para confirmar la reasignación
+function confirmarReasignacion(origenId) {
+    const destinoSelect = document.getElementById('empleado_destino');
+    if (!destinoSelect) {
+        alert("No se encontró el selector de empleado destino.");
+        return;
+    }
+
+    const destinoId = destinoSelect.value;
+
+    console.log("Reasignando inscripciones de:", origenId, "a:", destinoId);
+
+    fetch('/admin/configuracion/ejecutar_reasignacion/', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `origen_id=${origenId}&destino_id=${destinoId}`
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Error en la solicitud");
+        return res.json();
+    })
+    .then(data => {
+        console.log("Respuesta del servidor:", data);
+        alert(data.message);
+        if (data.success) {
+            cerrar_popup();  // Esta función debe estar definida en otro archivo o aquí si lo prefieres
+            location.reload();  // Refresca la vista para mostrar los cambios
+        }
+    })
+    .catch(error => {
+        console.error("Error al reasignar:", error);
+        alert("Hubo un problema al intentar reasignar las inscripciones.");
+    });
+}
