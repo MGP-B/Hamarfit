@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_styles/sucursales.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/desplegables.css' %}">
 </head>
 
 <body>
@@ -148,13 +149,13 @@
                         <img src="{% static 'img/admin_img/global/eliminar.svg' %}" alt="Icono">
                         
                         <!-- Desplegable de acciones -->
-                        <div class="desplegable" id="desplegable_{{sucursal.id_sucursal}}">
-                            <div class="encabezado_desplegable">
-                                <h2>Atención!!</h2>
-                                <p>Está a punto de eliminar la sucursal "{{sucursal.nombre_sucursal}}", desea continuar?</p>
+                        <div class="desplegable desplegable_sucursal" id="desplegable_{{sucursal.id_sucursal}}">
+                            <h2>Atención!!</h2>
+                            <p id="texto_desplegable">Está a punto de eliminar la sucursal <span>"{{sucursal.nombre_sucursal}}"</span>, desea continuar?</p>
+                            <div class="contenedor_botones">
+                                <button class="boton_cancelar" title="Cancelar la eliminación de la sucursal" onclick="cerrar_desplegable('{{ sucursal.id_sucursal }}'); event.stopPropagation()">Cancelar</button>
+                                <button type="button" class="boton_eliminar" title="Eliminar Permanentemente">Eliminar</button>
                             </div>
-                            <button class="boton_cancelar" title="Cancelar la eliminación de la sucursal" onclick="cerrar_desplegable('{{ sucursal.id_sucursal }}'); event.stopPropagation()">Cancelar</button>
-                            <button type="button" class="div_eliminar" title="Eliminar Permanentemente">Eliminar</button>
                         </div>
                     </div>
                 </div>

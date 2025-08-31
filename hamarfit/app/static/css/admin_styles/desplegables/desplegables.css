@@ -162,3 +162,38 @@
         width: .85rem;
     }
 }
+
+/* Desplegable de la pantalla de sucursales */
+.desplegable_sucursal{
+    background-color: white;
+    padding: 20px;
+    width: 350px;
+}
+.desplegable_sucursal h2{
+    color: #fca502;
+    text-align: center;
+    display: block;
+}
+.desplegable_sucursal #texto_desplegable{
+    color: black;
+    background-color: white;
+    margin-top: 20px;
+}
+.desplegable_sucursal #texto_desplegable span{
+    color: #fca502;
+}
+.desplegable_sucursal .contenedor_botones{
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+.desplegable_sucursal button{
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+.desplegable_sucursal .boton_eliminar{
+    background-color: red;
+    color: white;
+}
