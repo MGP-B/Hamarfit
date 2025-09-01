@@ -12,25 +12,27 @@
         </div>
 
         <div class="info2">
-            <h3>{{cliente.nombre_cliente}} {{cliente.apellido_cliente}}</h3>
-            <div class="mismo">
-                <img src="{% static 'img/admin_img/sucursales/mail (1) 1.svg' %}" alt="">
-                <p>{{cliente.correo_cliente}}</p>
-            </div>
-            <div class="mismo">
-                <img src="{% static 'img/admin_img/sucursales/phone (2) 1.svg' %}" alt="">
-                <p>{{cliente.telefono_cliente}}</p>
-            </div>
-            <div class="mismo">
-                <img src="{% static 'img/admin_img/sucursales/map-pinned 1.svg' %}" alt="">
-                <p>{{cliente.direccion_cliente}}</p>
+            <h3>{{cliente.nombre_cliente}} {{cliente.apellido_cliente}} #{{cliente.id_cliente}}</h3>
+            <div class="cuerpo_info">
+                <div class="mismo">
+                    <img src="{% static 'img/admin_img/sucursales/mail (1) 1.svg' %}" alt="">
+                    <p>{{cliente.correo_cliente}}</p>
+                </div>
+                <div class="mismo">
+                    <img src="{% static 'img/admin_img/sucursales/phone (2) 1.svg' %}" alt="">
+                    <p>{{cliente.telefono_cliente}}</p>
+                </div>
+                <div class="mismo">
+                    <img src="{% static 'img/admin_img/sucursales/map-pinned 1.svg' %}" alt="">
+                    <p>{{cliente.direccion_cliente}}</p>
+                </div>
+                <div class="mismo">
+                    <img src="{% static 'img/admin_img/sucursales/id.png' %}" alt="">
+                    <p>{{cliente.documento_cliente}}</p>
+                </div>
             </div>
         </div>
 
-        <div class="info3">
-            <p><span>ID Cliente:</span> {{cliente.id_cliente}}</p>
-            <p><span>Documento:</span> {{cliente.documento_cliente}}</p>
-        </div>
     </div>
 
     <div class="encabezado-notas">
@@ -44,14 +46,16 @@
                     <th>Nota</th>
                 </tr>
             </thead>
-            <tbody>
-                {% for nota in nota_cliente %}
-                <tr>
-                    <td>- {{nota.fecha}}</td>
-                    <td>{{nota.nota}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
+            <div class="contenedor_tbody">
+                <tbody>
+                    {% for nota in nota_cliente %}
+                    <tr>
+                        <td>{{nota.fecha}}</td>
+                        <td>{{nota.nota}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </div>
         </table>
     </div>
 
@@ -60,11 +64,6 @@
         <input type="number" style="display: none;" name="id_cliente" value="{{cliente.id_cliente}}">
         
         <input disabled class="notas-del-cliente" id="notas-del-cliente" name="nota" placeholder="Agregar nota ...">
-            <!-- {% if mostrar_nota %}
-            {{ nota_cliente.nota }}
-            {% else %}
-            {{ cliente.nombre_cliente }} no tiene ninguna nota aún...
-            {% endif %} -->
 
         <div class="boton-container">
             <button type="button" id="agregar-nota">
