@@ -269,7 +269,12 @@ aside .nombre-rol {
 
 aside .nombre-apellido {
     display: inline-flex;
-    font-size: 1rem
+    font-size: 1rem;
+    max-width: 150px;
+    overflow: scroll;
+}
+aside .nombre-apellido::-webkit-scrollbar{
+    display: none;
 }
 
 aside .nombre-apellido p:last-child {
