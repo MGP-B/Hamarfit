@@ -299,7 +299,7 @@ a.disabled {
 a.disabled li {
     display: flex;            /* Mantén la alineación del ícono y el texto */
     align-items: center;
-    gap: 33px;                 /* Ajusta separación como los demás */
+    gap: 30px;                 /* Ajusta separación como los demás */
 }
 
 .contenedor_advertencia{display: none;}
