@@ -35,7 +35,7 @@ const observador = new MutationObserver(() =>{
         input.setAttribute('disabled', '');
         input.style.display = 'none';
 
-        boton_agregar.style.display = 'block';
+        boton_agregar.style.display = 'flex';
 
         botones.style.display = 'none';
         boton_guardar.style.display = 'none';

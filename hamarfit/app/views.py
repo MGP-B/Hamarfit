@@ -196,7 +196,7 @@ def sucursales_admin(req):
 
 # ----- Desplegables de Admin -----
 def detalles_cliente(req, id):
-    # Obtener el cliente (esto es igual para GET y POST)
+    # Obtener el cliente
     cliente = get_object_or_404(Clientes, id_cliente=id)
     
     # Inicializar el formulario, vacío para GET o con datos para POST
@@ -217,7 +217,7 @@ def detalles_cliente(req, id):
 
     # Lógica para manejar solicitudes GET
     try:
-        nota_cliente = NotaClientes.objects.filter(id_cliente=id).order_by('-fecha')
+        nota_cliente = NotaClientes.objects.filter(id_cliente=id).order_by('-id_nota')
         mostrar_nota = True
     except NotaClientes.DoesNotExist:
         nota_cliente = None

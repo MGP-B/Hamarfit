@@ -40,13 +40,13 @@
         
         
         <div class="contenedor_tbody">
-        <table class="historial_notas">
-            <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Nota</th>
-                </tr>
-            </thead>
+            <table class="historial_notas">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Nota</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {% for nota in nota_cliente %}
                     <tr>
@@ -71,7 +71,7 @@
                 <p>Agregar Nota</p>
             </button>
             <div id="botones">
-                <button id="boton-cancelar" onclick="cerrar_popup()" type="reset">Cancelar</button>
+                <button id="boton-cancelar" type="reset">Cancelar</button>
                 <button type="submit" id="boton-guardar">Guardar</button>
             </div>
         </div>

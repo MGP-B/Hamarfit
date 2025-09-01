@@ -11,7 +11,7 @@
 
 .cuerpo_popup h2 {
     font-family: Rubik;
-    font-size: 1.3vw;
+    font-size: 22px;
     font-weight: 600;
     padding-bottom: 20px;
 }
@@ -67,7 +67,7 @@
 }
 
 .cuerpo_popup .info-contenedor .info2 h3 {
-    font-size: 24px;
+    font-size: 22px;
     font-family: Rubik;
     font-weight: 400;
 }
@@ -98,9 +98,13 @@
 }
 
 .cuerpo_popup .historial_notas thead{
-    font-size: 20px;
+    font-size: 18px;
     font-family: Rubik;
     font-weight: 600;
+}
+
+.cuerpo_popup .historial_notas tbody{
+    font-size: 16px;
 }
 
 .cuerpo_popup .contenedor_tbody{
@@ -116,9 +120,9 @@
     box-sizing: border-box;
     border-radius: 5px;
     font-family: Rubik;
-    font-size: .90rem;
+    font-size: .70rem;
     font-weight: 200;
-    height: 40px;
+    height: 30px;
     line-height: 1.3;
     padding: 8px;
     resize: none;
