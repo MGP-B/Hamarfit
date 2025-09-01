@@ -167,9 +167,9 @@
 .desplegable_sucursal{
     background-color: white;
     padding: 20px;
-    width: 300px;
-    top: 140px;
-    left: -37px;
+    width: 294px;
+    top: 116px;
+    left: -34px;
 }
 .desplegable_sucursal h2{
     color: #fca502;
@@ -180,6 +180,7 @@
     color: black;
     background-color: white;
     margin-top: 20px;
+    font-size: .75rem;
 }
 .desplegable_sucursal #texto_desplegable span{
     color: #fca502;

@@ -81,12 +81,13 @@ main button:hover {
 .contenedor-sucursal .tarjeta-sucursal {
     background-color: #fff;
     border: 1px solid #a6a6a6;
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 15px;
-    width: 240px;
-    height: 220px;
+    width: 270px;
+    height: 250px;
     margin: 10px;
     position: relative;
+    box-sizing: border-box;
 }
 
 /* Aplicando estilo a la imagen de la sucursal en la tarjeta */
@@ -202,41 +203,4 @@ a.disabled li {
     display: flex;            /* Mantén la alineación del ícono y el texto */
     align-items: center;
     gap: 8px;                 /* Ajusta separación como los demás */
-}
-
-/* Desplegable de la pantalla de sucursales */
-.desplegable_sucursal{
-    background-color: white;
-    padding: 20px;
-    width: 300px;
-    left: 20px;
-    z-index: 4;
-}
-.desplegable_sucursal h2{
-    color: #fca502;
-    text-align: center;
-    display: block;
-}
-.desplegable_sucursal #texto_desplegable{
-    color: black;
-    background-color: white;
-    margin-top: 20px;
-}
-.desplegable_sucursal #texto_desplegable span{
-    color: #fca502;
-}
-.desplegable_sucursal .contenedor_botones{
-    display: flex;
-    justify-content: end;
-    margin-top: 20px;
-}
-.desplegable_sucursal button{
-    padding: 8px 16px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-}
-.desplegable_sucursal .boton_eliminar{
-    background-color: red;
-    color: white;
 }

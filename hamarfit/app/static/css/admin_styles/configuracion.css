@@ -40,7 +40,7 @@
 /* Contenedor de los contenidos o datos */
 #contenedor_contenido{
     width: 100%;
-    height: 80%;
+    height: 70%;
     margin-top: 20px;
     background-color: white;
     border: 1px solid #7B7B7B;
@@ -51,7 +51,8 @@
 /* Encabezado del contenido */
 #contenedor_contenido .tabla-empleados{
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    max-height: 100%;
 }
 
 #contenedor_contenido thead {
@@ -61,6 +62,10 @@
 
 #contenedor_contenido tbody {
     height: 88%;
+}
+
+#contenedor_contenido tbody td {
+    vertical-align: middle;
 }
 
 #contenedor_contenido thead th {
@@ -170,7 +175,7 @@ a.disabled li {
     padding: 10px;
     position: absolute;
     width: fit-content;
-    right: 105px;
+    right: 110px;
     margin-top: -40px;
     /* translate: -130px -45px; */
     scale: .8;

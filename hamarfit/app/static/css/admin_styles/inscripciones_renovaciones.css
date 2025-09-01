@@ -76,7 +76,7 @@
 /* Contenedor de los contenidos o datos */
 #contenedor_contenido{
     width: 100%;
-    height: 70%;
+    height: 62%;
     background-color: white;
     border: 1px solid #7B7B7B;
     border-radius: 3px;
@@ -86,7 +86,8 @@
 /* Encabezado del contenido */
 #contenedor_contenido .tabla-inscripciones{
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    max-height: 100%;
 }
 
 #contenedor_contenido thead {
@@ -120,6 +121,7 @@
 #contenedor_contenido tbody td {
     padding-left: 10px;
     font-size: .8rem;
+    vertical-align: middle;
 }
 
 #contenedor_contenido tbody .accion {
