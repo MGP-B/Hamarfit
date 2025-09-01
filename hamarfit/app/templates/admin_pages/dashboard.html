@@ -14,10 +14,11 @@
         <div class="logo">
             <h1>HAMAR<span>FIT</span></h1>
         </div>
-        <div class="setting">
-            <a href="{% url 'admin/configuracion'%}">
-                <img src="{% static 'img/admin_img/menu/settings.svg' %}" alt="" id="inactivo">
-                <img src="{% static 'img/admin_img/menu/activos/settings-activo.svg' %}" alt="" id="activo">
+
+        <div class="cerrar-sesion">
+            <a href="{% url 'logout_user' %}">
+                <img src="{% static 'img/admin_img/menu/activos/Logout-activo.svg' %}" alt="" id="activo">
+                <img src="{% static 'img/admin_img/menu/Logout.svg' %}" alt="" id="inactivo">
             </a>
         </div>
     </header>
@@ -30,38 +31,86 @@
                     <h3>Dashboard</h3>
                 </li>
             </a>
-            <a href="{% url 'admin/clientes'%}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
-                    <h3>Clientes</h3>
-                </li>
-            </a>
-            <a href="{% url 'admin/sucursales'%}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
-                    <h3>Sucursales</h3>
-                </li>
-            </a>
-            <a href="{% url 'admin/inscripciones_renovaciones'%}">
-                <li class="opcion">
-                    <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
-                    <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
-                    <h3>Insc y Reno</h3>
-                </li>
-            </a>
+            {% if empleado.id_rol.rol in 'Admin,Gerente,Entrenador,Recepcionista' %}
+                <a href="{% url 'admin/clientes'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/clientes-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="" id="inactivo">
+                        <h3>Clientes</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/clientes.svg' %}" alt="">
+                        <h3>Clientes</h3>
+                    </li>
+                </a>
+            {% endif %}
+
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
+                <a href="{% url 'admin/sucursales'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/sucursales-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="" id="inactivo">
+                        <h3>Sucursales</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/sucursales.svg' %}" alt="">
+                        <h3>Sucursales</h3>
+                    </li>
+                </a>
+            {% endif %}
+
+            {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
+                <a href="{% url 'admin/inscripciones_renovaciones'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
+                        <h3>Insc y Reno</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" >
+                        <h3>Insc y Reno</h3>
+                    </li>
+                </a>
+            {% endif %}
+
+            {% if empleado.id_rol.rol in 'Admin,Gerente' %}
+                <a href="{% url 'admin/configuracion'%}">
+                    <li class="opcion">
+                        <img src="{% static 'img/admin_img/menu/activos/Staff-activo.svg' %}" alt="" id="activo">
+                        <img src="{% static 'img/admin_img/menu/Staff.svg' %}" alt="" id="inactivo">
+                        <h3>Empleados</h3>
+                    </li>
+                </a>
+            {% else %}
+                <a class="disabled">
+                    <li class="opcion_desabilitada">
+                        <img src="{% static 'img/admin_img/menu/Staff.svg' %}" alt="">
+                        <h3>Empleados</h3>
+                    </li>
+                </a>
+            {% endif %}
         </ul>
+
         <div class="usuario">
             <div class="icono">
-                <p id="icono-usuario">J</p>
+                <p id="icono-usuario">
+                    {{ empleado.nombre_empleado|slice:":1" }}{{ empleado.apellido_empleado|slice:":1" }}</p>
             </div>
             <div class="nombre-rol">
                 <div class="nombre-apellido">
-                    <p id="nombre-usuario">José</p>
-                    <p id="apellido-usuario">Miguel</p>
+                    <p id="nombre-usuario">{{ empleado.nombre_empleado }}</p>
+                    <p id="apellido-usuario">{{ empleado.apellido_empleado }}</p>
                 </div>
-                <p id="rol-usuario">Administrador</p>
+                <p id="rol-usuario">{{ empleado.id_rol.rol }}</p>
             </div>
         </div>
     </aside>
@@ -85,8 +134,8 @@
                     <div class="encabezado_actividades">
                         <!-- Div con el título y subtítulo -->
                         <div>
-                            <h4>Ingresos Recientes</h4>
-                            <p class="subtitulo">Últimos ingresos registrados</p>
+                            <h4>Renovaciones </h4>
+                            <p class="subtitulo">Últimas renovaciones registradas</p>
                         </div>
                         <!-- Enlace al apartado de finanzas -->
                     </div>
@@ -96,24 +145,20 @@
                         <!-- Contenedor de los encabezados -->
                         <div class="encabezado_tabla_ingresos">
                             <p>Fecha</p>
-                            <p>Descripción</p>
-                            <p>Membresía</p>
-                            <p>Monto</p>
+                            <p>Plan</p>
+                            <p>Cliente</p>
+                            <p>Empleado</p>
                         </div>
 
                         <!-- Contenedor de los datos -->
-                        <div id="dashdboard_contenido_ingresos">
-                            <p>19/05/2025</p>
-                            <p>Renovación Plan Anual</p>
-                            <p>Plan Pro</p>
-                            <p>$3,200.00</p>
+                        {% for renovacion in renovaciones %}
+                        <div class="dashboard_contenido_ingresos">
+                            <p>{{renovacion.emision}}</p>
+                            <p>{{renovacion.id_plan.nombre_plan}}</p>
+                            <p>{{renovacion.id_cliente.nombre_cliente}} {{renovacion.id_cliente.apellido_cliente}}</p>
+                            <p>{{renovacion.id_empleado.nombre_empleado}} {{renovacion.id_empleado.apellido_empleado}}</p>
                         </div>
-                        <div id="dashdboard_contenido_ingresos_amarillo">
-                            <p>19/05/2025</p>
-                            <p>Suscripción Plan Mensual</p>
-                            <p>Plan Básico</p>
-                            <p>$900.00</p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
 
@@ -124,8 +169,8 @@
                     <div class="encabezado_actividades">
                         <!-- Div con el título y subtítulo -->
                         <div>
-                            <h4>Clientes Recientes</h4>
-                            <p class="subtitulo">Últimos Clientes registrados en la web</p>
+                            <h4>Clientes </h4>
+                            <p class="subtitulo">Últimos Clientes agregados al sistema</p>
                         </div>
                         <!-- Enlace al apartado de finanzas -->
                     </div>
@@ -133,26 +178,23 @@
                     <!-- Contenedor de los contenedores de datos -->
                     <div class="contenedor_contenido">
                         <!-- Contenedor de los encabezados -->
+                        
                         <div class="encabezado_tabla_clientes">
                             <p>Fecha</p>
-                            <p>Nombre</p>
-                            <p>Email</p>
-                            <p>Membresía</p>
+                            <p>Plan</p>
+                            <p>Cliente</p>
+                            <p>Empleado</p>
                         </div>
-
                         <!-- Contenedor de los datos -->
-                        <div id="ashdboard_contenido_clientes">
-                            <p>19/05/2025</p>
-                            <p>José Miguel</p>
-                            <p>jmiguel@gmail.com</p>
-                            <p>Plan Pro</p>
+                        {% for inscripcion in inscripciones %}
+                        <div class="dashboard_contenido_clientes">
+                            <p>{{inscripcion.emision}}</p>
+                            <p>{{inscripcion.id_plan.nombre_plan}}</p>
+                            <p>{{inscripcion.id_cliente.nombre_cliente}} {{inscripcion.id_cliente.apellido_cliente}}</p>
+                            <p>{{inscripcion.id_empleado.nombre_empleado}} {{inscripcion.id_empleado.apellido_empleado}}
+                            </p>
                         </div>
-                        <div id="ashdboard_contenido_clientes_amarillo">
-                            <p>19/05/2025</p>
-                            <p>María Rodríguez</p>
-                            <p>mrodriguez@gmail.com</p>
-                            <p>Plan Básico</p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -160,7 +202,7 @@
     </main>
 
     <div class="contenedor_advertencia">
-        <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (750px de ancho)</p>
+        <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (800px de ancho)</p>
     </div>
 </body>
 

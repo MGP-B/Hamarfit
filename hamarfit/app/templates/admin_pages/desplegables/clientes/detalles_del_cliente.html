@@ -7,49 +7,73 @@
         <div class="info1">
             <img src="{% static 'img/admin_img/sucursales/Ver Cliente.svg' %}" alt="">
             <div class="negro">
-                <p>Activo</p>
+                <p>{{cliente.id_estado.estado}}</p>
             </div>
         </div>
 
         <div class="info2">
-            <h3>José Sosa</h3>
-            <div class="mismo">
-                <img src="{% static 'img/admin_img/sucursales/mail (1) 1.svg' %}" alt="">
-                <p>josealex@ejemplo.com</p>
-            </div>
-            <div class="mismo">
-                <img src="{% static 'img/admin_img/sucursales/phone (2) 1.svg' %}" alt="">
-                <p>809-523-09543</p>
-            </div>
-            <div class="mismo">
-                <img src="{% static 'img/admin_img/sucursales/map-pinned 1.svg' %}" alt="">
-                <p>Santiago de los Caballeros</p>
+            <h3>{{cliente.nombre_cliente}} {{cliente.apellido_cliente}} #{{cliente.id_cliente}}</h3>
+            <div class="cuerpo_info">
+                <div class="mismo">
+                    <img src="{% static 'img/admin_img/sucursales/mail (1) 1.svg' %}" alt="">
+                    <p>{{cliente.correo_cliente}}</p>
+                </div>
+                <div class="mismo">
+                    <img src="{% static 'img/admin_img/sucursales/phone (2) 1.svg' %}" alt="">
+                    <p>{{cliente.telefono_cliente}}</p>
+                </div>
+                <div class="mismo">
+                    <img src="{% static 'img/admin_img/sucursales/map-pinned 1.svg' %}" alt="">
+                    <p>{{cliente.direccion_cliente}}</p>
+                </div>
+                <div class="mismo">
+                    <img src="{% static 'img/admin_img/sucursales/id.png' %}" alt="">
+                    <p>{{cliente.documento_cliente}}</p>
+                </div>
             </div>
         </div>
 
-        <div class="info3">
-            <p><span>ID Cliente:</span> CLI-001</p>
-            <p><span>Cédula:</span> 402-0000000-1</p>
-            <p><span>Fecha de Nacimiento:</span> 18/01/2007</p>
-        </div>
     </div>
 
     <div class="encabezado-notas">
         <h3>Notas del Cliente</h3>
+        
+        
+        <div class="contenedor_tbody">
+            <table class="historial_notas">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nota in nota_cliente %}
+                    <tr>
+                        <td>{{nota.fecha}}</td>
+                        <td style="max-width: 340px;">{{nota.nota}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-    <textarea disabled class="notas-del-cliente" id="notas-del-cliente">
-        El cliente manifestó molestias en la rodilla derecha durante la rutina de piernas. Se recomendó evitar ejercicios de impacto (sentadillas con peso, saltos) y consultar con un fisioterapeuta. Se modificó su plan semanal y se notificó al entrenador asignado (Carlos R.).
-        También solicitó actualizar su método de pago para el próximo mes y pidió información sobre clases de spinning.
-    </textarea>
 
-    <form action="">
+    <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
+        {% csrf_token %}
+        <input type="number" style="display: none;" name="id_cliente" value="{{cliente.id_cliente}}">
+        
+        <input disabled class="notas-del-cliente" id="notas-del-cliente" name="nota" placeholder="Agregar nota ...">
+
         <div class="boton-container">
             <button type="button" id="agregar-nota">
                 <img src="{% static 'img/admin_img/sucursales/notebook-pen 1.svg' %}" alt="">
                 <p>Agregar Nota</p>
             </button>
-            <button type="button" id="boton-cancelar">Cancelar</button>
-            <button type="submit" id="boton-guardar">Guardar</button>
+            <div id="botones">
+                <button id="boton-cancelar" type="reset">Cancelar</button>
+                <button type="submit" id="boton-guardar">Guardar</button>
+            </div>
         </div>
     </form>
 </div>

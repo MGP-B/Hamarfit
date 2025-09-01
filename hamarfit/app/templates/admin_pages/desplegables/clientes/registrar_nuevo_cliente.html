@@ -17,17 +17,17 @@
         {% endif %} -->
         <div class="div-nombre-apellido">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre_cliente" placeholder="Tu nombre">
+            <input type="text" id="nombre" name="nombre_cliente" placeholder="Tu nombre" maxlength="80" required>
         </div>
         
         <div class="div-nombre-apellido">
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido_cliente" placeholder="Tu apellido">
+            <input type="text" id="apellido" name="apellido_cliente" placeholder="Tu apellido" maxlength="100" required>
         </div>
 
         <div class="div-tipo-documento">
             <label for="tipo-documento">Tipo de Documento</label>
-            <select id="tipo-documento" name="tipo_documento">
+            <select id="tipo-documento" name="tipo_documento" required>
                 <option value="DNI">DNI</option>
                 <option value="Pasaporte">Pasaporte</option>
             </select>
@@ -35,37 +35,32 @@
         
         <div class="div-documento">
             <label for="documento">Número de Documento</label>
-            <input type="text" id="documento" name="documento_cliente" placeholder="Tu número de documento">
+            <input type="text" id="documento" name="documento_cliente" placeholder="Tu número de documento" maxlength="13" required>
         </div>
         
         <div class="div-fecha">
             <label for="fecha-nac">Fecha de Nacimiento</label>
-            <input type="date" id="fecha-nac" name="fecha_nac">
+            <input type="date" id="fecha-nac" name="fecha_nac" required>
         </div>
         
         <div class="div-correo">
             <label for="correo">Correo</label>
-            <input type="email" id="correo_cliente" name="correo_cliente" placeholder="tu@email.com">
+            <input type="email" id="correo_cliente" name="correo_cliente" placeholder="tu@email.com" maxlength="80" required>
         </div>
         
         <div class="div-telefono">
             <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono_cliente" placeholder="Tu número de teléfono">
+            <input type="tel" id="telefono" name="telefono_cliente" placeholder="Tu número de teléfono (Sin guiones)" maxlength="12" required>
         </div>
         
         <div class="div-direccion">
             <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion_cliente" placeholder="Tu dirección">
+            <input type="text" id="direccion" name="direccion_cliente" placeholder="Tu dirección" maxlength="200" required>
         </div>
-        
-        <!-- <div class="inscripcion">
-            <label for="inscripcion">Fecha de Inscripción</label>
-            <input type="date" id="inscripcion" name="inscripcion">
-        </div> -->
 
         <div class="plan">
             <label for="plan">Selecciona un Plan</label>
-            <select id="plan" name="id_plan">
+            <select id="plan" name="id_plan" required>
                 <option value="1">Plan Básico</option>
                 <option value="2">Plan Pro</option>
             </select>
@@ -73,7 +68,7 @@
 
         <div class="sucursal">
             <label for="sucursal">Selecciona una Sucursal</label>
-            <select id="sucursal" name="id_sucursal">
+            <select id="sucursal" name="id_sucursal" required>
                 {% for sucursal in sucursales %}
                 <option value="{{ sucursal.id_sucursal }}">{{ sucursal.nombre_sucursal }}</option>
                 {% endfor %}
@@ -82,16 +77,11 @@
         
         <div class="div-contrasena">
             <label for="contrasena">Contraseña</label>
-            <input type="password" id="contrasena" name="contrasena_cliente" placeholder="Tu contraseña">
-        </div>
-
-        <div class="div-contrasena">
-            <label for="confirmar_contrasena">Confirmar Contraseña</label>
-            <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" placeholder="Confirma tu contraseña">
+            <input type="password" id="contrasena" name="contrasena_cliente" placeholder="Tu contraseña" maxlength="20" required>
         </div>
         
         <div class="boton-container">
-            <button id="boton-cancelar" type="button">Cancelar</button>
+            <button id="boton-cancelar" onclick="cerrar_popup()" type="reset">Cancelar</button>
             <button type="submit" id="boton-continuar">Continuar</button>
         </div>
     </form>

@@ -6,14 +6,11 @@ urlpatterns = [
     path('',views.index, name='index'),
 
     # ----- Apartado de 'user' -----
-    path('sucursales/',views.sucursales_user, name='user/sucursales'),
-    path('checkout/',views.checkout, name='user/checkout'),
     path('ajustes_cuenta/',views.ajustes_cuenta, name='user/ajustes_cuenta'),
-    path('metodo_pago/',views.metodo_pago, name='user/metodo_pago'),
     path('planes_contratados/',views.planes_contratados, name='user/planes_contratados'),
-    path('registro/',views.registro, name='user/registro'),
-    path('inicio_user/',views.proteger_vista, name='inicio_user'),
+    path('inicio_user/',views.inicio_user, name='inicio_user'),
     path('logout_user/',views.logout_user, name='logout_user'),
+    path('ajustes_cuenta/<int:id_cliente>/', views.actualizar_datos_cliente, name='actualizar_datos'),
 
 
     # ----- Apartado de 'admin' -----
@@ -27,17 +24,20 @@ urlpatterns = [
 
     # ----- Desplegables de 'admin' -----
     # Clientes
-    path('admin/clientes/detalles_cliente/', views.detalles_cliente, name= 'admin/clientes/detalles_cliente/'),
+    path('admin/clientes/detalles_cliente/<int:id>', views.detalles_cliente, name= 'admin/clientes/detalles_cliente/'),
+    path('admin/clientes/eliminar_cliente/<int:id>/', views.eliminar_cliente, name='eliminar_cliente'),
     path('admin/clientes/registrar_cliente/', views.registrar_cliente, name='admin/clientes/registrar_cliente/'),
     path('admin/clientes/seleccionar_plan/', views.seleccionar_plan, name='admin/clientes/seleccionar_plan/'),
 
     # Configuración
-    path('admin/configuracion/editar_usuario/', views.editar_usuario, name='admin/configuracion/editar_usuario/'),
+    path('admin/configuracion/detalles_usuario/<int:id>', views.detalles_usuario, name='admin/configuracion/detalles_usuario/'),
     path('admin/configuracion/registrar_usuario/', views.registrar_usuario, name='admin/configuracion/registrar_usuario/'),
+    path('admin/configuracion/reasignar_inscripciones/<int:id_empleado>/', views.reasignar_inscripciones, name='reasignar_inscripciones'),
+    path('admin/configuracion/ejecutar_reasignacion/', views.ejecutar_reasignacion, name='ejecutar_reasignacion'),
 
     # inscripciones_renovaciones
     path('admin/inscripciones_renovaciones/registrar_renovacion/', views.registrar_renovacion, name='admin/inscripciones_renovaciones/registrar_renovacion/'),
-    path('admin/inscripciones_renovaciones/detalles_factura/', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
+    path('admin/inscripciones_renovaciones/detalles_factura/<int:id>', views.detalles_factura, name='admin/inscripciones_renovaciones/detalles_factura/' ),
 
     # Sucursales
     path('admin/sucursales/registrar_sucursal/', views.registrar_sucursal, name='registrar_sucursal'),

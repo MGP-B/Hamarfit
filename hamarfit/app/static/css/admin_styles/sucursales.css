@@ -9,69 +9,15 @@ body {
     background-color: #ECECEC;
 }
 
-main {
-    box-sizing: border-box;
-    font-family: Rubik;
-    padding: 30px;
-    width: 82%;
-}
-
-/* Estilos del encabezado */
-.encabezado-sucursales {
-    line-height: 1.5;
-}
 
 /* Estilos del panel de control y contenedor de sucursal */
 .panel-control {
     display: flex;
     justify-content: space-between;
-}
-
-/* Barra de búsqueda */
-.panel-control .barra-de-busqueda {
-    display: flex;
+    width: 96%;
+    padding: 20px;
+    border-radius: 20px;
     align-items: center;
-    gap: 8px;
-    width: 100%;
-    position: relative;
-}
-
-.panel-control .barra-de-busqueda img {
-    position: relative;
-    left: 5px;
-    z-index: 1;
-}
-
-.panel-control .barra-de-busqueda input {
-        display: flex;
-        align-items: center;
-        padding: 6px 12px;
-        background-color: white;
-        border: 1px solid #c7c7c7;
-        border-radius: 6px;
-        width: 40%;
-}
-
-/* Boton buscar */
-.panel-control .barra-de-busqueda .boton-buscar {
-        padding: 6px 12px;
-        background-color: #f9f9f9;
-        border: 1px solid #c7c7c7;
-        border-radius: 6px;
-        cursor: pointer;
-        display: flex;
-        position: relative;
-}
-
-.panel-control .barra-de-busqueda .boton-buscar p {
-    margin-top: 2px;
-    margin-left: 8px;
-}
-
-.panel-control .barra-de-busqueda .boton-buscar img {
-    width: 18px;
-    margin-top: -2px;
-    margin-left: -10px
 }
 
 /* Boton agregar nueva sucursal */
@@ -84,15 +30,16 @@ main {
     cursor: pointer;
     font-size: 13px;
     font-weight: 500;
-    width: 190px;
-    transition: background-color 0.2s;
+    width: fit-content;
+    height: fit-content;
+    transition: .2s;
     display: flex;
-    position: relative;
 }
 
 /* Imagen del boton agregar */
 .panel-control .boton-agregar img {
     text-align: left;
+    height: 25px;
 }
 
 /* Parrafo del boton agregar */
@@ -113,13 +60,12 @@ main button:hover {
 
 /* Contenedor de sucural */
 .contenedor-sucursal {
-    width: 99%;
-    height: 420px;
+    width: 85%;
+    height: 85%;
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    margin: 10px 0;
     overflow: auto;
 }
 
@@ -135,17 +81,20 @@ main button:hover {
 .contenedor-sucursal .tarjeta-sucursal {
     background-color: #fff;
     border: 1px solid #a6a6a6;
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 15px;
-    width: 230px;
-    height: 200px;
+    width: 270px;
+    height: 250px;
     margin: 10px;
+    position: relative;
+    box-sizing: border-box;
 }
 
 /* Aplicando estilo a la imagen de la sucursal en la tarjeta */
 .contenedor-sucursal .tarjeta-sucursal #imagen-sucursal {
     border-radius: 5px;
     width: 100%;
+    height: 130px;
 }
 
 /* Aplicando estilos al encabezado de la tarjeta de sucursal */
@@ -239,13 +188,32 @@ main button:hover {
     margin-right: 2px;
 }
 
+<<<<<<< HEAD
 
 /* Desplegable del icono de acciones */
 .desplegable{
     margin-left: 14rem;
 }
 
+
 /* Media required para pantallas de 1280px */
 @media screen and (max-width: 1280px) {
     
+=======
+a.disabled {
+    pointer-events: none;     /* Bloquea el clic */
+    cursor: not-allowed;      /* Cursor indica prohibido */
+    display: inline-block;    /* Mantiene estructura */
+    text-decoration: none;    /* Igual que los demás */
+    width: 95%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 5px 3px;
+    opacity: 0.5;
+}
+a.disabled li {
+    display: flex;            /* Mantén la alineación del ícono y el texto */
+    align-items: center;
+    gap: 8px;                 /* Ajusta separación como los demás */
+>>>>>>> da542fb19cac90478a68d99ca0b8ca34cade143a
 }

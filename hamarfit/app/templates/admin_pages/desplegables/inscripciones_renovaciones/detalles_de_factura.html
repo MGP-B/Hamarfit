@@ -7,21 +7,20 @@
     <div class="factura-card">
         <div class="header">
         <div>
-            <h3>Factura <span>#FAC-001</span></h3>
+            <h3>Factura <span>#{{factura.id_finanza}}</span></h3>
             <span class="amarillo">Pagada</span>
         </div>
         <div class="fechas">
-            <p><strong>Fecha de Emisión:</strong> 01/03/2025</p>
-            <p><strong>Fecha de Vencimiento:</strong> 01/04/2025</p>
+            <p><strong>Fecha de Emisión:</strong> {{factura.emision}}</p>
         </div>
         </div>
 
         <div class="datos">
         <div>
-            <p><strong>Atendido por:</strong><br>José Miguel<br><span class="sub">Administrador</span></p>
+            <p><strong>Atendido por:</strong><br>{{factura.id_empleado.nombre_empleado}} {{factura.id_empleado.apellido_empleado}}<br><span class="sub">Administrador</span></p>
         </div>
         <div>
-            <p><strong>Cliente:</strong><br>José Sosa<br><span class="sub">ID: CLI-001</span></p>
+            <p><strong>Cliente:</strong><br>{{factura.id_cliente.nombre_cliente}} {{factura.id_cliente.apellido_cliente}}<br><span class="sub">ID: {{factura.id_cliente.id_cliente}}</span></p>
         </div>
         </div>
 
@@ -29,15 +28,13 @@
         <thead>
             <tr>
             <th>Plan</th>
-            <th>Sucursal</th>
             <th>Monto</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-            <td><span class="plan-pro">PlanPro</span></td>
-            <td>Santiago - Center</td>
-            <td>$1,500</td>
+            <td><span class="plan-pro">{{factura.id_plan.nombre_plan}}</span></td>
+            <td>{{factura.id_plan.mensualidad}}</td>
             </tr>
         </tbody>
         </table>
@@ -51,10 +48,10 @@
         <div>
             <h4>Método de Pago</h4>
             <img src="{% static 'img/admin_img/sucursales/credit-card 2.svg' %}" alt="">
-            <p>Tarjeta</p>
+            <p>{{factura.id_metodo.metodo}}</p>
         </div>
         <div class="total">
-            <strong>Total:</strong> RD$ 99.99
+            <strong>Total:</strong> {{factura.id_plan.mensualidad}}
         </div>
         </div>
 

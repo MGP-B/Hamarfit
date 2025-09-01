@@ -3,15 +3,22 @@
 
 html {
     font-size: 20px;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 1.7rem;
+    font-family: paytone;
 }
 
 h2 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-family: rubiksemi;
 }
 
 /* Quitar todos los eventos del puntero */
 img,p,h1,h2,h3{pointer-events: none;}
+
 
 /* Estilo del body */
 body {
@@ -27,6 +34,16 @@ body {
     background-color: #ECECEC;
 }
 
+main {
+    width: 82%;
+    height: 92%;
+    padding: 25px;
+    font-family: Rubik;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
 /* Estilos del header */
 header {
     /* Margenes y tamaños */
@@ -34,7 +51,7 @@ header {
     height: 8%; 
 
     /* Bordes y colores */
-    box-shadow: 0 0 4px 4px rgba(0,0,0,.3);
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
     background-color: white;
 
     /* Flexbox */
@@ -51,10 +68,6 @@ header .logo {
     width: 18%;
     height: 100%;
 
-    /* Fuentes*/
-    font-size: 1.8rem;
-    font-family: paytone;
-
     /* Flexbox */
     display: flex;
     align-items: center;
@@ -66,8 +79,7 @@ header .logo span {
 }
 
 /* Contenedor del icono de ajustes */
-header .setting {
-
+header .cerrar-sesion {
     /* Margenes y tamaños */
     width: 10%;
     height: 100%;
@@ -80,7 +92,7 @@ header .setting {
 }
 
 /* Estilo del link en header */
-header .setting a{
+header .cerrar-sesion a{
     /* Margenes y tamaños */
     width: 100%;
     height: 100%;
@@ -92,14 +104,11 @@ header .setting a{
 }
 
 /* Estilo de imagen en el link */
-header .setting a img {
+header .cerrar-sesion a img {
+    width: 20%;
     position: absolute;
     transition: 1s all;
-}
-
-/* Rotación de imagen */
-header .setting a:hover img {
-    transform: rotate(180deg);
+    opacity: .8;
 }
 
 /* imagen activa */
@@ -116,14 +125,13 @@ header a:hover #inactivo {
     opacity: 0;
 }
 
-
 /* Estilos en el aside */
 aside {
     /* Posición del contenedor */
     position: relative;
 
     /* Margenes, tamaños */
-    height: 91%;
+    height: 92%;
     width: 18%;
 
     /* Fondos y colores */
@@ -157,7 +165,6 @@ aside ul a {
     padding: 5px 3px;
 
     /* Colores y fondos */
-    background-color: white;
     color: #635C50;
 
     /* Bordes */
@@ -189,7 +196,7 @@ aside a #inactivo,
 aside a #activo {
     position: absolute;
     left: 1%;
-    width: 10%;
+    width: 1rem;
 }
 
 /* Filtro de imágenes */
@@ -212,12 +219,6 @@ aside a:hover #inactivo {
     font-size: 1rem;
 }
 
-/* imagen en li */
-aside ul a li img {
-    padding-left: 5px;
-    margin-right: 5px;
-}
-
 /* hover */
 aside ul a:hover, aside ul #activo:hover {
     scale: 1.009;
@@ -235,16 +236,15 @@ aside .usuario {
     background-color: #CFCFCF;
 
     /* Flexbox */
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-flex;
     align-items: center;
     align-content: center;
 }
 
 aside .usuario .icono {
     /* Margenes y tamaños */
-    width: 3vw;
-    height: 3vw;
+    width: 45px;
+    height: 45px;
     margin-left: 20px;
     border-radius: 50%;
 
@@ -278,16 +278,262 @@ aside .nombre-apellido p:last-child {
 
 aside #rol-usuario {
     color: rgba(0,0,0,.7);
-    font-size: 1.1vw;
+    font-size: .8rem;
 }
 
 button{
     cursor: pointer;
 }
 
+a.disabled {
+    pointer-events: none;     /* Bloquea el clic */
+    cursor: not-allowed;      /* Cursor indica prohibido */
+    display: inline-block;    /* Mantiene estructura */
+    text-decoration: none;    /* Igual que los demás */
+    width: 95%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 5px 3px;
+    opacity: 0.5;
+}
+a.disabled li {
+    display: flex;            /* Mantén la alineación del ícono y el texto */
+    align-items: center;
+    gap: 30px;                 /* Ajusta separación como los demás */
+}
+
 .contenedor_advertencia{display: none;}
 
-/* @media screen and (max-width: 750px) {
+@media (max-width: 1130px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    main p {
+        font-size: .75rem;
+    }
+
+    /* Imágenes dentro de li */
+    aside a #inactivo,
+    aside a #activo {
+        position: absolute;
+        left: 1%;
+        width: .9rem;
+    }
+ 
+    /* h3 en li */
+    .opcion h3 {
+        font-size: .9rem;
+    }
+
+    aside .usuario .icono {
+        /* Margenes y tamaños */
+        width: 40px;
+        height: 40px;
+        font-size: .8rem;
+    }
+    
+    aside .nombre-apellido {
+        display: inline-flex;
+        font-size: .8rem
+    }
+
+    aside #rol-usuario {
+        color: rgba(0,0,0,.7);
+        font-size: .6rem;
+    }
+}
+
+@media (max-width: 960px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+    
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    header .setting a img {
+        position: absolute;
+        transition: 1s all;
+        width: 25px;
+    }
+
+    main {
+        width: 95%;
+        margin-left: 5%;
+    }
+
+    /* Estilos en el aside */
+    aside {
+        position: absolute;
+        width: 5%;
+        top: 8%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Imágenes dentro de li */
+    aside a #inactivo,
+    aside a #activo {
+        position: absolute;
+        left: 25%;
+        width: 1rem;
+    }
+
+    aside h3 {
+        display: none;
+    }
+
+    aside .usuario .icono {
+        /* Margenes y tamaños */
+        width: 35px;
+        height: 35px;
+        margin: 0 auto;
+    }
+
+    aside .usuario .nombre-apellido, aside .usuario .nombre-rol {
+        display: none;
+    }   
+
+    aside:hover {
+        width: 18%;
+        box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    aside:hover a #inactivo,
+    aside:hover a #activo {
+        position: absolute;
+        left: 1%;
+        width: 1rem;
+    }
+
+    aside:hover .opcion h3 {
+        display: block;
+        position: relative;
+        left: 20%;
+        font-size: .9rem;
+    }
+
+    aside:hover .usuario .icono {
+        /* Margenes y tamaños */
+        width: 35px;
+        height: 35px;
+        margin: 0 0 0 10px;
+        font-size: .7rem;
+    }
+    
+    aside:hover .nombre-rol {
+        display: block;
+        margin-left: 10px;
+    }
+    
+    aside:hover .nombre-apellido {
+        display: inline-flex;
+        font-size: .8rem
+    }
+    
+    aside:hover .nombre-apellido p:last-child {
+        padding-left: 4px;
+    }
+    
+    aside:hover #rol-usuario {
+        color: rgba(0,0,0,.7);
+        font-size: .6rem;
+    }
+}
+
+@media (max-width: 900px) {    
+
+    main {
+        width: 95%;
+        margin-left: 5%;
+    }
+
+    /* Estilos en el aside */
+    aside {
+        position: absolute;
+        width: 5%;
+        top: 8%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Imágenes dentro de li */
+    aside a #inactivo,
+    aside a #activo {
+        position: absolute;
+        left: 25%;
+        width: 1rem;
+    }
+
+    aside h3 {
+        display: none;
+    }
+
+    aside .usuario .icono {
+        /* Margenes y tamaños */
+        width: 35px;
+        height: 35px;
+        margin: 0 auto;
+    }
+
+    aside .usuario .nombre-apellido, aside .usuario .nombre-rol {
+        display: none;
+    }   
+
+    aside:hover {
+        width: 18%;
+        box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    aside:hover a #inactivo,
+    aside:hover a #activo {
+        position: absolute;
+        left: 1%;
+        width: 1rem;
+    }
+
+    aside:hover .opcion h3 {
+        display: block;
+        position: relative;
+        left: 20%;
+        font-size: .9rem;
+    }
+
+    aside:hover .usuario .icono {
+        /* Margenes y tamaños */
+        width: 35px;
+        height: 35px;
+        margin: 0 0 0 10px;
+        font-size: .7rem;
+    }
+    
+    aside:hover .nombre-rol {
+        display: block;
+        margin-left: 10px;
+    }
+    
+    aside:hover .nombre-apellido {
+        display: inline-flex;
+        font-size: .8rem
+    }
+    
+    aside:hover .nombre-apellido p:last-child {
+        padding-left: 4px;
+    }
+    
+    aside:hover #rol-usuario {
+        color: rgba(0,0,0,.7);
+        font-size: .6rem;
+    }   
+}
+
+@media screen and (max-width: 800px) {
     header,aside,main{display: none;}
 
     .contenedor_advertencia{
@@ -300,9 +546,13 @@ button{
         height: 100vh;
         width: 100vw;
     }
+
     .contenedor_advertencia .advertencia{
         text-align: center;
         width: 80vw;
     }
 
-} */
+    
+    
+
+}

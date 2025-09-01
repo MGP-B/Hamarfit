@@ -1,0 +1,29 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/configuracion/reasignar_inscripciones.css' %}">
+
+<div class="cuerpo_popup">
+    <h2>Reasignar Inscripciones</h2>
+    <h3>Selecciona el nuevo empleado que recibirá las inscripciones de {{ empleado_origen.nombre_empleado }} {{ empleado_origen.apellido_empleado }}.</h3>
+
+    <form id="form-reasignacion">
+        {% csrf_token %}
+        <section class="contenedor_inputs">
+            <div class="div-nombre">
+                <label for="empleado_destino">Nuevo Empleado</label>
+                <select id="empleado_destino" name="empleado_destino" required>
+                    {% for e in empleados_destino %}
+                        <option value="{{ e.id_empleado }}">{{ e.nombre_empleado }} {{ e.apellido_empleado }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </section>
+
+        <div class="boton-container">
+            <button type="button" id="boton-cancelar" onclick="cerrar_popup()">Cancelar</button>
+            <button type="button" id="boton-guardar" onclick="confirmarReasignacion('{{ empleado_origen.id_empleado }}')">Reasignar</button>
+        </div>
+    </form>
+</div>
+<!-- <script src="{% static 'js/admin_js/reasignacion.js' %}"></script> -->
+<script src="{% static 'js/admin_js/desplegables.js' %}"></script>
+<div class="cerrar" onclick="cerrar_popup()"></div>

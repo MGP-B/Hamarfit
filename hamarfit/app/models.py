@@ -22,17 +22,17 @@ class Clientes(models.Model):
     apellido_cliente = models.CharField(max_length=100)
     tipo_documento = models.CharField(max_length=30)
     documento_cliente = models.CharField(max_length=13)
-    correo_cliente = models.CharField(max_length=80)
+    correo_cliente = models.CharField(max_length=80, unique=True)
     telefono_cliente = models.CharField(max_length=12)
     direccion_cliente = models.CharField(max_length=200)
-    inscripcion = models.DateField(auto_now=True)
+    inscripcion = models.DateField(auto_now_add=True)
     contrasena_cliente = models.CharField(max_length=20)
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_sucursal = models.ForeignKey('Sucursales', models.DO_NOTHING, db_column='id_sucursal')
     id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default = 1)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'clientes'
 
 
@@ -42,7 +42,7 @@ class Empleados(models.Model):
     apellido_empleado = models.CharField(max_length=100)
     tipo_documento = models.CharField(db_column='tipo-documento', max_length=30)  # Field renamed to remove unsuitable characters.
     documento_empleado = models.CharField(max_length=13)
-    correo_empleado = models.CharField(max_length=80)
+    correo_empleado = models.CharField(max_length=80, unique=True)
     telefono_empleado = models.CharField(max_length=12)
     direccion_empleado = models.CharField(max_length=200)
     contratacion_empleado = models.DateTimeField()
@@ -66,16 +66,16 @@ class Estados(models.Model):
 
 class InscripcionesRenovaciones(models.Model):
     id_finanza = models.AutoField(primary_key=True)
-    emision = models.DateField()
+    emision = models.DateField( auto_now = True)
     id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
     id_metodo = models.ForeignKey('MetodosPagos', models.DO_NOTHING, db_column='id_metodo')
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
-    id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
+    id_cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE, db_column='id_cliente')
     descripcion = models.CharField(max_length=60)
 
     class Meta:
-        managed = False
-        db_table = 'inscripciones_renovaciones'
+        managed = True
+        db_table = 'inscripciones_Renovaciones'
 
 
 class MetodosPagos(models.Model):
@@ -89,11 +89,12 @@ class MetodosPagos(models.Model):
 
 class NotaClientes(models.Model):
     id_nota = models.AutoField(primary_key=True)
+    fecha = models.DateField( auto_now = True)
     nota = models.CharField(max_length=800)
     id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'nota_clientes'
 
 

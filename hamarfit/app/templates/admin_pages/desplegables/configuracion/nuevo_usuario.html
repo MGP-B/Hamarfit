@@ -6,6 +6,9 @@
 
     <form action="{% url 'admin/configuracion/registrar_usuario/' %}" method="POST" id="datos_usuario">
         {% csrf_token %}
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
         <div class="contenedor_inputs">
             <div class="div_nombre">
                 <label for="nombre">Nombre</label>
@@ -31,34 +34,55 @@
                 <input type="text" id="documento" name="documento_empleado" placeholder="Documento">
             </div>
     
-            <div class="div_correo">
+            <!-- <div class="div_correo">
                 <label for="Correo">Correo</label>
                 <input type="text" id="Correo" name="correo_empleado" placeholder="example@gmail.com">
+            </div> -->
+
+            <div class="div_correo">
+                <label for="Correo">Correo</label>
+                <input type="text" id="Correo" name="correo_empleado" placeholder="example@gmail.com"
+                    value="{{ form.correo_empleado.value|default:'' }}">
+
+                <!-- Aquí mostramos el mensaje de error si existe -->
+                {% if form.correo_empleado.errors %}
+                <div class="error" style="color: red; font-size: 0.9em;">
+                    {{ form.correo_empleado.errors.0 }}
+                </div>
+                {% endif %}
             </div>
+
+
+            <!-- <p>
+                {{ form.correo_empleado.label_tag }}
+                {{ form.correo_empleado }}
+                {{ form.correo_empleado.errors }}
+            </p> -->
+
     
             <div class="div_telefono">
                 <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono_empleado" placeholder="Teléfono">
+                <input type="tel" id="telefono" name="telefono_empleado" placeholder="Teléfono" maxlength="12" required>
             </div>
     
             <div class="div_direccion">
                 <label for="direccion">Dirección</label>
-                <input type="text" id="direccion" name="direccion_empleado" placeholder="Dirección">
+                <input type="text" id="direccion" name="direccion_empleado" placeholder="Dirección" maxlength="200" required>
             </div>
     
             <div class="div_contratacion_empleado">
                 <label for="contratacion_empleado">Fecha de contratación</label>
-                <input type="date" name="contratacion_empleado" id="contratacion_empleado">
+                <input type="date" name="contratacion_empleado" id="contratacion_empleado" required>
             </div>
             
             <div class="contrasena_empleado">
-                <label for="contrasena_empleado">Contrasena empleado</label>
-                <input type="password" name="contrasena_empleado" id="contrasena_empleado">
+                <label for="contrasena_empleado">Contraseña empleado</label>
+                <input type="password" name="contrasena_empleado" id="contrasena_empleado" maxlength="20" placeholder="Contraseña" required>
             </div>
 
             <div class="div_sucursal">
                 <label for="sucursal">Sucursal</label>
-                <select id="sucursal" name="id_sucursal">
+                <select id="sucursal" name="id_sucursal" required>
                     <option disabled selected>Selecciona la sucursal</option>
                     {% for sucursal in sucursales %}
                     <option value="{{ sucursal.id_sucursal }}">{{ sucursal.nombre_sucursal }}</option>
@@ -68,7 +92,7 @@
     
             <div class="div_rol">
                 <label for="rol">Rol</label>
-                <select id="rol" name="id_rol">
+                <select id="rol" name="id_rol" required>
                     <option disabled selected>Selecciona el rol</option>
                     <option value="1">Admin</option>
                     <option value="2">Gerente</option>
@@ -79,7 +103,7 @@
         </div>
 
         <div class="div_botones">
-            <button id="boton_cancelar">Cancelar</button>
+            <button id="boton_cancelar" onclick="cerrar_popup()" type="reset">Cancelar</button>
             <button type="submit" id="boton_agregar">Agregar</button>
         </div>
     </form>

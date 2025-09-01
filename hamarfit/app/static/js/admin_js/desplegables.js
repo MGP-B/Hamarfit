@@ -34,11 +34,23 @@ function agregar_popup(ruta){
 };
 
 // Obtener el elemento desplegable
-const desplegable = document.getElementById('desplegable');
+// const desplegable = document.getElementById('desplegable');
 // Hacerlo visible
-function visible(){
-    desplegable.style.display = 'block';
+function visible(id) {
+    // Cierra todos los desplegables
+    document.querySelectorAll('.desplegable').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    // Abre el desplegable correspondiente
+    const desplegable = document.getElementById(`desplegable_${id}`);
+    if (desplegable) {
+        desplegable.style.display = 'block';
+    } else {
+        console.warn(`No se encontró el desplegable con ID: desplegable_${id}`);
+    }
 }
+
 
 // Cerrar el pop up
 function cerrar_popup(){
@@ -47,6 +59,74 @@ function cerrar_popup(){
 }
 
 // Cerrar el desplegable
-function cerrar_desplegable(){
-    desplegable.style.display = 'none'
+function cerrar_desplegable(id){
+    const desplegable = document.getElementById(`desplegable_${id}`);
+    if (desplegable) {
+        desplegable.style.display = 'none';
+    }
+}
+
+document.addEventListener('click', function(event, id) {
+    // Verifica si el clic fue dentro de algún .div_acciones
+    const isAcciones = event.target.closest('[id^="div_acciones_"]');
+    
+    // Si no fue dentro, cierra todos los desplegables
+    if (!isAcciones) {
+        document.querySelectorAll('.desplegable').forEach(el => {
+            el.style.display = 'none';
+        });
+    }
+});
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+// ✅ Función para confirmar la reasignación
+function confirmarReasignacion(origenId) {
+    const destinoSelect = document.getElementById('empleado_destino');
+    if (!destinoSelect) {
+        alert("No se encontró el selector de empleado destino.");
+        return;
+    }
+
+    const destinoId = destinoSelect.value;
+
+    console.log("Reasignando inscripciones de:", origenId, "a:", destinoId);
+
+    fetch('/admin/configuracion/ejecutar_reasignacion/', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `origen_id=${origenId}&destino_id=${destinoId}`
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Error en la solicitud");
+        return res.json();
+    })
+    .then(data => {
+        console.log("Respuesta del servidor:", data);
+        alert(data.message);
+        if (data.success) {
+            cerrar_popup();  // Esta función debe estar definida en otro archivo o aquí si lo prefieres
+            location.reload();  // Refresca la vista para mostrar los cambios
+        }
+    })
+    .catch(error => {
+        console.error("Error al reasignar:", error);
+        alert("Hubo un problema al intentar reasignar las inscripciones.");
+    });
 }

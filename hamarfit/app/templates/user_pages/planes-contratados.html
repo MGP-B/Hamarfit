@@ -13,12 +13,12 @@
 
 <body>
     <header>
-        <a href="{% url 'index' %}">
+        <a href="{% url 'inicio_user' %}">
             <h1>HAMAR<span>FIT</span></h1>
         </a>
         <div class="icono-header">
             <a href="{% url 'user/planes_contratados'%}">
-                <div class="icono">N</div>
+                <div class="icono">{{ cliente.nombre_cliente|slice:":1" }}</div>
             </a>
         </div>
     </header>
@@ -26,11 +26,11 @@
     <aside>
         <div class="user">
             <div id="icono-user">
-                N
+                {{ cliente.nombre_cliente|slice:":1" }}
             </div>
             <div id="nombre-plan">
-                <div class="nombre-user">Nombre de usuario</div>
-                <div class="plan-user">Plan <span>Pro</span></div>
+                <div class="nombre-user">{{ cliente.nombre_cliente }} {{ cliente.apellido_cliente }}</div>
+                <div class="plan-user">Plan <span>{{ cliente.id_plan.nombre_plan }}</span></div>
             </div>
         </div>
         <ul class="opciones-menu">
@@ -51,7 +51,7 @@
         </ul>
         <ul class="logout-menu">
             <li id="logout">
-                <a href="#">
+                <a href="{% url 'logout_user' %}">
                     <img src="{% static 'img/user_img/perfiles/Logout.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/user_img/perfiles/Logout-1.svg' %}" alt="" id="inactivo">
                     <h4>Cerrar Sesión</h4>
@@ -109,22 +109,29 @@
                     </ul>
 
                     <div class="info fecha-contratacion">
-                        <h3>Fecha de contratación:</h3>
-                        <p id="fecha">18/04/2025</p>
+                        <h3>Fecha de inscripción:</h3>
+                        <p id="fecha">{{ cliente.inscripcion }}</p>
                     </div>
+
+                    {% if renovacion %}
+                    <div class="info fecha-contratacion">
+                        <h3>Fecha de renovación:</h3>
+                        <p id="fecha">{{ renovacion.emision }}</p>
+                    </div>
+                    {% endif %}
                     <div class="info estado-cuenta">
                         <h3>Estado:</h3>
-                        <p id="estado">Activado</p>
+                        <p id="estado">{{ cliente.id_estado.estado }}</p>
                     </div>
                     <div class="info precio-mensualidad">
                         <h3>Mensualidad:</h3>
-                        <p id="mensualidad">1,500</p>
+                        <p id="mensualidad">{{ cliente.id_plan.mensualidad }}</p>
                     </div>
                 </div>
 
-                <div class="btn">
+                <!-- <div class="btn">
                     <button id="cancelar-membresia">Cancelar Membresía</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
