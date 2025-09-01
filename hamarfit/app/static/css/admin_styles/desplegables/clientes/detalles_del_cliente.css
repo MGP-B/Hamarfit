@@ -1,9 +1,5 @@
 @import '../desplegables.css';
 
-.contenedor_popup{
-    background-color: red;
-}
-
 /* Cuerpo del pop up */
 .cuerpo_popup {
     background-color: #F6F6F4;
@@ -15,7 +11,7 @@
 
 .cuerpo_popup h2 {
     font-family: Rubik;
-    font-size: 1.3vw;
+    font-size: 22px;
     font-weight: 600;
     padding-bottom: 20px;
 }
@@ -30,7 +26,7 @@
     align-items: center;
     text-align: center;
     height: 130px;
-    width: 100px;
+    width: 120px;
 }
 
 .cuerpo_popup .info-contenedor .info1 img {
@@ -57,14 +53,21 @@
 }
 
 .cuerpo_popup .info-contenedor .info2 {
-    margin-top: -15px;
-    line-height: 2;
-    width: 200px;
+    width: 100%;
     height: 130px;
+    padding: 10px;
+}
+
+
+.cuerpo_popup .info-contenedor .info2 .cuerpo_info{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 25px;
 }
 
 .cuerpo_popup .info-contenedor .info2 h3 {
-    font-size: 1.7vw;
+    font-size: 22px;
     font-family: Rubik;
     font-weight: 400;
 }
@@ -72,31 +75,42 @@
 .cuerpo_popup .info-contenedor .info2 .mismo {
     display: inline-flex;
     gap: 5px;
-    font-size: 1vw;
-    margin-top: -10px;
+    font-size: 16px;
 }
 
-.cuerpo_popup .info-contenedor .info3 {
-    margin-top: 35px;
-    line-height: 2;
-    font-size: 1vw;
-    width: 220px;
-    height: 80px;
+.cuerpo_popup .info-contenedor .info2 .mismo img{
+    width: 16px;
+    height: 16px;
 }
 
-.cuerpo_popup .info-contenedor .info3 p {
-    margin-top: -10;
-}
-
-.cuerpo_popup .info-contenedor .info3 p span {
-    font-weight: 600;
-}
-
-.cuerpo_popup .encabezado-notas {
+.cuerpo_popup .encabezado-notas h3{
+    font-size: 24px;
     font-family: Rubik;
-    font-size: 1.1vw;
     font-weight: 600;
-    padding: 20px 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.cuerpo_popup .historial_notas{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.cuerpo_popup .historial_notas thead{
+    font-size: 18px;
+    font-family: Rubik;
+    font-weight: 600;
+}
+
+.cuerpo_popup .historial_notas tbody{
+    font-size: 16px;
+}
+
+.cuerpo_popup .contenedor_tbody{
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: none;
 }
 
 /* Notas del cliente */
@@ -106,14 +120,16 @@
     box-sizing: border-box;
     border-radius: 5px;
     font-family: Rubik;
-    font-size: .90rem;
+    font-size: .70rem;
     font-weight: 200;
-    height: 150px;
+    height: 30px;
     line-height: 1.3;
     padding: 8px;
     resize: none;
     text-align: left;
     width: 100%;
+    display: none;
+    margin-top: 20px;
 }
 
 /* El contenedor de los botones */
@@ -151,6 +167,13 @@
     margin-top: 1px;
 }
 
+.cuerpo_popup #botones{
+    width: 100%;
+    gap: 10px;
+    justify-content: end;
+    display: none;
+}
+
 /* Botón de guardar */
 .cuerpo_popup .boton-container #boton-guardar{
     display: none;
@@ -165,8 +188,6 @@
 /* Botón de cancelar */
 .cuerpo_popup .boton-container #boton-cancelar{
     display: none;
-    position: relative;
-    left: 23%;
 
     background-color: #F6F6F4;
     border: 1px solid #000;

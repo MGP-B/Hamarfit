@@ -115,7 +115,7 @@
     </aside>
 
     <main>
-        <h2>Configuración</h2>
+        <h2>Empleados</h2>
 
         <div class="contenedor">
             <div class="encabezado">
@@ -132,11 +132,11 @@
                 <table class="tabla-empleados">
                     <thead>
                         <tr>
-                            <th>Usuario</th>
-                            <th>Email</th>
-                            <th>Rol</th>
-                            <th>Sucursal</th>
-                            <th>Acciones</th>
+                            <th id="user-emp">Usuario</th>
+                            <th id="email-emp">Email</th>
+                            <th id="rol-emp">Rol</th>
+                            <th id="sucursal-emp">Sucursal</th>
+                            <th id="accion-emp">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -146,7 +146,7 @@
                             <td>{{ empleado.correo_empleado }}</td>
                             <td>{{ empleado.id_rol.rol }}</td>
                             <td>{{ empleado.id_sucursal.nombre_sucursal }}</td>
-                            <td id="div_acciones_{{empleado.id_empleado}}">
+                            <td id="div_acciones_{{empleado.id_empleado}}" class="accion">
                                 <div class="div_acciones" onclick="visible('{{ empleado.id_empleado }}')">
                                     <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
 

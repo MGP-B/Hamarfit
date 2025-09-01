@@ -2,24 +2,9 @@
 @import './admin.css';
 @import './desplegables/desplegables.css';
 
-/* Fuentes a los textos de main */
-main{
-    box-sizing: border-box;
-    font-family: Rubik;
-    padding: 30px;
-    width: 82%;
-}
-
-
 .panel-control {
     display: flex;
     justify-content: space-between;
-}
-
-.contenedor-sucursal {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
 }
 
 /* Barra de búsqueda */
@@ -90,61 +75,60 @@ main{
 
 /* Contenedor de los contenidos o datos */
 #contenedor_contenido{
+    width: 100%;
+    height: 62%;
     background-color: white;
     border: 1px solid #7B7B7B;
     border-radius: 3px;
-    height: 60vh;
-    max-height: 350px;
-    overflow-x: auto;
+    overflow: hidden;
 }
+
 /* Encabezado del contenido */
-#contenedor_contenido .encabezado_contenido{
-    display: grid;
-    grid-template-columns: 5% 19% 16% 15% 20% 10% 5%;
-    gap: 10px;
+#contenedor_contenido .tabla-inscripciones{
+    width: 100%;
+    height: fit-content;
+    max-height: 100%;
+}
 
-    background-color: #FCA502;
+#contenedor_contenido thead {
+    background-color: #ffa500;
+    height: 30px;  
+}
+
+#contenedor_contenido tbody {
+    height: 88%;
+}
+
+#contenedor_contenido thead th {
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 10px;
+    font-size: .9rem;
+    font-family: rubik;
     color: white;
-    padding: 15px;
-    font-weight: bolder;
-    font-size: 1.4vw;
-    width: fit-content;
-    min-width: 100%;
-    box-sizing: border-box;
-}
-/* Contenido */
-#contenedor_contenido::-webkit-scrollbar {
-    display: none;
 }
 
-#contenedor_contenido::-webkit-scrollbar-thumb {
-    background-color: #FCA502;
-    margin: 2px;
+#contenedor_contenido thead #id-ins {
+    width: 5%;
+    margin: auto 0;
 }
 
-
-#contenedor_contenido #contenido{
-    /* Asignación de columnas y espaciados */
-    display: grid;
-    grid-template-columns: 5% 19% 16% 15% 20% 10% 5%;
-    gap: 10px;
-
-    /* Estilos del contenido */
-    box-sizing: border-box;
-    border-bottom: 1px solid black;
-    font-size: 1.15vw;
-    align-items: center;
-    margin-top: 5px;
-    min-width: 100%;
-    padding: 15px;
-    width: fit-content;
+#contenedor_contenido thead #accion-ins {
+    text-align: center;
+    width: 10%;
 }
-/* icono de acciones */
-#contenedor_contenido #contenido img{
-    margin-left: 2vw;
-    width: .6vw;
-    height: auto;
+
+#contenedor_contenido tbody td {
+    padding-left: 10px;
+    font-size: .8rem;
+    vertical-align: middle;
 }
+
+#contenedor_contenido tbody .accion {
+    text-align: center;
+    cursor: pointer;
+}
+
 /* Transición a todos los botones */
 main button{
     transition: all .15s;
@@ -162,3 +146,155 @@ main button:hover{
     right: 1vw;
 }
 
+<<<<<<< HEAD
+=======
+a.disabled {
+    pointer-events: none;     /* Bloquea el clic */
+    cursor: not-allowed;      /* Cursor indica prohibido */
+    display: inline-block;    /* Mantiene estructura */
+    text-decoration: none;    /* Igual que los demás */
+    width: 95%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 5px 3px;
+    opacity: 0.5;
+}
+a.disabled li {
+    display: flex;            /* Mantén la alineación del ícono y el texto */
+    align-items: center;
+    gap: 8px;                 /* Ajusta separación como los demás */
+}
+
+/* Desplegable del icono de acciones */
+.desplegable{
+    display: none;
+    background-color: white;
+    border: 1px solid #A6A6A6;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    width: fit-content;
+    right: 70px;
+    margin-top: -40px;
+    /* translate: -130px -45px; */
+    scale: .8;
+}
+
+.encabezado_desplegable{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Título del desplegable */
+#contenedor_contenido #contenido .desplegable h2,
+.desplegable h2{
+    font-weight: bold;
+    display: inline-block;
+    font-size: 1.18rem;
+}
+/* Botón de cerrar el desplegable */
+#contenedor_contenido #contenido .desplegable .x,
+.desplegable .x{
+    background: none;
+    border: none;
+    height: auto;
+    transition: all .3s;
+    border-radius: 3px;
+    margin-left: 15px;
+}
+#contenedor_contenido #contenido .desplegable .x:hover,
+.desplegable .x:hover{
+    transform: scale(1.3);
+}
+/* Imagen del botón */
+#contenedor_contenido #contenido .desplegable .x img,
+.desplegable .x img{
+    width: 1.18rem;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+/* Contenedores de las acciones o botones */
+#contenedor_contenido #contenido .desplegable .div_eliminar,
+#contenedor_contenido #contenido .desplegable .div_detalles,
+.desplegable .div_eliminar,
+.desplegable .div_detalles{
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+    font-size: .90rem;
+    padding: 10px;
+    transition: .3s ;
+    will-change: transform;
+}
+/* Poner margin al div de "ver detalles" */
+#contenedor_contenido #contenido .desplegable .div_detalles,
+.desplegable .div_detalles{
+    margin-top: 10px;
+}
+/* Cambiar el color del texto del div de "Eliminar" */
+#contenedor_contenido #contenido .desplegable .div_eliminar,
+.desplegable .div_eliminar{
+    color: #C31414;
+}
+/* HOVER a los contenedores de las acciones */
+#contenedor_contenido #contenido .desplegable .div_eliminar:hover,
+#contenedor_contenido #contenido .desplegable .div_detalles:hover,
+.desplegable .div_eliminar:hover,
+.desplegable .div_detalles:hover{
+    background-color: #d9d9d9;
+    cursor: pointer;
+    transform: scale(.95);
+}
+/* Iconos de las acciones */
+#contenedor_contenido #contenido .desplegable div img,
+.desplegable div img{
+    width: 20px;
+    margin: 0;
+    margin-right: 5px;
+}
+
+/* Responsive del desplegable de acciones */
+/* Laptop pequeña */
+@media screen and (max-width: 1200px) {
+    #contenedor_contenido #contenido .desplegable h2,
+    .desplegable h2{
+        font-size: 1rem;
+    }
+
+    #contenedor_contenido #contenido .desplegable .div_eliminar,
+    #contenedor_contenido #contenido .desplegable .div_detalles,
+    .desplegable .div_eliminar,
+    .desplegable .div_detalles{
+        font-size: .80rem;
+        padding: 5px 10px;
+    }
+
+    #contenedor_contenido #contenido .desplegable .x img,
+    .desplegable .x img{
+        width: 1rem;
+    }
+}
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+    #contenedor_contenido #contenido .desplegable h2,
+    .desplegable h2{
+        font-size: .85rem;
+    }
+
+    #contenedor_contenido #contenido .desplegable .div_eliminar,
+    #contenedor_contenido #contenido .desplegable .div_detalles,
+    .desplegable .div_eliminar,
+    .desplegable .div_detalles{
+        font-size: .70rem;
+        padding: 4px 8px;
+    }
+
+    #contenedor_contenido #contenido .desplegable .x img,
+    .desplegable .x img{
+        width: .85rem;
+    }
+}
+>>>>>>> da542fb19cac90478a68d99ca0b8ca34cade143a
