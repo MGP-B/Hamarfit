@@ -217,7 +217,7 @@ def detalles_cliente(req, id):
 
     # Lógica para manejar solicitudes GET
     try:
-        nota_cliente = NotaClientes.objects.filter(id_cliente=id)
+        nota_cliente = NotaClientes.objects.filter(id_cliente=id).order_by('-fecha')
         mostrar_nota = True
     except NotaClientes.DoesNotExist:
         nota_cliente = None

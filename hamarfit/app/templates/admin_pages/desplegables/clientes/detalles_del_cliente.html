@@ -39,6 +39,7 @@
         <h3>Notas del Cliente</h3>
         
         
+        <div class="contenedor_tbody">
         <table class="historial_notas">
             <thead>
                 <tr>
@@ -46,17 +47,16 @@
                     <th>Nota</th>
                 </tr>
             </thead>
-            <div class="contenedor_tbody">
                 <tbody>
                     {% for nota in nota_cliente %}
                     <tr>
                         <td>{{nota.fecha}}</td>
-                        <td>{{nota.nota}}</td>
+                        <td style="max-width: 340px;">{{nota.nota}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
-            </div>
-        </table>
+            </table>
+        </div>
     </div>
 
     <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
@@ -70,8 +70,10 @@
                 <img src="{% static 'img/admin_img/sucursales/notebook-pen 1.svg' %}" alt="">
                 <p>Agregar Nota</p>
             </button>
-            <button id="boton-cancelar" onclick="cerrar_popup()" type="reset">Cancelar</button>
-            <button type="submit" id="boton-guardar">Guardar</button>
+            <div id="botones">
+                <button id="boton-cancelar" onclick="cerrar_popup()" type="reset">Cancelar</button>
+                <button type="submit" id="boton-guardar">Guardar</button>
+            </div>
         </div>
     </form>
 </div>

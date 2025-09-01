@@ -103,10 +103,10 @@
     font-weight: 600;
 }
 
-.cuerpo_popup .historial_notas tbody{
-    background-color: red;
-    max-height: 100px;
+.cuerpo_popup .contenedor_tbody{
+    max-height: 150px;
     overflow-y: auto;
+    overflow-x: none;
 }
 
 /* Notas del cliente */
@@ -125,6 +125,7 @@
     text-align: left;
     width: 100%;
     display: none;
+    margin-top: 20px;
 }
 
 /* El contenedor de los botones */
@@ -162,6 +163,13 @@
     margin-top: 1px;
 }
 
+.cuerpo_popup #botones{
+    width: 100%;
+    gap: 10px;
+    justify-content: end;
+    display: none;
+}
+
 /* Botón de guardar */
 .cuerpo_popup .boton-container #boton-guardar{
     display: none;
@@ -176,8 +184,6 @@
 /* Botón de cancelar */
 .cuerpo_popup .boton-container #boton-cancelar{
     display: none;
-    position: relative;
-    left: 23%;
 
     background-color: #F6F6F4;
     border: 1px solid #000;
