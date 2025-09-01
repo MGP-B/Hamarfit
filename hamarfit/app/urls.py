@@ -10,7 +10,7 @@ urlpatterns = [
     path('planes_contratados/',views.planes_contratados, name='user/planes_contratados'),
     path('inicio_user/',views.inicio_user, name='inicio_user'),
     path('logout_user/',views.logout_user, name='logout_user'),
-    path('ajustes_cuenta/cambiar_contrasena/', views.cambiar_contrasena, name='user/ajustes_cuenta/cambiar_contrasena'),
+    path('ajustes_cuenta/<int:id_cliente>/', views.actualizar_datos_cliente, name='actualizar_datos'),
 
 
     # ----- Apartado de 'admin' -----

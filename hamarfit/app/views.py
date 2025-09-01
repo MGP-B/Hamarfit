@@ -10,20 +10,15 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.db.models.functions import Concat  # Asegúrate de importar esto correctamente
 from django.views.decorators.http import require_POST
+import hashlib
 # from django.urls import reverse
 
-# Create your views here.
-# def index(req):
-#     return HttpResponse('Bienvenido a HAMARFIT')
 
 # Index
 def index(req):
     sucursales = Sucursales.objects.all()
     return render(req,'index.html', {'sucursales': sucursales})
 
-#  ----- Paginas del apartado de 'user' -----
-# def sucursales_user(req):
-#     return render(req,'user_pages/sucursales.html')
 
 def sucursales_user(req):
     return render(req, 'user_pages/sucursales.html')
@@ -44,8 +39,12 @@ def ajustes_cuenta(req):
 def planes_contratados(req):
     cliente_id = req.session.get('cliente_id')
     cliente = Clientes.objects.get(id_cliente=cliente_id)
-    return render(req, 'user_pages/planes-contratados.html', {'cliente': cliente})
-            
+    try:
+        renovacion = InscripcionesRenovaciones.objects.get(id_cliente = cliente_id, descripcion = 'Renovación')
+        return render(req, 'user_pages/planes-contratados.html', {'cliente': cliente, 'renovacion': renovacion})
+    except:
+        return render(req, 'user_pages/planes-contratados.html', {'cliente': cliente})
+
 
 # ----- Paginas del apartado de 'admin' -----
 @empleado_required
@@ -211,46 +210,6 @@ def sucursales_admin(req):
     empleado = Empleados.objects.get(id_empleado=empleado_id)
     sucursales = Sucursales.objects.all()
     return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales, 'empleado': empleado})
-
-@cliente_required
-def cambiar_contrasena(request):
-    if request.method == 'POST':
-        nueva = request.POST.get('nueva')
-        confirmar = request.POST.get('confirmar')
-
-        if not nueva or not confirmar:
-            return JsonResponse({'status': 'error', 'message': 'Campos vacíos.'})
-
-        if nueva != confirmar:
-            return JsonResponse({'status': 'error', 'message': 'Las contraseñas no coinciden.'})
-
-        if len(nueva) < 8:
-            return JsonResponse({'status': 'error', 'message': 'La contraseña debe tener al menos 8 caracteres.'})
-
-        id_cliente = request.session.get('id_cliente')
-        if not id_cliente:
-            return JsonResponse({'status': 'error', 'message': 'Sesión inválida. Por favor inicia sesión nuevamente.'})
-
-        try:
-            cliente = Clientes.objects.get(id_cliente=id_cliente)
-        except Clientes.DoesNotExist:
-            return JsonResponse({'status': 'error', 'message': 'Cliente no encontrado.'})
-
-        cliente.contrasena_cliente = nueva  # ← Se guarda en texto plano
-        cliente.save()
-
-        return JsonResponse({'status': 'success', 'message': 'Contraseña actualizada correctamente.'})
-
-    return JsonResponse({'status': 'error', 'message': 'Método no permitido.'})
-
-# ----- Desplegables de 'admin' -----
-# Clientes
-# def detalles_cliente(req, id):
-#     cliente = get_object_or_404(Clientes, id_cliente = id)
-#     nota_cliente = NotaClientes.objects.filter(id_cliente = id)
-
-#     mostrar_nota = get_object_or_404(NotaClientes, id_cliente = id)
-#     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {'cliente': cliente, 'nota_cliente': nota_cliente, 'mostrar_nota': mostrar_nota})
 
 def detalles_cliente(req, id):
     # Obtener el cliente
@@ -466,3 +425,29 @@ def ejecutar_reasignacion(request):
             return JsonResponse({'success': False, 'message': 'Empleado no encontrado.'}, status=404)
     else:
         return JsonResponse({'success': False, 'message': 'Método no permitido.'}, status=405)
+
+def actualizar_datos_cliente(request, id_cliente):
+    if request.method == 'POST':
+        id_cliente = request.POST.get('id_cliente')
+        cliente = get_object_or_404(Clientes, id_cliente=id_cliente)
+
+        # Contraseña
+        nueva = request.POST.get('input_contrasena')
+        confirmar = request.POST.get('confirmar-contrasena')
+        if nueva and nueva == confirmar:
+            cliente.contrasena_cliente = nueva
+
+        # Correo
+        nuevo_correo = request.POST.get('input_correo')
+        if nuevo_correo:
+            cliente.correo_cliente = nuevo_correo
+
+        # Teléfono
+        nuevo_telefono = request.POST.get('input_telefono')
+        if nuevo_telefono:
+            cliente.telefono_cliente = nuevo_telefono
+
+        cliente.save()
+        return redirect('user/ajustes_cuenta')  # O la vista que tú uses
+
+    return redirect('user/ajustes_cuenta')

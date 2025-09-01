@@ -112,6 +112,13 @@
                         <h3>Fecha de inscripción:</h3>
                         <p id="fecha">{{ cliente.inscripcion }}</p>
                     </div>
+
+                    {% if renovacion %}
+                    <div class="info fecha-contratacion">
+                        <h3>Fecha de renovación:</h3>
+                        <p id="fecha">{{ renovacion.emision }}</p>
+                    </div>
+                    {% endif %}
                     <div class="info estado-cuenta">
                         <h3>Estado:</h3>
                         <p id="estado">{{ cliente.id_estado.estado }}</p>
@@ -122,9 +129,9 @@
                     </div>
                 </div>
 
-                <div class="btn">
+                <!-- <div class="btn">
                     <button id="cancelar-membresia">Cancelar Membresía</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>

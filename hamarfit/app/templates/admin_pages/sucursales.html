@@ -146,19 +146,6 @@
                 <!-- Encabezado de la tarjeta de sucursal -->
                 <div id="div_acciones_{{sucursal.id_sucursal}}" class="encabezado-tarjeta">
                     <h4>{{ sucursal.nombre_sucursal }}</h4>
-                    <div onclick="visible('{{ sucursal.id_sucursal }}')">
-                        <img src="{% static 'img/admin_img/global/eliminar.svg' %}" alt="Icono">
-                        
-                        <!-- Desplegable de acciones -->
-                        <div class="desplegable desplegable_sucursal" id="desplegable_{{sucursal.id_sucursal}}">
-                            <h2>Atención!!</h2>
-                            <p id="texto_desplegable">Está a punto de eliminar la sucursal <span>"{{sucursal.nombre_sucursal}}"</span>, desea continuar?</p>
-                            <div class="contenedor_botones">
-                                <button class="boton_cancelar" title="Cancelar la eliminación de la sucursal" onclick="cerrar_desplegable('{{ sucursal.id_sucursal }}'); event.stopPropagation()">Cancelar</button>
-                                <button type="button" class="boton_eliminar" title="Eliminar Permanentemente">Eliminar</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Ubicación con su icono -->

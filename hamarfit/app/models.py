@@ -25,7 +25,7 @@ class Clientes(models.Model):
     correo_cliente = models.CharField(max_length=80, unique=True)
     telefono_cliente = models.CharField(max_length=12)
     direccion_cliente = models.CharField(max_length=200)
-    inscripcion = models.DateField(auto_now=True)
+    inscripcion = models.DateField(auto_now_add=True)
     contrasena_cliente = models.CharField(max_length=20)
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_sucursal = models.ForeignKey('Sucursales', models.DO_NOTHING, db_column='id_sucursal')
