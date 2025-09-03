@@ -309,6 +309,21 @@ a.disabled li {
 
 .contenedor_advertencia{display: none;}
 
+.boton-volver{
+    display: flex;
+    background-color: red;
+    border: none;
+    justify-content: center;
+}
+.boton-volver:hover{
+    background-color: lightgray;
+}
+.boton-volver img{
+    background-color: blue;
+    width: 15px;
+    height: auto;
+}
+
 @media (max-width: 1130px) {
     h1 {
         font-size: 1.4rem;
