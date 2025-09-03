@@ -57,8 +57,8 @@ header .icono-header a {
 
 /* Estilos del icono */
 header .icono-header .icono {
-    width: 3.5vw;
-    height: 3.5vw;
+    width: 2rem;
+    height: 2rem;
     background-color: #ffa500;
     color: white;
     border-radius: 50%;
@@ -92,6 +92,7 @@ header .icono-header .icono {
     font-family: rubik;
     font-size: 1rem;
     font-weight: 600;
+    text-decoration: none;
 }
 
 /* Cabeceras y menú de navegación */
@@ -133,7 +134,6 @@ header .icono-header .icono {
 .menu-navegacion {
     width: 60%;
     font-family: RubikSemi;
-    font-size: .9rem;
 }
 
 /* Estilo del contenedor de listas en menú de navegación */
@@ -147,13 +147,14 @@ header .icono-header .icono {
 
 /* estilo de elemento lista */
 .menu-navegacion ul li {
-    margin: 10px;
+    margin: 10px 20px;
 }
 
 /* Estilo link del elemento lista */
 .menu-navegacion ul li a {
     text-decoration: none;
     color: black;
+    font-size: .8rem;
 }
 
 .menu-navegacion ul li a:hover {
@@ -177,7 +178,7 @@ header .icono-header .icono {
 
 /* Estilo del botón inicio de sesión */
 .botones-navegacion #inicio-sesion {
-    background-color: #ffa500;
+    background-color: #e19301;
     border: none;
     border-radius: 5px;
 }
@@ -186,6 +187,24 @@ header .icono-header .icono {
 .botones-navegacion #inicio-sesion a {
     color: #fff;
     text-decoration: none;
+}
+
+.subir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #ffa600e2;
+    color: white;
+    width: 40px;
+    height: 40px;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
 }
 
 /* estilo del contenedor de sección principal con el banner */
@@ -382,6 +401,8 @@ header .icono-header .icono {
     width: 25%;
     height: 260px;
     margin: 20px;
+    box-sizing: border-box;
+    padding: 10px;
     border: none;
     border-radius: 10px;
     background-color: white;
@@ -708,6 +729,11 @@ header .icono-header .icono {
         font-size: .9rem;
     }
 
+    header .icono-header .icono {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
     .botones-navegacion button {
         width: 70%;
     }
@@ -784,6 +810,15 @@ header .icono-header .icono {
 
     * a {
         font-size: .9rem;
+    }
+
+    header .icono-header .icono {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+    .menu-navegacion ul li {
+        margin: 10px;
     }
 
     .botones-navegacion button {
@@ -885,6 +920,10 @@ header .icono-header .icono {
     
     * a {
         font-size: .8rem;
+    }
+
+    .menu-navegacion ul li a {
+        font-size: .7rem;
     }
 
     /* Estilo del eslogan */
@@ -993,6 +1032,11 @@ header .icono-header .icono {
         font-size: .7rem;
     }
 
+    header .icono-header .icono {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
     /* Estilo del eslogan */
     .principal h2 {
         font-size: 1.8rem;
@@ -1097,6 +1141,10 @@ header .icono-header .icono {
     
     * a {
         font-size: .5rem;
+    }
+
+    .menu-navegacion ul {
+        display: none;
     }
 
     /* Estilo del eslogan */
@@ -1206,5 +1254,276 @@ header .icono-header .icono {
     
     .div-p p {
         font-size: .85rem;
+    }
+}
+
+@media (max-width: 630px) {
+    * h1 {
+        font-size: 1.3rem;
+    }
+    
+    * h2 {
+        font-size: 1.2rem;
+    }
+    
+    * h3 {
+        font-size: .9rem;
+    }
+    
+    * p {
+        font-size: .7rem;
+    }
+    
+    * a {
+        font-size: .6rem;
+    }
+
+    header .icono-header .icono {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .botones-navegacion{
+        width: 30%;
+    }
+
+    .menu-navegacion {
+        width: 50%;
+    }
+
+    /* Estilo del eslogan */
+    .principal h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Estilos del contenedor en sección de servicios */
+    .beneficios {
+        box-sizing: border-box;
+        height: auto;
+        padding: 20px;
+    }
+  
+    /* Contenedor de tarjetas de beneficios */
+    .beneficios .tarjetas-beneficios {
+        flex-direction: column;
+    }
+    
+    /* Tarjetas de beneficios */
+    .beneficios .tarjeta {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .beneficios .tarjeta:hover{
+        scale: 1.02;
+    }
+   
+    /* Estilo de iconos */
+    .beneficios .icono {
+        width: 50px;
+        height: 50px;
+        margin-bottom: -10px;
+        border-radius: 50%;
+    }
+
+    .beneficios .tarjeta h3 {
+        font-size: .9rem;
+    }
+
+    /* Estilo de párrafos en tarjetas */
+    .beneficios .tarjeta p {
+        width: 70%;
+        font-size: .65rem;
+        text-align: center;
+        font-family: Rubik;
+    }
+    
+    
+    /* Contenedor de servicios */
+    .servicios {
+        height: auto;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    /* Estilos de tarjetas individuales */
+    .servicios .tarjetas-servicios .tarjeta-servicio {
+        width: 40%;
+        height: 230px;
+    }
+
+    /* Estilo en el título de tarjeta */
+    .servicios .tarjetas-servicios .tarjeta-servicio .info-servicio h3{
+        text-align: center;
+        font-size: .8rem;
+    }
+    
+    /* Estilo en el párrafo de tarjeta */
+    .servicios .tarjetas-servicios .tarjeta-servicio .info-servicio p {
+        margin-top: 10px;
+        font-size: .6rem;
+        text-align: center;
+    }
+    
+    /* Estilos de planes */
+    .planes {
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    .tarjetas-planes {
+        box-sizing: border-box;
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    /* Tarjetas de planes */
+    .tarjeta-plan {
+        width: 80%;
+        height: auto;
+        box-sizing: border-box;
+        padding: 20px;
+        margin: 20px;
+    }
+ 
+    .tarjeta-plan .nombre-precio .nombre h3{
+        font-size: 1rem;
+    }
+
+    .tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio .monto p {
+        font-size: 1rem;
+    }
+  
+    /* Beneficios dentro de las características */
+    .tarjeta-plan .caracteristicas .beneficio{
+        width: 43%;
+    }
+    
+    .tarjeta-plan .caracteristicas .beneficio p {
+        font-size: .7rem;
+        text-align: left;
+    }
+    
+    /* imagen de iconos checked y x */
+    .tarjeta-plan .caracteristicas .beneficio img {
+        width: 30px;
+        height: 30px;
+    }
+ 
+    .sucursales .contenedor-sucursales::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .sucursales .contenedor-sucursales .tarjeta-sucursal {
+        width: 35%;
+        height: 290px;
+    }
+
+    .sucursales .contenedor-sucursales .tarjeta-sucursal .nombre-sucursal {
+        width: 100%;
+        margin-top: 10px;
+        font-weight: 600;
+
+    }
+    
+    .sucursales .contenedor-sucursales .tarjeta-sucursal .nombre-sucursal p {
+        font-size: .8rem;
+    }
+
+    .div-p p {
+        font-size: .65rem;
+    }
+}
+
+@media (max-width: 500px) {
+
+    header .icono-header .icono {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    /* Contenedor de tarjetas de beneficios */
+    .beneficios .tarjetas-beneficios {
+        margin-top: 10px;
+    }
+    
+    /* Tarjetas de beneficios */
+    .beneficios .tarjeta {
+        width: 80%;
+    }
+
+    .servicios .subtitulo-parrafo {
+        margin-bottom: 20px;
+    }
+
+    .servicios .subtitulo-parrafo p {
+        width: 90%;
+    }
+
+    /* Estilos de tarjetas individuales */
+    .servicios .tarjetas-servicios .tarjeta-servicio {
+        width: 45%;
+        margin: 10px;
+        height: 250px;
+    }
+
+    /* Estilo en el título de tarjeta */
+    .servicios .tarjetas-servicios .tarjeta-servicio .info-servicio h3{
+        text-align: center;
+        font-size: .7rem;
+    }
+    
+    /* Estilo en el párrafo de tarjeta */
+    .servicios .tarjetas-servicios .tarjeta-servicio .info-servicio p {
+        margin-top: 10px;
+        font-size: .5rem;
+    }
+
+    /* Tarjetas de planes */
+    .tarjeta-plan {
+        width: 90%;
+        height: auto;
+        box-sizing: border-box;
+        padding: 20px;
+        margin: 20px;
+    }
+ 
+    .tarjeta-plan .nombre-precio .nombre h3{
+        font-size: 1rem;
+    }
+
+    .tarjeta-plan .nombre-precio h3, .tarjeta-plan .nombre-precio .precio .monto p {
+        font-size: 1rem;
+    }
+  
+    /* Beneficios dentro de las características */
+    .tarjeta-plan .caracteristicas .beneficio{
+        width: 40%;
+    }
+
+    .sucursales .contenedor-sucursales .tarjeta-sucursal {
+        width: 35%;
+        margin: 10px;
+        height: 250px;
+        padding: 10px;
+    }
+
+    .sucursales .contenedor-sucursales .tarjeta-sucursal .nombre-sucursal {
+        width: 100%;
+        margin-top: 10px;
+        font-weight: 600;
+
+    }
+    
+    .sucursales .contenedor-sucursales .tarjeta-sucursal .nombre-sucursal p {
+        font-size: .8rem;
+    }
+
+    .div-p p {
+        font-size: .65rem;
     }
 }
