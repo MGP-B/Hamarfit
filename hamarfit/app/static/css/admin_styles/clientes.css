@@ -33,7 +33,8 @@
 }
 
 /* Boton buscar */
-.panel-control .barra-de-busqueda .boton-buscar {
+.panel-control .barra-de-busqueda .boton-buscar,
+.boton-filtro {
     padding: 6px 12px;
     background-color: #f9f9f9;
     border: 1px solid #c7c7c7;
@@ -43,12 +44,14 @@
     position: relative;
 }
 
-.panel-control .barra-de-busqueda .boton-buscar p {
+.panel-control .barra-de-busqueda .boton-buscar p,
+.boton-filtro p {
     margin-top: 2px;
     margin-left: 8px;
 }
 
-.panel-control .barra-de-busqueda .boton-buscar img {
+.panel-control .barra-de-busqueda .boton-buscar img,
+.boton-filtro img {
     width: 18px;
     margin-top: -2px;
     margin-left: -10px
@@ -301,6 +304,16 @@ main button:hover{
     width: 20px;
     margin: 0;
     margin-right: 5px;
+}
+
+.panel-filtros.oculto {
+    display: none;
+}
+.panel-filtros {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 /* Responsive del desplegable de acciones */

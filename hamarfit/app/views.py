@@ -451,3 +451,45 @@ def actualizar_datos_cliente(request, id_cliente):
         return redirect('user/ajustes_cuenta')  # O la vista que tú uses
 
     return redirect('user/ajustes_cuenta')
+
+def vista_clientes(request):
+    # Obtener filtros desde GET
+    q = request.GET.get('q', '')
+    estado = request.GET.get('estado', '')
+    plan = request.GET.get('plan', '')
+
+    # Obtener empleado desde sesión
+    id_empleado = request.session.get('id_empleado')
+    empleado = None
+    if id_empleado:
+        try:
+            empleado = Empleados.objects.get(id_empleado=id_empleado)
+        except Empleados.DoesNotExist:
+            empleado = None  # O redirigir a login si es crítico
+
+    # Filtrar clientes
+    clientes = Clientes.objects.all()
+
+    if q:
+        clientes = clientes.filter(nombre_cliente__icontains=q)
+
+    if estado:
+        clientes = clientes.filter(id_estado_id=estado)
+
+    if plan:
+        clientes = clientes.filter(id_plan_id=plan)
+
+    # Paginación
+    paginator = Paginator(clientes, 10)
+    page = request.GET.get('page')
+    clientes_paginados = paginator.get_page(page)
+
+    # Contexto para el template
+    context = {
+        'clientes': clientes_paginados,
+        'estados': Estados.objects.all(),
+        'planes': Planes.objects.all(),
+        'empleado': empleado
+    }
+
+    return render(request, 'admin_pages/clientes.html', context)

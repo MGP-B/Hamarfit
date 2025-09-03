@@ -92,3 +92,15 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const botonFiltro = document.querySelector('.boton-filtro');
+    const panelFiltros = document.getElementById('panel-filtros');
+
+    if (botonFiltro && panelFiltros) {
+        botonFiltro.addEventListener('click', function (e) {
+            e.preventDefault();
+            panelFiltros.classList.toggle('oculto');
+        });
+    }
+});
