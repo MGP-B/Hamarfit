@@ -123,6 +123,9 @@
         <!-- Panel de Control -->
         <div class="panel-control">
             <form method="GET" class="barra-de-busqueda">
+                {% if query %}
+                <button class="boton-volver"><img src="{% static 'img/admin_img/global/volver.png'%}" alt=""></button>
+                {% endif %}
                 <input type="text" name = 'q' placeholder="Buscar cliente (por nombre)...">
                 <button class="boton-buscar">
                     <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="">
