@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
@@ -129,12 +130,24 @@
                     </div>
                 </div>
 
-                <!-- <div class="btn">
-                    <button id="cancelar-membresia">Cancelar Membresía</button>
-                </div> -->
+                <input type="hidden" id="csrf-token" value="{{ csrf_token }}">
+                <div class="btn">
+                    <button id="cancelar-membresia" data-cliente-id="{{ cliente.id_cliente }}"
+                        data-url="{% url 'cancelar_membresia' cliente.id_cliente %}">Cancelar
+                        Membresía</button>
+                </div>
+                <div id="modal-cancelar" class="modal">
+                    <div class="modal-contenido">
+                        <h3>¿Cancelar membresía?</h3>
+                        <p>Esta acción cambiará tu estado a inactivo. ¿Deseas continuar?</p>
+                        <button id="confirmar-cancelacion">Sí, cancelar</button>
+                        <button id="cerrar-modal">No</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+    <script src="{% static 'js/user_js/planes_contratados.js' %}"></script>
 </body>
 
 </html>

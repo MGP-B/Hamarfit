@@ -49,40 +49,89 @@ def planes_contratados(req):
 # ----- Paginas del apartado de 'admin' -----
 @empleado_required
 @role_required(['Admin', 'Gerente', 'Entrenador', 'Recepcionista'])
+# def clientes(req):
+#     query = req.GET.get('q', '').strip()
+#     if query:
+#         palabras = query.lower().split()
+#         clientes_qs = Clientes.objects.annotate(
+#             nombre_completo=Concat('nombre_cliente', Value(' '), 'apellido_cliente')
+#         )
+#         condiciones = Q()
+#         for palabra in palabras:
+#             condiciones |= Q(nombre_cliente__icontains=palabra)
+#             condiciones |= Q(apellido_cliente__icontains=palabra)
+#             condiciones |= Q(nombre_completo__icontains=palabra)
+#         resultados = clientes_qs.filter(condiciones)
+#     else:
+#         resultados = Clientes.objects.none()
+
+#     empleado_id = req.session.get('empleado_id')
+#     empleado = Empleados.objects.get(id_empleado=empleado_id)
+
+#     if query:
+#         clientes_qs = resultados
+#     else:
+#         clientes_qs = Clientes.objects.all()
+
+#     paginator = Paginator(clientes_qs, 10)  # 10 clientes por página
+#     page_number = req.GET.get('page')
+#     page_obj = paginator.get_page(page_number)
+
+#     return render(req, 'admin_pages/clientes.html', {
+#         'clientes': page_obj,
+#         'empleado': empleado,
+#         'resultados': resultados,
+#         'query': query,
+#         'page_obj': page_obj,
+#         'estados': Estados.objects.all(),
+#         'planes': Planes.objects.all(),
+#     })
+
 def clientes(req):
     query = req.GET.get('q', '').strip()
+    estado_id = req.GET.get('estado')
+    plan_id = req.GET.get('plan')
+    page_number = req.GET.get('page')
+
+    # Base queryset con anotación
+    clientes_qs = Clientes.objects.annotate(
+        nombre_completo=Concat('nombre_cliente', Value(' '), 'apellido_cliente')
+    )
+
+    # Filtro por búsqueda textual
     if query:
         palabras = query.lower().split()
-        clientes_qs = Clientes.objects.annotate(
-            nombre_completo=Concat('nombre_cliente', Value(' '), 'apellido_cliente')
-        )
         condiciones = Q()
         for palabra in palabras:
             condiciones |= Q(nombre_cliente__icontains=palabra)
             condiciones |= Q(apellido_cliente__icontains=palabra)
             condiciones |= Q(nombre_completo__icontains=palabra)
-        resultados = clientes_qs.filter(condiciones)
-    else:
-        resultados = Clientes.objects.none()
+        clientes_qs = clientes_qs.filter(condiciones)
 
+    
+    # Filtros por estado y plan
+    if estado_id:
+        clientes_qs = clientes_qs.filter(id_estado=estado_id)
+    if plan_id:
+        clientes_qs = clientes_qs.filter(id_plan=plan_id)
+
+    # Paginación
+    paginator = Paginator(clientes_qs, 10)
+    page_obj = paginator.get_page(page_number)
+
+    # Empleado desde sesión
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-
-    if query:
-        clientes_qs = resultados
-    else:
-        clientes_qs = Clientes.objects.all()
-
-    paginator = Paginator(clientes_qs, 10)  # 10 clientes por página
-    page_number = req.GET.get('page')
-    page_obj = paginator.get_page(page_number)
 
     return render(req, 'admin_pages/clientes.html', {
         'clientes': page_obj,
         'empleado': empleado,
-        'resultados': resultados,
         'query': query,
+        'estado_id': estado_id,
+        'plan_id': plan_id,
         'page_obj': page_obj,
+        'estados': Estados.objects.all(),
+        'planes': Planes.objects.all(),
     })
 
 
@@ -452,44 +501,16 @@ def actualizar_datos_cliente(request, id_cliente):
 
     return redirect('user/ajustes_cuenta')
 
-def vista_clientes(request):
-    # Obtener filtros desde GET
-    q = request.GET.get('q', '')
-    estado = request.GET.get('estado', '')
-    plan = request.GET.get('plan', '')
-
-    # Obtener empleado desde sesión
-    id_empleado = request.session.get('id_empleado')
-    empleado = None
-    if id_empleado:
+def cancelar_membresia(request, cliente_id):
+    if request.method == 'POST':
         try:
-            empleado = Empleados.objects.get(id_empleado=id_empleado)
-        except Empleados.DoesNotExist:
-            empleado = None  # O redirigir a login si es crítico
-
-    # Filtrar clientes
-    clientes = Clientes.objects.all()
-
-    if q:
-        clientes = clientes.filter(nombre_cliente__icontains=q)
-
-    if estado:
-        clientes = clientes.filter(id_estado_id=estado)
-
-    if plan:
-        clientes = clientes.filter(id_plan_id=plan)
-
-    # Paginación
-    paginator = Paginator(clientes, 10)
-    page = request.GET.get('page')
-    clientes_paginados = paginator.get_page(page)
-
-    # Contexto para el template
-    context = {
-        'clientes': clientes_paginados,
-        'estados': Estados.objects.all(),
-        'planes': Planes.objects.all(),
-        'empleado': empleado
-    }
-
-    return render(request, 'admin_pages/clientes.html', context)
+            cliente = Clientes.objects.get(id_cliente=cliente_id)
+            estado_inactivo = Estados.objects.get(estado='Inactivo')
+            cliente.id_estado = estado_inactivo
+            cliente.save()
+            return JsonResponse({'success': True, 'nuevo_estado': estado_inactivo.estado})
+        except Clientes.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Cliente no encontrado'})
+        except Estados.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Estado "Inactivo" no existe'})
+    return JsonResponse({'success': False, 'error': 'Método no permitido'}, status=405)
