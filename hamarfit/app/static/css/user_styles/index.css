@@ -178,9 +178,15 @@ header .icono-header .icono {
 
 /* Estilo del botón inicio de sesión */
 .botones-navegacion #inicio-sesion {
-    background-color: #e19301;
+    background-color: #ffa500;
     border: none;
     border-radius: 5px;
+    transition: all .3s;
+}
+
+.botones-navegacion #inicio-sesion:hover {
+    scale: 1.05;
+    background-color: #db9201;
 }
 
 /* Estilo del link en el botón */
@@ -194,7 +200,6 @@ header .icono-header .icono {
     justify-content: center;
     align-items: center;
 
-    text-decoration: none;
     border-radius: 50%;
     background-color: #ffa600e2;
     color: white;
@@ -205,6 +210,11 @@ header .icono-header .icono {
     bottom: 20px;
     right: 20px;
     z-index: 5;
+}
+
+.subir:hover {
+    cursor: pointer;
+    scale: 1.1;
 }
 
 /* estilo del contenedor de sección principal con el banner */

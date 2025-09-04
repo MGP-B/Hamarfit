@@ -12,7 +12,7 @@
 
 <body>
     <!-- Barra de navegación -->
-    <header class="cabecera">
+    <header class="cabecera" id="cabecera">
         <div class="logo">
             <a href="{% url 'inicio_user' %}">
                 <h1>HAMAR<span>FIT</span></h1>
@@ -248,17 +248,18 @@
             </div>
         </div>
     </section>
-    <section class="sucursales">
+    <section class="sucursales" id="sucursales">
         <h2>Nuestras Sucursales</h2>
         <div class="contenedor-sucursales">
             
+            {% for sucursal in sucursales %}
             <div class="tarjeta-sucursal">
                 <div class="imagen">
-                    <img src="{% static 'img/user_img/index/sucursal2.png' %}" alt="">
+                    <img src="{{ sucursal.imagen.url}}" alt="">
                 </div>
 
                 <div class="nombre-sucursal">
-                    <p>Nombre sucursal</p>
+                    <p>{{sucursal.nombre_sucursal}}</p>
                 </div>
 
                 <div class="direccion-sucursal">
@@ -266,7 +267,7 @@
                         <img src="{% static 'img/user_img/index/iconos-sucursales/map-pin 2.svg' %}" alt="">
                     </div>
                     <div class="div-p">
-                        <p>Dirección de la sucursal </p>
+                        <p>{{sucursal.direccion_sucursal}} </p>
                     </div>
                 </div>
 
@@ -275,7 +276,7 @@
                         <img src="{% static 'img/user_img/index/iconos-sucursales/phone 1.svg' %}" alt="">
                     </div>
                     <div class="div-p">
-                        <p>809-451-1235</p>
+                        <p>{{sucursal.telefono_sucursal}}</p>
                     </div>
                 </div>
 
@@ -284,232 +285,12 @@
                         <img src="{% static 'img/user_img/index/iconos-sucursales/clock 1.svg' %}" alt="">
                     </div>
                     <div class="div-p">
-                        <p>10:30 AM - 15:43 PM</p>
+                        <p>{{sucursal.hora_apertura}} - {{sucursal.hora_cierre}}</p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="tarjeta-sucursal">
-                <div class="imagen">
-                    <img src="{% static 'img/user_img/index/sucursal3.png' %}" alt="">
-                </div>
-
-                <div class="nombre-sucursal">
-                    <p>Nombre sucursal</p>
-                </div>
-
-                <div class="direccion-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/map-pin 2.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>Dirección de la sucursal </p>
-                    </div>
-                </div>
-
-                <div class="telefono-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/phone 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>809-451-1235</p>
-                    </div>
-                </div>
-
-                <div class="horario-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/clock 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>10:30 AM - 15:43 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta-sucursal">
-                <div class="imagen">
-                    <img src="{% static 'img/user_img/index/hamarfit-central.png' %}" alt="">
-                </div>
-
-                <div class="nombre-sucursal">
-                    <p>Nombre sucursal</p>
-                </div>
-
-                <div class="direccion-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/map-pin 2.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>Dirección de la sucursalas</p>
-                    </div>
-                </div>
-
-                <div class="telefono-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/phone 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>809-451-1235</p>
-                    </div>
-                </div>
-
-                <div class="horario-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/clock 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>10:30 AM - 15:43 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta-sucursal">
-                <div class="imagen">
-                    <img src="{% static 'img/user_img/index/sucursal2.png' %}" alt="">
-                </div>
-
-                <div class="nombre-sucursal">
-                    <p>Nombre sucursal</p>
-                </div>
-
-                <div class="direccion-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/map-pin 2.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>Dirección de la sucursal </p>
-                    </div>
-                </div>
-
-                <div class="telefono-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/phone 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>809-451-1235</p>
-                    </div>
-                </div>
-
-                <div class="horario-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/clock 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>10:30 AM - 15:43 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta-sucursal">
-                <div class="imagen">
-                    <img src="{% static 'img/user_img/index/sucursal2.png' %}" alt="">
-                </div>
-
-                <div class="nombre-sucursal">
-                    <p>Nombre sucursal</p>
-                </div>
-
-                <div class="direccion-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/map-pin 2.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>Dirección de la sucursal </p>
-                    </div>
-                </div>
-
-                <div class="telefono-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/phone 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>809-451-1235</p>
-                    </div>
-                </div>
-
-                <div class="horario-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/clock 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>10:30 AM - 15:43 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta-sucursal">
-                <div class="imagen">
-                    <img src="{% static 'img/user_img/index/sucursal2.png' %}" alt="">
-                </div>
-
-                <div class="nombre-sucursal">
-                    <p>Nombre sucursal</p>
-                </div>
-
-                <div class="direccion-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/map-pin 2.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>Dirección de la sucursal </p>
-                    </div>
-                </div>
-
-                <div class="telefono-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/phone 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>809-451-1235</p>
-                    </div>
-                </div>
-
-                <div class="horario-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/clock 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>10:30 AM - 15:43 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta-sucursal">
-                <div class="imagen">
-                    <img src="{% static 'img/user_img/index/sucursal2.png' %}" alt="">
-                </div>
-
-                <div class="nombre-sucursal">
-                    <p>Nombre sucursal</p>
-                </div>
-
-                <div class="direccion-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/map-pin 2.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>Dirección de la sucursal </p>
-                    </div>
-                </div>
-
-                <div class="telefono-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/phone 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>809-451-1235</p>
-                    </div>
-                </div>
-
-                <div class="horario-sucursal">
-                    <div class="div-img">
-                        <img src="{% static 'img/user_img/index/iconos-sucursales/clock 1.svg' %}" alt="">
-                    </div>
-                    <div class="div-p">
-                        <p>10:30 AM - 15:43 PM</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 </body>
