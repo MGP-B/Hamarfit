@@ -38,15 +38,14 @@
                 <a href="{% url 'user/planes_contratados'%}">
                     <img src="{% static 'img/user_img/perfiles/Term-1.svg' %}" alt="" id="activo">
                     <img src="{% static 'img/user_img/perfiles/Term.svg' %}" alt="" id="inactivo">
-                    <h4>Planes contratados</h4>
+                    <h4>Plan contratado</h4>
                 </a>
             </li>
             <li id="menu-user">
-                <a href="{% url 'user/ajustes_cuenta'%}" style="background-color: rgba(242, 180, 66, 0.25);">
-                    <img src="{% static 'img/user_img/perfiles/Settings.svg' %}" alt="" id="activo" style="opacity: 1;">
-                    <img src="{% static 'img/user_img/perfiles/Settings-1.svg' %}" alt="" id="inactivo"
-                        style="opacity: 0;">
-                    <h4 style="color: #ffa500;">Ajustes de Cuenta</h4>
+                <a href="{% url 'user/ajustes_cuenta'%}">
+                    <img src="{% static 'img/user_img/perfiles/Settings.svg' %}" alt="" id="activo">
+                    <img src="{% static 'img/user_img/perfiles/Settings-1.svg' %}" alt="" id="inactivo">
+                    <h4>Ajuste de Cuenta</h4>
                 </a>
             </li>
         </ul>
@@ -111,7 +110,8 @@
                         <input type="password" id="input_contrasena" name="input_contrasena"
                             placeholder="Nueva contraseña">
                         <input type="password" id="confirmar-contrasena" name="confirmar-contrasena"
-                            placeholder="Confirmar Contraseña">
+                            placeholder="Confirmar">
+
                         <button id="confirmar" type="submit">
                             <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-white.svg' %}" alt=""
                                 id="activo">
@@ -138,7 +138,7 @@
 
                     <div id="cambio_correo" class="cambio">
                         <input type="email" id="input_correo" name="input_correo"
-                            placeholder="Nuevo correo electrónico">
+                            placeholder="Nuevo correo">
                         <button id="confirmar" type="submit">
                             <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-white.svg' %}" alt=""
                                 id="activo">
@@ -165,7 +165,7 @@
 
                     <div id="cambio_telefono" class="cambio">
                         <input type="tel" id="input_telefono" name="input_telefono"
-                            placeholder="Nuevo número telefónico">
+                            placeholder="Nuevo número">
                         <button id="confirmar" type="submit">
                             <img src="{% static 'img/user_img/perfiles/iconos-contenido/done-white.svg' %}" alt=""
                                 id="activo">
