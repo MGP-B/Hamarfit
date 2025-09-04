@@ -195,7 +195,9 @@ def login(req):
 def inicio_user(req):
     cliente_id = req.session.get('cliente_id')
     cliente = Clientes.objects.get(id_cliente=cliente_id)
-    return render(req, 'user_pages/inicio_user.html', {'cliente': cliente})
+
+    sucursales = Sucursales.objects.all()
+    return render(req, 'user_pages/inicio_user.html', {'cliente': cliente, 'sucursales': sucursales})
 
 
 def logout_user(req):
