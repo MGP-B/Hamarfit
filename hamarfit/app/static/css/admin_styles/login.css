@@ -1,4 +1,4 @@
-/* @import '../../css/fuentes.css'; */
+@import './../global_styles/fuentes.css';
 
 /* Fondo de BODY y alineación del contenido */
 body{
@@ -26,13 +26,13 @@ main{
     border-radius: 10px;
     height: fit-content;
     padding: 50px;
-    width: 30vw;
+    width: 300px;
     font-family: Rubik;
 }
 
 /* Logo de la empresa */
 main .logo{
-    font-size: 3vw;
+    font-size: 2rem;
     font-family: Paytone;
     margin-bottom: 30px;
     text-align: center;
@@ -59,7 +59,7 @@ main #formLogin{
 main #formLogin input{
     border: none;
     border-bottom: 1px solid black;
-    font-size: 1.3vw;
+    font-size: 1rem;
     margin: 10px auto;
     padding: 5px 10px;
     width: 80%;
@@ -67,13 +67,14 @@ main #formLogin input{
 
 /* Botón de iniciar sesión */
 main #formLogin button{
+    color: white;
     background-color: #ffa500;
     border: 1px solid #ffa500;
     border-radius: 5px;
-    width: 50%;
+    width: 60%;
     margin: 10px auto;
     padding: 5px 10px;
-    font-size: 1.2vw;
+    font-size: 1.2rem;
     font-family: rubik;
 }
 /* Enlace de contraseña olvidada */
