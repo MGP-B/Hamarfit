@@ -18,7 +18,7 @@
             <h1>HAMAR<span>FIT</span></h1>
         </div>
         <div class="cerrar-sesion">
-            <a href="">
+            <a href="{% url 'logout_user' %}">
                 <img src="{% static 'img/admin_img/menu/activos/Logout-activo.svg' %}" alt="" id="activo">
                 <img src="{% static 'img/admin_img/menu/Logout.svg' %}" alt="" id="inactivo">
             </a>
@@ -72,14 +72,14 @@
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
                         <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
-                        <h3>Insc y Reno</h3>
+                        <h3>Ingresos</h3>
                     </li>
                 </a>
             {% else %}
                 <a class="disabled">
                     <li class="opcion_desabilitada">
                         <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="">
-                        <h3>Insc y Reno</h3>
+                        <h3>Ingresos</h3>
                     </li>
                 </a>
             {% endif %}
@@ -101,7 +101,7 @@
                 </a>
             {% endif %}
         </ul>
-        <div class="usuario">
+        <div class="usuario" onclick="agregar_popup(`{% url 'perfil_empleado' empleado.id_empleado %}`)">
             <div class="icono">
                 <p id="icono-usuario">
                     {{ empleado.nombre_empleado|slice:":1" }}{{ empleado.apellido_empleado|slice:":1" }}</p>
@@ -118,8 +118,8 @@
 
     <main>
         <div class="encabezado">
-            <h2>Inscripciones y Renovaciones</h2>
-            <p>Gestiona las creaciones de cuentas y la renovación de planes de tus clientes</p>
+            <h2>Ingresos</h2>
+            <p>Gestiona los ingresos y ganancias de la empresa</p>
         </div>
 
         <div class="panel-control">

@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/sucursales/agregar_sucursal.css' %}">
+<div class="cuerpo_popup" id="cuerpo_popup">
+    <div class="div_user_icon">
+        <p class="user_icon">{{ empleado.nombre_empleado|slice:":1" }}{{ empleado.apellido_empleado|slice:":1" }}</p>
+    </div>
+    <h3>{{empleado.nombre_empleado}} {{empleado.apellido_empleado}}</h3>
+    <h4>{{empleado.id_rol.rol}}</h4>
+
+    <div class="div_datos_empleado">
+        <p><span>ID:</span> {{empleado.id_empleado}}</p>
+        <p><span>Sucursal:</span> {{empleado.id_sucursal.nombre_sucursal}}</p>
+        <p><span>Documento:</span> {{empleado.tipo_documento}}</p>
+        <p><span>No. Documento:</span> {{empleado.documento_empleado}}</p>
+        <p><span>Correo:</span> {{empleado.correo_empleado}}</p>
+        <p><span>Dirección:</span> {{empleado.direccion_empleado}}</p>
+        <p><span>Contratación:</span> {{empleado.contratacion_empleado}}</p>
+    </div>
+</div>
+<div class="cerrar" onclick="cerrar_popup()"></div>

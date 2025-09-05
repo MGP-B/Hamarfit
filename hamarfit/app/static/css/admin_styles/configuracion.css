@@ -120,6 +120,10 @@ main button:hover{
     top: 100%;
 }
 
+<<<<<<< HEAD
+#contenedor_contenido #contenido .desplegable h2{font-weight: lighter;}
+
+=======
 a.disabled {
     pointer-events: none;     /* Bloquea el clic */
     cursor: not-allowed;      /* Cursor indica prohibido */
@@ -298,3 +302,4 @@ a.disabled li {
         width: .85rem;
     }
 }
+>>>>>>> da542fb19cac90478a68d99ca0b8ca34cade143a

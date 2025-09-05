@@ -28,7 +28,7 @@
         <div class="div-tipo-documento">
             <label for="tipo-documento">Tipo de Documento</label>
             <select id="tipo-documento" name="tipo_documento" required>
-                <option value="DNI">DNI</option>
+                <option value="Cédula">Cédula</option>
                 <option value="Pasaporte">Pasaporte</option>
             </select>
         </div>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="plan">
-            <label for="plan">Selecciona un Plan</label>
+            <label for="plan">Plan</label>
             <select id="plan" name="id_plan" required>
                 <option value="1">Plan Básico</option>
                 <option value="2">Plan Pro</option>
@@ -67,14 +67,15 @@
         </div>
 
         <div class="sucursal">
-            <label for="sucursal">Selecciona una Sucursal</label>
+            <label for="sucursal">Sucursal</label>
             <select id="sucursal" name="id_sucursal" required>
+                <option value="" disabled selected>Selecciona una sucursal</option>
                 {% for sucursal in sucursales %}
                 <option value="{{ sucursal.id_sucursal }}">{{ sucursal.nombre_sucursal }}</option>
                 {% endfor %}
             </select>
         </div>
-        
+
         <div class="div-contrasena">
             <label for="contrasena">Contraseña</label>
             <input type="password" id="contrasena" name="contrasena_cliente" placeholder="Tu contraseña" maxlength="20" required>

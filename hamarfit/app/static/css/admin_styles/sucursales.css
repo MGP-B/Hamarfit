@@ -188,6 +188,18 @@ main button:hover {
     margin-right: 2px;
 }
 
+<<<<<<< HEAD
+
+/* Desplegable del icono de acciones */
+.desplegable{
+    margin-left: 14rem;
+}
+
+
+/* Media required para pantallas de 1280px */
+@media screen and (max-width: 1280px) {
+    
+=======
 a.disabled {
     pointer-events: none;     /* Bloquea el clic */
     cursor: not-allowed;      /* Cursor indica prohibido */
@@ -203,4 +215,5 @@ a.disabled li {
     display: flex;            /* Mantén la alineación del ícono y el texto */
     align-items: center;
     gap: 8px;                 /* Ajusta separación como los demás */
+>>>>>>> da542fb19cac90478a68d99ca0b8ca34cade143a
 }

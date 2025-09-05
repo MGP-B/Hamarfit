@@ -6,6 +6,8 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.core.exceptions import ValidationError
+import re
 class Beneficios(models.Model):
     id_beneficio = models.AutoField(primary_key=True)
     nombre_beneficio = models.CharField(max_length=100)
@@ -25,16 +27,29 @@ class Clientes(models.Model):
     correo_cliente = models.CharField(max_length=80, unique=True)
     telefono_cliente = models.CharField(max_length=12)
     direccion_cliente = models.CharField(max_length=200)
-    inscripcion = models.DateField(auto_now=True)
+    inscripcion = models.DateField(auto_now_add=True)
     contrasena_cliente = models.CharField(max_length=20)
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_sucursal = models.ForeignKey('Sucursales', models.DO_NOTHING, db_column='id_sucursal')
     id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default = 1)
+    id_empleado = models.ForeignKey('Empleados', models.DO_NOTHING, db_column='id_empleado')
 
     class Meta:
         managed = True
         db_table = 'clientes'
-
+    
+    # Aplicar normalización
+    def clean(self):
+        numero = re.sub(r'\D', '', self.telefono_cliente)
+        if len(numero) == 10:
+            self.telefono_cliente = f"{numero[:3]}-{numero[3:6]}-{numero[6:]}"
+        else:
+            raise ValidationError("Número telefónico inválido. Debe tener 10 digitos")
+        
+        if self.tipo_documento == 'Cédula':
+            documento = re.sub(r'\D', '', self.documento_cliente)
+            if len(documento) == 11:
+                self.documento_cliente = f"{documento[:3]}-{documento[3:11]}-{documento[11:]}"
 
 class Empleados(models.Model):
     id_empleado = models.AutoField(primary_key=True)
@@ -53,6 +68,19 @@ class Empleados(models.Model):
     class Meta:
         managed = True
         db_table = 'empleados'
+    
+        # Aplicar normalización
+    def clean(self):
+        numero = re.sub(r'\D', '', self.telefono_empleado)
+        if len(numero) == 10:
+            self.telefono_empleado = f"{numero[:3]}-{numero[3:6]}-{numero[6:]}"
+        else:
+            raise ValidationError("Número telefónico inválido. Debe tener 10 digitos")
+        
+        if self.tipo_documento == 'Cédula':
+            documento = re.sub(r'\D', '', self.documento_empleado)
+            if len(documento) == 11:
+                self.documento_empleado = f"{documento[:3]}-{documento[3:10]}-{documento[10:]}"
 
 
 class Estados(models.Model):
@@ -70,7 +98,7 @@ class InscripcionesRenovaciones(models.Model):
     id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
     id_metodo = models.ForeignKey('MetodosPagos', models.DO_NOTHING, db_column='id_metodo')
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
-    id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
+    id_cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE, db_column='id_cliente')
     descripcion = models.CharField(max_length=60)
 
     class Meta:

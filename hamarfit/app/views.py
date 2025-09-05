@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseForbidden
 from .forms import *
 from . models import *
 from datetime import date
@@ -9,27 +9,42 @@ from django.db.models import Value
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.db.models.functions import Concat  # Asegúrate de importar esto correctamente
+from django.views.decorators.http import require_POST
+import hashlib
 # from django.urls import reverse
 
-# Create your views here.
-# def index(req):
-#     return HttpResponse('Bienvenido a HAMARFIT')
 
 # Index
 def index(req):
     sucursales = Sucursales.objects.all()
     return render(req,'index.html', {'sucursales': sucursales})
 
-#  ----- Paginas del apartado de 'user' -----
-# def sucursales_user(req):
-#     return render(req,'user_pages/sucursales.html')
 
+def sucursales_user(req):
+    return render(req, 'user_pages/sucursales.html')
+
+def checkout(req):
+    return render(req,'user_pages/checkout.html')
+
+@cliente_required
+@never_cache
 def ajustes_cuenta(req):
-    return render(req, 'user_pages/ajustes-de-cuenta.html')
+    cliente_id = req.session.get('cliente_id')
+    cliente = Clientes.objects.get(id_cliente=cliente_id)
+    return render(req, 'user_pages/ajustes-de-cuenta.html', {'cliente': cliente})
 
+
+@cliente_required
+@never_cache
 def planes_contratados(req):
-    return render(req, 'user_pages/planes-contratados.html')
-            
+    cliente_id = req.session.get('cliente_id')
+    cliente = Clientes.objects.get(id_cliente=cliente_id)
+    try:
+        renovacion = InscripcionesRenovaciones.objects.get(id_cliente = cliente_id, descripcion = 'Renovación')
+        return render(req, 'user_pages/planes-contratados.html', {'cliente': cliente, 'renovacion': renovacion})
+    except:
+        return render(req, 'user_pages/planes-contratados.html', {'cliente': cliente})
+
 
 # ----- Paginas del apartado de 'admin' -----
 @empleado_required
@@ -178,7 +193,11 @@ def login(req):
 @cliente_required
 @never_cache
 def inicio_user(req):
-    return render(req, 'user_pages/inicio_user.html')
+    cliente_id = req.session.get('cliente_id')
+    cliente = Clientes.objects.get(id_cliente=cliente_id)
+
+    sucursales = Sucursales.objects.all()
+    return render(req, 'user_pages/inicio_user.html', {'cliente': cliente, 'sucursales': sucursales})
 
 
 def logout_user(req):
@@ -194,7 +213,6 @@ def sucursales_admin(req):
     sucursales = Sucursales.objects.all()
     return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales, 'empleado': empleado})
 
-# ----- Desplegables de Admin -----
 def detalles_cliente(req, id):
     # Obtener el cliente
     cliente = get_object_or_404(Clientes, id_cliente=id)
@@ -232,6 +250,21 @@ def detalles_cliente(req, id):
     
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', contexto)
 
+@require_POST
+def eliminar_cliente(req, id):
+    empleado_id = req.session.get('empleado_id')
+    empleado = get_object_or_404(Empleados, id_empleado=empleado_id)
+
+    if empleado.id_rol.rol not in ['Admin', 'Recepcionista']:
+        return HttpResponseForbidden("No tienes permiso para eliminar clientes.")
+
+    cliente = get_object_or_404(Clientes, id_cliente=id)
+
+    # Aquí podrías validar si el cliente tiene inscripciones activas
+    cliente.delete()
+
+    return JsonResponse({'success': True, 'message': 'Cliente eliminado correctamente.'})
+
 @role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):
     if req.method == 'POST':
@@ -243,8 +276,15 @@ def registrar_cliente(req):
             print("[DEBUG] Errores del formulario:", form.errors)
     else:
         form = anadirCliente()
+
     sucursales = Sucursales.objects.all()
-    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form, 'sucursales': sucursales})
+    entrenadores = Empleados.objects.filter(id_rol = 3)
+
+    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {
+        'form': form, 
+        'sucursales': sucursales,
+        'entrenadores': entrenadores,
+        })
 
 
 def seleccionar_plan(req):
@@ -273,8 +313,6 @@ def registrar_usuario(req):
 
 
 # inscripciones_renovaciones
-from django.core.paginator import Paginator
-
 def registrar_renovacion(req):
     id_cliente = req.POST.get('id_cliente')
     empleado_id = req.session.get('empleado_id')
@@ -363,3 +401,64 @@ def registrar_sucursal(req):
 def editar_sucursal(req):
     return render(req, 'admin_pages/desplegables/sucursales/editar_sucursal.html')
 
+def reasignar_inscripciones(request, id_empleado):
+    empleado_origen = get_object_or_404(Empleados, pk=id_empleado)
+
+    empleados_destino = Empleados.objects.exclude(pk=id_empleado) \
+        .exclude(id_rol__rol='Entrenador')  # Excluye entrenadores
+
+    return render(request, 'admin_pages/desplegables/configuracion/reasignar_inscripciones.html', {
+        'empleado_origen': empleado_origen,
+        'empleados_destino': empleados_destino
+    })
+
+def ejecutar_reasignacion(request):
+    if request.method == 'POST':
+        origen_id = request.POST.get('origen_id')
+        destino_id = request.POST.get('destino_id')
+
+        try:
+            origen = Empleados.objects.get(pk=origen_id)
+            destino = Empleados.objects.get(pk=destino_id)
+
+            # Reasignar todas las inscripciones del empleado origen al destino
+            InscripcionesRenovaciones.objects.filter(id_empleado=origen).update(id_empleado=destino)
+
+            # Eliminar el empleado origen
+            origen.delete()
+
+            return JsonResponse({'success': True, 'message': 'Inscripciones reasignadas correctamente.'})
+        except Empleados.DoesNotExist:
+            return JsonResponse({'success': False, 'message': 'Empleado no encontrado.'}, status=404)
+    else:
+        return JsonResponse({'success': False, 'message': 'Método no permitido.'}, status=405)
+
+def actualizar_datos_cliente(request, id_cliente):
+    if request.method == 'POST':
+        id_cliente = request.POST.get('id_cliente')
+        cliente = get_object_or_404(Clientes, id_cliente=id_cliente)
+
+        # Contraseña
+        nueva = request.POST.get('input_contrasena')
+        confirmar = request.POST.get('confirmar-contrasena')
+        if nueva and nueva == confirmar:
+            cliente.contrasena_cliente = nueva
+
+        # Correo
+        nuevo_correo = request.POST.get('input_correo')
+        if nuevo_correo:
+            cliente.correo_cliente = nuevo_correo
+
+        # Teléfono
+        nuevo_telefono = request.POST.get('input_telefono')
+        if nuevo_telefono:
+            cliente.telefono_cliente = nuevo_telefono
+
+        cliente.save()
+        return redirect('user/ajustes_cuenta')  # O la vista que tú uses
+
+    return redirect('user/ajustes_cuenta')
+
+def perfil_empleado(req, id):
+    empleado = Empleados.objects.get(id_empleado = id)
+    return render(req, 'admin_pages/desplegables/perfil_empleado.html',{'empleado': empleado})
