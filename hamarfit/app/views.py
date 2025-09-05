@@ -216,7 +216,7 @@ def sucursales_admin(req):
 def detalles_cliente(req, id):
     # Obtener el cliente
     cliente = get_object_or_404(Clientes, id_cliente=id)
-    
+    sucursal_cliente = cliente.id_sucursal
     # Inicializar el formulario, vacío para GET o con datos para POST
     form = NotaClientesForm(req.POST or None)
 
@@ -240,15 +240,15 @@ def detalles_cliente(req, id):
     except NotaClientes.DoesNotExist:
         nota_cliente = None
         mostrar_nota = False
-
-    contexto = {
+    
+    entrenadores = Empleados.objects.filter(id_rol = 3, id_sucursal = sucursal_cliente)
+    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {
         'cliente': cliente,
         'nota_cliente': nota_cliente,
         'mostrar_nota': mostrar_nota,
-        'form': form
-    }
-    
-    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', contexto)
+        'form': form,
+        'entrenadores': entrenadores,
+    })
 
 @require_POST
 def eliminar_cliente(req, id):
@@ -278,12 +278,10 @@ def registrar_cliente(req):
         form = anadirCliente()
 
     sucursales = Sucursales.objects.all()
-    entrenadores = Empleados.objects.filter(id_rol = 3)
 
     return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {
         'form': form, 
         'sucursales': sucursales,
-        'entrenadores': entrenadores,
         })
 
 
