@@ -2,42 +2,41 @@
 
 .beneficios {
     width: 90%;
-    margin-top: 3.5%;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
 }
 
 .beneficios h2 {
     width: 100%;
-    font-size: 2.3vw;
+    font-size: 1.6rem;
     font-family: rubiksemi;
-    margin-bottom: 2%;
+    margin-bottom: 15px;
 }
 
 .beneficios .informacion .lista-beneficios {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2%;
-    font-size: 1.6vw;
+    font-size: 1rem;
     font-family: rubik;
-    margin-bottom: 4%;
+    margin-bottom: 15px;
     border-bottom: 1px solid rgba(0,0,0,.5);
 }
 
 .beneficios .informacion .lista-beneficios li {
     position: relative;
-    height: 5vh;
-    margin: 5% 2%;
+    height: 40px;
+    margin: 10px;
     display: flex;
     align-items: center;
 }
 
 .beneficios .informacion .lista-beneficios li p {
-    margin-left: 12%;
+    margin-left: 50px;
 }
 
 .beneficios .informacion .lista-beneficios img {
-    width: 2.5vw;
+    width: 2rem;
     position: absolute;
     left: 1%;
 }
@@ -50,16 +49,16 @@
     display: flex; 
     font-family: rubik;
     align-items: center;
-    margin: 1% 0;
+    margin: 10px 0;
 }
 
 .beneficios .informacion .info h3 {
-    font-size: 1.8vw;
+    font-size: 1.4rem;
     font-weight: 580;
 }
 
 .beneficios .informacion .info p {
-    font-size: 1.4vw;
+    font-size: 1.2rem;
     margin-left: 1%;
 }
 
@@ -67,27 +66,143 @@
     color: #0BAB02;
 }
 
-.beneficios .btn {
+.btn {
     width: 100%;
-    margin-top: 2.5%;
+    margin-top: 10px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-.beneficios .btn button {
-    width: 50%;
-    height: 6vh;
-    border-radius: .5vw;
-    border: 1px;
-    background-color: #FF4640;
+.btn button {
+    width: 40%;
+    height: 30px;
+    background-color: rgb(247, 65, 65);
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,.3);
     color: white;
-    font-size: 1.3vw;
     font-family: rubik;
-    cursor: pointer;
+    font-size: 1rem;
 }
 
-.beneficios .btn button:hover {
-    scale: 1.02;
-    background-color: #e63d37;
+@media (max-width: 800px) {
+
+    .beneficios h2 {
+        font-size: 1.6rem;
+    }
+    
+    .beneficios .informacion .lista-beneficios {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        font-size: .9rem;
+        font-family: rubik;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(0,0,0,.5);
+    }
+    
+    .beneficios .informacion .lista-beneficios li {
+        position: relative;
+        height: 40px;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .beneficios .informacion .lista-beneficios li p {
+        margin-left: 50px;
+    }
+    
+    .beneficios .informacion .lista-beneficios img {
+        width: 2rem;
+        position: absolute;
+        left: 1%;
+    }
+    
+    .beneficios .informacion .lista-beneficios #desactivado {
+        opacity: 0;
+    }
+    
+    .beneficios .informacion .info {
+        display: flex; 
+        font-family: rubik;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .beneficios .informacion .info h3 {
+        font-size: 1.3rem;
+        font-weight: 580;
+    }
+    
+    .beneficios .informacion .info p {
+        font-size: 1rem;
+        margin-left: 1%;
+    }
+    
+    .beneficios .informacion .info #estado {
+        color: #0BAB02;
+    }
+}
+
+@media (max-width: 580px) {
+    .beneficios h2 {
+        font-size: 1.4rem;
+    }
+    
+    .beneficios .informacion .lista-beneficios {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        font-size: .8rem;
+        font-family: rubik;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(0,0,0,.5);
+    }
+    
+    .beneficios .informacion .lista-beneficios li {
+        position: relative;
+        height: 40px;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .beneficios .informacion .lista-beneficios li p {
+        margin-left: 50px;
+    }
+    
+    .beneficios .informacion .lista-beneficios img {
+        width: 1.9rem;
+        position: absolute;
+        left: 1%;
+    }
+    
+    .beneficios .informacion .lista-beneficios #desactivado {
+        opacity: 0;
+    }
+    
+    .beneficios .informacion .info {
+        display: flex; 
+        font-family: rubik;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .beneficios .informacion .info h3 {
+        font-size: 1.1rem;
+        font-weight: 580;
+    }
+    
+    .beneficios .informacion .info p {
+        font-size: .9rem;
+        margin-left: 1%;
+    }
+    
+    .beneficios .informacion .info #estado {
+        color: #0BAB02;
+    }
+
+    .btn button {
+        width: 60%;
+    }
 }

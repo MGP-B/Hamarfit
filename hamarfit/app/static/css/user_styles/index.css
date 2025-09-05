@@ -171,7 +171,7 @@ header .icono-header .icono {
 
 /* Estilos de botones de registre e inicio de sesión */
 .botones-navegacion button {
-    padding: 10px 25px;
+    padding: 5px 20px;
     margin: 10px;
     margin-right: 30px;
 }
@@ -182,7 +182,7 @@ header .icono-header .icono {
     border: 2px solid #FFA500;
     border-radius: 5px;
     transition: all .3s;
-    will-change: auto;
+    width: 70%;
 }
 
 .botones-navegacion #inicio-sesion:hover {
@@ -748,6 +748,17 @@ header .icono-header .icono {
     }
 
     .botones-navegacion button {
+        padding: 5px 10px;
+        margin: 10px;
+        margin-right: 30px;
+    }
+    
+    /* Estilo del botón inicio de sesión */
+    .botones-navegacion #inicio-sesion {
+        background-color: #ffa500;
+        border: 2px solid #FFA500;
+        border-radius: 5px;
+        transition: all .3s;
         width: 70%;
     }
 
@@ -829,6 +840,24 @@ header .icono-header .icono {
         width: 1.6rem;
         height: 1.6rem;
     }
+
+    .botones-navegacion button {
+        margin: 10px;
+        
+    }
+    
+    /* Estilo del botón inicio de sesión */
+    .botones-navegacion #inicio-sesion {
+        background-color: #ffa500;
+        border: 2px solid #FFA500;
+        border-radius: 5px;
+        transition: all .3s;
+        width: 90%;
+    }
+
+    .botones-navegacion #inicio-sesion a {
+        font-size: .6rem;
+    } 
 
     .menu-navegacion ul li {
         margin: 10px;

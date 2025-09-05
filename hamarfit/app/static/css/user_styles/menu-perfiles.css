@@ -198,6 +198,10 @@ aside a img {
     margin-left: 2%;
 }
 
+aside a:hover h4 {
+    color: #ffa500;
+}
+
 aside a:hover{
     background-color: rgba(242, 180, 66, 0.25);
     color: #ffa500;
@@ -343,15 +347,19 @@ main {
         box-sizing: border-box;
         padding: 5px;
 
-        transition: all .01s ease-in;
+        transition: all .01 s ease-in;
     }
 
     /* Estilos para el icono de usuario */
     aside #icono-user {
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
         font-weight: 600;
         font-size: 1.4rem;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     /* Estilos para el nombre de usuario */
@@ -368,10 +376,13 @@ main {
         display: none;
     }
 
+    aside a {
+        justify-content: center;
+        align-items: center;
+    }
     aside a img {
-        width: 2rem;
+        width: 1.9rem;
         position: absolute;
-        left: 20%;
     }
 
     /* Estilo global para el contenedor main en perfiles */
@@ -436,6 +447,146 @@ main {
     aside:hover a img {
         width: 2rem;
         position: absolute;
+        left: 0%;
+    }
+}
+
+@media (max-width: 700px) {
+    /* h1 en header */
+    header a h1 {
+        font-size: 1.3rem;
+    }
+
+    /* Contenedor del header */
+    header .icono-header{
+        font-size: 1rem;
+    }
+
+    /* Estilos del icono */
+    header .icono-header .icono {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* Estilos del aside */
+    aside{
+        /* Margenes y bordes */
+        width: 8%;
+        position: absolute;
+        top: 10%;
+        background-color: white;
+        box-sizing: border-box;
+        padding: 5px;
+
+        transition: all .01 s ease-in;
+    }
+
+    /* Estilos para el icono de usuario */
+    aside #icono-user {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1rem;
+    }
+
+    aside a img {
+        width: 1.7rem;
+    }
+
+    /* Estilos para el icono de usuario */
+    aside:hover #icono-user {
+        background-color: #ffa500;
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+    }
+
+    /* Estilos para el nombre de usuario */
+    aside:hover .nombre-user{
+        display: block;
+        font-size: 1rem;
+    }
+
+    /* Estilos para el plan del usuario */
+    aside:hover .plan-user {
+        display: block;
+        font-size: .8rem;
+    }
+
+    aside:hover li h4 {
+        display: block;
+        margin-left: 35px;
+        font-size: .8rem;
+    }
+
+    aside:hover a img {
+        width: 1.8rem;
+        position: absolute;
+        left: -2%;
+    }
+}
+
+@media (max-width: 640px) {
+    /* h1 en header */
+    header a h1 {
+        font-size: 1.2rem;
+    }
+
+    /* Contenedor del header */
+    header .icono-header{
+        font-size: 1rem;
+    }
+
+    /* Estilos del icono */
+    header .icono-header .icono {
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+    /* Estilos para el icono de usuario */
+    aside #icono-user {
+        width: 2.0rem;
+        height: 2.0rem;
+        font-size: 1rem;
+    }
+
+    aside a img {
+        width: 1.5rem;
+    }
+
+    aside:hover {
+        width: 26%;
+    }
+
+    /* Estilos para el icono de usuario */
+    aside:hover #icono-user {
+        background-color: #ffa500;
+        width: 3.7rem;
+        height: 3.7rem;
+        font-size: 1.9rem;
+    }
+
+    /* Estilos para el nombre de usuario */
+    aside:hover .nombre-user{
+        font-size: .9rem;
+    }
+
+    /* Estilos para el plan del usuario */
+    aside:hover .plan-user {
+        font-size: .7rem;
+    }
+
+    aside:hover li a {
+        justify-content: start;
+    }
+
+    aside:hover li h4 {
+        margin-left: 30px;
+        font-size: .7rem;
+        text-align: left;
+    }
+
+    aside:hover a img {
+        width: 1.6rem;
         left: 0%;
     }
 }
