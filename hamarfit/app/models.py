@@ -32,7 +32,6 @@ class Clientes(models.Model):
     id_plan = models.ForeignKey('Planes', models.DO_NOTHING, db_column='id_plan')
     id_sucursal = models.ForeignKey('Sucursales', models.DO_NOTHING, db_column='id_sucursal')
     id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', default = 1)
-    id_empleado = models.ForeignKey('Empleados', models.DO_NOTHING, db_column='id_empleado')
 
     class Meta:
         managed = True
@@ -82,6 +81,13 @@ class Empleados(models.Model):
             if len(documento) == 11:
                 self.documento_empleado = f"{documento[:3]}-{documento[3:10]}-{documento[10:]}"
 
+class EntrenadorCliente(models.Model):
+    id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
+    id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
+
+    class Meta:
+        managed = False
+        db_table = 'entrenador_cliente'
 
 class Estados(models.Model):
     id_estado = models.AutoField(primary_key=True)

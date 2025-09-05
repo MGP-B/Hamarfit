@@ -5,7 +5,11 @@
 
     <div class="info-contenedor">
         <div class="info1">
-            <img src="{% static 'img/admin_img/sucursales/Ver Cliente.svg' %}" alt="">
+            <div class="icono_cliente">
+                <p>
+                    {{cliente.nombre_cliente|slice:":1"}}{{cliente.apellido_cliente|slice:":1"}}
+                </p>
+            </div>
             <div class="negro">
                 <p>{{cliente.id_estado.estado}}</p>
             </div>
@@ -32,9 +36,26 @@
                 </div>
             </div>
         </div>
-
     </div>
 
+    <form method="POST">
+        {% csrf_token %}
+        <label for="entrenador">Entrenador</label>
+        <input type="text" name="id_cliente" value="{{cliente.id_cliente}}" style="display: none;">
+        <select name="id_empleado" id="entrenador">
+            <option selected disabled>Seleccionar entrenador</option>
+            {% for entrenador in entrenadores %}
+            {% if entrenador %}
+            <option value="{{entrenador.id_empleado}}">{{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}</option>
+            {% else %}
+            <option disabled>La sucursal elegida aún no tiene entrenadores</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <button type="submit">Guardar</button>
+    </form>
+
+    {% if nota_cliente %}
     <div class="encabezado-notas">
         <h3>Notas del Cliente</h3>
         
@@ -58,6 +79,7 @@
             </table>
         </div>
     </div>
+    {% endif %}
 
     <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
         {% csrf_token %}
