@@ -239,6 +239,7 @@ aside .usuario {
     display: inline-flex;
     align-items: center;
     align-content: center;
+    cursor: pointer;
 }
 
 aside .usuario .icono {
@@ -249,7 +250,7 @@ aside .usuario .icono {
     border-radius: 50%;
 
     /* Colores */
-    background-color: #F97316;
+    background-color: #ff6a00;
     color: white;
 
     /* Fuentes */

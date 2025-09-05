@@ -1,6 +1,10 @@
-@import './../desplegables.css';
+@import './desplegables.css';
 
- .cuerpo_popup {
+* {
+    font-family: rubik;
+}
+
+.cuerpo_popup {
     width: 450px;
     height: fit-content;
     padding: 30px;
@@ -14,13 +18,12 @@
     flex-direction: column;
 }
 
-
-.icono_nombre {
+.icono-nombre {
     width: 100%;
+
     display: inline-flex;
     align-items: center;
 }
-
 
 .div_user_icon {
     box-sizing: border-box;
@@ -63,4 +66,4 @@
 .div_datos_empleado p span{
     font-size: .9rem;
     font-family: rubiksemi;
-} 
+}
