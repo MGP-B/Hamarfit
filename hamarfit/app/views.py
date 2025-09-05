@@ -221,17 +221,26 @@ def detalles_cliente(req, id):
     form = NotaClientesForm(req.POST or None)
 
     if req.method == 'POST':
-        if form.is_valid():
-            # Procesar el formulario de agregar nota
-            nota = form.save(commit=False)
-            # Asignar el cliente a la nota antes de guardar
-            nota.id_cliente = cliente
-            nota.save()
-            # Redirigir para evitar que se envíe el formulario de nuevo
-            return redirect('../', id=id)
-        else:
-            # Imprimir errores del formulario para depurar
-            print('Errores del formulario:', form.errors)
+        form_type = req.POST.get('form_type')
+
+        if form_type == 'nota':
+            form = NotaClientesForm(req.POST)
+            if form.is_valid():
+                nota = form.save(commit=False)
+                nota.id_cliente = cliente
+                nota.save()
+                return redirect('../', id=id)
+            else:
+                print('Errores del formulario:', form.errors)
+
+        elif form_type == 'entrenador':
+            form_ec = EntrenadorClienteForm(req.POST)
+            if form_ec.is_valid():
+                form_ec.save()
+                return redirect('../', id=id)
+            else:
+                print('[DEBUG] Errores del formulario entrenador:', form_ec.errors)
+
 
     # Lógica para manejar solicitudes GET
     try:
@@ -241,6 +250,11 @@ def detalles_cliente(req, id):
         nota_cliente = None
         mostrar_nota = False
     
+    try:
+        entrenador_cliente = EntrenadorCliente.objects.get(id_cliente = id)
+    except:
+        entrenador_cliente = None
+        
     entrenadores = Empleados.objects.filter(id_rol = 3, id_sucursal = sucursal_cliente)
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {
         'cliente': cliente,
@@ -248,6 +262,7 @@ def detalles_cliente(req, id):
         'mostrar_nota': mostrar_nota,
         'form': form,
         'entrenadores': entrenadores,
+        'entrenador_cliente': entrenador_cliente,
     })
 
 @require_POST
@@ -460,3 +475,4 @@ def actualizar_datos_cliente(request, id_cliente):
 def perfil_empleado(req, id):
     empleado = Empleados.objects.get(id_empleado = id)
     return render(req, 'admin_pages/desplegables/perfil_empleado.html',{'empleado': empleado})
+

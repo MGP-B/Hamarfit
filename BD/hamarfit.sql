@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-09-2025 a las 21:10:21
+-- Tiempo de generación: 05-09-2025 a las 22:51:19
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.13
 
@@ -147,9 +147,20 @@ INSERT INTO `empleados` (`id_empleado`, `nombre_empleado`, `apellido_empleado`, 
 --
 
 CREATE TABLE `entrenador_cliente` (
+  `id` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_empleado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `entrenador_cliente`
+--
+
+INSERT INTO `entrenador_cliente` (`id`, `id_cliente`, `id_empleado`) VALUES
+(1, 24, 9),
+(2, 8, 9),
+(3, 30, 13),
+(4, 32, 13);
 
 -- --------------------------------------------------------
 
@@ -374,6 +385,7 @@ ALTER TABLE `empleados`
 -- Indices de la tabla `entrenador_cliente`
 --
 ALTER TABLE `entrenador_cliente`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `clientes` (`id_cliente`),
   ADD KEY `empleados` (`id_empleado`);
 
@@ -464,6 +476,12 @@ ALTER TABLE `django_migrations`
 --
 ALTER TABLE `empleados`
   MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `entrenador_cliente`
+--
+ALTER TABLE `entrenador_cliente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `estados`

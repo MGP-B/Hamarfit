@@ -82,6 +82,7 @@ class Empleados(models.Model):
                 self.documento_empleado = f"{documento[:3]}-{documento[3:10]}-{documento[10:]}"
 
 class EntrenadorCliente(models.Model):
+    id = models.AutoField(primary_key=True)
     id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
     id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
 
