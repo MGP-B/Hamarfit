@@ -265,22 +265,31 @@ def sucursales_admin(req):
 def detalles_cliente(req, id):
     # Obtener el cliente
     cliente = get_object_or_404(Clientes, id_cliente=id)
-    
+    sucursal_cliente = cliente.id_sucursal
     # Inicializar el formulario, vacío para GET o con datos para POST
     form = NotaClientesForm(req.POST or None)
 
     if req.method == 'POST':
-        if form.is_valid():
-            # Procesar el formulario de agregar nota
-            nota = form.save(commit=False)
-            # Asignar el cliente a la nota antes de guardar
-            nota.id_cliente = cliente
-            nota.save()
-            # Redirigir para evitar que se envíe el formulario de nuevo
-            return redirect('../', id=id)
-        else:
-            # Imprimir errores del formulario para depurar
-            print('Errores del formulario:', form.errors)
+        form_type = req.POST.get('form_type')
+
+        if form_type == 'nota':
+            form = NotaClientesForm(req.POST)
+            if form.is_valid():
+                nota = form.save(commit=False)
+                nota.id_cliente = cliente
+                nota.save()
+                return redirect('../', id=id)
+            else:
+                print('Errores del formulario:', form.errors)
+
+        elif form_type == 'entrenador':
+            form_ec = EntrenadorClienteForm(req.POST)
+            if form_ec.is_valid():
+                form_ec.save()
+                return redirect('../', id=id)
+            else:
+                print('[DEBUG] Errores del formulario entrenador:', form_ec.errors)
+
 
     # Lógica para manejar solicitudes GET
     try:
@@ -289,15 +298,21 @@ def detalles_cliente(req, id):
     except NotaClientes.DoesNotExist:
         nota_cliente = None
         mostrar_nota = False
-
-    contexto = {
+    
+    try:
+        entrenador_cliente = EntrenadorCliente.objects.get(id_cliente = id)
+    except:
+        entrenador_cliente = None
+        
+    entrenadores = Empleados.objects.filter(id_rol = 3, id_sucursal = sucursal_cliente)
+    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {
         'cliente': cliente,
         'nota_cliente': nota_cliente,
         'mostrar_nota': mostrar_nota,
-        'form': form
-    }
-    
-    return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', contexto)
+        'form': form,
+        'entrenadores': entrenadores,
+        'entrenador_cliente': entrenador_cliente,
+    })
 
 @require_POST
 def eliminar_cliente(req, id):
@@ -325,8 +340,13 @@ def registrar_cliente(req):
             print("[DEBUG] Errores del formulario:", form.errors)
     else:
         form = anadirCliente()
+
     sucursales = Sucursales.objects.all()
-    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form, 'sucursales': sucursales})
+
+    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {
+        'form': form, 
+        'sucursales': sucursales,
+        })
 
 
 def seleccionar_plan(req):
@@ -355,8 +375,6 @@ def registrar_usuario(req):
 
 
 # inscripciones_renovaciones
-from django.core.paginator import Paginator
-
 def registrar_renovacion(req):
     id_cliente = req.POST.get('id_cliente')
     empleado_id = req.session.get('empleado_id')
@@ -521,3 +539,7 @@ def cancelar_membresia(request, cliente_id):
         except Estados.DoesNotExist:
             return JsonResponse({'success': False, 'error': 'Estado "Inactivo" no existe'})
     return JsonResponse({'success': False, 'error': 'Método no permitido'}, status=405)
+def perfil_empleado(req, id):
+    empleado = Empleados.objects.get(id_empleado = id)
+    return render(req, 'admin_pages/desplegables/perfil_empleado.html',{'empleado': empleado})
+

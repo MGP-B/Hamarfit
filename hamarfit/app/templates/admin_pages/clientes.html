@@ -70,14 +70,14 @@
                     <li class="opcion">
                         <img src="{% static 'img/admin_img/menu/activos/finanzas-activo.svg' %}" alt="" id="activo">
                         <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="" id="inactivo">
-                        <h3>Insc y Reno</h3>
+                        <h3>Ingresos</h3>
                     </li>
                 </a>
             {% else %}
                 <a class="disabled">
                     <li class="opcion_desabilitada">
                         <img src="{% static 'img/admin_img/menu/finanzas.svg' %}" alt="">
-                        <h3>Insc y Reno</h3>
+                        <h3>Ingresos</h3>
                     </li>
                 </a>
             {% endif %}
@@ -100,7 +100,7 @@
             {% endif %}
         </ul>
 
-        <div class="usuario">
+        <div class="usuario" onclick="agregar_popup(`{% url 'perfil_empleado' empleado.id_empleado %}`)">
             <div class="icono">
                 <p id="icono-usuario">{{ empleado.nombre_empleado|slice:":1" }}{{ empleado.apellido_empleado|slice:":1" }}</p>
             </div>

@@ -5,7 +5,11 @@
 
     <div class="info-contenedor">
         <div class="info1">
-            <img src="{% static 'img/admin_img/sucursales/Ver Cliente.svg' %}" alt="">
+            <div class="icono_cliente">
+                <p>
+                    {{cliente.nombre_cliente|slice:":1"}}{{cliente.apellido_cliente|slice:":1"}}
+                </p>
+            </div>
             <div class="negro">
                 <p>{{cliente.id_estado.estado}}</p>
             </div>
@@ -32,9 +36,50 @@
                 </div>
             </div>
         </div>
-
     </div>
 
+    <!-- Entrenador -->
+    {% if not entrenador_cliente %}
+    <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="form_type" value="entrenador">
+        <input type="text" name="id_cliente" value="{{cliente.id_cliente}}" style="display: none;">
+
+        <label for="entrenador">Entrenador</label>
+        <select name="id_empleado" id="entrenador">
+            <option selected disabled>Seleccionar entrenador</option>
+            {% for entrenador in entrenadores %}
+            {% if entrenador %}
+            <option value="{{entrenador.id_empleado}}">{{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}</option>
+            {% else %}
+            <option disabled>La sucursal elegida no cuenta con entrenadores</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <button type="submit">Guardar</button>
+    </form>
+    {% else %}
+    <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="form_type" value="entrenador">
+        <input type="text" name="id_cliente" value="{{cliente.id_cliente}}" style="display: none;">
+    
+        <label for="entrenador">Entrenador</label>
+        <select name="id_empleado" id="entrenador" disabled>
+            {% for entrenador in entrenadores %}
+            {% if entrenador %}
+            <option value="{{entrenador.id_empleado}}" selected>{{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}
+            </option>
+            {% else %}
+            <option disabled>La sucursal elegida no cuenta con entrenadores</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <button type="submit">Cambiar</button>
+    </form>
+    {% endif %}
+
+    {% if nota_cliente %}
     <div class="encabezado-notas">
         <h3>Notas del Cliente</h3>
         
@@ -58,9 +103,12 @@
             </table>
         </div>
     </div>
+    {% endif %}
 
+    <!-- Notas -->
     <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
         {% csrf_token %}
+        <input type="hidden" name="form_type" value="nota">
         <input type="number" style="display: none;" name="id_cliente" value="{{cliente.id_cliente}}">
         
         <input disabled class="notas-del-cliente" id="notas-del-cliente" name="nota" placeholder="Agregar nota ...">

@@ -81,6 +81,14 @@ class Empleados(models.Model):
             if len(documento) == 11:
                 self.documento_empleado = f"{documento[:3]}-{documento[3:10]}-{documento[10:]}"
 
+class EntrenadorCliente(models.Model):
+    id = models.AutoField(primary_key=True)
+    id_cliente = models.ForeignKey(Clientes, models.DO_NOTHING, db_column='id_cliente')
+    id_empleado = models.ForeignKey(Empleados, models.DO_NOTHING, db_column='id_empleado')
+
+    class Meta:
+        managed = False
+        db_table = 'entrenador_cliente'
 
 class Estados(models.Model):
     id_estado = models.AutoField(primary_key=True)
