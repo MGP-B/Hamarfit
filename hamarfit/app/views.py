@@ -276,8 +276,15 @@ def registrar_cliente(req):
             print("[DEBUG] Errores del formulario:", form.errors)
     else:
         form = anadirCliente()
+
     sucursales = Sucursales.objects.all()
-    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {'form': form, 'sucursales': sucursales})
+    entrenadores = Empleados.objects.filter(id_rol = 3)
+
+    return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {
+        'form': form, 
+        'sucursales': sucursales,
+        'entrenadores': entrenadores,
+        })
 
 
 def seleccionar_plan(req):
@@ -306,8 +313,6 @@ def registrar_usuario(req):
 
 
 # inscripciones_renovaciones
-from django.core.paginator import Paginator
-
 def registrar_renovacion(req):
     id_cliente = req.POST.get('id_cliente')
     empleado_id = req.session.get('empleado_id')
@@ -453,3 +458,7 @@ def actualizar_datos_cliente(request, id_cliente):
         return redirect('user/ajustes_cuenta')  # O la vista que tú uses
 
     return redirect('user/ajustes_cuenta')
+
+def perfil_empleado(req, id):
+    empleado = Empleados.objects.get(id_empleado = id)
+    return render(req, 'admin_pages/desplegables/perfil_empleado.html',{'empleado': empleado})
