@@ -62,9 +62,9 @@
     margin-left: 1%;
 }
 
-.beneficios .informacion .info #estado {
+/* .beneficios .informacion .info #estado {
     color: #0BAB02;
-}
+} */
 
 .btn {
     width: 100%;
@@ -140,9 +140,9 @@
         margin-left: 1%;
     }
     
-    .beneficios .informacion .info #estado {
+    /* .beneficios .informacion .info #estado {
         color: #0BAB02;
-    }
+    } */
 }
 
 @media (max-width: 580px) {
@@ -198,9 +198,9 @@
         margin-left: 1%;
     }
     
-    .beneficios .informacion .info #estado {
+    /* .beneficios .informacion .info #estado {
         color: #0BAB02;
-    }
+    } */
 
     .btn button {
         width: 60%;
@@ -264,4 +264,22 @@
 .modal-contenido #cerrar-modal:hover {
     background-color: rgba(220, 220, 220, 0.685);
     scale: 1.02;
+}
+
+.estado-activo {
+    color: #0BAB02;
+    font-weight: bold;
+}
+
+.estado-inactivo {
+    color: red;
+    font-weight: bold;
+}
+
+#mensaje_renovacion {
+    color: red;
+    text-align: center;
+    margin: 18px;
+    font-family: Rubik;
+    font-size: 1rem;
 }

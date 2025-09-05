@@ -368,9 +368,14 @@ def registrar_renovacion(req):
     if req.method == 'POST':
         form = RenovacionesForm(req.POST)
         try:
-            Clientes.objects.get(id_cliente=id_cliente)
+            cliente = Clientes.objects.get(id_cliente=id_cliente)
             if form.is_valid():
                 form.save()
+
+                if cliente.id_estado.estado == 'Inactivo':
+                    estado_activo = Estados.objects.get(estado='Activo')
+                    cliente.id_estado = estado_activo
+                    cliente.save()
                 return redirect('../')
             else:
                 print('Los errores del formulario son: ', form.errors)

@@ -28,8 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             if (data.success) {
                 estado.textContent = data.nuevo_estado;
-                btnCancelar.disabled = true;
-                btnCancelar.textContent = 'Membresía Cancelada';
+                estado.classList.remove('estado-activo');
+                estado.classList.add('estado-inactivo');
+                // btnCancelar.disabled = true;
+                btnCancelar.style.display = 'none';
                 modal.style.display = 'none';
             } else {
                 alert('Error: ' + data.error);
