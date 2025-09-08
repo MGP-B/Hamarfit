@@ -84,7 +84,7 @@ def clientes(req):
     # Empleado desde sesión
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-
+    entrenador_cliente = EntrenadorCliente.objects.filter(id_empleado = empleado_id)
     return render(req, 'admin_pages/clientes.html', {
         'clientes': page_obj,
         'empleado': empleado,
@@ -94,6 +94,7 @@ def clientes(req):
         'page_obj': page_obj,
         'estados': Estados.objects.all(),
         'planes': Planes.objects.all(),
+        'entrenador_cliente': entrenador_cliente,
     })
 
 

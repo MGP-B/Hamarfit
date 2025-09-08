@@ -180,6 +180,48 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% if empleado.id_rol.id_rol == 3 %}
+                    {% for cliente in entrenador_cliente %}
+                    <tr>
+                        <td>{{ cliente.id_cliente.id_cliente }}</td>
+                        <td>{{ cliente.id_cliente.nombre_cliente }} {{ cliente.id_cliente.apellido_cliente }}</td>
+                        <td>{{ cliente.id_cliente.correo_cliente }}</td>
+                        <td>{{ cliente.id_cliente.telefono_cliente }}</td>
+                        <td>{{ cliente.id_cliente.id_plan.nombre_plan }}</td>
+                        <td>{{ cliente.id_cliente.id_estado.estado }}</td>
+                        <td id="accion">
+                            <div id="div_acciones_{{cliente.id_cliente}}" onclick="visible('{{ cliente.id_cliente }}')">
+                                <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
+                    
+                                <div class="desplegable" id="desplegable_{{cliente.id_cliente}}">
+                                    <div class="encabezado_desplegable">
+                                        <h2>Acciones</h2>
+                                        <button onclick="cerrar_desplegable('{{ cliente.id_cliente }}'); event.stopPropagation()" class="x">
+                                            <img src="{% static 'img/admin_img/global/x.svg' %}">
+                                        </button>
+                                    </div>
+                    
+                                    <div class="div_detalles"
+                                        onclick="agregar_popup(`{% url 'admin/clientes/detalles_cliente/' cliente.id_cliente.id_cliente %}`)"
+                                        title="Ver detalles">
+                                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
+                                        <p>Ver detalles</p>
+                                    </div>
+                                    <div class="div_eliminar" title="Eliminar Permanentemente"
+                                        onclick="eliminarCliente('{{ cliente.id_cliente.id_cliente }}')">
+                                        <img src="{% static 'img/admin_img/global/eliminar.svg' %}">
+                                        <p>Eliminar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" style="text-align: center;">No hay nada que mostrar...</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
                     {% for cliente in clientes %}
                     <tr>
                         <td>{{ cliente.id_cliente }}</td>
@@ -218,9 +260,10 @@
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="7" style="text-align: center;">No hay nada que mostrar...</td>
+                        <td colspan="7" style="text-align: center; margin-top: 30px;">No hay nada que mostrar...</td>
                     </tr>
                     {% endfor %}
+                    {% endif %}
                 </tbody>
             </table>
         </div>
