@@ -64,15 +64,17 @@
         <input type="hidden" name="form_type" value="entrenador">
         <input type="hidden" name="id_cliente" value="{{cliente.id_cliente}}">
 
-        <label for="entrenador">Entrenador</label>
-        <select name="id_empleado" id="entrenador" disabled>
+        <label for="entrenador" style="display: none;" id="label_entrenador">Entrenador</label>
+        <select name="id_empleado" id="entrenador" style="display: none;">
             {% for entrenador in entrenadores %}
             <option value="{{entrenador.id_empleado}}"
-                {% if entrenador_cliente and entrenador.id_empleado == entrenador_cliente.id_empleado %}selected{% endif %}>
+                {% if entrenador.id_empleado == entrenador_cliente.id_empleado %}selected{% endif %}>
                 {{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}
             </option>
             {% endfor %}
         </select>
+        <p id="entrenador_asignado">Entrenador asignado: {{entrenador_cliente.id_empleado.nombre_empleado}}
+            {{entrenador_cliente.id_empleado.apellido_empleado}}</p>
 
         <div class="botones-entrenador">
             <button type="button" id="activar-cambio-entrenador">Cambiar</button>
