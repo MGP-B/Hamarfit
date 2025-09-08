@@ -16,6 +16,10 @@ const observador = new MutationObserver(() =>{
 
     if (btnCambiar && selectEntrenador) {
         btnCambiar.addEventListener('click', () => {
+            document.getElementById('label_entrenador').style.display = 'block';
+            document.getElementById('entrenador').style.display = 'block';
+
+            document.getElementById('entrenador_asignado').style.display = 'none';
             selectEntrenador.removeAttribute('disabled');
             btnCambiar.style.display = 'none';
             btnGuardar.style.display = 'inline-block';
@@ -116,3 +120,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+

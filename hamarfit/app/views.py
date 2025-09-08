@@ -49,44 +49,6 @@ def planes_contratados(req):
 # ----- Paginas del apartado de 'admin' -----
 @empleado_required
 @role_required(['Admin', 'Gerente', 'Entrenador', 'Recepcionista'])
-# def clientes(req):
-#     query = req.GET.get('q', '').strip()
-#     if query:
-#         palabras = query.lower().split()
-#         clientes_qs = Clientes.objects.annotate(
-#             nombre_completo=Concat('nombre_cliente', Value(' '), 'apellido_cliente')
-#         )
-#         condiciones = Q()
-#         for palabra in palabras:
-#             condiciones |= Q(nombre_cliente__icontains=palabra)
-#             condiciones |= Q(apellido_cliente__icontains=palabra)
-#             condiciones |= Q(nombre_completo__icontains=palabra)
-#         resultados = clientes_qs.filter(condiciones)
-#     else:
-#         resultados = Clientes.objects.none()
-
-#     empleado_id = req.session.get('empleado_id')
-#     empleado = Empleados.objects.get(id_empleado=empleado_id)
-
-#     if query:
-#         clientes_qs = resultados
-#     else:
-#         clientes_qs = Clientes.objects.all()
-
-#     paginator = Paginator(clientes_qs, 10)  # 10 clientes por página
-#     page_number = req.GET.get('page')
-#     page_obj = paginator.get_page(page_number)
-
-#     return render(req, 'admin_pages/clientes.html', {
-#         'clientes': page_obj,
-#         'empleado': empleado,
-#         'resultados': resultados,
-#         'query': query,
-#         'page_obj': page_obj,
-#         'estados': Estados.objects.all(),
-#         'planes': Planes.objects.all(),
-#     })
-
 def clientes(req):
     query = req.GET.get('q', '').strip()
     estado_id = req.GET.get('estado')
@@ -304,7 +266,7 @@ def detalles_cliente(req, id):
 
     # Lógica para manejar solicitudes GET
     try:
-        nota_cliente = NotaClientes.objects.filter(id_cliente=id).order_by('-id_nota')
+        nota_cliente = NotaClientes.objects.filter(id_cliente=id)
         mostrar_nota = True
     except NotaClientes.DoesNotExist:
         nota_cliente = None
@@ -316,6 +278,8 @@ def detalles_cliente(req, id):
         entrenador_cliente = None
         
     entrenadores = Empleados.objects.filter(id_rol = 3, id_sucursal = sucursal_cliente)
+    entrenador_cliente = EntrenadorCliente.objects.filter(id_cliente=cliente).first()
+
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {
         'cliente': cliente,
         'nota_cliente': nota_cliente,
