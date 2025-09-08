@@ -124,9 +124,13 @@
         <div class="panel-control">
             <form method="GET" class="barra-de-busqueda">
                 {% if query %}
-                <button class="boton-volver"><img src="{% static 'img/admin_img/global/volver.png'%}" alt=""></button>
+                <button class="boton-volver" title="volver">
+                    <a href="{% url 'admin/clientes'%}">
+                        <img src="{% static 'img/admin_img/global/volver.png'%}">
+                    </a>
+                </button>
                 {% endif %}
-                <input type="text" name = 'q' placeholder="Buscar cliente (por nombre)...">
+                <input type="text" name="q" placeholder="Buscar cliente (por nombre)..." value="{{ query }}">
                 <button class="boton-buscar">
                     <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="">
                     <p>Buscar</p>
@@ -139,8 +143,7 @@
                     <select name="estado" class="main-filtros-select">
                         <option value="">Todos los estados</option>
                         {% for estado in estados %}
-                        <option value="{{ estado.id_estado }}"
-                            {% if request.GET.estado == estado.id_estado|stringformat:"s" %}selected{% endif %}>
+                        <option value="{{ estado.id_estado }}" {% if estado_id == estado.id_estado %}selected{% endif %}>
                             {{ estado.estado }}
                         </option>
                         {% endfor %}
@@ -149,8 +152,7 @@
                     <select name="plan" class="main-filtros-select">
                         <option value="">Todos los planes</option>
                         {% for plan in planes %}
-                        <option value="{{ plan.id_plan }}"
-                            {% if request.GET.plan == plan.id_plan|stringformat:"s" %}selected{% endif %}>
+                        <option value="{{ plan.id_plan }}" {% if plan_id == plan.id_plan %}selected{% endif %}>
                             {{ plan.nombre_plan }}
                         </option>
                         {% endfor %}
@@ -159,69 +161,30 @@
                     <button type="submit" class="aplicar-filtros">Aplicar Filtros</button>
                 </div>
             </form>
-        {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
+
+            {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'admin/clientes/registrar_cliente/' %}`)">
                 <img src="{% static 'img/admin_img/sucursales/user-plus 2.svg' %}" alt="">
                 <p>Agregar Cliente</p>
             </button>
-        {% endif %}
+            {% endif %}
         </div>
+
+        <!-- Tabla de Clientes -->
         <div id="contenedor_contenido">
             <table class="tabla-clientes">
                 <thead>
                     <tr>
-                        <th id="id-user">ID</th>
-                        <th id="nombre-user">Nombre</th>
-                        <th id="email-user">Email</th>
-                        <th id="telefono-user">Teléfono</th>
-                        <th id="plan-user">Plan</th>
-                        <th id="estado-user">Estado</th>
-                        <th id="accion-user">Acción</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Plan</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% if empleado.id_rol.id_rol == 3 %}
-                    {% for cliente in entrenador_cliente %}
-                    <tr>
-                        <td>{{ cliente.id_cliente.id_cliente }}</td>
-                        <td>{{ cliente.id_cliente.nombre_cliente }} {{ cliente.id_cliente.apellido_cliente }}</td>
-                        <td>{{ cliente.id_cliente.correo_cliente }}</td>
-                        <td>{{ cliente.id_cliente.telefono_cliente }}</td>
-                        <td>{{ cliente.id_cliente.id_plan.nombre_plan }}</td>
-                        <td>{{ cliente.id_cliente.id_estado.estado }}</td>
-                        <td id="accion">
-                            <div id="div_acciones_{{cliente.id_cliente}}" onclick="visible('{{ cliente.id_cliente }}')">
-                                <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                    
-                                <div class="desplegable" id="desplegable_{{cliente.id_cliente}}">
-                                    <div class="encabezado_desplegable">
-                                        <h2>Acciones</h2>
-                                        <button onclick="cerrar_desplegable('{{ cliente.id_cliente }}'); event.stopPropagation()" class="x">
-                                            <img src="{% static 'img/admin_img/global/x.svg' %}">
-                                        </button>
-                                    </div>
-                    
-                                    <div class="div_detalles"
-                                        onclick="agregar_popup(`{% url 'admin/clientes/detalles_cliente/' cliente.id_cliente.id_cliente %}`)"
-                                        title="Ver detalles">
-                                        <img src="{% static 'img/admin_img/global/ojo.svg' %}">
-                                        <p>Ver detalles</p>
-                                    </div>
-                                    <div class="div_eliminar" title="Eliminar Permanentemente"
-                                        onclick="eliminarCliente('{{ cliente.id_cliente.id_cliente }}')">
-                                        <img src="{% static 'img/admin_img/global/eliminar.svg' %}">
-                                        <p>Eliminar</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    {% empty %}
-                    <tr>
-                        <td colspan="7" style="text-align: center;">No hay nada que mostrar...</td>
-                    </tr>
-                    {% endfor %}
-                    {% else %}
                     {% for cliente in clientes %}
                     <tr>
                         <td>{{ cliente.id_cliente }}</td>
@@ -231,18 +194,17 @@
                         <td>{{ cliente.id_plan.nombre_plan }}</td>
                         <td>{{ cliente.id_estado.estado }}</td>
                         <td id="accion">
-                            <div id="div_acciones_{{cliente.id_cliente}}" onclick="visible('{{ cliente.id_cliente }}')">
+                            <div id="div_acciones_{{ cliente.id_cliente }}" onclick="visible('{{ cliente.id_cliente }}')">
                                 <img src="{% static 'img/admin_img/global/tres_puntos.svg' %}">
-                                
-                                <div class="desplegable" id="desplegable_{{cliente.id_cliente}}">
+                                <div class="desplegable" id="desplegable_{{ cliente.id_cliente }}">
                                     <div class="encabezado_desplegable">
                                         <h2>Acciones</h2>
                                         <button
-                                            onclick="cerrar_desplegable('{{ cliente.id_cliente }}'); event.stopPropagation()" class="x">
+                                            onclick="cerrar_desplegable('{{ cliente.id_cliente }}'); event.stopPropagation()"
+                                            class="x">
                                             <img src="{% static 'img/admin_img/global/x.svg' %}">
                                         </button>
                                     </div>
-
                                     <div class="div_detalles"
                                         onclick="agregar_popup(`{% url 'admin/clientes/detalles_cliente/' cliente.id_cliente %}`)"
                                         title="Ver detalles">
@@ -260,26 +222,30 @@
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="7" style="text-align: center; margin-top: 30px;">No hay nada que mostrar...</td>
+                        <td colspan="7" style="text-align: center;">No hay nada que mostrar...</td>
                     </tr>
                     {% endfor %}
-                    {% endif %}
                 </tbody>
             </table>
         </div>
 
+        <!-- Paginación -->
         <div class="paginacion">
             {% if clientes.has_previous %}
-            <a href="?page={{ clientes.previous_page_number }}&q={{ request.GET.q }}">Anterior</a>
+            <a href="?page={{ clientes.previous_page_number }}&q={{ query }}">Anterior</a>
             {% endif %}
             <span>Página {{ clientes.number }} de {{ clientes.paginator.num_pages }}</span>
             {% if clientes.has_next %}
-            <a href="?page={{ clientes.next_page_number }}&q={{ request.GET.q }}">Siguiente</a>
+            <a href="?page={{ clientes.next_page_number }}&q={{ query }}">Siguiente</a>
             {% endif %}
+        </div>
+
         <div id="contenedor_popup">
             <!-- Aquí se van a agregar los pop ups -->
         </div>
     </main>
+
+
 
     <div class="contenedor_advertencia">
         <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (800px de ancho)</p>
