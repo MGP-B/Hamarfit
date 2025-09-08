@@ -102,7 +102,7 @@ def clientes(req):
 def configuracion(req):
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-    empleados = Empleados.objects.all()
+    empleados = Empleados.objects.exclude(id_empleado=empleado_id)
     return render(req, 'admin_pages/configuracion.html', {'empleados':empleados, 'empleado': empleado})
 
 
@@ -447,13 +447,18 @@ def reasignar_inscripciones(request, id_empleado):
     empleado_origen = get_object_or_404(Empleados, pk=id_empleado)
 
     empleados_destino = Empleados.objects.exclude(pk=id_empleado) \
-        .exclude(id_rol__rol='Entrenador')  # Excluye entrenadores
+        .exclude(id_rol__rol='Entrenador') \
+        .exclude(id_rol__rol='Gerente')
 
     return render(request, 'admin_pages/desplegables/configuracion/reasignar_inscripciones.html', {
         'empleado_origen': empleado_origen,
         'empleados_destino': empleados_destino
     })
 
+
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
 def ejecutar_reasignacion(request):
     if request.method == 'POST':
         origen_id = request.POST.get('origen_id')
@@ -463,13 +468,17 @@ def ejecutar_reasignacion(request):
             origen = Empleados.objects.get(pk=origen_id)
             destino = Empleados.objects.get(pk=destino_id)
 
-            # Reasignar todas las inscripciones del empleado origen al destino
-            InscripcionesRenovaciones.objects.filter(id_empleado=origen).update(id_empleado=destino)
+            if origen.id_rol.rol == 'Administrador':
+                return JsonResponse({'success': False, 'message': 'No se puede eliminar un administrador directamente.'}, status=403)
 
-            # Eliminar el empleado origen
+            inscripciones = InscripcionesRenovaciones.objects.filter(id_empleado=origen)
+            if not inscripciones.exists():
+                return JsonResponse({'success': False, 'message': 'El empleado no tiene inscripciones asignadas.'}, status=400)
+
+            inscripciones.update(id_empleado=destino)
             origen.delete()
 
-            return JsonResponse({'success': True, 'message': 'Inscripciones reasignadas correctamente.'})
+            return JsonResponse({'success': True, 'message': 'Inscripciones reasignadas y empleado eliminado correctamente.'})
         except Empleados.DoesNotExist:
             return JsonResponse({'success': False, 'message': 'Empleado no encontrado.'}, status=404)
     else:
@@ -518,3 +527,24 @@ def perfil_empleado(req, id):
     empleado = Empleados.objects.get(id_empleado = id)
     return render(req, 'admin_pages/desplegables/perfil_empleado.html',{'empleado': empleado})
 
+
+def verificar_inscripciones(request, id_empleado):
+    tiene = InscripcionesRenovaciones.objects.filter(id_empleado_id=id_empleado).exists()
+    return JsonResponse({'tiene_inscripciones': tiene}, content_type='application/json')
+
+@csrf_exempt  # Solo si no estás usando el token correctamente
+def eliminar_empleado(request, id_empleado):
+    if request.method == 'POST':
+        try:
+            empleado = Empleados.objects.get(pk=id_empleado)
+
+            # Verifica si es entrenador
+            if empleado.id_rol.rol == 'Entrenador':
+                # Elimina sus relaciones en entrenador_cliente
+                EntrenadorCliente.objects.filter(id_entrenador=empleado).delete()
+                
+            empleado.delete()
+            return JsonResponse({'success': True})
+        except Empleados.DoesNotExist:
+            return JsonResponse({'success': False, 'message': 'Empleado no encontrado.'}, status=404)
+    return JsonResponse({'success': False, 'message': 'Método no permitido.'}, status=405)

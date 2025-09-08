@@ -130,3 +130,43 @@ function confirmarReasignacion(origenId) {
         alert("Hubo un problema al intentar reasignar las inscripciones.");
     });
 }
+
+function verificarEmpleadoAntesDeEliminar(idEmpleado) {
+    fetch(`/admin/configuracion/verificar_inscripciones/${idEmpleado}/`)
+        .then(res => {
+            if (!res.ok) throw new Error("Respuesta no válida");
+            const contentType = res.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+                throw new Error("Respuesta no es JSON");
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log("Respuesta JSON:", data);
+            if (data.tiene_inscripciones) {
+                agregar_popup(`/admin/configuracion/reasignar_inscripciones/${idEmpleado}/`);
+            } else {
+                eliminarEmpleado(idEmpleado);
+            }
+        })
+        
+}
+
+
+function eliminarEmpleado(idEmpleado) {
+    fetch(`/admin/configuracion/eliminar/${idEmpleado}/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Empleado eliminado correctamente.");
+            location.reload();
+        } else {
+            alert("Error al eliminar el empleado.");
+        }
+    });
+}

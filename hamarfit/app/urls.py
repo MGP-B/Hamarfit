@@ -36,6 +36,8 @@ urlpatterns = [
     path('admin/configuracion/registrar_usuario/', views.registrar_usuario, name='admin/configuracion/registrar_usuario/'),
     path('admin/configuracion/reasignar_inscripciones/<int:id_empleado>/', views.reasignar_inscripciones, name='reasignar_inscripciones'),
     path('admin/configuracion/ejecutar_reasignacion/', views.ejecutar_reasignacion, name='ejecutar_reasignacion'),
+    path('admin/configuracion/verificar_inscripciones/<int:id_empleado>/', views.verificar_inscripciones, name='verificar_inscripciones'),
+    path('admin/configuracion/eliminar/<int:id_empleado>/', views.eliminar_empleado, name='eliminar_empleado'),
     path('admin/configuración/perfil_empleado/<int:id>', views.perfil_empleado, name = 'perfil_empleado'),
 
     # inscripciones_renovaciones
