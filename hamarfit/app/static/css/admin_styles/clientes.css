@@ -306,16 +306,6 @@ main button:hover{
     margin-right: 5px;
 }
 
-.panel-filtros.oculto {
-    display: none;
-}
-.panel-filtros {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
 /* Responsive del desplegable de acciones */
 /* Laptop pequeña */
 @media screen and (max-width: 1200px) {

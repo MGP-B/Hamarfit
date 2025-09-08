@@ -325,6 +325,22 @@ a.disabled li {
     height: auto;
 }
 
+.panel-filtros.oculto {
+    display: none;
+}
+
+.panel-filtros {
+    background-color: rgba(255, 255, 255, .7);
+    position: absolute;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 5px;
+}
+
 @media (max-width: 1130px) {
     h1 {
         font-size: 1.4rem;
