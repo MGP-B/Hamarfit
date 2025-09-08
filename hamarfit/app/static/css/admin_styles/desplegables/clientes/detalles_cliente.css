@@ -1,12 +1,39 @@
-@import '../desplegables.css';
-
 /* Cuerpo del pop up */
 .cuerpo_popup {
-    background-color: #F6F6F4;
+    background-color: white;
     border-radius: 8px;
     padding: 50px;
     max-width: 550px;
     width: 90%;
+}
+
+.icono_cliente {
+    background-color: #f7941d;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.8rem;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,.3);
+    margin-bottom: 5px;
+}
+
+#entrenador_asignado p{
+    font-size: 1rem;
+}
+
+.botones-entrenador button {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ff9900;
+    border: 1px solid transparent;
+    margin-top: 5px;
+    color: white;
+    font-size: .8rem;
 }
 
 .cuerpo_popup h2 {
@@ -42,7 +69,7 @@
 }
 
 .cuerpo_popup .info-contenedor .info1 .negro p {
-    background-color: black;
+    background-color: rgb(86, 86, 86);
     color: white;
     width: 70%;
     align-items: center;

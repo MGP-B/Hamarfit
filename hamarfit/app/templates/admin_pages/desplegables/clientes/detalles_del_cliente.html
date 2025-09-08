@@ -1,5 +1,7 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/clientes/detalles_del_cliente.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/admin_styles/desplegables/clientes/detalles_cliente.css' %}">
+
 <div class="cuerpo_popup" id="cuerpo_popup">
     <h2>Detalles del Cliente</h2>
 
@@ -38,22 +40,50 @@
         </div>
     </div>
 
-    <form method="POST">
+    <!-- Entrenador -->
+    {% if not entrenador_cliente %}
+    <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
         {% csrf_token %}
-        <label for="entrenador">Entrenador</label>
+        <input type="hidden" name="form_type" value="entrenador">
         <input type="text" name="id_cliente" value="{{cliente.id_cliente}}" style="display: none;">
+
+        <label for="entrenador">Entrenador</label>
         <select name="id_empleado" id="entrenador">
             <option selected disabled>Seleccionar entrenador</option>
             {% for entrenador in entrenadores %}
             {% if entrenador %}
             <option value="{{entrenador.id_empleado}}">{{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}</option>
             {% else %}
-            <option disabled>La sucursal elegida aún no tiene entrenadores</option>
+            <option disabled>La sucursal elegida no cuenta con entrenadores</option>
             {% endif %}
             {% endfor %}
         </select>
         <button type="submit">Guardar</button>
     </form>
+    {% else %}
+    <form id="form-entrenador" method="POST" action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}">
+        {% csrf_token %}
+        <input type="hidden" name="form_type" value="entrenador">
+        <input type="hidden" name="id_cliente" value="{{cliente.id_cliente}}">
+
+        <label for="entrenador" style="display: none;" id="label_entrenador">Entrenador</label>
+        <select name="id_empleado" id="entrenador" style="display: none;">
+            {% for entrenador in entrenadores %}
+            <option value="{{entrenador.id_empleado}}"
+                {% if entrenador.id_empleado == entrenador_cliente.id_empleado %}selected{% endif %}>
+                {{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}
+            </option>
+            {% endfor %}
+        </select>
+        <p id="entrenador_asignado">Entrenador asignado: {{entrenador_cliente.id_empleado.nombre_empleado}}
+            {{entrenador_cliente.id_empleado.apellido_empleado}}</p>
+
+        <div class="botones-entrenador">
+            <button type="button" id="activar-cambio-entrenador">Cambiar</button>
+            <button type="submit" id="guardar-cambio-entrenador" style="display: none;">Guardar</button>
+        </div>
+    </form>
+    {% endif %}
 
     {% if nota_cliente %}
     <div class="encabezado-notas">
@@ -81,8 +111,10 @@
     </div>
     {% endif %}
 
+    <!-- Notas -->
     <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
         {% csrf_token %}
+        <input type="hidden" name="form_type" value="nota">
         <input type="number" style="display: none;" name="id_cliente" value="{{cliente.id_cliente}}">
         
         <input disabled class="notas-del-cliente" id="notas-del-cliente" name="nota" placeholder="Agregar nota ...">

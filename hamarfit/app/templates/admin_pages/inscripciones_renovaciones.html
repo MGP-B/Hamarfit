@@ -132,6 +132,32 @@
                     <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="Icono lupa">
                     <p>Buscar</p>
                 </button>
+                <button type="button" class="boton-filtro">
+                    <img src="{% static 'img/admin_img/global/Filter_alt.svg' %}" alt="">
+                    <p>Filtrar</p>
+                </button>
+                <div id="panel-filtros" class="panel-filtros oculto">
+                    <select name="descripcion" class="main-filtros-select">
+                        <option value="">Todas las descripciones</option>
+                        {% for descripcion in descripciones %}
+                        <option value="{{ descripcion }}"
+                            {% if request.GET.descripcion == descripcion %}selected{% endif %}>
+                            {{ descripcion }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <select name="plan" class="main-filtros-select">
+                        <option value="">Todos los planes</option>
+                        {% for plan in planes %}
+                        <option value="{{ plan.id_plan }}"
+                            {% if request.GET.plan == plan.id_plan|stringformat:"s" %}selected{% endif %}>
+                            {{ plan.nombre_plan }}
+                        </option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit" class="aplicar-filtros">Aplicar Filtros</button>
+                </div>
             </form>
             <button id="registrar_transaccion"
                 onclick="agregar_popup(`{% url 'admin/inscripciones_renovaciones/registrar_renovacion/' %}`)">
@@ -225,4 +251,5 @@
         <p class="advertencia">Su pantalla no cumple con los requisitos mínimos (800px de ancho)</p>
     </div>
     <script src="{% static 'js/admin_js/desplegables.js' %}"></script>
+    <script src="{% static 'js/admin_js/clientes.js' %}"></script>
 </body>

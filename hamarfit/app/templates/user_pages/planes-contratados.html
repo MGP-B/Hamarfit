@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/global_styles/fuentes.css' %}">
     <link rel="stylesheet" href="{% static 'css/global_styles/reset.css' %}">
@@ -121,7 +122,7 @@
                     {% endif %}
                     <div class="info estado-cuenta">
                         <h3>Estado:</h3>
-                        <p id="estado">{{ cliente.id_estado.estado }}</p>
+                        <p id="estado" class="{% if cliente.id_estado.estado == 'Activo' %}estado-activo{% else %}estado-inactivo{% endif %}">{{ cliente.id_estado.estado }}</p>
                     </div>
                     <div class="info precio-mensualidad">
                         <h3>Mensualidad:</h3>
@@ -129,12 +130,28 @@
                     </div>
                 </div>
 
+                <input type="hidden" id="csrf-token" value="{{ csrf_token }}">
+                {% if cliente.id_estado.estado == 'Activo' %}
                 <div class="btn">
-                    <button id="cancelar-membresia">Cancelar Membresía</button>
+                    <button id="cancelar-membresia" data-cliente-id="{{ cliente.id_cliente }}"
+                        data-url="{% url 'cancelar_membresia' cliente.id_cliente %}">Cancelar
+                        Membresía</button>
+                </div>
+                {% else %}
+                <p id="mensaje_renovacion">Para reactivar su cuenta, por favor acuda a su centro correspondiente y solicite el proceso de renovación.</p>
+                {% endif %}
+                <div id="modal-cancelar" class="modal">
+                    <div class="modal-contenido">
+                        <h3>¿Cancelar membresía?</h3>
+                        <p>Esta acción cambiará tu estado a inactivo. ¿Deseas continuar?</p>
+                        <button id="confirmar-cancelacion">Sí, cancelar</button>
+                        <button id="cerrar-modal">No</button>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+    <script src="{% static 'js/user_js/planes_contratados.js' %}"></script>
 </body>
 
 </html>

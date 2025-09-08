@@ -75,3 +75,11 @@ class NotaClientesForm(forms.ModelForm):
         #     'id_cliente'
         # ]
         exclude = ['fecha']
+
+class EntrenadorClienteForm(forms.ModelForm):
+    class Meta:
+        model = EntrenadorCliente
+        fields = [
+            'id_cliente',
+            'id_empleado'
+        ]

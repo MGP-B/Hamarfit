@@ -8,6 +8,7 @@ urlpatterns = [
     # ----- Apartado de 'user' -----
     path('ajustes_cuenta/',views.ajustes_cuenta, name='user/ajustes_cuenta'),
     path('planes_contratados/',views.planes_contratados, name='user/planes_contratados'),
+    path('planes_contratados/<int:cliente_id>',views.cancelar_membresia, name='cancelar_membresia'),
     path('inicio_user/',views.inicio_user, name='inicio_user'),
     path('logout_user/',views.logout_user, name='logout_user'),
     path('ajustes_cuenta/<int:id_cliente>/', views.actualizar_datos_cliente, name='actualizar_datos'),

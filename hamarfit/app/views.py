@@ -51,38 +51,49 @@ def planes_contratados(req):
 @role_required(['Admin', 'Gerente', 'Entrenador', 'Recepcionista'])
 def clientes(req):
     query = req.GET.get('q', '').strip()
+    estado_id = req.GET.get('estado')
+    plan_id = req.GET.get('plan')
+    page_number = req.GET.get('page')
+
+    # Base queryset con anotación
+    clientes_qs = Clientes.objects.annotate(
+        nombre_completo=Concat('nombre_cliente', Value(' '), 'apellido_cliente')
+    )
+
+    # Filtro por búsqueda textual
     if query:
         palabras = query.lower().split()
-        clientes_qs = Clientes.objects.annotate(
-            nombre_completo=Concat('nombre_cliente', Value(' '), 'apellido_cliente')
-        )
         condiciones = Q()
         for palabra in palabras:
             condiciones |= Q(nombre_cliente__icontains=palabra)
             condiciones |= Q(apellido_cliente__icontains=palabra)
             condiciones |= Q(nombre_completo__icontains=palabra)
-        resultados = clientes_qs.filter(condiciones)
-    else:
-        resultados = Clientes.objects.none()
+        clientes_qs = clientes_qs.filter(condiciones)
 
+    
+    # Filtros por estado y plan
+    if estado_id:
+        clientes_qs = clientes_qs.filter(id_estado=estado_id)
+    if plan_id:
+        clientes_qs = clientes_qs.filter(id_plan=plan_id)
+
+    # Paginación
+    paginator = Paginator(clientes_qs, 10)
+    page_obj = paginator.get_page(page_number)
+
+    # Empleado desde sesión
     empleado_id = req.session.get('empleado_id')
     empleado = Empleados.objects.get(id_empleado=empleado_id)
-
-    if query:
-        clientes_qs = resultados
-    else:
-        clientes_qs = Clientes.objects.all()
-
-    paginator = Paginator(clientes_qs, 10)  # 10 clientes por página
-    page_number = req.GET.get('page')
-    page_obj = paginator.get_page(page_number)
 
     return render(req, 'admin_pages/clientes.html', {
         'clientes': page_obj,
         'empleado': empleado,
-        'resultados': resultados,
         'query': query,
+        'estado_id': estado_id,
+        'plan_id': plan_id,
         'page_obj': page_obj,
+        'estados': Estados.objects.all(),
+        'planes': Planes.objects.all(),
     })
 
 
@@ -113,55 +124,60 @@ def dashboard(req):
 @empleado_required
 @role_required(['Admin', 'Gerente', 'Recepcionista'])
 def inscripciones_renovaciones(req):
-    # Barra de búsqueda
     query = req.GET.get('q', '').strip()
+    plan_id = req.GET.get('plan')
+    descripcion = req.GET.get('descripcion')
+    page_number = req.GET.get('page')
 
-    # Solo si hay texto de búsqueda
-    if query:
-        # Normaliza el input
-        palabras = query.lower().split()
-
-        # Anota el nombre completo para búsquedas combinadas
-        inscripciones = InscripcionesRenovaciones.objects.annotate(
-            nombre_completo= Concat(
-                'id_cliente__nombre_cliente',
-                Value(' '),
-                'id_cliente__apellido_cliente'
-            )
+    # Base queryset con anotación para nombre completo
+    inscripciones_renovaciones_qs = InscripcionesRenovaciones.objects.annotate(
+        nombre_completo=Concat(
+            'id_cliente__nombre_cliente',
+            Value(' '),
+            'id_cliente__apellido_cliente'
         )
+    )
 
-        # Construye condiciones dinámicas
+    # Filtro por búsqueda textual
+    if query:
+        palabras = query.lower().split()
         condiciones = Q()
         for palabra in palabras:
             condiciones |= Q(id_cliente__nombre_cliente__icontains=palabra)
             condiciones |= Q(id_cliente__apellido_cliente__icontains=palabra)
             condiciones |= Q(nombre_completo__icontains=palabra)
+        inscripciones_renovaciones_qs = inscripciones_renovaciones_qs.filter(condiciones)
 
-        resultados = inscripciones.filter(condiciones)
-    else:
-        resultados = InscripcionesRenovaciones.objects.none()
+    # Filtro por descripción
+    if descripcion:
+        inscripciones_renovaciones_qs = inscripciones_renovaciones_qs.filter(descripcion__icontains=descripcion)
 
-    # Cuenta iniciada
-    empleado_id = req.session.get('empleado_id')
-    empleado = Empleados.objects.get(id_empleado=empleado_id)
-    
-    # Mostrar los registros
-    if query:
-        inscripciones_renovaciones_qs = resultados
-    else:
-        inscripciones_renovaciones_qs = InscripcionesRenovaciones.objects.all()
+    # Filtro por plan
+    if plan_id:
+        inscripciones_renovaciones_qs = inscripciones_renovaciones_qs.filter(id_plan_id=plan_id)
 
-    paginator = Paginator(inscripciones_renovaciones_qs, 10)  # 10 clientes por página
-    page_number = req.GET.get('page')
+    # Paginación
+    paginator = Paginator(inscripciones_renovaciones_qs, 10)
     page_obj = paginator.get_page(page_number)
 
+    # Empleado desde sesión
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
+
+    # Lista de descripciones únicas para el select
+    descripciones = InscripcionesRenovaciones.objects.values_list('descripcion', flat=True).distinct()
+
     return render(req, 'admin_pages/inscripciones_renovaciones.html', {
-    'inscripciones_renovaciones': page_obj, 
-    'empleado': empleado, 
-    'resultados': resultados, 
-    'query': query,
-    'page_obj': page_obj,
+        'inscripciones_renovaciones': page_obj,
+        'empleado': empleado,
+        'query': query,
+        'plan_id': plan_id,
+        'descripcion': descripcion,
+        'page_obj': page_obj,
+        'descripciones': descripciones,
+        'planes': Planes.objects.all(),
     })
+
 
 
 def login(req):
@@ -221,33 +237,56 @@ def detalles_cliente(req, id):
     form = NotaClientesForm(req.POST or None)
 
     if req.method == 'POST':
-        if form.is_valid():
-            # Procesar el formulario de agregar nota
-            nota = form.save(commit=False)
-            # Asignar el cliente a la nota antes de guardar
-            nota.id_cliente = cliente
-            nota.save()
-            # Redirigir para evitar que se envíe el formulario de nuevo
-            return redirect('../', id=id)
-        else:
-            # Imprimir errores del formulario para depurar
-            print('Errores del formulario:', form.errors)
+        form_type = req.POST.get('form_type')
+
+        if form_type == 'nota':
+            form = NotaClientesForm(req.POST)
+            if form.is_valid():
+                nota = form.save(commit=False)
+                nota.id_cliente = cliente
+                nota.save()
+                return redirect('../', id=id)
+            else:
+                print('Errores del formulario:', form.errors)
+
+        elif form_type == 'entrenador':
+            id_empleado = req.POST.get('id_empleado')
+            if id_empleado:
+                entrenador_cliente = EntrenadorCliente.objects.filter(id_cliente=cliente).first()
+                if entrenador_cliente:
+                    entrenador_cliente.id_empleado_id = id_empleado
+                    entrenador_cliente.save()
+                else:
+                    EntrenadorCliente.objects.create(
+                        id_cliente=cliente,
+                        id_empleado_id=id_empleado
+                    )
+                return redirect('../', id=id)
+
 
     # Lógica para manejar solicitudes GET
     try:
-        nota_cliente = NotaClientes.objects.filter(id_cliente=id).order_by('-id_nota')
+        nota_cliente = NotaClientes.objects.filter(id_cliente=id)
         mostrar_nota = True
     except NotaClientes.DoesNotExist:
         nota_cliente = None
         mostrar_nota = False
     
+    try:
+        entrenador_cliente = EntrenadorCliente.objects.get(id_cliente = id)
+    except:
+        entrenador_cliente = None
+        
     entrenadores = Empleados.objects.filter(id_rol = 3, id_sucursal = sucursal_cliente)
+    entrenador_cliente = EntrenadorCliente.objects.filter(id_cliente=cliente).first()
+
     return render(req, 'admin_pages/desplegables/clientes/detalles_del_cliente.html', {
         'cliente': cliente,
         'nota_cliente': nota_cliente,
         'mostrar_nota': mostrar_nota,
         'form': form,
         'entrenadores': entrenadores,
+        'entrenador_cliente': entrenador_cliente,
     })
 
 @require_POST
@@ -322,9 +361,14 @@ def registrar_renovacion(req):
     if req.method == 'POST':
         form = RenovacionesForm(req.POST)
         try:
-            Clientes.objects.get(id_cliente=id_cliente)
+            cliente = Clientes.objects.get(id_cliente=id_cliente)
             if form.is_valid():
                 form.save()
+
+                if cliente.id_estado.estado == 'Inactivo':
+                    estado_activo = Estados.objects.get(estado='Activo')
+                    cliente.id_estado = estado_activo
+                    cliente.save()
                 return redirect('../')
             else:
                 print('Los errores del formulario son: ', form.errors)
@@ -457,6 +501,20 @@ def actualizar_datos_cliente(request, id_cliente):
 
     return redirect('user/ajustes_cuenta')
 
+def cancelar_membresia(request, cliente_id):
+    if request.method == 'POST':
+        try:
+            cliente = Clientes.objects.get(id_cliente=cliente_id)
+            estado_inactivo = Estados.objects.get(estado='Inactivo')
+            cliente.id_estado = estado_inactivo
+            cliente.save()
+            return JsonResponse({'success': True, 'nuevo_estado': estado_inactivo.estado})
+        except Clientes.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Cliente no encontrado'})
+        except Estados.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Estado "Inactivo" no existe'})
+    return JsonResponse({'success': False, 'error': 'Método no permitido'}, status=405)
 def perfil_empleado(req, id):
     empleado = Empleados.objects.get(id_empleado = id)
     return render(req, 'admin_pages/desplegables/perfil_empleado.html',{'empleado': empleado})
+

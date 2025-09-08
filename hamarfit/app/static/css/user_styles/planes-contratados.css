@@ -62,9 +62,9 @@
     margin-left: 1%;
 }
 
-.beneficios .informacion .info #estado {
+/* .beneficios .informacion .info #estado {
     color: #0BAB02;
-}
+} */
 
 .btn {
     width: 100%;
@@ -140,9 +140,9 @@
         margin-left: 1%;
     }
     
-    .beneficios .informacion .info #estado {
+    /* .beneficios .informacion .info #estado {
         color: #0BAB02;
-    }
+    } */
 }
 
 @media (max-width: 580px) {
@@ -198,11 +198,88 @@
         margin-left: 1%;
     }
     
-    .beneficios .informacion .info #estado {
+    /* .beneficios .informacion .info #estado {
         color: #0BAB02;
-    }
+    } */
 
     .btn button {
         width: 60%;
     }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-contenido {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.modal-contenido h3 {
+    font-family: rubiksemi;
+    font-size: 23px;
+}
+
+.modal-contenido p {
+    font-size: 15px;
+    font-family: Rubik;
+    padding: 5px;
+}
+
+.modal-contenido button {
+    font-size: 1.1vw;
+    font-family: rubik;
+    border-radius: .5vw;
+    padding: 5px;
+    margin-top: 8px;
+    cursor: pointer;
+    width: 22%;
+    border: 1px;
+}
+
+.modal-contenido #confirmar-cancelacion {
+    background-color: #FF4640;
+    color: white;
+}
+
+.modal-contenido #confirmar-cancelacion:hover {
+    scale: 1.02;
+    background-color: #e63d37;
+}
+
+.modal-contenido #cerrar-modal {
+    background-color: gainsboro;
+}
+
+.modal-contenido #cerrar-modal:hover {
+    background-color: rgba(220, 220, 220, 0.685);
+    scale: 1.02;
+}
+
+.estado-activo {
+    color: #0BAB02;
+    font-weight: bold;
+}
+
+.estado-inactivo {
+    color: red;
+    font-weight: bold;
+}
+
+#mensaje_renovacion {
+    color: red;
+    text-align: center;
+    margin: 18px;
+    font-family: Rubik;
+    font-size: 1rem;
 }

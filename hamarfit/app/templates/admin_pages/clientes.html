@@ -131,6 +131,33 @@
                     <img src="{% static 'img/admin_img/global/lupa.svg' %}" alt="">
                     <p>Buscar</p>
                 </button>
+                <button type="button" class="boton-filtro">
+                    <img src="{% static 'img/admin_img/global/Filter_alt.svg' %}" alt="">
+                    <p>Filtrar</p>
+                </button>
+                <div id="panel-filtros" class="panel-filtros oculto">
+                    <select name="estado" class="main-filtros-select">
+                        <option value="">Todos los estados</option>
+                        {% for estado in estados %}
+                        <option value="{{ estado.id_estado }}"
+                            {% if request.GET.estado == estado.id_estado|stringformat:"s" %}selected{% endif %}>
+                            {{ estado.estado }}
+                        </option>
+                        {% endfor %}
+                    </select>
+
+                    <select name="plan" class="main-filtros-select">
+                        <option value="">Todos los planes</option>
+                        {% for plan in planes %}
+                        <option value="{{ plan.id_plan }}"
+                            {% if request.GET.plan == plan.id_plan|stringformat:"s" %}selected{% endif %}>
+                            {{ plan.nombre_plan }}
+                        </option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit" class="aplicar-filtros">Aplicar Filtros</button>
+                </div>
             </form>
         {% if empleado.id_rol.rol in 'Admin,Recepcionista' %}
             <button class="boton-agregar" onclick="agregar_popup(`{% url 'admin/clientes/registrar_cliente/' %}`)">
