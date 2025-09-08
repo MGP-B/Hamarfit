@@ -47,18 +47,20 @@
         <input type="hidden" name="form_type" value="entrenador">
         <input type="text" name="id_cliente" value="{{cliente.id_cliente}}" style="display: none;">
 
-        <label for="entrenador">Entrenador</label>
-        <select name="id_empleado" id="entrenador">
-            <option selected disabled>Seleccionar entrenador</option>
-            {% for entrenador in entrenadores %}
-            {% if entrenador %}
-            <option value="{{entrenador.id_empleado}}">{{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}</option>
-            {% else %}
-            <option disabled>La sucursal elegida no cuenta con entrenadores</option>
-            {% endif %}
-            {% endfor %}
-        </select>
-        <button type="submit">Guardar</button>
+        <div class="sin-entrenador">
+            <label for="entrenador">Entrenador</label>
+            <select name="id_empleado" id="entrenador">
+                <option selected disabled>Seleccionar entrenador</option>
+                {% for entrenador in entrenadores %}
+                {% if entrenador %}
+                <option value="{{entrenador.id_empleado}}">{{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}</option>
+                {% else %}
+                <option disabled>La sucursal elegida no cuenta con entrenadores</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <button type="submit">Guardar</button>
+        </div>
     </form>
     {% else %}
     <form id="form-entrenador" method="POST" action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}">
@@ -66,21 +68,27 @@
         <input type="hidden" name="form_type" value="entrenador">
         <input type="hidden" name="id_cliente" value="{{cliente.id_cliente}}">
 
-        <label for="entrenador" style="display: none;" id="label_entrenador">Entrenador</label>
-        <select name="id_empleado" id="entrenador" style="display: none;">
-            {% for entrenador in entrenadores %}
-            <option value="{{entrenador.id_empleado}}"
-                {% if entrenador.id_empleado == entrenador_cliente.id_empleado %}selected{% endif %}>
-                {{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}
-            </option>
-            {% endfor %}
-        </select>
-        <p id="entrenador_asignado">Entrenador asignado: {{entrenador_cliente.id_empleado.nombre_empleado}}
+        <div class="entrenador-select">
+            <label for="entrenador" style="display: none;" id="label_entrenador">Entrenador:</label>
+
+            <select name="id_empleado" id="entrenador" style="display: none;">
+                {% for entrenador in entrenadores %}
+                <option value="{{entrenador.id_empleado}}"
+                    {% if entrenador.id_empleado == entrenador_cliente.id_empleado %}selected{% endif %}>
+                    {{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="entrenador-asignado-btn">
+            <p id="entrenador_asignado"><span> Entrenador asignado: </span> {{entrenador_cliente.id_empleado.nombre_empleado}}
             {{entrenador_cliente.id_empleado.apellido_empleado}}</p>
 
-        <div class="botones-entrenador">
-            <button type="button" id="activar-cambio-entrenador">Cambiar</button>
-            <button type="submit" id="guardar-cambio-entrenador" style="display: none;">Guardar</button>
+            <div class="botones-entrenador">
+                <button type="button" id="activar-cambio-entrenador">Cambiar</button>
+                <button type="submit" id="guardar-cambio-entrenador" style="display: none;">Guardar</button>
+            </div>
         </div>
     </form>
     {% endif %}

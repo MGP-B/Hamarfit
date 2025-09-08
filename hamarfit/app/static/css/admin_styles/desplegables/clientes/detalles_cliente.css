@@ -21,19 +21,86 @@
     margin-bottom: 5px;
 }
 
-#entrenador_asignado p{
+.entrenador-select {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+}
+
+.entrenador-select label {
+    margin-right: 10px;
+    font-weight: 600;
     font-size: 1rem;
+}
+
+.entrenador-select select{
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+    font-family: rubik;
+    font-size: .7rem;
 }
 
 .botones-entrenador button {
     width: 100px;
     height: 30px;
     border-radius: 5px;
-    background-color: #ff9900;
+    background-color: #ffffff;
+    border: 1px solid rgb(86, 86, 86);
+    margin-top: 5px;
+    color: rgb(0, 0, 0);
+    font-size: .8rem;
+}
+
+.entrenador-asignado-btn p span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.entrenador-asignado-btn p {
+    font-size: .9rem;
+}
+
+.botones-entrenador #guardar-cambio-entrenador {
+    background-color: rgb(2, 131, 2);
+    color: white;
+    border: transparent;
+}
+
+.sin-entrenador {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+}
+
+.sin-entrenador label {
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.sin-entrenador select{
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+    font-family: rubik;
+    font-size: .7rem;
+}
+
+.sin-entrenador button {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(2, 131, 2);
     border: 1px solid transparent;
     margin-top: 5px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: .8rem;
+    margin-left: 10px;
+    color: white;
+
 }
 
 .cuerpo_popup h2 {
