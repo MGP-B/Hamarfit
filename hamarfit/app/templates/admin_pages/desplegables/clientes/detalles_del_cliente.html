@@ -59,23 +59,25 @@
         <button type="submit">Guardar</button>
     </form>
     {% else %}
-    <form action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}" method="POST">
+    <form id="form-entrenador" method="POST" action="{% url 'admin/clientes/detalles_cliente/' id=cliente.id_cliente %}">
         {% csrf_token %}
         <input type="hidden" name="form_type" value="entrenador">
-        <input type="text" name="id_cliente" value="{{cliente.id_cliente}}" style="display: none;">
-    
+        <input type="hidden" name="id_cliente" value="{{cliente.id_cliente}}">
+
         <label for="entrenador">Entrenador</label>
         <select name="id_empleado" id="entrenador" disabled>
             {% for entrenador in entrenadores %}
-            {% if entrenador %}
-            <option value="{{entrenador.id_empleado}}" selected>{{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}
+            <option value="{{entrenador.id_empleado}}"
+                {% if entrenador_cliente and entrenador.id_empleado == entrenador_cliente.id_empleado %}selected{% endif %}>
+                {{entrenador.nombre_empleado}} {{entrenador.apellido_empleado}}
             </option>
-            {% else %}
-            <option disabled>La sucursal elegida no cuenta con entrenadores</option>
-            {% endif %}
             {% endfor %}
         </select>
-        <button type="submit">Cambiar</button>
+
+        <div class="botones-entrenador">
+            <button type="button" id="activar-cambio-entrenador">Cambiar</button>
+            <button type="submit" id="guardar-cambio-entrenador" style="display: none;">Guardar</button>
+        </div>
     </form>
     {% endif %}
 

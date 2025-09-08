@@ -162,55 +162,60 @@ def dashboard(req):
 @empleado_required
 @role_required(['Admin', 'Gerente', 'Recepcionista'])
 def inscripciones_renovaciones(req):
-    # Barra de búsqueda
     query = req.GET.get('q', '').strip()
+    plan_id = req.GET.get('plan')
+    descripcion = req.GET.get('descripcion')
+    page_number = req.GET.get('page')
 
-    # Solo si hay texto de búsqueda
-    if query:
-        # Normaliza el input
-        palabras = query.lower().split()
-
-        # Anota el nombre completo para búsquedas combinadas
-        inscripciones = InscripcionesRenovaciones.objects.annotate(
-            nombre_completo= Concat(
-                'id_cliente__nombre_cliente',
-                Value(' '),
-                'id_cliente__apellido_cliente'
-            )
+    # Base queryset con anotación para nombre completo
+    inscripciones_renovaciones_qs = InscripcionesRenovaciones.objects.annotate(
+        nombre_completo=Concat(
+            'id_cliente__nombre_cliente',
+            Value(' '),
+            'id_cliente__apellido_cliente'
         )
+    )
 
-        # Construye condiciones dinámicas
+    # Filtro por búsqueda textual
+    if query:
+        palabras = query.lower().split()
         condiciones = Q()
         for palabra in palabras:
             condiciones |= Q(id_cliente__nombre_cliente__icontains=palabra)
             condiciones |= Q(id_cliente__apellido_cliente__icontains=palabra)
             condiciones |= Q(nombre_completo__icontains=palabra)
+        inscripciones_renovaciones_qs = inscripciones_renovaciones_qs.filter(condiciones)
 
-        resultados = inscripciones.filter(condiciones)
-    else:
-        resultados = InscripcionesRenovaciones.objects.none()
+    # Filtro por descripción
+    if descripcion:
+        inscripciones_renovaciones_qs = inscripciones_renovaciones_qs.filter(descripcion__icontains=descripcion)
 
-    # Cuenta iniciada
-    empleado_id = req.session.get('empleado_id')
-    empleado = Empleados.objects.get(id_empleado=empleado_id)
-    
-    # Mostrar los registros
-    if query:
-        inscripciones_renovaciones_qs = resultados
-    else:
-        inscripciones_renovaciones_qs = InscripcionesRenovaciones.objects.all()
+    # Filtro por plan
+    if plan_id:
+        inscripciones_renovaciones_qs = inscripciones_renovaciones_qs.filter(id_plan_id=plan_id)
 
-    paginator = Paginator(inscripciones_renovaciones_qs, 10)  # 10 clientes por página
-    page_number = req.GET.get('page')
+    # Paginación
+    paginator = Paginator(inscripciones_renovaciones_qs, 10)
     page_obj = paginator.get_page(page_number)
 
+    # Empleado desde sesión
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
+
+    # Lista de descripciones únicas para el select
+    descripciones = InscripcionesRenovaciones.objects.values_list('descripcion', flat=True).distinct()
+
     return render(req, 'admin_pages/inscripciones_renovaciones.html', {
-    'inscripciones_renovaciones': page_obj, 
-    'empleado': empleado, 
-    'resultados': resultados, 
-    'query': query,
-    'page_obj': page_obj,
+        'inscripciones_renovaciones': page_obj,
+        'empleado': empleado,
+        'query': query,
+        'plan_id': plan_id,
+        'descripcion': descripcion,
+        'page_obj': page_obj,
+        'descripciones': descripciones,
+        'planes': Planes.objects.all(),
     })
+
 
 
 def login(req):
@@ -283,12 +288,18 @@ def detalles_cliente(req, id):
                 print('Errores del formulario:', form.errors)
 
         elif form_type == 'entrenador':
-            form_ec = EntrenadorClienteForm(req.POST)
-            if form_ec.is_valid():
-                form_ec.save()
+            id_empleado = req.POST.get('id_empleado')
+            if id_empleado:
+                entrenador_cliente = EntrenadorCliente.objects.filter(id_cliente=cliente).first()
+                if entrenador_cliente:
+                    entrenador_cliente.id_empleado_id = id_empleado
+                    entrenador_cliente.save()
+                else:
+                    EntrenadorCliente.objects.create(
+                        id_cliente=cliente,
+                        id_empleado_id=id_empleado
+                    )
                 return redirect('../', id=id)
-            else:
-                print('[DEBUG] Errores del formulario entrenador:', form_ec.errors)
 
 
     # Lógica para manejar solicitudes GET

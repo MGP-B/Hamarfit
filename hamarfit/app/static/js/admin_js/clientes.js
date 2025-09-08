@@ -10,6 +10,18 @@ const observador = new MutationObserver(() =>{
     const boton_guardar = document.getElementById('boton-guardar');
     const boton_cancelar = document.getElementById('boton-cancelar');
     const botones = document.getElementById('botones')
+    const selectEntrenador = document.getElementById('entrenador');
+    const btnCambiar = document.getElementById('activar-cambio-entrenador');
+    const btnGuardar = document.getElementById('guardar-cambio-entrenador');
+
+    if (btnCambiar && selectEntrenador) {
+        btnCambiar.addEventListener('click', () => {
+            selectEntrenador.removeAttribute('disabled');
+            btnCambiar.style.display = 'none';
+            btnGuardar.style.display = 'inline-block';
+        });
+    }
+
     // Verificar que el popup se agregó
     if(cuerpo_popup){
         console.log('Pop up agregado')
