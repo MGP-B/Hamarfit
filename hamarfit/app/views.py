@@ -55,8 +55,27 @@ def clientes(req):
     plan_id = req.GET.get('plan')
     page_number = req.GET.get('page')
 
-    # Base queryset con anotación
-    clientes_qs = Clientes.objects.annotate(
+    # Validar sesión
+    empleado_id = req.session.get('empleado_id')
+    if not empleado_id:
+        return redirect('login')  # o la vista que uses para acceso restringido
+
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
+
+    # Inicializar queryset
+    if empleado.id_rol.id_rol == 3:
+        # Entrenador: obtener clientes asignados
+        relaciones = EntrenadorCliente.objects.filter(id_empleado=empleado_id)
+
+        # Aplicar filtros sobre clientes relacionados
+        clientes_filtrados = Clientes.objects.filter(id_cliente__in=relaciones.values('id_cliente'))
+
+    else:
+        # Admin o recepcionista: todos los clientes
+        clientes_filtrados = Clientes.objects.all()
+
+    # Anotar nombre completo para búsqueda
+    clientes_filtrados = clientes_filtrados.annotate(
         nombre_completo=Concat('nombre_cliente', Value(' '), 'apellido_cliente')
     )
 
@@ -68,23 +87,19 @@ def clientes(req):
             condiciones |= Q(nombre_cliente__icontains=palabra)
             condiciones |= Q(apellido_cliente__icontains=palabra)
             condiciones |= Q(nombre_completo__icontains=palabra)
-        clientes_qs = clientes_qs.filter(condiciones)
+        clientes_filtrados = clientes_filtrados.filter(condiciones)
 
-    
     # Filtros por estado y plan
     if estado_id:
-        clientes_qs = clientes_qs.filter(id_estado=estado_id)
+        clientes_filtrados = clientes_filtrados.filter(id_estado=estado_id)
     if plan_id:
-        clientes_qs = clientes_qs.filter(id_plan=plan_id)
+        clientes_filtrados = clientes_filtrados.filter(id_plan=plan_id)
 
     # Paginación
-    paginator = Paginator(clientes_qs, 10)
+    paginator = Paginator(clientes_filtrados, 10)
     page_obj = paginator.get_page(page_number)
 
-    # Empleado desde sesión
-    empleado_id = req.session.get('empleado_id')
-    empleado = Empleados.objects.get(id_empleado=empleado_id)
-    entrenador_cliente = EntrenadorCliente.objects.filter(id_empleado = empleado_id)
+    # Renderizar plantilla
     return render(req, 'admin_pages/clientes.html', {
         'clientes': page_obj,
         'empleado': empleado,
@@ -94,7 +109,6 @@ def clientes(req):
         'page_obj': page_obj,
         'estados': Estados.objects.all(),
         'planes': Planes.objects.all(),
-        'entrenador_cliente': entrenador_cliente,
     })
 
 
