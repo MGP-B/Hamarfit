@@ -84,6 +84,12 @@
     color: white;
     font-family: rubik;
     font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn button:hover {
+    background-color: rgb(243, 52, 52);
+    scale: 1.03;
 }
 
 @media (max-width: 800px) {

@@ -83,7 +83,7 @@ main button:hover {
     border: 1px solid #a6a6a6;
     border-radius: 5px;
     padding: 15px;
-    width: 270px;
+    width: 280px;
     height: 250px;
     margin: 10px;
     position: relative;
@@ -106,25 +106,8 @@ main button:hover {
 
 /* Aplicando estilo al h4 del encabezado de la tarjeta de sucursal */
 .contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta h4 {
-    font-size: 1.1vw;
+    font-size: .85rem;
     font-family: RubikSemi;
-    margin-top: 3px;
-}
-
-/* Aplicando estilo al p del encabezado de la tarjeta de sucursal */
-.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta p {
-    background-color: #F97316;
-    color: #fff;
-    border-radius: 10px;
-    font-size: 0.9vw;
-    font-family: RubikSemi;
-    padding: 4px 15px;
-    margin-right: 15px;
-}
-
-/* Aplicando estilo al icono 'a' del encabezado sucursal */
-.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta a {
-    width: 4%;
     margin-top: 3px;
 }
 
@@ -132,18 +115,16 @@ main button:hover {
     width: 90%;
 }
 
-/* Hover del icono */
-.contenedor-sucursal .tarjeta-sucursal .encabezado-tarjeta a:hover {
-    transform: scale(0.95);
-}
-
 /* Aplicando estilo a la ubicación de la sucursal con su icono */
 .contenedor-sucursal .tarjeta-sucursal .ubicacion-sucursal {
     display: inline-flex;
-    font-size: 0.95vw;
     color: #525250;
     margin-top: 10px;
     width: 100%;
+}
+
+.ubicacion-sucursal P {
+    font-size: .7rem;
 }
 
 .contenedor-sucursal .tarjeta-sucursal .ubicacion-sucursal img {
@@ -162,17 +143,25 @@ main button:hover {
 /* Aplicando estilo al teléfono de la sucursal */
 .contenedor-sucursal .tarjeta-sucursal .telefono-sucursal {
     display: inline-flex;
-    font-size: 0.83vw;
+    align-items: center;
     color: #525250;
-    width: 45%;
+    width: 46%;
+}
+
+.telefono-sucursal P {
+    font-size: .6rem;
 }
 
 /* Aplicando estilo al horario de la sucursal */
 .contenedor-sucursal .tarjeta-sucursal .horario-sucursal {
     display: inline-flex;
-    font-size: 0.83vw;
+    align-items: center;
     color: #525250;
-    width: 60%;
+    width: 54%;
+}
+
+.contenedor-sucursal .tarjeta-sucursal .horario-sucursal P {
+    font-size: .55rem;
 }
 
 /* Aplicando estilo a los 'p' de teléfono y horario de la sucursal */
@@ -184,36 +173,12 @@ main button:hover {
 /* Aplicando estilo a los iconos de teléfono y horario de la sucursal */
 .contenedor-sucursal .tarjeta-sucursal .flex .telefono-sucursal img,
 .horario-sucursal img {
-    width: 12%;
+    width: 15px;
     margin-right: 2px;
 }
 
-<<<<<<< HEAD
 
 /* Desplegable del icono de acciones */
 .desplegable{
     margin-left: 14rem;
-}
-
-
-/* Media required para pantallas de 1280px */
-@media screen and (max-width: 1280px) {
-    
-=======
-a.disabled {
-    pointer-events: none;     /* Bloquea el clic */
-    cursor: not-allowed;      /* Cursor indica prohibido */
-    display: inline-block;    /* Mantiene estructura */
-    text-decoration: none;    /* Igual que los demás */
-    width: 95%;
-    height: 30px;
-    margin: 10px 0;
-    padding: 5px 3px;
-    opacity: 0.5;
-}
-a.disabled li {
-    display: flex;            /* Mantén la alineación del ícono y el texto */
-    align-items: center;
-    gap: 8px;                 /* Ajusta separación como los demás */
->>>>>>> da542fb19cac90478a68d99ca0b8ca34cade143a
 }
