@@ -245,6 +245,9 @@ def sucursales_admin(req):
     return render(req, 'admin_pages/sucursales.html', {'sucursales': sucursales, 'empleado': empleado})
 
 def detalles_cliente(req, id):
+    empleado_id = req.session.get('empleado_id')
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
+
     # Obtener el cliente
     cliente = get_object_or_404(Clientes, id_cliente=id)
     sucursal_cliente = cliente.id_sucursal
@@ -302,6 +305,7 @@ def detalles_cliente(req, id):
         'form': form,
         'entrenadores': entrenadores,
         'entrenador_cliente': entrenador_cliente,
+        'empleado': empleado,
     })
 
 @require_POST
