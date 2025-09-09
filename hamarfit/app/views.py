@@ -323,12 +323,23 @@ def eliminar_cliente(req, id):
 
     return JsonResponse({'success': True, 'message': 'Cliente eliminado correctamente.'})
 
+from .locals import set_empleado_id
 @role_required(['Admin', 'Recepcionista'])
 def registrar_cliente(req):
+    # Obtener el empleado desde la sesión
+    empleado_id = req.session.get('empleado_id')
+    if not empleado_id:
+        return redirect('login')  # o la vista que uses para acceso restringido
+
+    empleado = Empleados.objects.get(id_empleado=empleado_id)
+
+    # Guardar el empleado en contexto local para que el signal lo pueda leer
+    set_empleado_id(empleado_id)
+
     if req.method == 'POST':
         form = anadirCliente(req.POST)
         if form.is_valid():
-            form.save()
+            form.save()  # El signal se ejecutará justo después
             return redirect('../')
         else:
             print("[DEBUG] Errores del formulario:", form.errors)
@@ -338,9 +349,10 @@ def registrar_cliente(req):
     sucursales = Sucursales.objects.all()
 
     return render(req, 'admin_pages/desplegables/clientes/registrar_nuevo_cliente.html', {
-        'form': form, 
+        'form': form,
         'sucursales': sucursales,
-        })
+        'empleado': empleado,
+    })
 
 
 def seleccionar_plan(req):
