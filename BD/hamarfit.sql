@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-09-2025 a las 22:51:19
+-- Tiempo de generación: 09-09-2025 a las 23:22:00
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.13
 
@@ -64,8 +64,12 @@ INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `tip
 (8, 'Winnar', 'Peralta', 'DNI', '40219260863', 'winnarperalta5@gmail.com', '8093604545', 'El dorado 1', '2025-09-01', '12345', 2, 1, 1),
 (24, 'Luis', 'Martínez', 'DNI', '123456789', 'luis@example.com', '8091234567', 'Calle 1', '2025-08-12', 'segura123', 1, 1, 1),
 (29, 'Juan', 'Felipe', 'DNI', '402-9162860-3', 'jfelipe@gmail.com', '829-000-0000', 'Guachupita', '2025-09-01', '123', 1, 4, 1),
-(30, 'Jose', 'Alonzo', 'DNI', '031-5789459-0', 'jalo@gmail.com', '8093031701', 'Mi Casa, Santiago', '2025-09-03', '2025', 2, 5, 1),
-(32, 'Moisés', 'Parra', 'DNI', '402-9162608-3', 'black@gmail.com', '809-362-2256', 'Puerto Príncipe, Haití', '2025-09-03', '123', 1, 5, 1);
+(30, 'Jose', 'Alonzo', 'DNI', '031-5789459-0', 'jalo@gmail.com', '8093031701', 'Mi Casa, Santiago', '2025-09-03', '2025', 2, 5, 2),
+(32, 'Moisés', 'Parra', 'DNI', '402-9162608-3', 'black@gmail.com', '809-362-2256', 'Puerto Príncipe, Haití', '2025-09-03', '123', 1, 5, 1),
+(33, 'Pedro', 'Alcantara', 'Cédula', '402-14168083-', 'palcan@gmail.com', '829-335-5775', 'Enrrique Segoviano', '2025-09-09', '12345678', 2, 4, 1),
+(34, 'Jose', 'Alcantara', 'Cédula', '031-57894590-', 'jalcan@gmail.com', '829-335-5775', 'Tamboril', '2025-09-09', '111', 2, 1, 1),
+(35, 'Pedro', 'Alonzo', 'Cédula', '402-14168083-', 'palcasdan@gmail.com', '809-303-1701', 'Tamboril', '2025-09-09', '123', 1, 5, 1),
+(36, 'Maria', 'Parra', 'Cédula', '402-14168083-', 'mapa@gmail.com', '829-335-5557', 'Los reyes', '2025-09-09', '123', 1, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -104,7 +108,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('1b61e4rmhitv0c4owf910evpc0q3hze2', 'eyJlbXBsZWFkb19pZCI6MSwicm9sIjoiQWRtaW4ifQ:1uuF1t:BqK1chjTuetLBaMFaiEXnVsJXftp75nGkskPdbLoOdI', '2025-09-18 18:49:53.951006'),
+('7y3e6xte70ntxir8yd91ermqf6m7ilql', 'eyJlbXBsZWFkb19pZCI6MTAsInJvbCI6IlJlY2VwY2lvbmlzdGEifQ:1uw56v:I26M2pCur8iHFbNUW9h_wLCpov7x91OVPNjF3NIyd-Y', '2025-09-23 20:38:41.725319'),
 ('q9lh2s819al8cd7296wq1jyn7ump4sgk', 'eyJlbXBsZWFkb19pZCI6MSwicm9sIjoiQWRtaW4ifQ:1uuaYv:nEqQmZybJzbd-7jr9V9pFAYpd6hJnMnIFYu4AkJ5cBo', '2025-09-19 17:49:25.774894'),
 ('uqtl5jla48tsv58ik3svmucozpyftssx', 'eyJjbGllbnRlX2lkIjoyOX0:1utBdD:DWZ2GkZvmR3QpyYYXvsfLS2D4TWrFIEVm3crneq-Xsg', '2025-09-15 21:00:03.731277');
 
@@ -138,7 +142,8 @@ INSERT INTO `empleados` (`id_empleado`, `nombre_empleado`, `apellido_empleado`, 
 (3, 'Weslling', 'Garcia', 'Cédula', '402-2936816-3', 'weslling@gmail.com', '829-489-0880', 'Lejos', '2025-01-01 00:00:00', '123454321', 2, 1),
 (9, 'Masembe', 'Mohammed', 'Pasaporte', '09182308-5', 'masembe@gmail.com', '000-000-0019', 'Africa', '2025-02-21 00:00:00', '00000000', 3, 1),
 (10, 'Juan', 'Soto', 'Cédula', '40285268984', 'juansoto123@gmail.com', '8294568787', 'Santiago', '2025-09-01 00:00:00', '123', 4, 1),
-(13, 'Domingo', 'Martínes', 'Cédula', '402-1829912-3', 'domtines@gmail.com', '829-442-1869', 'Jacagua', '2025-09-03 00:00:00', '123123', 3, 5);
+(13, 'Domingo', 'Martínes', 'Cédula', '402-1829912-3', 'domtines@gmail.com', '829-442-1869', 'Jacagua', '2025-09-03 00:00:00', '123123', 3, 5),
+(14, 'Habib', 'Akbar', 'Pasaporte', '123123123', 'Ha01@gmail.com', '829-442-1868', 'Si', '2025-09-08 00:00:00', '123', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -158,9 +163,9 @@ CREATE TABLE `entrenador_cliente` (
 
 INSERT INTO `entrenador_cliente` (`id`, `id_cliente`, `id_empleado`) VALUES
 (1, 24, 9),
-(2, 8, 9),
-(3, 30, 13),
-(4, 32, 13);
+(2, 8, 14),
+(3, 30, 14),
+(4, 32, 9);
 
 -- --------------------------------------------------------
 
@@ -207,7 +212,12 @@ INSERT INTO `inscripciones_renovaciones` (`id_finanza`, `emision`, `descripcion`
 (5, '2025-09-01', 'Inscripción', 1, 1, 1, 29),
 (6, '2025-09-01', 'Renovación', 1, 1, 1, 29),
 (7, '2025-09-03', 'Inscripción', 1, 1, 2, 30),
-(9, '2025-09-03', 'Inscripción', 1, 1, 1, 32);
+(9, '2025-09-03', 'Inscripción', 1, 1, 1, 32),
+(10, '2025-09-09', 'Renovación', 1, 2, 2, 8),
+(11, '2025-09-09', 'Renovación', 10, 1, 1, 32),
+(12, '2025-09-09', 'Inscripción', 10, 1, 2, 33),
+(13, '2025-09-09', 'Inscripción', 1, 1, 2, 34),
+(14, '2025-09-09', 'Inscripción', 10, 1, 1, 36);
 
 -- --------------------------------------------------------
 
@@ -463,7 +473,7 @@ ALTER TABLE `beneficios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `django_migrations`
@@ -475,7 +485,7 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `entrenador_cliente`
@@ -493,7 +503,7 @@ ALTER TABLE `estados`
 -- AUTO_INCREMENT de la tabla `inscripciones_renovaciones`
 --
 ALTER TABLE `inscripciones_renovaciones`
-  MODIFY `id_finanza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_finanza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `metodos_pagos`
