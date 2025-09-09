@@ -538,11 +538,11 @@ def eliminar_empleado(request, id_empleado):
         try:
             empleado = Empleados.objects.get(pk=id_empleado)
 
-            # Verifica si es entrenador
+            # Si el rol es Entrenador, elimina también sus relaciones con clientes
             if empleado.id_rol.rol == 'Entrenador':
-                # Elimina sus relaciones en entrenador_cliente
-                EntrenadorCliente.objects.filter(id_entrenador=empleado).delete()
-                
+                from .models import EntrenadorCliente
+                EntrenadorCliente.objects.filter(id_empleado=empleado).delete()
+
             empleado.delete()
             return JsonResponse({'success': True})
         except Empleados.DoesNotExist:

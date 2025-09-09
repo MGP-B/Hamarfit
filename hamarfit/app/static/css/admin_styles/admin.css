@@ -293,7 +293,7 @@ button{
 a.disabled {
     pointer-events: none;     /* Bloquea el clic */
     cursor: not-allowed;      /* Cursor indica prohibido */
-    display: inline-block;    /* Mantiene estructura */
+    /* display: inline-block;    Mantiene estructura */
     text-decoration: none;    /* Igual que los demás */
     width: 95%;
     height: 30px;
@@ -304,7 +304,7 @@ a.disabled {
 a.disabled li {
     display: flex;            /* Mantén la alineación del ícono y el texto */
     align-items: center;
-    gap: 30px;                 /* Ajusta separación como los demás */
+    gap: 26px;                 /* Ajusta separación como los demás */
 }
 
 .contenedor_advertencia{display: none;}
