@@ -165,7 +165,7 @@
                                             <p>Ver detalles</p>
                                         </div>
                                         <div class="div_eliminar" title="Eliminar o Reasignar"
-                                            onclick="agregar_popup(`{% url 'reasignar_inscripciones' empleado.id_empleado %}`)">
+                                            onclick="verificarEmpleadoAntesDeEliminar('{{ empleado.id_empleado }}')">
                                             <img src="{% static 'img/admin_img/global/eliminar.svg' %}">
                                             <p>Eliminar</p>
                                         </div>
